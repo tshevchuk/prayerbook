@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer_book.data;
+package com.tshevchuk.prayer.data;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer_book;
+package com.tshevchuk.prayer;
 
 import java.util.List;
 
@@ -10,8 +10,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tshevchuk.prayer_book.data.Prayer;
-import com.tshevchuk.prayer_book.data.PrayerPart;
+import com.tshevchuk.prayer.data.Prayer;
+import com.tshevchuk.prayer.data.PrayerPart;
+import com.tshevchuk.prayer.R;
 
 public class PrayerActivity extends Activity {
 	private Prayer prayer;

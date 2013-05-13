@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer_book;
+package com.tshevchuk.prayer;
 
 import java.io.IOException;
 import java.io.InputStream;
