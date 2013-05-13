@@ -46,4 +46,9 @@ public class PrayerActivity extends Activity {
 			}
 		}
 	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// empty
+	}
 }
