@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -147,5 +148,12 @@ public class HomeActivity extends Activity {
 			setTitle(menuItems[position]);
 			drawerLayout.closeDrawer(drawerList);
 		}
+
+		PrayerBookApplication
+				.getInstance()
+				.getTracker()
+				.send(new HitBuilders.EventBuilder()
+						.setCategory("Fragment Opened")
+						.setAction(menuItems[position]).build());
 	}
 }
