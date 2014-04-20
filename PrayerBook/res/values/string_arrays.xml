@@ -2,6 +2,13 @@
 <resources>
     <string-array name="home_menu">
         <item>Щоденні молитви</item>
+        <item>Ранішні молитви</item>
+        <item>Вечірні молитви</item>
+        <item>Молитви на кожен день</item>
+        <item>Молитви при трапезі</item>
+        <item>Молитви на різні потреби</item>
         <item>Псалом 90</item>
-    </string-array>
+        <item>Катехизмові правди</item>
+        <item>Чесноти</item>
+        </string-array>
 </resources>

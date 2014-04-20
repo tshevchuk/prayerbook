@@ -92,11 +92,40 @@ public class HomeActivity extends Activity {
 		FragmentBase f = null;
 		switch (position) {
 		case 0:
-			f = HtmlViewFragment.getInstance("Щоденні молитви",
+			f = HtmlViewFragment.getInstance(menuItems[position],
 					"schodenni_molytvy.html");
 			break;
 		case 1:
-			f = HtmlViewFragment.getInstance("Псалом 90", "psalom_90.html");
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"ranishni_molytvy.html");
+			break;
+		case 2:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"vechirni_molytvy.html");
+			break;
+		case 3:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"molytvy_na_kozhen_den.html");
+			break;
+		case 4:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"molytvy_pry_trapezi.html");
+			break;
+		case 5:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"molytvy_na_rizni_potreby.html");
+			break;
+		case 6:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"psalom_90.html");
+			break;
+		case 7:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"katekhyzmovi_pravdy.html");
+			break;
+		case 8:
+			f = HtmlViewFragment.getInstance(menuItems[position],
+					"chesnoty.html");
 			break;
 		}
 
