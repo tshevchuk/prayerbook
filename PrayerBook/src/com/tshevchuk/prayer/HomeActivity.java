@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.graphics.Color;
@@ -70,6 +72,14 @@ public class HomeActivity extends Activity {
 	}
 
 	@Override
+	protected void onDestroy() {
+		GoogleAnalytics.getInstance(PrayerBookApplication.getInstance())
+				.dispatchLocalHits();
+		super.onDestroy();
+
+	};
+
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (drawerToggle.onOptionsItemSelected(item))
 			return true;
@@ -83,7 +93,7 @@ public class HomeActivity extends Activity {
 		case 0:
 			f = new PrayerFragment();
 			break;
-		case 1: 
+		case 1:
 			f = new Psalom90Fragment();
 			break;
 		}

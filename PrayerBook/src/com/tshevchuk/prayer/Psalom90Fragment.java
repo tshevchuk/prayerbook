@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-public class Psalom90Fragment extends Fragment {
+public class Psalom90Fragment extends FragmentBase {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) 

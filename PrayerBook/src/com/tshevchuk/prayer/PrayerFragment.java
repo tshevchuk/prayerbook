@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.data.Prayer;
 import com.tshevchuk.prayer.data.PrayerPart;
 
-public class PrayerFragment extends Fragment {
+public class PrayerFragment extends FragmentBase {
 	private Prayer prayer;
 	private LinearLayout llPrayer;
 
