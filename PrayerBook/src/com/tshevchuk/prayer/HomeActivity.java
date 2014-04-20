@@ -4,6 +4,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -88,19 +89,30 @@ public class HomeActivity extends Activity {
 	}
 
 	private void displayFragment(int position) {
-		Fragment f = null;
+		FragmentBase f = null;
 		switch (position) {
 		case 0:
-			f = new PrayerFragment();
+			f = HtmlViewFragment.getInstance("Щоденні молитви",
+					"schodenni_molytvy.html");
 			break;
 		case 1:
-			f = new Psalom90Fragment();
+			f = HtmlViewFragment.getInstance("Псалом 90", "psalom_90.html");
 			break;
 		}
 
+		FragmentBase curFragment = (FragmentBase) getFragmentManager()
+				.findFragmentById(R.id.content_frame);
+		if (curFragment != null && curFragment.isSameScreen(f)) {
+			return;
+		}
+
 		if (f != null) {
-			getFragmentManager().beginTransaction()
-					.replace(R.id.content_frame, f).commit();
+			FragmentTransaction transaction = getFragmentManager()
+					.beginTransaction();
+			transaction.replace(R.id.content_frame, f);
+			if (curFragment != null)
+				transaction.addToBackStack(null);
+			transaction.commit();
 			drawerList.setItemChecked(position, true);
 			drawerList.setSelection(position);
 			setTitle(menuItems[position]);

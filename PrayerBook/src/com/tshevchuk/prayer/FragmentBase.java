@@ -14,4 +14,9 @@ public class FragmentBase extends Fragment {
 		t.setScreenName(getClass().getSimpleName());
 		t.send(new HitBuilders.AppViewBuilder().build());
 	}
+
+	public boolean isSameScreen(FragmentBase f) {
+		return getClass().equals(f.getClass());
+	}
+
 }
