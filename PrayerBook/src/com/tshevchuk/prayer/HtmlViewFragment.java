@@ -27,9 +27,8 @@ public class HtmlViewFragment extends FragmentBase {
 		super.onCreate(savedInstanceState);
 		title = getArguments().getString("title");
 		assetFileName = getArguments().getString("assetFileName");
-		getActivity().getActionBar().setTitle(title);
 	};
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -49,6 +48,7 @@ public class HtmlViewFragment extends FragmentBase {
 	public void onResume() {
 		super.onResume();
 		wvContent.onResume();
+		getActivity().getActionBar().setTitle(title);
 	}
 
 	@Override
