@@ -35,7 +35,7 @@ public class HomeActivity extends Activity {
 
 		drawerList.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, menuItems));
-		drawerList.setBackgroundColor(Color.GRAY);
+		drawerList.setBackgroundColor(Color.LTGRAY);
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
