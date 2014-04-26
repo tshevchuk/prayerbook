@@ -1,0 +1,15 @@
+p.title{
+  text-align:center;
+  font-weight: bolder;
+}
+p.subtitle{
+  text-align:center;
+  font-weight: bolder;
+  font-style: italic;
+}
+p
+{
+}
+p.italic{
+  font-style: italic;
+}

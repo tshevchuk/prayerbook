@@ -10,5 +10,16 @@
         <item>Псалом 90</item>
         <item>Катехизмові правди</item>
         <item>Чесноти</item>
-        </string-array>
+    </string-array>
+    <string-array name="home_menu_html_pages">
+		<item>molytvy_schodenni.html</item>
+		<item>molytvy_ranishni.html</item>
+		<item>molytvy_vechirni.html</item>
+		<item>molytvy_na_kozhen_den.html</item>
+		<item>molytvy_pry_trapezi.html</item>
+		<item>molytvy_na_rizni_potreby.html</item>
+		<item>molytvy_psalom_90.html</item>
+		<item>molytvy_katekhyzmovi_pravdy.html</item>
+		<item>molytvy_chesnoty.html</item>
+    </string-array>
 </resources>

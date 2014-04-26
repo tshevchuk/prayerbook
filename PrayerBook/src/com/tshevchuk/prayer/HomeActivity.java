@@ -1,16 +1,12 @@
 package com.tshevchuk.prayer;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.TypedValue;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,8 +14,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 public class HomeActivity extends Activity {
 	private String[] menuItems;
+	private String[] menuHtmlPages;
 
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -27,16 +28,21 @@ public class HomeActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		PreferenceManager pm = PreferenceManager.getInstance();
+		setTheme(pm.isNightModeEnabled() ? R.style.PrayerBook_ThemeDark
+				: R.style.PrayerBook_ThemeLight);
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.a_home);
 
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
 		menuItems = getResources().getStringArray(R.array.home_menu);
+		menuHtmlPages = getResources().getStringArray(
+				R.array.home_menu_html_pages);
 
 		drawerList.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, menuItems));
-		drawerList.setBackgroundColor(Color.LTGRAY);
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -49,9 +55,12 @@ public class HomeActivity extends Activity {
 		getActionBar().setDisplayShowHomeEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 
+		TypedValue typedValue = new TypedValue();
+		getTheme().resolveAttribute(R.attr.pb_navigationDrawerIconDrawable,
+				typedValue, true);
+
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-				R.drawable.ic_navigation_drawer, R.string.app_name,
-				R.string.app_name) {
+				typedValue.resourceId, R.string.app_name, R.string.app_name) {
 			public void onDrawerClosed(View view) {
 				// getActionBar().setTitle(mTitle);
 				// calling onPrepareOptionsMenu() to show action bar icons
@@ -86,52 +95,58 @@ public class HomeActivity extends Activity {
 	};
 
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.actionbar, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		PreferenceManager pm = PreferenceManager.getInstance();
+		menu.findItem(R.id.mi_night_mode_dark).setVisible(
+				!pm.isNightModeEnabled());
+		menu.findItem(R.id.mi_night_mode_light).setVisible(
+				pm.isNightModeEnabled());
+		return super.onPrepareOptionsMenu(menu);
+	}
+
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (drawerToggle.onOptionsItemSelected(item))
+		if (drawerToggle.onOptionsItemSelected(item)) {
 			return true;
+		}
+
+		PreferenceManager pm = PreferenceManager.getInstance();
+		switch (item.getItemId()) {
+		case R.id.mi_night_mode_dark:
+			pm.setNightModeEnabled(true);
+			recreate();
+			invalidateOptionsMenu();
+			sendAnalyticsMenuEvent(item.getTitle());
+			return true;
+		case R.id.mi_night_mode_light:
+			pm.setNightModeEnabled(false);
+			recreate();
+			invalidateOptionsMenu();
+			sendAnalyticsMenuEvent(item.getTitle());
+			return true;
+		}
 
 		return super.onOptionsItemSelected(item);
 	}
 
+	private void sendAnalyticsMenuEvent(CharSequence menuItemName) {
+		Tracker t = PrayerBookApplication.getInstance().getTracker();
+		t.send(new HitBuilders.EventBuilder()
+				.setCategory(Analytics.CAT_OPTIONS_MENU)
+				.setAction(menuItemName.toString()).build());
+	}
+
 	private void displayFragment(int position) {
 		FragmentBase f = null;
-		switch (position) {
-		case 0:
+		if (position < menuHtmlPages.length) {
 			f = HtmlViewFragment.getInstance(menuItems[position],
-					"schodenni_molytvy.html");
-			break;
-		case 1:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"ranishni_molytvy.html");
-			break;
-		case 2:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"vechirni_molytvy.html");
-			break;
-		case 3:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"molytvy_na_kozhen_den.html");
-			break;
-		case 4:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"molytvy_pry_trapezi.html");
-			break;
-		case 5:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"molytvy_na_rizni_potreby.html");
-			break;
-		case 6:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"psalom_90.html");
-			break;
-		case 7:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"katekhyzmovi_pravdy.html");
-			break;
-		case 8:
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					"chesnoty.html");
-			break;
+					menuHtmlPages[position]);
 		}
 
 		FragmentBase curFragment = (FragmentBase) getFragmentManager()

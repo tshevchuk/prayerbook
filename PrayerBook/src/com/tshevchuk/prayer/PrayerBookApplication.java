@@ -20,6 +20,10 @@ public class PrayerBookApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+
+		if (Utils.isDebuggable()) {
+			GoogleAnalytics.getInstance(this).setDryRun(true);
+		}
 	}
 
 	public static PrayerBookApplication getInstance() {
