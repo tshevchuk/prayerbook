@@ -4,13 +4,11 @@
     <style name="PrayerBook.ThemeDark" parent="android:Theme.Holo">
         <item name="pb_navigationDrawerIconDrawable">@drawable/ic_navigation_drawer_dark</item>
         <item name="pb_nawigationDrawerBackgroundDrawable">#333</item>
-        <item name="pb_textColor">#fff</item>
     </style>
 
     <style name="PrayerBook.ThemeLight" parent="android:Theme.Holo.Light">
         <item name="pb_navigationDrawerIconDrawable">@drawable/ic_navigation_drawer_light</item>
         <item name="pb_nawigationDrawerBackgroundDrawable">#aaa</item>
-        <item name="pb_textColor">#222</item>
-        </style>
+    </style>
 
 </resources>

@@ -24,9 +24,67 @@ public class Catalog {
 		topMenu.add(new Prayer("Молитви при трапезі",
 				"molytvy_pry_trapezi.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		topMenu.add(new Prayer("Молитви на різні потреби",
-				"molytvy_na_rizni_potreby.html")
+
+		SubMenu rizniPotreby = new SubMenu("Молитви на різні потреби");
+		rizniPotreby.addSubItem(new Prayer("Молитва подяки",
+				"rizni_potreby/podyaky.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва на всяке прошення",
+				"rizni_potreby/vsyake-proshennya.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва до Пресвятої Богородиці",
+				"rizni_potreby/do-presv-bohorod.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва у терпінні",
+				"rizni_potreby/u-terpinni.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва за недужих",
+				"rizni_potreby/za-neduzhykh.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва на всяку неміч",
+				"rizni_potreby/na-vsyaku-nemich.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва при вмираючих",
+				"rizni_potreby/pry-vmyrayuchykh.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва у годині смерти",
+				"rizni_potreby/u-hodyni-smerti.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва християнської родини",
+				"rizni_potreby/khryst-rodyny.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва батьків за дітей",
+				"rizni_potreby/batkiv-za-ditey.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва дітей за батьків",
+				"rizni_potreby/ditey-za-batkiv.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва учня (учениці)",
+				"rizni_potreby/uchnya.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва за перемогу над спокусами",
+				"rizni_potreby/peremoha-nad-spokusamy.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва про духа покори",
+				"rizni_potreby/dukha-pokory.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва в день іменин",
+				"rizni_potreby/v-den-imenyn.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва за того, хто хоче іти в путь",
+				"rizni_potreby/ity-v-put.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва на благословення дому",
+				"rizni_potreby/blahoslovennya-domu.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитва на освячення всякої речі",
+				"rizni_potreby/osvyach-rechi.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new Prayer("Молитви за з’єднання всіх християн",
+				"rizni_potreby/zyednannya-khrystyyan.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		topMenu.add(rizniPotreby);
+
 		topMenu.add(new Prayer("Псалом 90", "molytvy_psalom_90.html")
 				.setSource(SRC_BIBLIA));
 
@@ -46,6 +104,7 @@ public class Catalog {
 				"kateh_pravdy/khryst-pryvit.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		topMenu.add(katehPravdy);
+
 	}
 
 	public List<MenuItemBase> getTopMenuItems() {
