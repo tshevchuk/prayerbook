@@ -12,96 +12,124 @@ public class Catalog {
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
 	public Catalog() {
-		topMenu.add(new Prayer("Щоденні молитви", "molytvy_schodenni.html")
+		topMenu.add(new Prayer("Щоденні молитви", "molytvy-schodenni.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
-		topMenu.add(new Prayer("Ранішні молитви", "molytvy_ranishni.html")
+		topMenu.add(new Prayer("Ранішні молитви", "molytvy-ranishni.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		topMenu.add(new Prayer("Вечірні молитви", "molytvy_vechirni.html")
+		topMenu.add(new Prayer("Вечірні молитви", "molytvy-vechirni.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		topMenu.add(new Prayer("Молитви на кожен день",
-				"molytvy_na_kozhen_den.html")
+
+		SubMenu naKozhenDen = new SubMenu("Молитви на кожен день");
+		naKozhenDen.addSubItem(new Prayer("Молитва ранішнього намірення",
+				"na-kozhen-den/ranizhnoho-namirennya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen.addSubItem(new Prayer(
+				"Молитва св. Івана Золотоустого на кожну годину дня",
+				"na-kozhen-den/iv-zlatoust-kozn-hod-dnya.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen.addSubItem(new Prayer("Неділя",
+				"na-kozhen-den/nedilya.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen.addSubItem(new Prayer("Понеділок",
+				"na-kozhen-den/ponedilok.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen.addSubItem(new Prayer("Вівторок",
+				"na-kozhen-den/vivtorok.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen.addSubItem(new Prayer("Середа і п’ятниця",
+				"na-kozhen-den/sereda-i-pyatnytsya.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen.addSubItem(new Prayer("Четвер",
+				"na-kozhen-den/chetver.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		naKozhenDen
+				.addSubItem(new Prayer("Субота", "na-kozhen-den/subota.html")
+						.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		topMenu.add(naKozhenDen);
+
 		topMenu.add(new Prayer("Молитви при трапезі",
-				"molytvy_pry_trapezi.html")
+				"molytvy-pry-trapezi.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 
 		SubMenu rizniPotreby = new SubMenu("Молитви на різні потреби");
 		rizniPotreby.addSubItem(new Prayer("Молитва подяки",
-				"rizni_potreby/podyaky.html")
+				"rizni-potreby/podyaky.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва на всяке прошення",
-				"rizni_potreby/vsyake-proshennya.html")
+				"rizni-potreby/vsyake-proshennya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва до Пресвятої Богородиці",
-				"rizni_potreby/do-presv-bohorod.html")
+				"rizni-potreby/do-presv-bohorod.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва у терпінні",
-				"rizni_potreby/u-terpinni.html")
+				"rizni-potreby/u-terpinni.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва за недужих",
-				"rizni_potreby/za-neduzhykh.html")
+				"rizni-potreby/za-neduzhykh.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва на всяку неміч",
-				"rizni_potreby/na-vsyaku-nemich.html")
+				"rizni-potreby/na-vsyaku-nemich.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва при вмираючих",
-				"rizni_potreby/pry-vmyrayuchykh.html")
+				"rizni-potreby/pry-vmyrayuchykh.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва у годині смерти",
-				"rizni_potreby/u-hodyni-smerti.html")
+				"rizni-potreby/u-hodyni-smerti.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва християнської родини",
-				"rizni_potreby/khryst-rodyny.html")
+				"rizni-potreby/khryst-rodyny.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва батьків за дітей",
-				"rizni_potreby/batkiv-za-ditey.html")
+				"rizni-potreby/batkiv-za-ditey.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва дітей за батьків",
-				"rizni_potreby/ditey-za-batkiv.html")
+				"rizni-potreby/ditey-za-batkiv.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва учня (учениці)",
-				"rizni_potreby/uchnya.html")
+				"rizni-potreby/uchnya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва за перемогу над спокусами",
-				"rizni_potreby/peremoha-nad-spokusamy.html")
+				"rizni-potreby/peremoha-nad-spokusamy.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва про духа покори",
-				"rizni_potreby/dukha-pokory.html")
+				"rizni-potreby/dukha-pokory.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва в день іменин",
-				"rizni_potreby/v-den-imenyn.html")
+				"rizni-potreby/v-den-imenyn.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		rizniPotreby.addSubItem(new Prayer("Молитва за того, хто хоче іти в путь",
-				"rizni_potreby/ity-v-put.html")
+		rizniPotreby.addSubItem(new Prayer(
+				"Молитва за того, хто хоче іти в путь",
+				"rizni-potreby/ity-v-put.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва на благословення дому",
-				"rizni_potreby/blahoslovennya-domu.html")
+				"rizni-potreby/blahoslovennya-domu.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		rizniPotreby.addSubItem(new Prayer("Молитва на освячення всякої речі",
-				"rizni_potreby/osvyach-rechi.html")
+				"rizni-potreby/osvyach-rechi.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		rizniPotreby.addSubItem(new Prayer("Молитви за з’єднання всіх християн",
-				"rizni_potreby/zyednannya-khrystyyan.html")
+		rizniPotreby.addSubItem(new Prayer(
+				"Молитви за з’єднання всіх християн",
+				"rizni-potreby/zyednannya-khrystyyan.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		topMenu.add(rizniPotreby);
 
-		topMenu.add(new Prayer("Псалом 90", "molytvy_psalom_90.html")
+		topMenu.add(new Prayer("Псалом 90", "molytvy-psalom-90.html")
 				.setSource(SRC_BIBLIA));
 
 		SubMenu katehPravdy = new SubMenu("Катехизмові правди");
 		katehPravdy.addSubItem(new Prayer("Заповіді",
-				"kateh_pravdy/zapovidi.html")
+				"kateh-pravdy/zapovidi.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		katehPravdy.addSubItem(new Prayer("Чесноти",
-				"kateh_pravdy/chesnoty.html")
+				"kateh-pravdy/chesnoty.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		katehPravdy.addSubItem(new Prayer("Пости та загальниці",
-				"kateh_pravdy/posty-ta-zahalnytsi.html")
+				"kateh-pravdy/posty-ta-zahalnytsi.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		katehPravdy.addSubItem(new Prayer("Гріхи", "kateh_pravdy/hrikhy.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		katehPravdy.addSubItem(new Prayer("Християнський привіт",
-				"kateh_pravdy/khryst-pryvit.html")
+				"kateh-pravdy/khryst-pryvit.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		topMenu.add(katehPravdy);
 

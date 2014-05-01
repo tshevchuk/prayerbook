@@ -166,6 +166,8 @@ public class HomeActivity extends Activity {
 	}
 
 	public void displayFragment(FragmentBase fragment, String title) {
+		drawerLayout.closeDrawer(drawerList);
+
 		FragmentBase curFragment = (FragmentBase) getFragmentManager()
 				.findFragmentById(R.id.content_frame);
 		if (curFragment != null && curFragment.isSameScreen(fragment)) {
@@ -178,7 +180,6 @@ public class HomeActivity extends Activity {
 		if (curFragment != null)
 			transaction.addToBackStack(null);
 		transaction.commit();
-		drawerLayout.closeDrawer(drawerList);
 
 		if (TextUtils.isEmpty(title)) {
 			title = fragment.getClass().getSimpleName();
