@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.text.TextUtils;
+
 public class Catalog {
 	private static final String SRC_BIBLIA = "Біблія, переклад Івана Хоменка";
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
+	private static final String SRC_KYRIOS = "";
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
@@ -116,6 +119,11 @@ public class Catalog {
 		topMenu.add(new Prayer("Псалом 90", "molytvy-psalom-90.html")
 				.setSource(SRC_BIBLIA));
 
+		topMenu.add(new Prayer(
+				"Літургія",
+				"liturhiya.html").setFullName("Чин священної і Божественної Літургії святого Івана Золотоустого")
+				.setSource("Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html"));
+
 		SubMenu katehPravdy = new SubMenu("Катехизмові правди");
 		katehPravdy.addSubItem(new Prayer("Заповіді",
 				"kateh-pravdy/zapovidi.html")
@@ -163,6 +171,7 @@ public class Catalog {
 
 		private String fileName;
 		private String about;
+		private String fullName;
 
 		public Prayer(String name, String fileName) {
 			super(name);
@@ -180,6 +189,18 @@ public class Catalog {
 
 		public String getAbout() {
 			return about;
+		}
+
+		public Prayer setFullName(String fullName) {
+			this.fullName = fullName;
+			return this;
+		}
+
+		public String getFullName() {
+			if (TextUtils.isEmpty(fullName)) {
+				return getName();
+			}
+			return fullName;
 		}
 	}
 

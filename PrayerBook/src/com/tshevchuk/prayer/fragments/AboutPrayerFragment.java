@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,9 +32,9 @@ public class AboutPrayerFragment extends FragmentBase {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_about_prayer, container, false);
-		((TextView) v.findViewById(R.id.tv_name)).setText(prayer.getName());
-		((TextView) v.findViewById(R.id.tv_about)).setText(Html.fromHtml(prayer
-				.getAbout()));
+		((TextView) v.findViewById(R.id.tv_name)).setText(prayer.getFullName());
+		TextView tvAbout = (TextView) v.findViewById(R.id.tv_about);
+		tvAbout.setText(Html.fromHtml(prayer.getAbout()));
 		return v;
 	}
 
