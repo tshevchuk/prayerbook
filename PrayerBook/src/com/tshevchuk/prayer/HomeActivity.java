@@ -17,10 +17,13 @@ import android.widget.ListView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
+import com.tshevchuk.prayer.data.Catalog.Prayer;
+import com.tshevchuk.prayer.data.Catalog.SubMenu;
 
 public class HomeActivity extends Activity {
-	private String[] menuItems;
-	private String[] menuHtmlPages;
+	private Catalog catalog;
 
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -37,12 +40,13 @@ public class HomeActivity extends Activity {
 
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
-		menuItems = getResources().getStringArray(R.array.home_menu);
-		menuHtmlPages = getResources().getStringArray(
-				R.array.home_menu_html_pages);
 
-		drawerList.setAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, menuItems));
+		catalog = PrayerBookApplication.getInstance().getCatalog();
+
+		drawerList
+				.setAdapter(new ArrayAdapter<MenuItemBase>(this,
+						android.R.layout.simple_list_item_1, catalog
+								.getTopMenuItems()));
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -143,10 +147,16 @@ public class HomeActivity extends Activity {
 	}
 
 	private void displayFragment(int position) {
+		displayMenuItem(catalog.getTopMenuItems().get(position));
+	}
+
+	public void displayMenuItem(MenuItemBase mi) {
 		FragmentBase f = null;
-		if (position < menuHtmlPages.length) {
-			f = HtmlViewFragment.getInstance(menuItems[position],
-					menuHtmlPages[position]);
+		if (mi instanceof Prayer) {
+			f = TextViewFragment.getInstance(mi.getName(),
+					((Prayer) mi).getFileName());
+		} else if (mi instanceof SubMenu) {
+			f = SubMenuFragment.getInstance((SubMenu) mi);
 		}
 
 		FragmentBase curFragment = (FragmentBase) getFragmentManager()
@@ -155,24 +165,20 @@ public class HomeActivity extends Activity {
 			return;
 		}
 
-		if (f != null) {
-			FragmentTransaction transaction = getFragmentManager()
-					.beginTransaction();
-			transaction.replace(R.id.content_frame, f);
-			if (curFragment != null)
-				transaction.addToBackStack(null);
-			transaction.commit();
-			drawerList.setItemChecked(position, true);
-			drawerList.setSelection(position);
-			setTitle(menuItems[position]);
-			drawerLayout.closeDrawer(drawerList);
-		}
+		FragmentTransaction transaction = getFragmentManager()
+				.beginTransaction();
+		transaction.replace(R.id.content_frame, f);
+		if (curFragment != null)
+			transaction.addToBackStack(null);
+		transaction.commit();
+		setTitle(mi.getName());
+		drawerLayout.closeDrawer(drawerList);
 
 		PrayerBookApplication
 				.getInstance()
 				.getTracker()
 				.send(new HitBuilders.EventBuilder()
-						.setCategory("Fragment Opened")
-						.setAction(menuItems[position]).build());
+						.setCategory("Fragment Opened").setAction(mi.getName())
+						.build());
 	}
 }

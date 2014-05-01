@@ -7,11 +7,14 @@ import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.tshevchuk.prayer.data.Catalog;
 
 public class PrayerBookApplication extends Application {
 	public enum TrackerName {
 		APP_TRACKER,
 	}
+
+	private Catalog catalog;
 
 	private static PrayerBookApplication instance;
 	private Map<TrackerName, Tracker> trackers = new HashMap<TrackerName, Tracker>();
@@ -24,6 +27,8 @@ public class PrayerBookApplication extends Application {
 		if (Utils.isDebuggable()) {
 			GoogleAnalytics.getInstance(this).setDryRun(true);
 		}
+		
+		catalog = new Catalog();
 	}
 
 	public static PrayerBookApplication getInstance() {
@@ -37,5 +42,9 @@ public class PrayerBookApplication extends Application {
 			trackers.put(TrackerName.APP_TRACKER, t);
 		}
 		return trackers.get(TrackerName.APP_TRACKER);
+	}
+	
+	public Catalog getCatalog(){
+		return catalog;
 	}
 }
