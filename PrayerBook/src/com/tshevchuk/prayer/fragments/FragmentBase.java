@@ -1,9 +1,10 @@
-package com.tshevchuk.prayer;
+package com.tshevchuk.prayer.fragments;
 
 import android.app.Fragment;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.tshevchuk.prayer.PrayerBookApplication;
 
 public class FragmentBase extends Fragment {
 

@@ -75,7 +75,7 @@ public class Catalog {
 		private static final long serialVersionUID = 1L;
 
 		private String fileName;
-		private String source;
+		private String about;
 
 		public Prayer(String name, String fileName) {
 			super(name);
@@ -87,12 +87,12 @@ public class Catalog {
 		}
 
 		public Prayer setSource(String source) {
-			this.source = source;
+			this.about = "Джерело тексту: " + source;
 			return this;
 		}
 
-		public String getSource() {
-			return source;
+		public String getAbout() {
+			return about;
 		}
 	}
 

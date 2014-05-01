@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer;
+package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,15 +8,16 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.tshevchuk.prayer.HomeActivity;
+import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.R.id;
+import com.tshevchuk.prayer.R.layout;
 import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
 import com.tshevchuk.prayer.data.Catalog.SubMenu;
 
 public class SubMenuFragment extends FragmentBase {
 	private SubMenu subMenu;
-
-	private TextView tvContent;
 
 	public static SubMenuFragment getInstance(SubMenu subMenu) {
 		SubMenuFragment f = new SubMenuFragment();

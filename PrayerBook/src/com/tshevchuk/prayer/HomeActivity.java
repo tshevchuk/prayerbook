@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,9 @@ import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
 import com.tshevchuk.prayer.data.Catalog.Prayer;
 import com.tshevchuk.prayer.data.Catalog.SubMenu;
+import com.tshevchuk.prayer.fragments.FragmentBase;
+import com.tshevchuk.prayer.fragments.SubMenuFragment;
+import com.tshevchuk.prayer.fragments.TextViewFragment;
 
 public class HomeActivity extends Activity {
 	private Catalog catalog;
@@ -153,32 +157,38 @@ public class HomeActivity extends Activity {
 	public void displayMenuItem(MenuItemBase mi) {
 		FragmentBase f = null;
 		if (mi instanceof Prayer) {
-			f = TextViewFragment.getInstance(mi.getName(),
-					((Prayer) mi).getFileName());
+			f = TextViewFragment.getInstance(((Prayer) mi));
 		} else if (mi instanceof SubMenu) {
 			f = SubMenuFragment.getInstance((SubMenu) mi);
 		}
 
+		displayFragment(f, mi.getName());
+	}
+
+	public void displayFragment(FragmentBase fragment, String title) {
 		FragmentBase curFragment = (FragmentBase) getFragmentManager()
 				.findFragmentById(R.id.content_frame);
-		if (curFragment != null && curFragment.isSameScreen(f)) {
+		if (curFragment != null && curFragment.isSameScreen(fragment)) {
 			return;
 		}
 
 		FragmentTransaction transaction = getFragmentManager()
 				.beginTransaction();
-		transaction.replace(R.id.content_frame, f);
+		transaction.replace(R.id.content_frame, fragment);
 		if (curFragment != null)
 			transaction.addToBackStack(null);
 		transaction.commit();
-		setTitle(mi.getName());
 		drawerLayout.closeDrawer(drawerList);
+
+		if (TextUtils.isEmpty(title)) {
+			title = fragment.getClass().getSimpleName();
+		}
 
 		PrayerBookApplication
 				.getInstance()
 				.getTracker()
 				.send(new HitBuilders.EventBuilder()
-						.setCategory("Fragment Opened").setAction(mi.getName())
+						.setCategory("Fragment Opened").setAction(title)
 						.build());
 	}
 }
