@@ -10,6 +10,7 @@ public class Catalog {
 	private static final String SRC_BIBLIA = "Біблія, переклад Івана Хоменка";
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
+	private static final String SRC_PRO_SPOVID = "Про Сповідь. о. Порфирій В. Шумило, ЧСВВ, бр. Пімен І. Коневич, ЧСВВ http://osbm-buchach.org.ua/knygy/pro-spovid.html";
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
@@ -118,10 +119,11 @@ public class Catalog {
 		topMenu.add(new Prayer("Псалом 90", "molytvy-psalom-90.html")
 				.setSource(SRC_BIBLIA));
 
-		topMenu.add(new Prayer(
-				"Літургія",
-				"liturhiya.html").setFullName("Чин священної і Божественної Літургії святого Івана Золотоустого")
-				.setSource("Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html"));
+		topMenu.add(new Prayer("Літургія", "liturhiya.html")
+				.setFullName(
+						"Чин священної і Божественної Літургії святого Івана Золотоустого")
+				.setSource(
+						"Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html"));
 
 		SubMenu katehPravdy = new SubMenu("Катехизмові правди");
 		katehPravdy.addSubItem(new Prayer("Заповіді",
@@ -139,6 +141,40 @@ public class Catalog {
 				"kateh-pravdy/khryst-pryvit.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		topMenu.add(katehPravdy);
+
+		SubMenu proSpovid = new SubMenu("Про сповідь");
+		proSpovid.addSubItem(new Prayer("Про щастя людини",
+				"pro-spovid/pro-schastya.html").setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Церква як Божа установа",
+				"pro-spovid/cerkva-yak-bozha-ustanova.html")
+				.setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Сором у визнанні гріхів",
+				"pro-spovid/sorom-u-vyznanni-hrikhiv.html")
+				.setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Чи всі сповіді є добрими?",
+				"pro-spovid/chy-vsi-spovidi-dobri.html")
+				.setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Що потрібно знати, щоб сповідатися?",
+				"pro-spovid/scho-potribno-znaty.html")
+				.setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Святе Причастя",
+				"pro-spovid/svyate-prychastya.html").setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Приготування до сповіді",
+				"pro-spovid/prohotuvannya.html").setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Деякі додаткові зауваги",
+				"pro-spovid/dodatkovi-zauvahy.html").setSource(SRC_PRO_SPOVID));
+		proSpovid.addSubItem(new Prayer("Сповідь", "pro-spovid/spovid.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		proSpovid.addSubItem(new Prayer("Молитви в часі сповіді",
+				"pro-spovid/molytvy-v-chasi-spovidi.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		proSpovid.addSubItem(new Prayer("Молитви перед святим причастям",
+				"pro-spovid/molytvy-pered-prychastyam.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		proSpovid.addSubItem(new Prayer("Молитви по святім причастю",
+				"pro-spovid/molytvy-pislya-prychastya.html")
+				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		topMenu.add(proSpovid);
 
 	}
 
