@@ -10,7 +10,6 @@ public class Catalog {
 	private static final String SRC_BIBLIA = "Біблія, переклад Івана Хоменка";
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
-	private static final String SRC_KYRIOS = "";
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
@@ -134,7 +133,7 @@ public class Catalog {
 		katehPravdy.addSubItem(new Prayer("Пости та загальниці",
 				"kateh-pravdy/posty-ta-zahalnytsi.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
-		katehPravdy.addSubItem(new Prayer("Гріхи", "kateh_pravdy/hrikhy.html")
+		katehPravdy.addSubItem(new Prayer("Гріхи", "kateh-pravdy/hrikhy.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		katehPravdy.addSubItem(new Prayer("Християнський привіт",
 				"kateh-pravdy/khryst-pryvit.html")

@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -40,8 +41,11 @@ public class HomeActivity extends Activity {
 				: R.style.PrayerBook_ThemeLight);
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.a_home);
+		
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
+		setContentView(R.layout.a_home);
+		
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
 
