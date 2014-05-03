@@ -58,51 +58,54 @@ public class TextViewFragment extends FragmentBase implements
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_text_view, container, false);
 		tvContent = (TextView) v.findViewById(R.id.tv_content);
-		final ResponsiveScrollView svScroll = (ResponsiveScrollView) v
-				.findViewById(R.id.svScroll);
-		svScroll.setOnEndScrollListener(new OnEndScrollListener() {
-			@Override
-			public void onEndScroll(boolean moveContentUp, boolean isFling,
-					int dy) {
-				boolean show = false;
-				boolean hide = false;
+		if (!getResources().getBoolean(R.bool.has_sw480)) {
+			final ResponsiveScrollView svScroll = (ResponsiveScrollView) v
+					.findViewById(R.id.svScroll);
+			svScroll.setOnEndScrollListener(new OnEndScrollListener() {
+				@Override
+				public void onEndScroll(boolean moveContentUp, boolean isFling,
+						int dy) {
+					boolean show = false;
+					boolean hide = false;
 
-				if (svScroll.getScrollY() < UIUtils.dpToPx(80))
-					show = true;
-				if (!moveContentUp && dy < -UIUtils.dpToPx(30))
-					show = true;
-				if (!show && moveContentUp && isFling)
-					hide = true;
-				Log.d("scroll",
-						String.format(
-								"moveUp %s isFling %s dy %s show %s hide %s scrollY %s",
-								moveContentUp, isFling, dy, show, hide,
-								svScroll.getScrollY()));
+					if (svScroll.getScrollY() < UIUtils.dpToPx(80))
+						show = true;
+					if (!moveContentUp && dy < -UIUtils.dpToPx(30))
+						show = true;
+					if (!show && moveContentUp && isFling)
+						hide = true;
+					Log.d("scroll",
+							String.format(
+									"moveUp %s isFling %s dy %s show %s hide %s scrollY %s",
+									moveContentUp, isFling, dy, show, hide,
+									svScroll.getScrollY()));
 
-				ActionBar ab = getActivity().getActionBar();
+					ActionBar ab = getActivity().getActionBar();
 
-				if (show && !ab.isShowing())
-					ab.show();
-				else if (hide && ab.isShowing())
-					ab.hide();
-			}
-		});
-		
-		svScroll.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-					// is bottom
-					View view = svScroll.getChildAt(svScroll.getChildCount() - 1);
-					if ((svScroll.getHeight() + svScroll.getScrollY()) >= view
-							.getBottom()
-							- getActivity().getActionBar().getHeight()) {
-						getActivity().getActionBar().show();
-					}
+					if (show && !ab.isShowing())
+						ab.show();
+					else if (hide && ab.isShowing())
+						ab.hide();
 				}
-				return false;
-			}
-		});
+			});
+
+			svScroll.setOnTouchListener(new OnTouchListener() {
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+						// is bottom
+						View view = svScroll.getChildAt(svScroll
+								.getChildCount() - 1);
+						if ((svScroll.getHeight() + svScroll.getScrollY()) >= view
+								.getBottom()
+								- getActivity().getActionBar().getHeight()) {
+							getActivity().getActionBar().show();
+						}
+					}
+					return false;
+				}
+			});
+		}
 
 		return v;
 	}
