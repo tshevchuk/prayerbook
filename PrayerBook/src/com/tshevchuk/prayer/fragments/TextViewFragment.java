@@ -109,7 +109,7 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle(prayer.getName());
+		getActivity().getActionBar().setTitle(prayer.getFullName());
 	}
 
 	@Override

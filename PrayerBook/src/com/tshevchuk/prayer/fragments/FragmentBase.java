@@ -19,5 +19,4 @@ public class FragmentBase extends Fragment {
 	public boolean isSameScreen(FragmentBase f) {
 		return getClass().equals(f.getClass());
 	}
-
 }
