@@ -87,6 +87,7 @@ public class TextViewFragment extends FragmentBase implements
 					ab.hide();
 			}
 		});
+		
 		svScroll.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
