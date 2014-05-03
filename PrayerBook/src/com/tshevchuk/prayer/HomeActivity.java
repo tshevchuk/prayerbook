@@ -147,12 +147,6 @@ public class HomeActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	@Override
-	public void onBackPressed() {
-		getActionBar().show();
-		super.onBackPressed();
-	}
-
 	private void sendAnalyticsMenuEvent(CharSequence menuItemName) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.send(new HitBuilders.EventBuilder()

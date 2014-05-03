@@ -11,6 +11,7 @@ public class FragmentBase extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		getActivity().getActionBar().show();
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.setScreenName(getClass().getSimpleName());
 		t.send(new HitBuilders.AppViewBuilder().build());
