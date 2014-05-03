@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ public class Catalog {
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
 	private static final String SRC_PRO_SPOVID = "Про Сповідь. о. Порфирій В. Шумило, ЧСВВ, бр. Пімен І. Коневич, ЧСВВ http://osbm-buchach.org.ua/knygy/pro-spovid.html";
+	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
@@ -55,6 +57,42 @@ public class Catalog {
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 
 		SubMenu rizniPotreby = new SubMenu("Молитви на різні потреби");
+
+		SubMenu dlyaVahitnykh = new SubMenu(
+				"Молитви для вагітних",
+				new Prayer[] {
+						new Prayer("Молитва вагітної жінки",
+								"rizni-potreby/dlya-vahitnykh/vahitnoi-zhinky.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer("Молитва – Благословення вагітних жінок",
+								"rizni-potreby/dlya-vahitnykh/blahoslovennya-vahitnykh-zhinok.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer("Молитва матері, яка очікує дитину",
+								"rizni-potreby/dlya-vahitnykh/materi-ochikuye-dytynu.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer(
+								"Молитва до Богородиці для допомоги жінкам у часі пологів",
+								"rizni-potreby/dlya-vahitnykh/do-bohorodytsi-dopomohy-pry-polohakh.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer("Молитва вагітних жінок за успішні пологи",
+								"rizni-potreby/dlya-vahitnykh/za-uspishni-polohy.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer("Молитва при важких пологах",
+								"rizni-potreby/dlya-vahitnykh/pry-vazhkykh-polohakh.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer(
+								"Молитва – Благословення жінки після пологів",
+								"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-polohiv.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer("Молитва за ласку годування грудьми",
+								"rizni-potreby/dlya-vahitnykh/za-lasku-hoduvannya-hruddyu.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
+						new Prayer(
+								"Молитва – Благословення вагітних жінок після Літургії",
+								"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-liturhiyi.html",
+								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH) });
+		rizniPotreby.addSubItem(dlyaVahitnykh);
+
 		rizniPotreby.addSubItem(new Prayer("Молитва подяки",
 				"rizni-potreby/podyaky.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
@@ -213,6 +251,11 @@ public class Catalog {
 			this.fileName = fileName;
 		}
 
+		public Prayer(String name, String fileName, String source) {
+			this(name, fileName);
+			setSource(source);
+		}
+
 		public String getFileName() {
 			return fileName;
 		}
@@ -246,6 +289,11 @@ public class Catalog {
 
 		public SubMenu(String name) {
 			super(name);
+		}
+
+		public SubMenu(String name, MenuItemBase... subItems) {
+			this(name);
+			this.subItems = Arrays.asList(subItems);
 		}
 
 		public List<MenuItemBase> getSubItems() {
