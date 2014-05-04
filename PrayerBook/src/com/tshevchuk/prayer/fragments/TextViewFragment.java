@@ -128,6 +128,7 @@ public class TextViewFragment extends FragmentBase implements
 		case R.id.mi_about_prayer:
 			((HomeActivity) getActivity()).displayFragment(
 					AboutPrayerFragment.getInstance(prayer), null);
+			((HomeActivity) getActivity()).sendAnalyticsOptionsMenuEvent("Опис");
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

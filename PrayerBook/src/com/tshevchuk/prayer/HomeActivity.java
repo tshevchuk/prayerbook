@@ -134,20 +134,20 @@ public class HomeActivity extends Activity {
 			pm.setNightModeEnabled(true);
 			recreate();
 			invalidateOptionsMenu();
-			sendAnalyticsMenuEvent(item.getTitle());
+			sendAnalyticsOptionsMenuEvent(item.getTitle());
 			return true;
 		case R.id.mi_night_mode_light:
 			pm.setNightModeEnabled(false);
 			recreate();
 			invalidateOptionsMenu();
-			sendAnalyticsMenuEvent(item.getTitle());
+			sendAnalyticsOptionsMenuEvent(item.getTitle());
 			return true;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
 	
-	private void sendAnalyticsMenuEvent(CharSequence menuItemName) {
+	public void sendAnalyticsOptionsMenuEvent(CharSequence menuItemName) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.send(new HitBuilders.EventBuilder()
 				.setCategory(Analytics.CAT_OPTIONS_MENU)
