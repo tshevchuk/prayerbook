@@ -6,30 +6,37 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.Spanned;
 import android.text.TextUtils;
 
-public class PrayerLoader extends AsyncTaskLoader<Spanned> {
+public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 	public static final String PARAM_ASSET_FILE_NAME = "asset_file_name";
+	public static final String PARAM_IS_HTML = "is_html";
 
 	private String assetFileName;
-	private Spanned data;
+	private boolean isHtml;
+	private CharSequence data;
 
 	public PrayerLoader(Context context, Bundle args) {
 		super(context);
 		assetFileName = args.getString(PARAM_ASSET_FILE_NAME);
+		isHtml = args.getBoolean(PARAM_IS_HTML);
 	}
 
 	@Override
-	public Spanned loadInBackground() {
+	public CharSequence loadInBackground() {
+		String html = "";
 		try {
-			String html = Utils.getAssetAsString(assetFileName);
-			Spanned parsedHtml = Html.fromHtml(html);
-			return parsedHtml;
+			html = Utils.getAssetAsString(assetFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return Html.fromHtml("");
+		CharSequence parsedHtml = null;
+		if (isHtml) {
+			parsedHtml = Html.fromHtml(html);
+		} else {
+			parsedHtml = html;
+		}
+		return parsedHtml;
 	}
 
 	@Override

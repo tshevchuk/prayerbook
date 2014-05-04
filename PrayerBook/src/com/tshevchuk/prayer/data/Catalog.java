@@ -13,6 +13,7 @@ public class Catalog {
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
 	private static final String SRC_PRO_SPOVID = "Про Сповідь. о. Порфирій В. Шумило, ЧСВВ, бр. Пімен І. Коневич, ЧСВВ http://osbm-buchach.org.ua/knygy/pro-spovid.html";
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
+	private static final String SRC_PSALTYR_1990 = "Молитовний псалтир, Рим 1990";
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
@@ -61,30 +62,36 @@ public class Catalog {
 		SubMenu dlyaVahitnykh = new SubMenu(
 				"Молитви для вагітних",
 				new Prayer[] {
-						new Prayer("Молитва вагітної жінки",
+						new Prayer(
+								"Молитва вагітної жінки",
 								"rizni-potreby/dlya-vahitnykh/vahitnoi-zhinky.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
-						new Prayer("Молитва – Благословення вагітних жінок",
+						new Prayer(
+								"Молитва – Благословення вагітних жінок",
 								"rizni-potreby/dlya-vahitnykh/blahoslovennya-vahitnykh-zhinok.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
-						new Prayer("Молитва матері, яка очікує дитину",
+						new Prayer(
+								"Молитва матері, яка очікує дитину",
 								"rizni-potreby/dlya-vahitnykh/materi-ochikuye-dytynu.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
 						new Prayer(
 								"Молитва до Богородиці для допомоги жінкам у часі пологів",
 								"rizni-potreby/dlya-vahitnykh/do-bohorodytsi-dopomohy-pry-polohakh.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
-						new Prayer("Молитва вагітних жінок за успішні пологи",
+						new Prayer(
+								"Молитва вагітних жінок за успішні пологи",
 								"rizni-potreby/dlya-vahitnykh/za-uspishni-polohy.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
-						new Prayer("Молитва при важких пологах",
+						new Prayer(
+								"Молитва при важких пологах",
 								"rizni-potreby/dlya-vahitnykh/pry-vazhkykh-polohakh.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
 						new Prayer(
 								"Молитва – Благословення жінки після пологів",
 								"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-polohiv.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
-						new Prayer("Молитва за ласку годування грудьми",
+						new Prayer(
+								"Молитва за ласку годування грудьми",
 								"rizni-potreby/dlya-vahitnykh/za-lasku-hoduvannya-hruddyu.html",
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH),
 						new Prayer(
@@ -154,8 +161,9 @@ public class Catalog {
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		topMenu.add(rizniPotreby);
 
-		topMenu.add(new Prayer("Псалом 90", "molytvy-psalom-90.html")
-				.setSource(SRC_BIBLIA));
+		SubMenu psalmy = new SubMenu("Псалми");
+		addPsaloms(psalmy);
+		topMenu.add(psalmy);
 
 		topMenu.add(new Prayer("Літургія", "liturhiya.html")
 				.setFullName(
@@ -213,7 +221,17 @@ public class Catalog {
 				"pro-spovid/molytvy-pislya-prychastya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		topMenu.add(proSpovid);
+	}
 
+	private void addPsaloms(SubMenu sm) {
+		for (int i = 1; i <= 150; i++) {
+			String name = "Псалом " + i;
+			if (i >= 10) {
+				name += " (" + (i - 1) + ")";
+			}
+			sm.addSubItem(new Prayer(name, "psalmy/" + i + ".html").setSource(
+					SRC_BIBLIA).setIsHtml(false));
+		}
 	}
 
 	public List<MenuItemBase> getTopMenuItems() {
@@ -245,6 +263,7 @@ public class Catalog {
 		private String fileName;
 		private String about;
 		private String fullName;
+		private boolean isHtml = true;
 
 		public Prayer(String name, String fileName) {
 			super(name);
@@ -279,6 +298,15 @@ public class Catalog {
 				return getName();
 			}
 			return fullName;
+		}
+
+		public Prayer setIsHtml(boolean isHtml) {
+			this.isHtml = isHtml;
+			return this;
+		}
+
+		public boolean isHtml() {
+			return isHtml;
 		}
 	}
 

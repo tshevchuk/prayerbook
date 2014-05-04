@@ -25,11 +25,11 @@ import com.tshevchuk.prayer.UIUtils;
 import com.tshevchuk.prayer.data.Catalog.Prayer;
 
 public class TextViewFragment extends FragmentBase implements
-		LoaderCallbacks<Spanned> {
+		LoaderCallbacks<CharSequence> {
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
 
 	private Prayer prayer;
-	private Spanned htmlContent;
+	private CharSequence htmlContent;
 
 	private TextView tvContent;
 
@@ -49,6 +49,7 @@ public class TextViewFragment extends FragmentBase implements
 		Bundle params = new Bundle();
 		params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
 				prayer.getFileName());
+		params.putBoolean(PrayerLoader.PARAM_IS_HTML, prayer.isHtml());
 		getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
 		getActivity().setProgressBarIndeterminateVisibility(true);
 	};
@@ -128,7 +129,8 @@ public class TextViewFragment extends FragmentBase implements
 		case R.id.mi_about_prayer:
 			((HomeActivity) getActivity()).displayFragment(
 					AboutPrayerFragment.getInstance(prayer), null);
-			((HomeActivity) getActivity()).sendAnalyticsOptionsMenuEvent("Опис");
+			((HomeActivity) getActivity())
+					.sendAnalyticsOptionsMenuEvent("Опис");
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -145,18 +147,18 @@ public class TextViewFragment extends FragmentBase implements
 	}
 
 	@Override
-	public Loader<Spanned> onCreateLoader(int id, Bundle args) {
+	public Loader<CharSequence> onCreateLoader(int id, Bundle args) {
 		return new PrayerLoader(getActivity(), args);
 	}
 
 	@Override
-	public void onLoadFinished(Loader<Spanned> loader, Spanned data) {
+	public void onLoadFinished(Loader<CharSequence> loader, CharSequence data) {
 		htmlContent = data;
 		updateHtmlContent();
 	}
 
 	@Override
-	public void onLoaderReset(Loader<Spanned> loader) {
+	public void onLoaderReset(Loader<CharSequence> loader) {
 	}
 
 	private void updateHtmlContent() {
