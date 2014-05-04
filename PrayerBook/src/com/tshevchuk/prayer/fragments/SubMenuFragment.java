@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.fragments;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,6 @@ import android.widget.ListView;
 
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.R.id;
-import com.tshevchuk.prayer.R.layout;
 import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
 import com.tshevchuk.prayer.data.Catalog.SubMenu;
 
@@ -59,7 +58,7 @@ public class SubMenuFragment extends FragmentBase {
 	}
 
 	@Override
-	public boolean isSameScreen(FragmentBase f) {
+	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
 			SubMenu s1 = (SubMenu) getArguments().getSerializable("subMenu");
 			SubMenu s2 = (SubMenu) f.getArguments().getSerializable("subMenu");

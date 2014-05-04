@@ -1,11 +1,12 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
-import android.text.Spanned;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerLoader;
+import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
@@ -115,6 +117,8 @@ public class TextViewFragment extends FragmentBase implements
 	public void onResume() {
 		super.onResume();
 		getActivity().getActionBar().setTitle(prayer.getFullName());
+		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, PreferenceManager
+				.getInstance().getFontSizeSp());
 	}
 
 	@Override
@@ -137,7 +141,7 @@ public class TextViewFragment extends FragmentBase implements
 	}
 
 	@Override
-	public boolean isSameScreen(FragmentBase f) {
+	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
 			Prayer p1 = (Prayer) getArguments().getSerializable("prayer");
 			Prayer p2 = (Prayer) f.getArguments().getSerializable("prayer");

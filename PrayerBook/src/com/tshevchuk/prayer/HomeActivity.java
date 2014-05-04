@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -24,6 +25,7 @@ import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
 import com.tshevchuk.prayer.data.Catalog.Prayer;
 import com.tshevchuk.prayer.data.Catalog.SubMenu;
 import com.tshevchuk.prayer.fragments.FragmentBase;
+import com.tshevchuk.prayer.fragments.SettingsFragment;
 import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
 
@@ -41,11 +43,12 @@ public class HomeActivity extends Activity {
 				: R.style.PrayerBook_ThemeLight);
 
 		super.onCreate(savedInstanceState);
-		
+
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
 		setContentView(R.layout.a_home);
-		
+		setProgressBarIndeterminateVisibility(false);
+
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -114,11 +117,10 @@ public class HomeActivity extends Activity {
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		PreferenceManager pm = PreferenceManager.getInstance();
-		menu.findItem(R.id.mi_night_mode_dark).setVisible(
-				!pm.isNightModeEnabled());
-		menu.findItem(R.id.mi_night_mode_light).setVisible(
-				pm.isNightModeEnabled());
+		Fragment curFragment = getFragmentManager().findFragmentById(
+				R.id.content_frame);
+		menu.findItem(R.id.mi_settings).setVisible(
+				!(curFragment instanceof SettingsFragment));
 		return super.onPrepareOptionsMenu(menu);
 	}
 
@@ -130,23 +132,15 @@ public class HomeActivity extends Activity {
 
 		PreferenceManager pm = PreferenceManager.getInstance();
 		switch (item.getItemId()) {
-		case R.id.mi_night_mode_dark:
-			pm.setNightModeEnabled(true);
-			recreate();
-			invalidateOptionsMenu();
-			sendAnalyticsOptionsMenuEvent(item.getTitle());
-			return true;
-		case R.id.mi_night_mode_light:
-			pm.setNightModeEnabled(false);
-			recreate();
-			invalidateOptionsMenu();
+		case R.id.mi_settings:
+			displayFragment(new SettingsFragment(), item.getTitle());
 			sendAnalyticsOptionsMenuEvent(item.getTitle());
 			return true;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void sendAnalyticsOptionsMenuEvent(CharSequence menuItemName) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.send(new HitBuilders.EventBuilder()
@@ -169,12 +163,14 @@ public class HomeActivity extends Activity {
 		displayFragment(f, mi.getName());
 	}
 
-	public void displayFragment(FragmentBase fragment, String title) {
+	public void displayFragment(Fragment fragment, CharSequence title) {
 		drawerLayout.closeDrawer(drawerList);
+		getActionBar().show();
 
-		FragmentBase curFragment = (FragmentBase) getFragmentManager()
-				.findFragmentById(R.id.content_frame);
-		if (curFragment != null && curFragment.isSameScreen(fragment)) {
+		Fragment curFragment = getFragmentManager().findFragmentById(
+				R.id.content_frame);
+		if (curFragment != null && curFragment instanceof FragmentBase
+				&& ((FragmentBase) curFragment).isSameScreen(fragment)) {
 			return;
 		}
 
@@ -193,7 +189,7 @@ public class HomeActivity extends Activity {
 				.getInstance()
 				.getTracker()
 				.send(new HitBuilders.EventBuilder()
-						.setCategory("Fragment Opened").setAction(title)
-						.build());
+						.setCategory("Fragment Opened")
+						.setAction(title.toString()).build());
 	}
 }

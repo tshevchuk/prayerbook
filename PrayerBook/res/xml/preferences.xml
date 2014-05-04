@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_nightMode"
+        android:summary="Нічний режим"
+        android:title="Нічний режим" />
+
+    <ListPreference
+        android:defaultValue="18"
+        android:dialogTitle="Розмір шрифта"
+        android:entries="@array/TextFontSizes"
+        android:entryValues="@array/TextFontSizes"
+        android:key="pref_textFontSize"
+        android:title="Розмір шрифта" />
+
+</PreferenceScreen>
