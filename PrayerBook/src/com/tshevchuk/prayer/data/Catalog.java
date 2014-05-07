@@ -221,6 +221,8 @@ public class Catalog {
 				"pro-spovid/molytvy-pislya-prychastya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		topMenu.add(proSpovid);
+		
+		topMenu.add(new Calendar());
 	}
 
 	private void addPsaloms(SubMenu sm) {
@@ -332,5 +334,15 @@ public class Catalog {
 			subItems.add(item);
 			return this;
 		}
+	}
+	
+	public static class Calendar extends MenuItemBase{
+		
+		public Calendar() {
+			super("Церковний календар");
+		}
+
+		private static final long serialVersionUID = 1L;
+		
 	}
 }
