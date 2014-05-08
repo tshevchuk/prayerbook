@@ -1,19 +1,23 @@
 package com.tshevchuk.prayer.data;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import com.tshevchuk.prayer.data.CalendarDay.PistType;
-
+import android.text.TextUtils;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
+
+import com.tshevchuk.prayer.data.CalendarDay.PistType;
 
 public class CerkovnyyCalendar {
 	private static final int FLAG_U_NEDILYU = 10000;
 
 	private static CerkovnyyCalendar instance;
 
-	private SparseArray<String> svyataNerukhomi = new SparseArray<String>(50);
+	private Set<Integer> svyataNerukhomi = new HashSet<Integer>(50);
 	private SparseArray<String> svyataRukhomi = new SparseArray<String>(50);
 	private SparseIntArray dataVelykodnya = new SparseIntArray(50);
 	private SparseArray<String> dni = new SparseArray<String>(400);
@@ -27,7 +31,6 @@ public class CerkovnyyCalendar {
 
 	private CerkovnyyCalendar() {
 		initVelykdenDate();
-		initNerukhomiSvyata();
 		initRukhomiSvyata();
 
 		initVeresen();
@@ -42,22 +45,51 @@ public class CerkovnyyCalendar {
 		initCherven();
 		initLypen();
 		initSerpen();
+
+		svyataNerukhomi.addAll(Arrays.asList(914, 921, 927, 1009, 1014, 1108,
+				1121, 1125, 1204, 1219, 1222, 107, 108, 109, 114, 118, 119,
+				212, 215, 407, 506, 516, 521, 522, 707, 712, 723, 724, 728,
+				802, 806, 807, 819, 828, 911));
 	}
-	
-	public CalendarDay getCalendarDay(Date day){
+
+	public CalendarDay getCalendarDay(Date day) {
 		PistType pistType = PistType.Normal;
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(day);
-				
+
 		int dayHreh = cal.get(Calendar.DAY_OF_MONTH);
 		int monthHreh = cal.get(Calendar.MONTH) + 1;
-		
+		int yearHreh = cal.get(Calendar.YEAR);
+		int dayOfYear = cal.get(Calendar.DAY_OF_YEAR);
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+
 		cal.add(Calendar.DAY_OF_MONTH, -13);
 		int dayJulian = cal.get(Calendar.DAY_OF_MONTH);
 		int monthJulian = cal.get(Calendar.MONTH) + 1;
-		
+
+		int dateVelykdnya = dataVelykodnya.get(yearHreh);
+		Calendar calVelykden = Calendar.getInstance();
+		calVelykden.setTime(day);
+		calVelykden.set(Calendar.MONTH, dateVelykdnya / 100 - 1);
+		calVelykden.set(Calendar.DAY_OF_MONTH, dateVelykdnya % 100);
+		int velykdenDayOfYear = calVelykden.get(Calendar.DAY_OF_YEAR);
+
+		String rukhomeSvyato = svyataRukhomi.get(dayOfYear - velykdenDayOfYear);
+
+		boolean isDateRed = dayOfWeek == Calendar.SUNDAY
+				|| svyataNerukhomi.contains(dayHreh + monthHreh * 100);
 		String description = dni.get(dayJulian + monthJulian * 100);
-		boolean isDateRed = false;
+		if (!TextUtils.isEmpty(rukhomeSvyato)) {
+			description += "\nРухоме: " + rukhomeSvyato;
+			isDateRed = true;
+		}
+		description = String.format("Старий: %s.%s\n%s", dayJulian,
+				monthJulian, description);
+		description = description.replaceAll("<br>", "<b><r>")
+				.replaceAll("</br>", "</b></r>").replaceAll("<ir>", "<i><r>")
+				.replaceAll("</ir>", "</i></r>")
+				.replaceAll("<r>", "<font color=\"red\">")
+				.replaceAll("</r>", "</font>");
 		return new CalendarDay(day, pistType, description, isDateRed);
 	}
 
@@ -378,21 +410,21 @@ public class CerkovnyyCalendar {
 		dni.put(1218, "Муч. Севастіяна і дружини його");
 		dni.put(1219, "Муч. Боніфатія");
 		dni.put(1220,
-				"Передпразденсгво Різдва Христового; свящ. Ігнатія Богоносця");
-		dni.put(1221, "Муч. Юліянії");
+				"<i>Передсвяття Різдва Христового</i>; Свщмч. Ігнатія Богоносця");
+		dni.put(1221, "Муч. Юліяни");
 		dni.put(1222, "Вмуч. Анастасії");
-		dni.put(1223, "Десятьох мучеників, що в Криті");
-		dni.put(1224, "Навечір’я Різдва Хрисгового; препмуч. Євгенії");
-		dni.put(1225, "Різдво Христове");
+		dni.put(1223, "10-х мучч. Критських");
+		dni.put(1224, "<i>Навечір'я Різдва Христового</i>; Препмуч Євгенії");
+		dni.put(1225, "<br>⊕ РІЗДВО ХРИСТОВЕ</br>");
 		dni.put(1226,
-				"Собор Пресвятої Богородиці; свящ. Євтимія, єп. Сардійського");
+				"<br>⊕ Собор Пресвятої Богородиці і св. Йосифа Обручника</br>");
 		dni.put(1227,
-				"Первомуч. і архидиякона Стефана; преп. Теодора Начертанного, творця канонів");
-		dni.put(1228, "Мучеників, спалених у Нікомидії");
+				"<r>Первомученика і архидиякона Стефана</r>");
+		dni.put(1228, "Мучч., спалених у Нікомидії");
 		dni.put(1229,
-				"Св. младенців, за Христа убитих у Вифлеємі; преп. Маркелла");
-		dni.put(1230, "Муч. Анісії; преп. Зотика");
-		dni.put(1231, "Віддання Різдва Христового; преп. Меланії Римлянки");
+				"Св. дітей, убитих у Вифлеємі; преп. Маркела");
+		dni.put(1230, "Муч. Анісії; преп. Зотика, пресвіт.");
+		dni.put(1231, "<i>Віддання Різдва Христового</i>; Преп. Меланії Римлянки");
 	}
 
 	private void initLystopad() {
@@ -559,45 +591,6 @@ public class CerkovnyyCalendar {
 						"Неділя всіх святих. Пресвятої Євхаристії. Христа Чоловіколюбця. Сострадання Пресвятої Богородиці. Всіх святих українського народу");
 	}
 
-	private void initNerukhomiSvyata() {
-		svyataNerukhomi.put(914, "Начало церковного року");
-		svyataNerukhomi.put(921, "Різдво Богородиці");
-		svyataNerukhomi.put(927, "Воздвиження чесного Хреста (піст)");
-		svyataNerukhomi.put(1009, "апостола Йоана");
-		svyataNerukhomi.put(1014, "Покров Богородиці");
-		svyataNerukhomi.put(1108, "великомуч. Димитрія");
-		svyataNerukhomi.put(1121, "архистратига Михаїла");
-		svyataNerukhomi.put(1125, "свящ. Йосафата");
-		svyataNerukhomi.put(1204, "Вхід у храм Богородиці");
-		svyataNerukhomi.put(1219, "Миколая Чудотворця");
-		svyataNerukhomi.put(1222, "Зачаття святої Анни");
-		svyataNerukhomi.put(106, "навечір’я Різдва (піст)");
-		svyataNerukhomi.put(107, "Різдво ГНІХ");
-		svyataNerukhomi.put(108, "Собор Богородиці");
-		svyataNerukhomi.put(109, "первомученика Стефана");
-		svyataNerukhomi.put(114, "Обрізання ГНІХ; 	Василія Великого");
-		svyataNerukhomi.put(118, "навечір’я Просвіщення (піст)");
-		svyataNerukhomi.put(119, "Святе Богоявлення ГНІХ");
-		svyataNerukhomi.put(212, "трьох святителів");
-		svyataNerukhomi.put(215, "Стрітення ГНІХ");
-		svyataNerukhomi.put(407, "Благовіщення");
-		svyataNerukhomi.put(506, "великомученика Юрія");
-		svyataNerukhomi.put(516, "Теодосія Печерського");
-		svyataNerukhomi.put(521, "апостола Йоана");
-		svyataNerukhomi.put(522, "Перенесення мощів святого Миколая");
-		svyataNerukhomi.put(707, "Різдво Йоана Предтечі");
-		svyataNerukhomi.put(712, "апостолів Петра і Павла");
-		svyataNerukhomi.put(723, "Антонія Печерського");
-		svyataNerukhomi.put(724, "блаженної Ольги");
-		svyataNerukhomi.put(728, "Володимира Великого");
-		svyataNerukhomi.put(802, "Пророка Іллі");
-		svyataNerukhomi.put(806, "мучеників Бориса і Гліба");
-		svyataNerukhomi.put(807, "Успення святої Анни");
-		svyataNerukhomi.put(819, "Переображення ГНІХ");
-		svyataNerukhomi.put(828, "Успення Богородиці");
-		svyataNerukhomi.put(911, "Усікновення голови Йоана Предтечі (піст)");
-	}
-
 	private void initVelykdenDate() {
 		dataVelykodnya.put(2003, 427);
 		dataVelykodnya.put(2004, 411);
@@ -648,6 +641,5 @@ public class CerkovnyyCalendar {
 		dataVelykodnya.put(2049, 425);
 		dataVelykodnya.put(2050, 417);
 	}
-	
-	
+
 }

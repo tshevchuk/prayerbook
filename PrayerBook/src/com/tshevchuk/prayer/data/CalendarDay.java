@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.data;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CalendarDay {
@@ -37,8 +38,12 @@ public class CalendarDay {
 
 	@Override
 	public String toString() {
-		return "CalendarDay [description=" + description + ", pistType="
-				+ pistType + ", isDateRed=" + isDateRed + ", day=" + day + "]";
+		java.text.DateFormat df = SimpleDateFormat.getDateInstance(SimpleDateFormat.FULL);
+		String dayStr = df.format(day);
+		if(isDateRed){
+			dayStr = "<font color=\"red\">" + dayStr + "</font>";
+		}
+		return dayStr + "\n" + description;
 	}
 	
 	

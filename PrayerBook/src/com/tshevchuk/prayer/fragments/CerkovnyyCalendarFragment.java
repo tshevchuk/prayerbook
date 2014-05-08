@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,10 +35,9 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		CerkovnyyCalendar cc = CerkovnyyCalendar.getInstance();
 		while(cal.get(java.util.Calendar.YEAR) < 2015){
 			sb.append(cc.getCalendarDay(cal.getTime())).append("\n\n");
-			
 			cal.add(java.util.Calendar.DAY_OF_MONTH, 1);
 		}
-		tvCalendar.setText(sb);
+		tvCalendar.setText(Html.fromHtml(sb.toString().replaceAll("\n", "<br>")));
 		return v;
 	}
 
