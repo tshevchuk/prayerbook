@@ -15,7 +15,6 @@ import android.util.SparseIntArray;
 import com.tshevchuk.prayer.data.CalendarDay.PistType;
 
 public class CerkovnyyCalendar {
-	private static final int FLAG_U_NEDILYU = 10000;
 	private static final int FLAG_RUKHOME_REPLACE = 20000;
 	private static final int FLAG_RUKHOME_REPLACE_RED_DAY = 30000;
 	private static final int FLAG_RUKHOME_RED_DAY = 40000;
@@ -51,10 +50,9 @@ public class CerkovnyyCalendar {
 		initLypen();
 		initSerpen();
 
-		svyataNerukhomi.addAll(Arrays.asList(914, 921, 927, 1009, 1014, 1108,
-				1121, 1125, 1204, 1219, 1222, 101, 107, 108, 109, 114, 119,
-				212, 215, 407, 506, 516, 521, 522, 707, 712, 723, 724, 728,
-				802, 806, 807, 819, 828, 911));
+		svyataNerukhomi.addAll(Arrays.asList(914, 921, 927, 1014, 1121, 1204,
+				1219, 1222, 101, 107, 108, 109, 114, 119, 212, 215, 407, 506,
+				516, 521, 522, 707, 712, 806, 807, 819, 828, 911));
 	}
 
 	public CalendarDay getCalendarDay(Date day) {
@@ -82,12 +80,6 @@ public class CerkovnyyCalendar {
 		boolean isDateRed = dayOfWeek == Calendar.SUNDAY
 				|| svyataNerukhomi.contains(dayHreh + monthHreh * 100);
 		String description = dni.get(dayJulian + monthJulian * 100);
-
-		String uNedilyu = dni.get(dayJulian + monthJulian * 100
-				+ FLAG_U_NEDILYU);
-		if (!TextUtils.isEmpty(uNedilyu)) {
-			description += uNedilyu + "; " + description;
-		}
 
 		String rukhomeSvyato = svyataRukhomi.get(dayOfYear - velykdenDayOfYear);
 		String rukhomeSvyateReplace = svyataRukhomi.get(dayOfYear
@@ -127,8 +119,9 @@ public class CerkovnyyCalendar {
 				newDescr = "<i>Віддання Стрітення</i>; Вмуч. Теодора Стратилата; прор. Захарії";
 			} else if ("0222".equals(dayStr)) {
 				newDescr = "<i>Заупокійна</i>; Муч. Никифора";
-			}else if("0628".equals(dayStr)){
-				newDescr = "Прор. Амоса; преп. Єроніма Стридонського";			}
+			} else if ("0628".equals(dayStr)) {
+				newDescr = "Прор. Амоса; преп. Єроніма Стридонського";
+			}
 
 		if (newDescr != null) {
 			day = new CalendarDay(day.getDay(), day.getPistType(), newDescr,
@@ -191,7 +184,6 @@ public class CerkovnyyCalendar {
 		dni.put(714, "Ап. Акили");
 		dni.put(715, "<b>† Рівноап. Володимира Великого, князя Київського</b>");
 		dni.put(716, "Свщмч. Атеногена й 10-х його учнів");
-		dni.put(FLAG_U_NEDILYU + 716, "святих Отців шести соборів.");
 		dni.put(717, "Вмуч. Маріни");
 		dni.put(718, "Мучч. Якинта й Еміліяна");
 		dni.put(719, "Преп. Макрини, сестри св. Василія Вел.; преп. Дія");
@@ -470,7 +462,7 @@ public class CerkovnyyCalendar {
 		dni.put(1114, "<b>† Ап. Пилипа</b>");
 		dni.put(1115, "Іспов. Гурія, Самона й Авіва");
 		dni.put(1116, "<b>† Ап. і Єванг. Матея</b>");
-		dni.put(1117, "Св. Григорія, єп. Неокесарій­ського");
+		dni.put(1117, "Св. Григорія, єп. Неокесарійського");
 		dni.put(1118, "Мучч. Платона і Романа");
 		dni.put(1119, "Прор. Авдія; муч. Варлаама");
 		dni.put(1120, "<i>Передсв. Введення</i>; Преп. Григорія Декаполіта");
@@ -498,7 +490,6 @@ public class CerkovnyyCalendar {
 		dni.put(1009, "<b>† Ап. Якова Алфеєва</b>");
 		dni.put(1010, "Мучч. Євлампія та Євлампії, сестри його");
 		dni.put(1011, "Ап. Филипа, дияк.; преп. Теофана, єп. Нікейського");
-		dni.put(FLAG_U_NEDILYU + 1011, "Cвятих Отців сьомого собору");
 		dni.put(1012, "Мучч. Прова, Тараха й Андроніка; преп. Косми");
 		dni.put(1013, "Мучч. Карпа, Папіли й Агатоніки");
 		dni.put(1014, "Преп. Параскеви Терновської; мучч. Назарія й ін.");
@@ -530,14 +521,14 @@ public class CerkovnyyCalendar {
 		dni.put(905, "Прор. Захарії, батька св. Йоана Христ.");
 		dni.put(906, "Чудо арх. Михаїла; мучч. Євдоксія й ін.");
 		dni.put(907, "<i>Передсв. Різдва Пресв. Богородиці</i>; Муч. Созонта");
-		dni.put(908, "<i>⊕ РІЗДВО ПРЕСВЯТОЇ БОГОРОДИЦІ</i>");
+		dni.put(908, "<b><r>⊕ РІЗДВО ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>");
 		dni.put(909, "Праведних Йоакима й Анни; муч. Северіяна");
 		dni.put(910, "Мучч. Минодори, Митродори й Німфодори");
 		dni.put(911, "Преп. Теодори Олександрійської");
 		dni.put(912,
 				"<i>Віддання Різдва Пресв. Богородиці</i>; Свщмч. Автонома");
 		dni.put(913, "<i>Передсвяття Воздвиження</i>; Свщмч. Корнилія");
-		dni.put(914, "<b><r>⊕ ВОЗДВИЖЕННЯ ХРЕСТА ГОСПОДНЬОГО</r></i>");
+		dni.put(914, "<b><r>⊕ ВОЗДВИЖЕННЯ ХРЕСТА ГОСПОДНЬОГО</r></b>");
 		dni.put(915, "Вмуч. Микити");
 		dni.put(916, "Вмуч. Євфимії");
 		dni.put(917, "Мучч. Софії та її дочок: Віри, Надії й Любові");

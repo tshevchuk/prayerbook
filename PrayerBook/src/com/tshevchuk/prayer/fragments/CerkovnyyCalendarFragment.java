@@ -32,7 +32,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		TextView tvCalendar = (TextView) v.findViewById(R.id.tv_calendar);
 		StringBuilder sb = new StringBuilder();
 		java.util.Calendar cal = java.util.Calendar.getInstance();
-		cal.set(2014, 6, 1);
+		cal.set(2014, 11-1, 1);
 		CerkovnyyCalendar cc = CerkovnyyCalendar.getInstance();
 		while(cal.get(java.util.Calendar.YEAR) < 2015){
 			sb.append(cc.getCalendarDay(cal.getTime())).append("\n\n");
