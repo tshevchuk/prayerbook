@@ -2,7 +2,6 @@ package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
 import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

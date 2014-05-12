@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -77,11 +76,6 @@ public class TextViewFragment extends FragmentBase implements
 						show = true;
 					if (!show && moveContentUp && isFling)
 						hide = true;
-					Log.d("scroll",
-							String.format(
-									"moveUp %s isFling %s dy %s show %s hide %s scrollY %s",
-									moveContentUp, isFling, dy, show, hide,
-									svScroll.getScrollY()));
 
 					ActionBar ab = getActivity().getActionBar();
 

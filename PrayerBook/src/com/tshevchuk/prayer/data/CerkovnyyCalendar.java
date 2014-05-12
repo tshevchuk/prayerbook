@@ -1,9 +1,9 @@
 package com.tshevchuk.prayer.data;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -20,6 +20,8 @@ public class CerkovnyyCalendar {
 	private static final int FLAG_RUKHOME_RED_DAY = 40000;
 
 	private static CerkovnyyCalendar instance;
+
+	private int totalDaysInSupportedYears = 0;
 
 	private Set<Integer> svyataNerukhomi = new HashSet<Integer>(50);
 	private SparseArray<String> svyataRukhomi = new SparseArray<String>(50);
@@ -69,6 +71,7 @@ public class CerkovnyyCalendar {
 		cal.add(Calendar.DAY_OF_MONTH, -13);
 		int dayJulian = cal.get(Calendar.DAY_OF_MONTH);
 		int monthJulian = cal.get(Calendar.MONTH) + 1;
+		Date dateJulian = cal.getTime();
 
 		int dateVelykdnya = dataVelykodnya.get(yearHreh);
 		Calendar calVelykden = Calendar.getInstance();
@@ -99,12 +102,29 @@ public class CerkovnyyCalendar {
 			description = rukhomeSvyatoRedDay + "; " + description;
 			isDateRed = true;
 		}
-		description = String.format("Старий: %s.%s\n%s", dayJulian,
-				monthJulian, description);
 		description = description.replaceAll("<r>", "<font color=\"red\">")
 				.replaceAll("</r>", "</font>");
-		CalendarDay cd = new CalendarDay(day, pistType, description, isDateRed);
+		CalendarDay cd = new CalendarDay(day, dateJulian, pistType,
+				description, isDateRed);
 		return fixes(cd);
+	}
+
+	public int getTotalDaysCount() {
+		if (totalDaysInSupportedYears == 0) {
+			GregorianCalendar cal = new GregorianCalendar();
+			for (int i = 0; i < dataVelykodnya.size(); ++i) {
+				int year = dataVelykodnya.keyAt(i);
+				totalDaysInSupportedYears += cal.isLeapYear(year) ? 366 : 365;
+			}
+		}
+		return totalDaysInSupportedYears;
+	}
+
+	public Date getDateForDayNumber(int dayNumber) {
+		Calendar cal = Calendar.getInstance();
+		cal.set(dataVelykodnya.keyAt(0), 0, 1);
+		cal.add(Calendar.DAY_OF_YEAR, dayNumber);
+		return cal.getTime();
 	}
 
 	private CalendarDay fixes(CalendarDay day) {
@@ -124,8 +144,8 @@ public class CerkovnyyCalendar {
 			}
 
 		if (newDescr != null) {
-			day = new CalendarDay(day.getDay(), day.getPistType(), newDescr,
-					day.isDateRed());
+			day = new CalendarDay(day.getDay(), day.getDayJulian(),
+					day.getPistType(), newDescr, day.isDateRed());
 		}
 		return day;
 	}

@@ -12,9 +12,12 @@ public class CalendarDay {
 	private final PistType pistType;
 	private final boolean isDateRed;
 	private final Date day;
-	
-	public CalendarDay(Date day, PistType pistType, CharSequence description, boolean isDateRed){
+	private final Date dayJulian;
+
+	public CalendarDay(Date day, Date dayJulian, PistType pistType,
+			CharSequence description, boolean isDateRed) {
 		this.day = day;
+		this.dayJulian = dayJulian;
 		this.pistType = pistType;
 		this.description = description;
 		this.isDateRed = isDateRed;
@@ -36,15 +39,19 @@ public class CalendarDay {
 		return day;
 	}
 
+	public Date getDayJulian() {
+		return dayJulian;
+	}
+
 	@Override
 	public String toString() {
-		java.text.DateFormat df = SimpleDateFormat.getDateInstance(SimpleDateFormat.FULL);
+		java.text.DateFormat df = SimpleDateFormat
+				.getDateInstance(SimpleDateFormat.FULL);
 		String dayStr = df.format(day);
-		if(isDateRed){
+		if (isDateRed) {
 			dayStr = "<font color=\"red\">" + dayStr + "</font>";
 		}
 		return dayStr + "\n" + description;
 	}
-	
-	
+
 }
