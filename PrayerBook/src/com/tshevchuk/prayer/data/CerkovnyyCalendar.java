@@ -109,22 +109,12 @@ public class CerkovnyyCalendar {
 		return fixes(cd);
 	}
 
-	public int getTotalDaysCount() {
-		if (totalDaysInSupportedYears == 0) {
-			GregorianCalendar cal = new GregorianCalendar();
-			for (int i = 0; i < dataVelykodnya.size(); ++i) {
-				int year = dataVelykodnya.keyAt(i);
-				totalDaysInSupportedYears += cal.isLeapYear(year) ? 366 : 365;
-			}
-		}
-		return totalDaysInSupportedYears;
+	public int getYearsCount(){
+		return dataVelykodnya.size();
 	}
-
-	public Date getDateForDayNumber(int dayNumber) {
-		Calendar cal = Calendar.getInstance();
-		cal.set(dataVelykodnya.keyAt(0), 0, 1);
-		cal.add(Calendar.DAY_OF_YEAR, dayNumber);
-		return cal.getTime();
+	
+	public int getYearByIndex(int index){
+		return dataVelykodnya.keyAt(index);
 	}
 
 	private CalendarDay fixes(CalendarDay day) {

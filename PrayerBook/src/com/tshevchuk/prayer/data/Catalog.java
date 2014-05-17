@@ -18,7 +18,6 @@ public class Catalog {
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
 	public Catalog() {
-		topMenu.add(new Calendar());
 		topMenu.add(new Prayer("Щоденні молитви", "molytvy-schodenni.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		topMenu.add(new Prayer("Ранішні молитви", "molytvy-ranishni.html")
@@ -222,7 +221,7 @@ public class Catalog {
 				"pro-spovid/molytvy-pislya-prychastya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
 		topMenu.add(proSpovid);
-		
+		topMenu.add(new Calendar());
 	}
 
 	private void addPsaloms(SubMenu sm) {

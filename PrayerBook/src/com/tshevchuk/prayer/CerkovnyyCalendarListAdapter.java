@@ -2,6 +2,8 @@ package com.tshevchuk.prayer;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import android.content.Context;
@@ -17,31 +19,45 @@ import com.tshevchuk.prayer.data.CalendarDay;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 
 public class CerkovnyyCalendarListAdapter extends BaseAdapter {
-	final String MONTHES[] = { "Січень", "Лютий", "Березень", "Квітень",
-			"Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень",
-			"Листопад", "Грудень" };
+	public final static String MONTHES[] = { "Січень", "Лютий", "Березень",
+			"Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень",
+			"Жовтень", "Листопад", "Грудень" };
 
-	private CerkovnyyCalendar calendar = CerkovnyyCalendar.getInstance();
+	private CerkovnyyCalendar cerkovnyyCalendar = CerkovnyyCalendar
+			.getInstance();
+	private Calendar calendar;
+	private int year;
+	private int daysCount;
+	private int currentYear;
+	private int currentDayOfYear;
 	private LayoutInflater inflater;
 	private SimpleDateFormat dayDateFormat;
 	private SimpleDateFormat dayOldStyleFormat;
 
-	public CerkovnyyCalendarListAdapter(Context context) {
+	public CerkovnyyCalendarListAdapter(Context context, int year) {
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		dayDateFormat = new SimpleDateFormat("d EE", Locale.getDefault());
 		dayOldStyleFormat = new SimpleDateFormat("d MMM", Locale.getDefault());
-
+		calendar = Calendar.getInstance();
+		currentYear = calendar.get(Calendar.YEAR);
+		currentDayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
+		calendar.set(Calendar.YEAR, year);
+		this.year = year;
 	}
 
 	@Override
 	public int getCount() {
-		return calendar.getTotalDaysCount();
+		if (daysCount == 0) {
+			daysCount = new GregorianCalendar().isLeapYear(year) ? 366 : 365;
+		}
+		return daysCount;
 	}
 
 	@Override
 	public CalendarDay getItem(int position) {
-		return calendar.getCalendarDay(calendar.getDateForDayNumber(position));
+		calendar.set(Calendar.DAY_OF_YEAR, position + 1);
+		return cerkovnyyCalendar.getCalendarDay(calendar.getTime());
 	}
 
 	@Override
@@ -60,14 +76,12 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 			vh.tvDay = (TextView) v.findViewById(R.id.tvDay);
 			vh.tvDayOldStyle = (TextView) v.findViewById(R.id.tvDayOldStyle);
 			vh.tvDescription = (TextView) v.findViewById(R.id.tvDescription);
-			vh.tvMonth = (TextView) v.findViewById(R.id.tvMonth);
+			vh.vMonthSeparator = v.findViewById(R.id.vMonthSeparator);
 
 			vh.tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP,
 					PreferenceManager.getInstance().getFontSizeSp());
 			vh.tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, PreferenceManager
 					.getInstance().getFontSizeSp());
-			vh.tvMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP,
-					PreferenceManager.getInstance().getFontSizeSp() + 2);
 			v.setTag(vh);
 		}
 		ViewHolder vh = (ViewHolder) v.getTag();
@@ -84,11 +98,15 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(day.getDay());
 		if (cal.get(Calendar.DAY_OF_MONTH) == 1) {
-			vh.tvMonth.setVisibility(View.VISIBLE);
-			vh.tvMonth.setText(String.format("%s %s",
-					MONTHES[cal.get(Calendar.MONTH)], cal.get(Calendar.YEAR)));
+			vh.vMonthSeparator.setVisibility(View.VISIBLE);
 		} else {
-			vh.tvMonth.setVisibility(View.GONE);
+			vh.vMonthSeparator.setVisibility(View.GONE);
+		}
+		if (year == currentYear
+				&& cal.get(Calendar.DAY_OF_YEAR) == currentDayOfYear) {
+			vh.tvDay.setBackgroundResource(R.drawable.cerkovnyy_calendar_current_day_background);
+		} else {
+			vh.tvDay.setBackgroundResource(0);
 		}
 		return v;
 	}
@@ -97,6 +115,6 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 		TextView tvDay;
 		TextView tvDayOldStyle;
 		TextView tvDescription;
-		TextView tvMonth;
+		View vMonthSeparator;
 	}
 }
