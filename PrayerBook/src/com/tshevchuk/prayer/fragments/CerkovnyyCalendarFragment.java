@@ -13,6 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.tshevchuk.prayer.Analytics;
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.adapters.CerkovnyyCalendarListAdapter;
 import com.tshevchuk.prayer.data.Catalog.Calendar;
@@ -90,11 +94,17 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 					public boolean onNavigationItemSelected(int itemPosition,
 							long itemId) {
 						showCalendarForYear(years[itemPosition]);
+						Tracker t = PrayerBookApplication.getInstance()
+								.getTracker();
+						t.send(new HitBuilders.EventBuilder()
+								.setCategory(Analytics.CAT_CERKOVNYY_CALENDAR)
+								.setAction("Вибрано рік")
+								.setLabel(formattedYears[itemPosition]).build());
 						return true;
 					}
 				});
-		for(int i = 0; i < years.length; ++i){
-			if(years[i] == year){
+		for (int i = 0; i < years.length; ++i) {
+			if (years[i] == year) {
 				actionBar.setSelectedNavigationItem(i);
 			}
 		}

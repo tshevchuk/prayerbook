@@ -4,8 +4,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.text.TextUtils;
 
 import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.HitBuilders.EventBuilder;
 import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.Analytics;
 import com.tshevchuk.prayer.PrayerBookApplication;
@@ -39,17 +41,24 @@ public class SettingsFragment extends PreferenceFragment implements
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
 		if (key.equals(PreferenceManager.PREF_NIGHT_MODE)) {
-			sendAnalyticsSettingsChanged(key);
+			sendAnalyticsSettingsChanged(key,
+					String.valueOf(sharedPreferences.getBoolean(key, false)));
 			getActivity().recreate();
 		} else if (key.equals(PreferenceManager.PREF_TEXT_FONT_SIZE)) {
-			sendAnalyticsSettingsChanged(key);
+			sendAnalyticsSettingsChanged(key,
+					sharedPreferences.getString(key, ""));
 		}
 	}
 
-	public void sendAnalyticsSettingsChanged(CharSequence settingsName) {
+	public void sendAnalyticsSettingsChanged(CharSequence settingsName,
+			CharSequence value) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
-		t.send(new HitBuilders.EventBuilder()
-				.setCategory(Analytics.CAT_SETTINGS_CHANGED)
-				.setAction(settingsName.toString()).build());
+		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
+				Analytics.CAT_SETTINGS_CHANGED).setAction(
+				settingsName.toString());
+		if (!TextUtils.isEmpty(value)) {
+			event.setLabel(value.toString());
+		}
+		t.send(event.build());
 	}
 }
