@@ -109,14 +109,14 @@ public class CerkovnyyCalendar {
 		return fixes(cd);
 	}
 
-	public int getYearsCount(){
-		return dataVelykodnya.size();
+	public int[] getYears(){
+		int[] years = new int[dataVelykodnya.size()];
+		for(int i = 0; i < years.length; ++i){
+			years[i] = dataVelykodnya.keyAt(i);
+		}
+		return years;
 	}
 	
-	public int getYearByIndex(int index){
-		return dataVelykodnya.keyAt(index);
-	}
-
 	private CalendarDay fixes(CalendarDay day) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(day.getDay());

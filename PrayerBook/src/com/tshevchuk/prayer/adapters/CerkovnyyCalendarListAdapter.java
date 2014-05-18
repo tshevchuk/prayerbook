@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer;
+package com.tshevchuk.prayer.adapters;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,6 +15,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PreferenceManager;
+import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.R.drawable;
+import com.tshevchuk.prayer.R.id;
+import com.tshevchuk.prayer.R.layout;
 import com.tshevchuk.prayer.data.CalendarDay;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 
