@@ -165,11 +165,17 @@ public class Catalog {
 		addPsaloms(psalmy);
 		topMenu.add(psalmy);
 
-		topMenu.add(new Prayer("Літургія", "liturhiya.html")
-				.setFullName(
-						"Чин священної і Божественної Літургії святого Івана Золотоустого")
-				.setSource(
-						"Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html"));
+		SubMenu liturhiya = new SubMenu("Літургія");
+		liturhiya
+				.addSubItem(new Prayer("Божественна Літургія св. отця нашого Йоана Золотоустого",
+						"liturhiya/liturhiya-ugcc.html")
+						.setSource("Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011"));
+		liturhiya
+				.addSubItem(new Prayer(
+						"Чин священної і Божественної Літургії святого Івана Золотоустого",
+						"liturhiya/liturhiya.html")
+						.setSource("Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html"));
+		topMenu.add(liturhiya);
 
 		SubMenu katehPravdy = new SubMenu("Катехизмові правди");
 		katehPravdy.addSubItem(new Prayer("Заповіді",
@@ -188,7 +194,7 @@ public class Catalog {
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
 		topMenu.add(katehPravdy);
 
-		SubMenu proSpovid = new SubMenu("Про сповідь");
+		SubMenu proSpovid = new SubMenu("Сповідь та причастя");
 		proSpovid.addSubItem(new Prayer("Про щастя людини",
 				"pro-spovid/pro-schastya.html").setSource(SRC_PRO_SPOVID));
 		proSpovid.addSubItem(new Prayer("Церква як Божа установа",
@@ -334,14 +340,14 @@ public class Catalog {
 			return this;
 		}
 	}
-	
-	public static class Calendar extends MenuItemBase{
-		
+
+	public static class Calendar extends MenuItemBase {
+
 		public Calendar() {
 			super("Церковний календар");
 		}
 
 		private static final long serialVersionUID = 1L;
-		
+
 	}
 }
