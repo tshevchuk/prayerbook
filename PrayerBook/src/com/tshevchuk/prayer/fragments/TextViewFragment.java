@@ -23,18 +23,18 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
 import com.tshevchuk.prayer.UIUtils;
-import com.tshevchuk.prayer.data.Catalog.Prayer;
+import com.tshevchuk.prayer.data.MenuItemPrayer;
 
 public class TextViewFragment extends FragmentBase implements
 		LoaderCallbacks<CharSequence> {
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
 
-	private Prayer prayer;
+	private MenuItemPrayer prayer;
 	private CharSequence htmlContent;
 
 	private TextView tvContent;
 
-	public static TextViewFragment getInstance(Prayer prayer) {
+	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
 		TextViewFragment f = new TextViewFragment();
 		Bundle b = new Bundle();
 		b.putSerializable("prayer", prayer);
@@ -46,7 +46,7 @@ public class TextViewFragment extends FragmentBase implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
-		prayer = (Prayer) getArguments().getSerializable("prayer");
+		prayer = (MenuItemPrayer) getArguments().getSerializable("prayer");
 		Bundle params = new Bundle();
 		params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
 				prayer.getFileName());
@@ -137,8 +137,8 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
-			Prayer p1 = (Prayer) getArguments().getSerializable("prayer");
-			Prayer p2 = (Prayer) f.getArguments().getSerializable("prayer");
+			MenuItemPrayer p1 = (MenuItemPrayer) getArguments().getSerializable("prayer");
+			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments().getSerializable("prayer");
 			return p1.getFileName().equals(p2.getFileName());
 		}
 		return false;

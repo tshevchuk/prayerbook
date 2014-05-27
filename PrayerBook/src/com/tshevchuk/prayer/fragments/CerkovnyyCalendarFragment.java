@@ -19,8 +19,8 @@ import com.tshevchuk.prayer.Analytics;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.adapters.CerkovnyyCalendarListAdapter;
-import com.tshevchuk.prayer.data.Catalog.Calendar;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
+import com.tshevchuk.prayer.data.MenuItemCalendar;
 
 public class CerkovnyyCalendarFragment extends FragmentBase {
 	private int year;
@@ -35,7 +35,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	private TextView tvMonth;
 	private ActionBar actionBar;
 
-	public static CerkovnyyCalendarFragment getInstance(Calendar cal) {
+	public static CerkovnyyCalendarFragment getInstance(MenuItemCalendar cal) {
 		CerkovnyyCalendarFragment f = new CerkovnyyCalendarFragment();
 		return f;
 	}

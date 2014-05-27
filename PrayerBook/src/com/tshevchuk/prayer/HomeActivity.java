@@ -21,10 +21,10 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.Catalog.Calendar;
-import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
-import com.tshevchuk.prayer.data.Catalog.Prayer;
-import com.tshevchuk.prayer.data.Catalog.SubMenu;
+import com.tshevchuk.prayer.data.MenuItemBase;
+import com.tshevchuk.prayer.data.MenuItemCalendar;
+import com.tshevchuk.prayer.data.MenuItemPrayer;
+import com.tshevchuk.prayer.data.MenuItemSubMenu;
 import com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.fragments.FragmentBase;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
@@ -156,12 +156,12 @@ public class HomeActivity extends Activity {
 
 	public void displayMenuItem(MenuItemBase mi) {
 		FragmentBase f = null;
-		if (mi instanceof Prayer) {
-			f = TextViewFragment.getInstance(((Prayer) mi));
-		} else if (mi instanceof SubMenu) {
-			f = SubMenuFragment.getInstance((SubMenu) mi);
-		} else if (mi instanceof Calendar) {
-			f = CerkovnyyCalendarFragment.getInstance((Calendar)mi);
+		if (mi instanceof MenuItemPrayer) {
+			f = TextViewFragment.getInstance(((MenuItemPrayer) mi));
+		} else if (mi instanceof MenuItemSubMenu) {
+			f = SubMenuFragment.getInstance((MenuItemSubMenu) mi);
+		} else if (mi instanceof MenuItemCalendar) {
+			f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar)mi);
 		}
 
 		displayFragment(f, mi.getName());

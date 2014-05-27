@@ -12,13 +12,13 @@ import android.widget.ListView;
 
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.data.Catalog.MenuItemBase;
-import com.tshevchuk.prayer.data.Catalog.SubMenu;
+import com.tshevchuk.prayer.data.MenuItemBase;
+import com.tshevchuk.prayer.data.MenuItemSubMenu;
 
 public class SubMenuFragment extends FragmentBase {
-	private SubMenu subMenu;
+	private MenuItemSubMenu subMenu;
 
-	public static SubMenuFragment getInstance(SubMenu subMenu) {
+	public static SubMenuFragment getInstance(MenuItemSubMenu subMenu) {
 		SubMenuFragment f = new SubMenuFragment();
 		Bundle b = new Bundle();
 		b.putSerializable("subMenu", subMenu);
@@ -29,7 +29,7 @@ public class SubMenuFragment extends FragmentBase {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		subMenu = (SubMenu) getArguments().getSerializable("subMenu");
+		subMenu = (MenuItemSubMenu) getArguments().getSerializable("subMenu");
 	};
 
 	@Override
@@ -60,8 +60,8 @@ public class SubMenuFragment extends FragmentBase {
 	@Override
 	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
-			SubMenu s1 = (SubMenu) getArguments().getSerializable("subMenu");
-			SubMenu s2 = (SubMenu) f.getArguments().getSerializable("subMenu");
+			MenuItemSubMenu s1 = (MenuItemSubMenu) getArguments().getSerializable("subMenu");
+			MenuItemSubMenu s2 = (MenuItemSubMenu) f.getArguments().getSerializable("subMenu");
 			return s1.getName().equals(s2.getName());
 		}
 		return false;

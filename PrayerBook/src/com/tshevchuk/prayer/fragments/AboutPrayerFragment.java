@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.data.Catalog.Prayer;
+import com.tshevchuk.prayer.data.MenuItemPrayer;
 
 public class AboutPrayerFragment extends FragmentBase {
-	private Prayer prayer;
+	private MenuItemPrayer prayer;
 
-	public static AboutPrayerFragment getInstance(Prayer prayer) {
+	public static AboutPrayerFragment getInstance(MenuItemPrayer prayer) {
 		AboutPrayerFragment f = new AboutPrayerFragment();
 		Bundle b = new Bundle();
 		b.putSerializable("prayer", prayer);
@@ -24,7 +24,7 @@ public class AboutPrayerFragment extends FragmentBase {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		prayer = (Prayer) getArguments().getSerializable("prayer");
+		prayer = (MenuItemPrayer) getArguments().getSerializable("prayer");
 	};
 
 	@Override
