@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
@@ -33,6 +34,7 @@ public class TextViewFragment extends FragmentBase implements
 	private CharSequence htmlContent;
 
 	private TextView tvContent;
+	private Activity activity;
 
 	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
 		TextViewFragment f = new TextViewFragment();
@@ -40,6 +42,12 @@ public class TextViewFragment extends FragmentBase implements
 		b.putSerializable("prayer", prayer);
 		f.setArguments(b);
 		return f;
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.activity = activity;
 	}
 
 	@Override
@@ -137,8 +145,10 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
-			MenuItemPrayer p1 = (MenuItemPrayer) getArguments().getSerializable("prayer");
-			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments().getSerializable("prayer");
+			MenuItemPrayer p1 = (MenuItemPrayer) getArguments()
+					.getSerializable("prayer");
+			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments()
+					.getSerializable("prayer");
 			return p1.getFileName().equals(p2.getFileName());
 		}
 		return false;
