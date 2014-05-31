@@ -266,12 +266,18 @@ public class Catalog {
 		menu.addSubItem(new MenuItemPrayer("Акафіст до Архистратига Михаїла",
 				"akafisty/mykhajila.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Архистратига Михаїла (другий варіант)",
+				"akafisty/mykhajila-2.html").setSource(SRC_AKAFISTY_MOLYTVA)
+				.setIsHtml(false));
 		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст покаянний жінок,які вбили немовлят у своїй утробі",
+				"Акафіст покаянний жінок, які вбили немовлят у своїй утробі",
 				"akafisty/zhinok-vbyly-nemovlyat.html").setSource(
 				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафісти за душі померлих",
+		menu.addSubItem(new MenuItemPrayer("Акафіст за упокій померлих (багатьох)",
 				"akafisty/dushi-pomerlykh.html")
+				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст за померлого (одного)",
+				"akafisty/pomerloho-odnoho.html")
 				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
 		return menu;
 	}
