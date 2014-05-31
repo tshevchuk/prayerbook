@@ -16,8 +16,6 @@ public class Catalog {
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
 	public Catalog() {
-		topMenu.add(addAkafisty());
-
 		topMenu.add(new MenuItemPrayer("Щоденні молитви",
 				"molytvy-schodenni.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
@@ -39,6 +37,8 @@ public class Catalog {
 		MenuItemSubMenu psalmy = new MenuItemSubMenu("Псалми");
 		addPsaloms(psalmy);
 		topMenu.add(psalmy);
+
+		topMenu.add(addAkafisty());
 
 		topMenu.add(addLiturhiya());
 		topMenu.add(addKatekhPravdy());
