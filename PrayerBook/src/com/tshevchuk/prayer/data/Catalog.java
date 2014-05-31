@@ -16,6 +16,8 @@ public class Catalog {
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 
 	public Catalog() {
+		topMenu.add(addAkafisty());
+
 		topMenu.add(new MenuItemPrayer("Щоденні молитви",
 				"molytvy-schodenni.html")
 				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
@@ -37,7 +39,6 @@ public class Catalog {
 		MenuItemSubMenu psalmy = new MenuItemSubMenu("Псалми");
 		addPsaloms(psalmy);
 		topMenu.add(psalmy);
-		topMenu.add(addAkafisty());
 
 		topMenu.add(addLiturhiya());
 		topMenu.add(addKatekhPravdy());
@@ -94,7 +95,6 @@ public class Catalog {
 
 	private MenuItemSubMenu addAkafisty() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Акафісти");
-		String SRC_ = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 		menu.addSubItem(new MenuItemPrayer("Про Акафіст",
 				"akafisty/pro-akafist.html").setSource(SRC_AKAFISTY_MOLYTVA));
 		// Матері Божої
@@ -142,6 +142,10 @@ public class Catalog {
 				"akafisty/materi-bozhoji-zarvanytskoji.html").setSource(
 				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
 		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до Зарваницької Матері Божої (нова версія)",
+				"akafisty/materi-bozhoji-zarvanytskoji-nova.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
 				"Акафіст до Матері Божої Крилоської",
 				"akafisty/materi-bozhoji-kryloskoji.html").setSource(
 				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
@@ -156,112 +160,119 @@ public class Catalog {
 				"akafisty/do-bohorodytsi-na-chest-ikony-prybavlennya-rozumu.html")
 				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
 		// Пресвятої Тройці
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Пресвятої Трійці",
+				"akafisty/presvyatoji-trojtsi.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Святого Духа",
+				"akafisty/svyatoho-dukha.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Ісуса Христа",
+				"akafisty/isusa-khrysta.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Божого Милосердя",
+				"akafisty/bozhoho-myloserdya.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Христових Страстей",
+				"akafisty/khrystovykh-strastej.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до Живоносного Гробу і Воскресіння Христа",
+				"akafisty/zhyvonosnoho-hrobu-i-voskresinnya.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Воскресіння Христового",
+				"akafisty/voskresinnya-khrystovoho.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до Причастя Святих Христових Таїн",
+				"akafisty/prychastya-tain.html")
+				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст подяки Ісусу Христу «Слава Богові за все»",
+				"akafisty/podyaky-isusu.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer("Акафіст «Абетка покаяння»",
+				"akafisty/abetka-pokayannya.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст - подяка Пресвятій Трійці",
+				"akafisty/podyaka-trijtsi.html")
+				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		// Святі і мученики
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до Собору дванадцяти Апостолів Христових",
+				"akafisty/do-soboru-apostoliv.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до священомученика Йосафата",
+				"akafisty/do-josaphata.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до священомученика Йосафата (другий варіант)",
+				"akafisty/do-josaphata-2.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до святого київського Аскольда",
+				"akafisty/kyivskoho-askolda.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святителя Миколая",
+				"akafisty/mykolaya.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до блаженного Омеляна Ковча",
+				"akafisty/omelyana-kovcha.html")
+				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святого отця Піо",
+				"akafisty/otsya-pio.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до святого Романа Солодкоспівця",
+				"akafisty/romana-solodkospivtsya.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святого Івана Предтечі",
+				"akafisty/ivana-predtechi.html")
+				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до святого Василія Великого",
+				"akafisty/vasyliya-velykoho.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святого Агапіта",
+				"akafisty/ahapita.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до святих Апостолів Петра і Павла",
+				"akafisty/petra-i-pavla.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до святого Пантелеймона Цілителя",
+				"akafisty/panteleymona-tsilytelya.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст до святої Терези від Дитятка Ісус",
+				"akafisty/terezy-vid-isusa.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святої Філомени",
+				"akafisty/filomeny.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святої Варвари",
+				"akafisty/varvary.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer("Акафіст до святої Параскеви",
+				"akafisty/paraskevy.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст Дрогобицьким священомученикам Якиму, Віталію та Северіяну",
+				"akafisty/drohobytskomu-yakymu.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		// Інші
+		menu.addSubItem(new MenuItemPrayer("Акафіст до Архистратига Михаїла",
+				"akafisty/mykhajila.html").setSource(SRC_AKAFISTY_MOLYTVA)
 				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("", "akafisty/").setSource(SRC_)
-				.setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer(
+				"Акафіст покаянний жінок,які вбили немовлят у своїй утробі",
+				"akafisty/zhinok-vbyly-nemovlyat.html").setSource(
+				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.addSubItem(new MenuItemPrayer("Акафісти за душі померлих",
+				"akafisty/dushi-pomerlykh.html")
+				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
 		return menu;
 	}
 
