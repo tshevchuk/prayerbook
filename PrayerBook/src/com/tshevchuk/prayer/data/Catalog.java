@@ -9,8 +9,6 @@ public class Catalog {
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
 	private static final String SRC_PRO_SPOVID = "Про Сповідь. о. Порфирій В. Шумило, ЧСВВ, бр. Пімен І. Коневич, ЧСВВ http://osbm-buchach.org.ua/knygy/pro-spovid.html";
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
-	private static final String SRC_PSALTYR_1990 = "Молитовний псалтир, Рим 1990";
-	private static final String SRC_AKAFISTY_KIRIOS = "Християнський портал Кіріос http://kyrios.org.ua/spirituality/akafisti.html";
 	private static final String SRC_AKAFISTY_MOLYTVA = "МОЛИТВА http://molytva.at.ua/index/akafist/0-293";
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
@@ -418,9 +416,13 @@ public class Catalog {
 		rizniPotreby.addSubItem(new MenuItemPrayer("Молитва батьків за дітей",
 				"rizni-potreby/batkiv-za-ditey.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		rizniPotreby.addSubItem(new MenuItemPrayer("Молитва дітей за батьків",
-				"rizni-potreby/ditey-za-batkiv.html")
+		rizniPotreby.addSubItem(new MenuItemPrayer("Молитва батьків за дітей",
+				"rizni-potreby/batkiv-za-ditey.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		rizniPotreby.addSubItem(new MenuItemPrayer("Молитва за чоловіка (дружину)",
+				"rizni-potreby/za-cholovika-druzhynu.html")
+				.setSource("МОЛИТВА http://molytva.at.ua/index/rodinni_molitvi/0-151")
+				.setIsHtml(false));
 		rizniPotreby.addSubItem(new MenuItemPrayer("Молитва учня (учениці)",
 				"rizni-potreby/uchnya.html")
 				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
