@@ -27,4 +27,17 @@ public class MenuItemSubMenu extends MenuItemBase {
 		subItems.add(item);
 		return this;
 	}
+	
+	public MenuItemPrayer html(int id, String name,
+			String fileName, String source) {
+		MenuItemPrayer mi = new MenuItemPrayer(name, fileName);
+		mi.setSource(source);
+		addSubItem(mi);
+		return mi;
+	}
+
+	public MenuItemPrayer text(int id, String name,
+			String fileName, String source) {
+		return html(id, name, fileName, source).setIsHtml(false);
+	}
 }

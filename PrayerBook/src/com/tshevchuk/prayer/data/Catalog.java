@@ -52,220 +52,205 @@ public class Catalog {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Пісні");
 
 		MenuItemSubMenu proslavy = new MenuItemSubMenu("Молитва прослави");
-		proslavy.addSubItem(new MenuItemPrayer(
-				"Пісня подяки св. Амвросія, єпископа Медіолянського",
-				"pisni/proslavy/podyaky-amvrosiya.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		proslavy.text(0, "Пісня подяки св. Амвросія, єпископа Медіолянського",
+				"pisni/proslavy/podyaky-amvrosiya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(proslavy);
 
 		MenuItemSubMenu zaNarid = new MenuItemSubMenu("Молитви за нарід");
-		zaNarid.addSubItem(new MenuItemPrayer("Боже великий, єдиний",
-				"pisni/za-narid/bozhe-velykyj-jedynyj.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		zaNarid.addSubItem(new MenuItemPrayer("Боже, вислухай благання",
-				"pisni/za-narid/bozhe-vyslukhaj-blahannya.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		zaNarid.addSubItem(new MenuItemPrayer("Боже великий, Творче всесвіту",
-				"pisni/za-narid/bozhe-tvorche-vsesvitu.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		proslavy.text(0, "Боже великий, єдиний",
+				"pisni/za-narid/bozhe-velykyj-jedynyj.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		proslavy.text(0, "Боже, вислухай благання",
+				"pisni/za-narid/bozhe-vyslukhaj-blahannya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		proslavy.text(0, "Боже великий, Творче всесвіту",
+				"pisni/za-narid/bozhe-tvorche-vsesvitu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(zaNarid);
 
 		MenuItemSubMenu kolyady = new MenuItemSubMenu("Коляди");
-		kolyady.addSubItem(new MenuItemPrayer("Бог предвічний",
-				"pisni/kolyady/boh-predvichynyj.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Бог ся рождає",
-				"pisni/kolyady/boh-sya-rozhdaye.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("В Вифлеємі днесь Марія",
-				"pisni/kolyady/v-vyflejemi-dnes-mariya.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("В Вифлеємі новина",
-				"pisni/kolyady/v-vyfleyemi-novyna.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Во Вифлеємі нині новина",
-				"pisni/kolyady/vo-vyfleyemi-nyni-novyna.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Возвеселімся всі разом нині",
-				"pisni/kolyady/vozveselimsya-vsi-razom-nyni.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Вселенная, веселися",
-				"pisni/kolyady/vselennaya-veselysya.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Дивная новина",
-				"pisni/kolyady/dyvnaya-novyna.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("На небі зірка ясна засяла",
-				"pisni/kolyady/na-nebi-zirka-yasna-zasyala.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Небо і земля",
-				"pisni/kolyady/nebo-i-zemlya.html").setIsHtml(false).setSource(
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Нова радість стала",
-				"pisni/kolyady/nova-radist-stala.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("Нова радість стала (1)",
-				"pisni/kolyady/nova-radist-stala-1.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		kolyady.addSubItem(new MenuItemPrayer("По всьому світу",
-				"pisni/kolyady/po-vsjomu-svitu.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		kolyady.text(0, "Бог предвічний",
+				"pisni/kolyady/boh-predvichynyj.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Бог ся рождає", "pisni/kolyady/boh-sya-rozhdaye.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "В Вифлеємі днесь Марія",
+				"pisni/kolyady/v-vyflejemi-dnes-mariya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "В Вифлеємі новина",
+				"pisni/kolyady/v-vyfleyemi-novyna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Во Вифлеємі нині новина",
+				"pisni/kolyady/vo-vyfleyemi-nyni-novyna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Возвеселімся всі разом нині",
+				"pisni/kolyady/vozveselimsya-vsi-razom-nyni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Вселенная, веселися",
+				"pisni/kolyady/vselennaya-veselysya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Дивная новина", "pisni/kolyady/dyvnaya-novyna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "На небі зірка ясна засяла",
+				"pisni/kolyady/na-nebi-zirka-yasna-zasyala.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Небо і земля", "pisni/kolyady/nebo-i-zemlya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Нова радість стала",
+				"pisni/kolyady/nova-radist-stala.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "Нова радість стала (1)",
+				"pisni/kolyady/nova-radist-stala-1.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		kolyady.text(0, "По всьому світу",
+				"pisni/kolyady/po-vsjomu-svitu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(kolyady);
 
 		MenuItemSubMenu velykoposni = new MenuItemSubMenu("Великопосні пісні");
-		velykoposni.addSubItem(new MenuItemPrayer("Люди мої, люди",
-				"pisni/velykoposni/lyudy-moyi-lyudy.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		velykoposni.addSubItem(new MenuItemPrayer("На Вавилонських ріках",
-				"pisni/velykoposni/na-vavylonskykh-rikakh.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		velykoposni.addSubItem(new MenuItemPrayer("Під хрест Твій стаю",
-				"pisni/velykoposni/pid-khrest-tvij-stayu.html")
-				.setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		velykoposni.addSubItem(new MenuItemPrayer("Поклоняюся, мій Христе",
-				"pisni/velykoposni/poklonyayusya-mij-khryste.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		velykoposni.addSubItem(new MenuItemPrayer("Страдальна Мати",
-				"pisni/velykoposni/stradalna-maty.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		velykoposni.addSubItem(new MenuItemPrayer("Хрест на плечі накладають",
-				"pisni/velykoposni/khrest-na-plechi-nakladayut.html")
-				.setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		velykoposni.text(0, "Люди мої, люди",
+				"pisni/velykoposni/lyudy-moyi-lyudy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		velykoposni.text(0, "На Вавилонських ріках",
+				"pisni/velykoposni/na-vavylonskykh-rikakh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		velykoposni.text(0, "Під хрест Твій стаю",
+				"pisni/velykoposni/pid-khrest-tvij-stayu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		velykoposni.text(0, "Поклоняюся, мій Христе",
+				"pisni/velykoposni/poklonyayusya-mij-khryste.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		velykoposni.text(0, "Страдальна Мати",
+				"pisni/velykoposni/stradalna-maty.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		velykoposni.text(0, "Хрест на плечі накладають",
+				"pisni/velykoposni/khrest-na-plechi-nakladayut.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(velykoposni);
 
 		MenuItemSubMenu voskresni = new MenuItemSubMenu("Воскресні пісні");
-		voskresni.addSubItem(new MenuItemPrayer("Сей день",
-				"pisni/voskresni/sej-den.html").setIsHtml(false).setSource(
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		voskresni.addSubItem(new MenuItemPrayer("Согласно заспіваймо",
-				"pisni/voskresni/sohlasno-zaspivajmo.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		voskresni.addSubItem(new MenuItemPrayer(
-				"Христос воскрес! Радість з неба",
-				"pisni/voskresni/khrystos-voskres.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		voskresni.text(0, "Сей день", "pisni/voskresni/sej-den.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		voskresni.text(0, "Согласно заспіваймо",
+				"pisni/voskresni/sohlasno-zaspivajmo.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		voskresni.text(0, "Христос воскрес! Радість з неба",
+				"pisni/voskresni/khrystos-voskres.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(voskresni);
 
 		MenuItemSubMenu doKhrysta = new MenuItemSubMenu("Пісні до Христа");
-		doKhrysta.addSubItem(new MenuItemPrayer("Витай між нами",
-				"pisni/khrysta/vytaj-mizh-namy.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		doKhrysta.addSubItem(new MenuItemPrayer("Вірую, Господи",
-				"pisni/khrysta/viruyu-hospody.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		doKhrysta.addSubItem(new MenuItemPrayer("Ісуса в святих тайнах",
-				"pisni/khrysta/isusa-v-svyatykh-tajnakh.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		doKhrysta.addSubItem(new MenuItemPrayer("О, Ісусе, Ти з лю6ови",
-				"pisni/khrysta/o-isuse-ty-z-lyubovy.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		doKhrysta.addSubItem(new MenuItemPrayer("Пливи світами",
-				"pisni/khrysta/plyvy-svitamy.html").setIsHtml(false).setSource(
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		doKhrysta.addSubItem(new MenuItemPrayer("Тіло Христове",
-				"pisni/khrysta/tilo-khrystove.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		doKhrysta.text(0, "Витай між нами",
+				"pisni/khrysta/vytaj-mizh-namy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		doKhrysta.text(0, "Вірую, Господи",
+				"pisni/khrysta/viruyu-hospody.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		doKhrysta.text(0, "Ісуса в святих тайнах",
+				"pisni/khrysta/isusa-v-svyatykh-tajnakh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		doKhrysta.text(0, "О, Ісусе, Ти з лю6ови",
+				"pisni/khrysta/o-isuse-ty-z-lyubovy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		doKhrysta.text(0, "Пливи світами", "pisni/khrysta/plyvy-svitamy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		doKhrysta.text(0, "Тіло Христове", "pisni/khrysta/tilo-khrystove.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(doKhrysta);
 
 		MenuItemSubMenu svyatohoDukha = new MenuItemSubMenu(
 				"Пісня до Святого Духа");
-		svyatohoDukha.addSubItem(new MenuItemPrayer("Царю небесний",
-				"pisni/dukha/tsaryu-nebesnyj.html").setIsHtml(false).setSource(
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		svyatohoDukha.text(0, "Царю небесний",
+				"pisni/dukha/tsaryu-nebesnyj.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(svyatohoDukha);
 
 		MenuItemSubMenu bohorodytsi = new MenuItemSubMenu("Пісні до Богородиці");
-		bohorodytsi.addSubItem(new MenuItemPrayer("Богородице Діво",
-				"pisni/bohorodytsi/bohorodytse-divo.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Вихваляйте доли, гори",
-				"pisni/bohorodytsi/vykhvalyajte-doly-hory.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Ген до неба",
-				"pisni/bohorodytsi/hen-do-neba.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Достойно єсть",
-				"pisni/bohorodytsi/dostojno-yest.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Коли втомлений",
-				"pisni/bohorodytsi/koly-vtomlenyj.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Лугами піснь",
-				"pisni/bohorodytsi/luhamy-pisen.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Маріє, Діво благословенна",
-				"pisni/bohorodytsi/mariye-divo-blahoslovenna.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Маріє Діво, Царице мая",
-				"pisni/bohorodytsi/mariye-divo-tsarytse-maya.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Нехай звенить",
-				"pisni/bohorodytsi/nekhaj-dzvenyt.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("О, Богородице Діво, Маріє",
-				"pisni/bohorodytsi/o-bohorodytse-divo-mariye.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("О, всепітая Мати",
-				"pisni/bohorodytsi/o-vsepitaya-maty.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("О, Маріє, Мати Божа",
-				"pisni/bohorodytsi/o-mariye-maty-bozha.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer(
-				"О, Мати Божа, о, райський цвіте",
-				"pisni/bohorodytsi/o-maty-bozha-o-rajskyj-tsvite.html")
-				.setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("О, Пречиста",
-				"pisni/bohorodytsi/o-prechysta.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Пренебесна, пречудесна",
-				"pisni/bohorodytsi/prenebesna-prechudesna.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Пречистая Діво, Мати",
-				"pisni/bohorodytsi/prechysta-divo-maty.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Просимо тя, Діво",
-				"pisni/bohorodytsi/prosymo-tya-divo.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		bohorodytsi.addSubItem(new MenuItemPrayer("Там, де в небі",
-				"pisni/bohorodytsi/tam-de-v-nebi.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		bohorodytsi.text(0, "Богородице Діво",
+				"pisni/bohorodytsi/bohorodytse-divo.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Вихваляйте доли, гори",
+				"pisni/bohorodytsi/vykhvalyajte-doly-hory.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Ген до неба",
+				"pisni/bohorodytsi/hen-do-neba.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Достойно єсть",
+				"pisni/bohorodytsi/dostojno-yest.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Коли втомлений",
+				"pisni/bohorodytsi/koly-vtomlenyj.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Лугами піснь",
+				"pisni/bohorodytsi/luhamy-pisen.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Маріє, Діво благословенна",
+				"pisni/bohorodytsi/mariye-divo-blahoslovenna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Маріє Діво, Царице мая",
+				"pisni/bohorodytsi/mariye-divo-tsarytse-maya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Нехай звенить",
+				"pisni/bohorodytsi/nekhaj-dzvenyt.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "О, Богородице Діво, Маріє",
+				"pisni/bohorodytsi/o-bohorodytse-divo-mariye.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "О, всепітая Мати",
+				"pisni/bohorodytsi/o-vsepitaya-maty.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "О, Маріє, Мати Божа",
+				"pisni/bohorodytsi/o-mariye-maty-bozha.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "О, Мати Божа, о, райський цвіте",
+				"pisni/bohorodytsi/o-maty-bozha-o-rajskyj-tsvite.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "О, Пречиста",
+				"pisni/bohorodytsi/o-prechysta.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Пренебесна, пречудесна",
+				"pisni/bohorodytsi/prenebesna-prechudesna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Пречистая Діво, Мати",
+				"pisni/bohorodytsi/prechysta-divo-maty.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Просимо тя, Діво",
+				"pisni/bohorodytsi/prosymo-tya-divo.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		bohorodytsi.text(0, "Там, де в небі",
+				"pisni/bohorodytsi/tam-de-v-nebi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(bohorodytsi);
 
 		MenuItemSubMenu svyatykh = new MenuItemSubMenu("Пісні до святих");
-		svyatykh.addSubItem(new MenuItemPrayer("Святий Великий Володимире",
-				"pisni/svyatykh/svyatyj-velykyj-volodymyre.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		svyatykh.addSubItem(new MenuItemPrayer("О, свята Ольго",
-				"pisni/svyatykh/o-svyata-olho.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		svyatykh.addSubItem(new MenuItemPrayer("Пісню слави",
-				"pisni/svyatykh/pisnyu-slavy.html").setIsHtml(false).setSource(
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		svyatykh.addSubItem(new MenuItemPrayer("Владико, отче",
-				"pisni/svyatykh/vladyko-otche.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		svyatykh.addSubItem(new MenuItemPrayer("О, хто, хто Миколая любить",
-				"pisni/svyatykh/o-khto-khto-mykolaya-lyubyt.html").setIsHtml(
-				false).setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		svyatykh.text(0, "Святий Великий Володимире",
+				"pisni/svyatykh/svyatyj-velykyj-volodymyre.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		svyatykh.text(0, "О, свята Ольго", "pisni/svyatykh/o-svyata-olho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		svyatykh.text(0, "Пісню слави", "pisni/svyatykh/pisnyu-slavy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		svyatykh.text(0, "Владико, отче", "pisni/svyatykh/vladyko-otche.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		svyatykh.text(0, "О, хто, хто Миколая любить",
+				"pisni/svyatykh/o-khto-khto-mykolaya-lyubyt.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(svyatykh);
 
 		MenuItemSubMenu pokhoronni = new MenuItemSubMenu("Похоронні пісні");
-		pokhoronni.addSubItem(new MenuItemPrayer("В темну могилу",
-				"pisni/pokhoronni/v-temnu-mohylu.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		pokhoronni.addSubItem(new MenuItemPrayer("Кругом життя",
-				"pisni/pokhoronni/kruhom-zhyttya.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		pokhoronni.addSubItem(new MenuItemPrayer("Прощай, душе",
-				"pisni/pokhoronni/proschaj-dushe.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		pokhoronni.addSubItem(new MenuItemPrayer("Со святими упокой",
-				"pisni/pokhoronni/so-svyatymy-upokoj.html").setIsHtml(false)
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		pokhoronni.text(0, "В темну могилу",
+				"pisni/pokhoronni/v-temnu-mohylu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		pokhoronni.text(0, "Кругом життя",
+				"pisni/pokhoronni/kruhom-zhyttya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		pokhoronni.text(0, "Прощай, душе",
+				"pisni/pokhoronni/proschaj-dushe.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		pokhoronni.text(0, "Со святими упокой",
+				"pisni/pokhoronni/so-svyatymy-upokoj.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.addSubItem(pokhoronni);
 
 		return menu;
@@ -274,308 +259,239 @@ public class Catalog {
 
 	private MenuItemSubMenu addVervytsya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Вервиця");
-		menu.addSubItem(new MenuItemPrayer(
+		menu.text(0,
 				"П’ятнадцять обітниць для тих, хто відмовлятиме святу Вервицю",
-				"vervytsya/obitnytsi.html")
+				"vervytsya/obitnytsi.html", SRC_VERVYTSYA_MOLYTVA)
 				.setFullName(
-						"П’ятнадцять обітниць для тих, хто відмовлятиме святу Вервицю (дані бл. Аланові де Рупе)")
-				.setSource(SRC_VERVYTSYA_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Як молитися на Вервиці",
-				"vervytsya/yak-molytysya.html")
-				.setSource(SRC_VERVYTSYA_MOLYTVA));
-		menu.addSubItem(new MenuItemPrayer("Молитва на Вервиці",
-				"vervytsya/molytva-na-vervytsi.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+						"П’ятнадцять обітниць для тих, хто відмовлятиме святу Вервицю (дані бл. Аланові де Рупе)");
+		menu.html(0, "Як молитися на Вервиці", "vervytsya/yak-molytysya.html",
+				SRC_VERVYTSYA_MOLYTVA);
+		menu.html(0, "Молитва на Вервиці",
+				"vervytsya/molytva-na-vervytsi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
 
 	private MenuItemSubMenu addLiturhiya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Літургія");
-		menu.addSubItem(new MenuItemPrayer(
+		menu.html(
+				0,
 				"Божественна Літургія св. отця нашого Йоана Золотоустого",
-				"liturhiya/liturhiya-ugcc.html")
-				.setSource("Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011"));
-		menu.addSubItem(new MenuItemPrayer(
+				"liturhiya/liturhiya-ugcc.html",
+				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011");
+		menu.html(
+				0,
 				"Чин священної і Божественної Літургії святого Івана Золотоустого",
-				"liturhiya/liturhiya.html")
-				.setSource("Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html"));
+				"liturhiya/liturhiya.html",
+				"Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html");
 		return menu;
 	}
 
 	private MenuItemSubMenu addMolytvyNaKozhenDen() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Молитви на кожен день");
-		menu.addSubItem(new MenuItemPrayer("Молитва ранішнього намірення",
-				"na-kozhen-den/ranizhnoho-namirennya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer(
-				"Молитва св. Івана Золотоустого на кожну годину дня",
-				"na-kozhen-den/iv-zlatoust-kozn-hod-dnya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Неділя",
-				"na-kozhen-den/nedilya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Понеділок",
-				"na-kozhen-den/ponedilok.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Вівторок",
-				"na-kozhen-den/vivtorok.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Середа і п’ятниця",
-				"na-kozhen-den/sereda-i-pyatnytsya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Четвер",
-				"na-kozhen-den/chetver.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Субота",
-				"na-kozhen-den/subota.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		menu.html(0, "Молитва ранішнього намірення",
+				"na-kozhen-den/ranizhnoho-namirennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва св. Івана Золотоустого на кожну годину дня",
+				"na-kozhen-den/iv-zlatoust-kozn-hod-dnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Неділя", "na-kozhen-den/nedilya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Понеділок", "na-kozhen-den/ponedilok.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Вівторок", "na-kozhen-den/vivtorok.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Середа і п’ятниця",
+				"na-kozhen-den/sereda-i-pyatnytsya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Четвер", "na-kozhen-den/chetver.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Субота", "na-kozhen-den/subota.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
 
 	private MenuItemSubMenu addAkafisty() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Акафісти");
-		menu.addSubItem(new MenuItemPrayer("Про Акафіст",
-				"akafisty/pro-akafist.html").setSource(SRC_AKAFISTY_MOLYTVA));
+		menu.html(0, "Про Акафіст", "akafisty/pro-akafist.html",
+				SRC_AKAFISTY_MOLYTVA);
 		// Матері Божої
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Благовіщення Пречистої Діви Марії",
-				"akafisty/blahovischennyu-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафiст до Пресвятої Богородицi",
-				"akafisty/do-presv-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Матері Божої на честь Її Покрову",
-				"akafisty/pokrovu-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст на честь введення в храм Пресвятої Богородиці",
-				"akafisty/vvedennyu-v-khram-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст на честь Успення Богородиці",
-				"akafisty/uspinnyu-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Матері Божої Неустанної Помочі",
-				"akafisty/presv-bohorodytsi-neustannoyi-pomochi.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+		menu.text(0, "Акафіст до Благовіщення Пречистої Діви Марії",
+				"akafisty/blahovischennyu-bohorodytsi.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафiст до Пресвятої Богородицi",
+				"akafisty/do-presv-bohorodytsi.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Матері Божої на честь Її Покрову",
+				"akafisty/pokrovu-bohorodytsi.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст на честь введення в храм Пресвятої Богородиці",
+				"akafisty/vvedennyu-v-khram-bohorodytsi.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст на честь Успення Богородиці",
+				"akafisty/uspinnyu-bohorodytsi.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Матері Божої Неустанної Помочі",
+				"akafisty/presv-bohorodytsi-neustannoyi-pomochi.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(
+				0,
 				"Акафіст до Пресвятої Богородиці на честь Її ікони «Невипивана Чаша»",
-				"akafisty/presv-bohorodytsi-nevypyvna-chasha.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+				"akafisty/presv-bohorodytsi-nevypyvna-chasha.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(
+				0,
 				"Акафіст до Пресвятої Богородиці на честь Її ікони «Всецариця»",
-				"akafisty/presv-bohorodytsi-vsecarytsya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+				"akafisty/presv-bohorodytsi-vsecarytsya.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(
+				0,
 				"Акафіст Пресвятій Богородиці на честь Її ікони «Годувальниця»",
-				"akafisty/presv-bohorodytsi-hoduvalnytsya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+				"akafisty/presv-bohorodytsi-hoduvalnytsya.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(
+				0,
 				"Акафіст до Пресвятої Богородиці на честь її ікони «Цілителька»",
-				"akafisty/presv-bohorodytsi-tsilytelnytsya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Зарваницької Матері Божої",
-				"akafisty/materi-bozhoji-zarvanytskoji.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Зарваницької Матері Божої (нова версія)",
-				"akafisty/materi-bozhoji-zarvanytskoji-nova.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Матері Божої Крилоської",
-				"akafisty/materi-bozhoji-kryloskoji.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Самбірської Богородиці",
-				"akafisty/do-sambirskoji-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Унівської Богородиці",
-				"akafisty/do-univskoji-bohorodytsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+				"akafisty/presv-bohorodytsi-tsilytelnytsya.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Зарваницької Матері Божої",
+				"akafisty/materi-bozhoji-zarvanytskoji.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Зарваницької Матері Божої (нова версія)",
+				"akafisty/materi-bozhoji-zarvanytskoji-nova.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Матері Божої Крилоської",
+				"akafisty/materi-bozhoji-kryloskoji.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Самбірської Богородиці",
+				"akafisty/do-sambirskoji-bohorodytsi.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Унівської Богородиці",
+				"akafisty/do-univskoji-bohorodytsi.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(
+				0,
 				"Акафіст до Матері Божої на честь Її ікони «Прибавлення розуму»",
-				"akafisty/do-bohorodytsi-na-chest-ikony-prybavlennya-rozumu.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+				"akafisty/do-bohorodytsi-na-chest-ikony-prybavlennya-rozumu.html",
+				SRC_AKAFISTY_MOLYTVA);
 		// Пресвятої Тройці
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Пресвятої Трійці",
-				"akafisty/presvyatoji-trojtsi.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Святого Духа",
-				"akafisty/svyatoho-dukha.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Ісуса Христа",
-				"akafisty/isusa-khrysta.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Божого Милосердя",
-				"akafisty/bozhoho-myloserdya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Христових Страстей",
-				"akafisty/khrystovykh-strastej.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Живоносного Гробу і Воскресіння Христа",
-				"akafisty/zhyvonosnoho-hrobu-i-voskresinnya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Воскресіння Христового",
-				"akafisty/voskresinnya-khrystovoho.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Причастя Святих Христових Таїн",
-				"akafisty/prychastya-tain.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст подяки Ісусу Христу «Слава Богові за все»",
-				"akafisty/podyaky-isusu.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст «Абетка покаяння»",
-				"akafisty/abetka-pokayannya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст - подяка Пресвятій Трійці",
-				"akafisty/podyaka-trijtsi.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+		menu.text(0, "Акафіст до Пресвятої Трійці",
+				"akafisty/presvyatoji-trojtsi.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Святого Духа", "akafisty/svyatoho-dukha.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Ісуса Христа", "akafisty/isusa-khrysta.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Божого Милосердя",
+				"akafisty/bozhoho-myloserdya.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Христових Страстей",
+				"akafisty/khrystovykh-strastej.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Живоносного Гробу і Воскресіння Христа",
+				"akafisty/zhyvonosnoho-hrobu-i-voskresinnya.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Воскресіння Христового",
+				"akafisty/voskresinnya-khrystovoho.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Причастя Святих Христових Таїн",
+				"akafisty/prychastya-tain.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст подяки Ісусу Христу «Слава Богові за все»",
+				"akafisty/podyaky-isusu.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст «Абетка покаяння»",
+				"akafisty/abetka-pokayannya.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст - подяка Пресвятій Трійці",
+				"akafisty/podyaka-trijtsi.html", SRC_AKAFISTY_MOLYTVA);
 		// Святі і мученики
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Собору дванадцяти Апостолів Христових",
-				"akafisty/do-soboru-apostoliv.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до священомученика Йосафата",
-				"akafisty/do-josaphata.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до священомученика Йосафата (другий варіант)",
-				"akafisty/do-josaphata-2.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до святого київського Аскольда",
-				"akafisty/kyivskoho-askolda.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святителя Миколая",
-				"akafisty/mykolaya.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до блаженного Омеляна Ковча",
-				"akafisty/omelyana-kovcha.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святого отця Піо",
-				"akafisty/otsya-pio.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до святого Романа Солодкоспівця",
-				"akafisty/romana-solodkospivtsya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святого Івана Предтечі",
-				"akafisty/ivana-predtechi.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до святого Василія Великого",
-				"akafisty/vasyliya-velykoho.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святого Агапіта",
-				"akafisty/ahapita.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до святих Апостолів Петра і Павла",
-				"akafisty/petra-i-pavla.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до святого Пантелеймона Цілителя",
-				"akafisty/panteleymona-tsilytelya.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до святої Терези від Дитятка Ісус",
-				"akafisty/terezy-vid-isusa.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святої Філомени",
-				"akafisty/filomeny.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святої Варвари",
-				"akafisty/varvary.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст до святої Параскеви",
-				"akafisty/paraskevy.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+		menu.text(0, "Акафіст до Собору дванадцяти Апостолів Христових",
+				"akafisty/do-soboru-apostoliv.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до священомученика Йосафата",
+				"akafisty/do-josaphata.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до священомученика Йосафата (другий варіант)",
+				"akafisty/do-josaphata-2.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого київського Аскольда",
+				"akafisty/kyivskoho-askolda.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святителя Миколая", "akafisty/mykolaya.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до блаженного Омеляна Ковча",
+				"akafisty/omelyana-kovcha.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого отця Піо", "akafisty/otsya-pio.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого Романа Солодкоспівця",
+				"akafisty/romana-solodkospivtsya.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого Івана Предтечі",
+				"akafisty/ivana-predtechi.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого Василія Великого",
+				"akafisty/vasyliya-velykoho.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого Агапіта", "akafisty/ahapita.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святих Апостолів Петра і Павла",
+				"akafisty/petra-i-pavla.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святого Пантелеймона Цілителя",
+				"akafisty/panteleymona-tsilytelya.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святої Терези від Дитятка Ісус",
+				"akafisty/terezy-vid-isusa.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святої Філомени", "akafisty/filomeny.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святої Варвари", "akafisty/varvary.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до святої Параскеви", "akafisty/paraskevy.html",
+				SRC_AKAFISTY_MOLYTVA);
+		menu.text(
+				0,
 				"Акафіст Дрогобицьким священомученикам Якиму, Віталію та Северіяну",
-				"akafisty/drohobytskomu-yakymu.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+				"akafisty/drohobytskomu-yakymu.html", SRC_AKAFISTY_MOLYTVA);
 		// Інші
-		menu.addSubItem(new MenuItemPrayer("Акафіст до Архистратига Михаїла",
-				"akafisty/mykhajila.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст до Архистратига Михаїла (другий варіант)",
-				"akafisty/mykhajila-2.html").setSource(SRC_AKAFISTY_MOLYTVA)
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
+		menu.text(0, "Акафіст до Архистратига Михаїла",
+				"akafisty/mykhajila.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст до Архистратига Михаїла (другий варіант)",
+				"akafisty/mykhajila-2.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0,
 				"Акафіст покаянний жінок, які вбили немовлят у своїй утробі",
-				"akafisty/zhinok-vbyly-nemovlyat.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer(
-				"Акафіст за упокій померлих (багатьох)",
-				"akafisty/dushi-pomerlykh.html")
-				.setSource(SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Акафіст за померлого (одного)",
-				"akafisty/pomerloho-odnoho.html").setSource(
-				SRC_AKAFISTY_MOLYTVA).setIsHtml(false));
+				"akafisty/zhinok-vbyly-nemovlyat.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст за упокій померлих (багатьох)",
+				"akafisty/dushi-pomerlykh.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(0, "Акафіст за померлого (одного)",
+				"akafisty/pomerloho-odnoho.html", SRC_AKAFISTY_MOLYTVA);
 		return menu;
 	}
 
 	private MenuItemSubMenu addKatekhPravdy() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Катехизмові правди");
-		menu.addSubItem(new MenuItemPrayer("Заповіді",
-				"kateh-pravdy/zapovidi.html")
-				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
-		menu.addSubItem(new MenuItemPrayer("Чесноти",
-				"kateh-pravdy/chesnoty.html")
-				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
-		menu.addSubItem(new MenuItemPrayer("Пости та загальниці",
-				"kateh-pravdy/posty-ta-zahalnytsi.html")
-				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
-		menu.addSubItem(new MenuItemPrayer("Гріхи", "kateh-pravdy/hrikhy.html")
-				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
-		menu.addSubItem(new MenuItemPrayer("Християнський привіт",
-				"kateh-pravdy/khryst-pryvit.html")
-				.setSource(SRC_DODATOK_KATEKHYZMU_2012));
+		menu.html(0, "Заповіді", "kateh-pravdy/zapovidi.html",
+				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(0, "Чесноти", "kateh-pravdy/chesnoty.html",
+				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(0, "Пости та загальниці",
+				"kateh-pravdy/posty-ta-zahalnytsi.html",
+				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(0, "Гріхи", "kateh-pravdy/hrikhy.html",
+				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(0, "Християнський привіт", "kateh-pravdy/khryst-pryvit.html",
+				SRC_DODATOK_KATEKHYZMU_2012);
 		return menu;
 	}
 
 	private MenuItemSubMenu addProSpovidIPrychastya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu("Сповідь та причастя");
-		menu.addSubItem(new MenuItemPrayer("Про щастя людини",
-				"pro-spovid/pro-schastya.html").setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Церква як Божа установа",
-				"pro-spovid/cerkva-yak-bozha-ustanova.html")
-				.setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Сором у визнанні гріхів",
-				"pro-spovid/sorom-u-vyznanni-hrikhiv.html")
-				.setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Чи всі сповіді є добрими?",
-				"pro-spovid/chy-vsi-spovidi-dobri.html")
-				.setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer(
-				"Що потрібно знати, щоб сповідатися?",
-				"pro-spovid/scho-potribno-znaty.html")
-				.setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Святе Причастя",
-				"pro-spovid/svyate-prychastya.html").setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Приготування до сповіді",
-				"pro-spovid/prohotuvannya.html").setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Деякі додаткові зауваги",
-				"pro-spovid/dodatkovi-zauvahy.html").setSource(SRC_PRO_SPOVID));
-		menu.addSubItem(new MenuItemPrayer("Сповідь", "pro-spovid/spovid.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитви в часі сповіді",
-				"pro-spovid/molytvy-v-chasi-spovidi.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитви перед святим причастям",
-				"pro-spovid/molytvy-pered-prychastyam.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитви по святім причастю",
-				"pro-spovid/molytvy-pislya-prychastya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		menu.html(0, "Про щастя людини", "pro-spovid/pro-schastya.html",
+				SRC_PRO_SPOVID);
+		menu.html(0, "Церква як Божа установа",
+				"pro-spovid/cerkva-yak-bozha-ustanova.html", SRC_PRO_SPOVID);
+		menu.html(0, "Сором у визнанні гріхів",
+				"pro-spovid/sorom-u-vyznanni-hrikhiv.html", SRC_PRO_SPOVID);
+		menu.html(0, "Чи всі сповіді є добрими?",
+				"pro-spovid/chy-vsi-spovidi-dobri.html", SRC_PRO_SPOVID);
+		menu.html(0, "Що потрібно знати, щоб сповідатися?",
+				"pro-spovid/scho-potribno-znaty.html", SRC_PRO_SPOVID);
+		menu.html(0, "Святе Причастя", "pro-spovid/svyate-prychastya.html",
+				SRC_PRO_SPOVID);
+		menu.html(0, "Приготування до сповіді",
+				"pro-spovid/prohotuvannya.html", SRC_PRO_SPOVID);
+		menu.html(0, "Деякі додаткові зауваги",
+				"pro-spovid/dodatkovi-zauvahy.html", SRC_PRO_SPOVID);
+		menu.html(0, "Сповідь", "pro-spovid/spovid.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитви в часі сповіді",
+				"pro-spovid/molytvy-v-chasi-spovidi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитви перед святим причастям",
+				"pro-spovid/molytvy-pered-prychastyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитви по святім причастю",
+				"pro-spovid/molytvy-pislya-prychastya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
 
@@ -623,69 +539,62 @@ public class Catalog {
 								SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH) });
 		menu.addSubItem(dlyaVahitnykh);
 
-		menu.addSubItem(new MenuItemPrayer("Молитва подяки",
-				"rizni-potreby/podyaky.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва на всяке прошення",
-				"rizni-potreby/vsyake-proshennya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва до Пресвятої Богородиці",
-				"rizni-potreby/do-presv-bohorod.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва у терпінні",
-				"rizni-potreby/u-terpinni.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва за недужих",
-				"rizni-potreby/za-neduzhykh.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва на всяку неміч",
-				"rizni-potreby/na-vsyaku-nemich.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва при вмираючих",
-				"rizni-potreby/pry-vmyrayuchykh.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва у годині смерти",
-				"rizni-potreby/u-hodyni-smerti.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва християнської родини",
-				"rizni-potreby/khryst-rodyny.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва батьків за дітей",
-				"rizni-potreby/batkiv-za-ditey.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва батьків за дітей",
-				"rizni-potreby/batkiv-za-ditey.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва за чоловіка (дружину)",
-				"rizni-potreby/za-cholovika-druzhynu.html").setSource(
-				"МОЛИТВА http://molytva.at.ua/index/rodinni_molitvi/0-151")
-				.setIsHtml(false));
-		menu.addSubItem(new MenuItemPrayer("Молитва учня (учениці)",
-				"rizni-potreby/uchnya.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва за перемогу над спокусами",
-				"rizni-potreby/peremoha-nad-spokusamy.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва про духа покори",
-				"rizni-potreby/dukha-pokory.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва в день іменин",
-				"rizni-potreby/v-den-imenyn.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer(
-				"Молитва за того, хто хоче іти в путь",
-				"rizni-potreby/ity-v-put.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва на благословення дому",
-				"rizni-potreby/blahoslovennya-domu.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer("Молитва на освячення всякої речі",
-				"rizni-potreby/osvyach-rechi.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
-		menu.addSubItem(new MenuItemPrayer(
-				"Молитви за з’єднання всіх християн",
-				"rizni-potreby/zyednannya-khrystyyan.html")
-				.setSource(SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA));
+		menu.html(0, "Молитва подяки", "rizni-potreby/podyaky.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва на всяке прошення",
+				"rizni-potreby/vsyake-proshennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва до Пресвятої Богородиці",
+				"rizni-potreby/do-presv-bohorod.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва у терпінні", "rizni-potreby/u-terpinni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва за недужих", "rizni-potreby/za-neduzhykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва на всяку неміч",
+				"rizni-potreby/na-vsyaku-nemich.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва при вмираючих",
+				"rizni-potreby/pry-vmyrayuchykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва у годині смерти",
+				"rizni-potreby/u-hodyni-smerti.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва християнської родини",
+				"rizni-potreby/khryst-rodyny.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва батьків за дітей",
+				"rizni-potreby/batkiv-za-ditey.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва батьків за дітей",
+				"rizni-potreby/batkiv-za-ditey.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(0, "Молитва за чоловіка (дружину)",
+				"rizni-potreby/za-cholovika-druzhynu.html",
+				"МОЛИТВА http://molytva.at.ua/index/rodinni_molitvi/0-151");
+		menu.html(0, "Молитва учня (учениці)", "rizni-potreby/uchnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва за перемогу над спокусами",
+				"rizni-potreby/peremoha-nad-spokusamy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва про духа покори",
+				"rizni-potreby/dukha-pokory.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва в день іменин",
+				"rizni-potreby/v-den-imenyn.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва за того, хто хоче іти в путь",
+				"rizni-potreby/ity-v-put.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва на благословення дому",
+				"rizni-potreby/blahoslovennya-domu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитва на освячення всякої речі",
+				"rizni-potreby/osvyach-rechi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(0, "Молитви за з’єднання всіх християн",
+				"rizni-potreby/zyednannya-khrystyyan.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
 
@@ -695,8 +604,7 @@ public class Catalog {
 			if (i >= 10) {
 				name += " (" + (i - 1) + ")";
 			}
-			sm.addSubItem(new MenuItemPrayer(name, "psalmy/" + i + ".html")
-					.setSource(SRC_BIBLIA).setIsHtml(false));
+			sm.text(0, name, "psalmy/" + i + ".html", SRC_BIBLIA);
 		}
 	}
 
