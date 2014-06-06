@@ -11,13 +11,13 @@ public class MenuItemPrayer extends MenuItemBase {
 	private String fullName;
 	private boolean isHtml = true;
 
-	public MenuItemPrayer(String name, String fileName) {
-		super(name);
+	public MenuItemPrayer(int id, String name, String fileName) {
+		super(id, name);
 		this.fileName = fileName;
 	}
 
-	public MenuItemPrayer(String name, String fileName, String source) {
-		this(name, fileName);
+	public MenuItemPrayer(int id, String name, String fileName, String source) {
+		this(id, name, fileName);
 		setSource(source);
 	}
 

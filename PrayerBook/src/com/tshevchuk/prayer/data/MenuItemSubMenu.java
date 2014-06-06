@@ -10,12 +10,12 @@ public class MenuItemSubMenu extends MenuItemBase {
 
 	private List<MenuItemBase> subItems = new ArrayList<MenuItemBase>();
 
-	public MenuItemSubMenu(String name) {
-		super(name);
+	public MenuItemSubMenu(int id, String name) {
+		super(id, name);
 	}
 
-	public MenuItemSubMenu(String name, MenuItemBase... subItems) {
-		this(name);
+	public MenuItemSubMenu(int id, String name, MenuItemBase... subItems) {
+		this(id, name);
 		this.subItems = Arrays.asList(subItems);
 	}
 
@@ -30,7 +30,7 @@ public class MenuItemSubMenu extends MenuItemBase {
 	
 	public MenuItemPrayer html(int id, String name,
 			String fileName, String source) {
-		MenuItemPrayer mi = new MenuItemPrayer(name, fileName);
+		MenuItemPrayer mi = new MenuItemPrayer(id, name, fileName);
 		mi.setSource(source);
 		addSubItem(mi);
 		return mi;
@@ -39,5 +39,11 @@ public class MenuItemSubMenu extends MenuItemBase {
 	public MenuItemPrayer text(int id, String name,
 			String fileName, String source) {
 		return html(id, name, fileName, source).setIsHtml(false);
+	}
+	
+	public MenuItemSubMenu subMenu(int id, String name){
+		MenuItemSubMenu sm = new MenuItemSubMenu(id, name);
+		addSubItem(sm);
+		return sm;
 	}
 }

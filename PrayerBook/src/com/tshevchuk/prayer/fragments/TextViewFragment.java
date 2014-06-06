@@ -60,7 +60,7 @@ public class TextViewFragment extends FragmentBase implements
 				prayer.getFileName());
 		params.putBoolean(PrayerLoader.PARAM_IS_HTML, prayer.isHtml());
 		getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
-		getActivity().setProgressBarIndeterminateVisibility(true);
+		activity.setProgressBarIndeterminateVisibility(true);
 	};
 
 	@Override
@@ -85,7 +85,7 @@ public class TextViewFragment extends FragmentBase implements
 					if (!show && moveContentUp && isFling)
 						hide = true;
 
-					ActionBar ab = getActivity().getActionBar();
+					ActionBar ab = activity.getActionBar();
 
 					if (show && !ab.isShowing())
 						ab.show();
@@ -103,8 +103,8 @@ public class TextViewFragment extends FragmentBase implements
 								.getChildCount() - 1);
 						if ((svScroll.getHeight() + svScroll.getScrollY()) >= view
 								.getBottom()
-								- getActivity().getActionBar().getHeight()) {
-							getActivity().getActionBar().show();
+								- activity.getActionBar().getHeight()) {
+							activity.getActionBar().show();
 						}
 					}
 					return false;
@@ -118,7 +118,7 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle(prayer.getFullName());
+		activity.getActionBar().setTitle(prayer.getFullName());
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, PreferenceManager
 				.getInstance().getFontSizeSp());
 	}
@@ -133,10 +133,9 @@ public class TextViewFragment extends FragmentBase implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.mi_about_prayer:
-			((HomeActivity) getActivity()).displayFragment(
-					AboutPrayerFragment.getInstance(prayer), null);
-			((HomeActivity) getActivity())
-					.sendAnalyticsOptionsMenuEvent("Опис");
+			((HomeActivity) activity).displayFragment(
+					AboutPrayerFragment.getInstance(prayer), 0, null);
+			((HomeActivity) activity).sendAnalyticsOptionsMenuEvent("Опис");
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -156,7 +155,7 @@ public class TextViewFragment extends FragmentBase implements
 
 	@Override
 	public Loader<CharSequence> onCreateLoader(int id, Bundle args) {
-		return new PrayerLoader(getActivity(), args);
+		return new PrayerLoader(activity, args);
 	}
 
 	@Override
@@ -172,7 +171,7 @@ public class TextViewFragment extends FragmentBase implements
 	private void updateHtmlContent() {
 		if (htmlContent != null && tvContent != null) {
 			tvContent.setText(htmlContent);
-			getActivity().setProgressBarIndeterminateVisibility(false);
+			activity.setProgressBarIndeterminateVisibility(false);
 		}
 	}
 }

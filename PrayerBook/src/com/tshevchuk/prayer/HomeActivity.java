@@ -132,10 +132,9 @@ public class HomeActivity extends Activity {
 			return true;
 		}
 
-		PreferenceManager pm = PreferenceManager.getInstance();
 		switch (item.getItemId()) {
 		case R.id.mi_settings:
-			displayFragment(new SettingsFragment(), item.getTitle());
+			displayFragment(new SettingsFragment(), 0, item.getTitle());
 			sendAnalyticsOptionsMenuEvent(item.getTitle());
 			return true;
 		}
@@ -164,10 +163,10 @@ public class HomeActivity extends Activity {
 			f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar)mi);
 		}
 
-		displayFragment(f, mi.getName());
+		displayFragment(f, mi.getId(), mi.getName());
 	}
 
-	public void displayFragment(Fragment fragment, CharSequence title) {
+	public void displayFragment(Fragment fragment, int id, CharSequence title) {
 		drawerLayout.closeDrawer(drawerList);
 		getActionBar().show();
 
@@ -194,6 +193,6 @@ public class HomeActivity extends Activity {
 				.getTracker()
 				.send(new HitBuilders.EventBuilder()
 						.setCategory("Fragment Opened")
-						.setAction(title.toString()).build());
+						.setAction(id + " " + title).build());
 	}
 }
