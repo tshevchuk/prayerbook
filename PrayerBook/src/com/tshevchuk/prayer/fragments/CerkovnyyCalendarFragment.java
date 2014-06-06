@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.fragments;
 
+import android.R.menu;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -20,6 +21,7 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.adapters.CerkovnyyCalendarListAdapter;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
+import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
 
 public class CerkovnyyCalendarFragment extends FragmentBase {
@@ -29,6 +31,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	private int prevFirstVisibleItem;
 	private int[] years = calendar.getYears();
 	private String[] formattedYears;
+	private MenuItemCalendar menuItem;
 
 	private Activity activity;
 	private ListView lvCalendar;
@@ -37,6 +40,9 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 
 	public static CerkovnyyCalendarFragment getInstance(MenuItemCalendar cal) {
 		CerkovnyyCalendarFragment f = new CerkovnyyCalendarFragment();
+		Bundle args = new Bundle();
+		args.putSerializable("menu_item", cal);
+		f.setArguments(args);
 		return f;
 	}
 
@@ -49,6 +55,8 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		menuItem = (MenuItemCalendar) getArguments().getSerializable(
+				"menu_item");
 		actionBar = getActivity().getActionBar();
 		year = currentYear = java.util.Calendar.getInstance().get(
 				java.util.Calendar.YEAR);
@@ -139,5 +147,10 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 					.get(java.util.Calendar.MONTH)] + " " + year + " року");
 			prevFirstVisibleItem = firstVisibleItem;
 		}
+	}
+	
+	@Override
+	protected MenuItemBase getMenuItem() {
+		return menuItem;
 	}
 }

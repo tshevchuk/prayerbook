@@ -112,7 +112,8 @@ public class Catalog {
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 
 		sm = menu.subMenu(28, "Великопосні пісні");
-		sm.text(29, "Люди мої, люди", "pisni/velykoposni/lyudy-moyi-lyudy.html",
+		sm.text(29, "Люди мої, люди",
+				"pisni/velykoposni/lyudy-moyi-lyudy.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		sm.text(30, "На Вавилонських ріках",
 				"pisni/velykoposni/na-vavylonskykh-rikakh.html",
@@ -352,10 +353,10 @@ public class Catalog {
 		// Пресвятої Тройці
 		menu.text(112, "Акафіст до Пресвятої Трійці",
 				"akafisty/presvyatoji-trojtsi.html", SRC_AKAFISTY_MOLYTVA);
-		menu.text(113, "Акафіст до Святого Духа", "akafisty/svyatoho-dukha.html",
-				SRC_AKAFISTY_MOLYTVA);
-		menu.text(114, "Акафіст до Ісуса Христа", "akafisty/isusa-khrysta.html",
-				SRC_AKAFISTY_MOLYTVA);
+		menu.text(113, "Акафіст до Святого Духа",
+				"akafisty/svyatoho-dukha.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(114, "Акафіст до Ісуса Христа",
+				"akafisty/isusa-khrysta.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(115, "Акафіст до Божого Милосердя",
 				"akafisty/bozhoho-myloserdya.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(116, "Акафіст до Христових Страстей",
@@ -382,12 +383,12 @@ public class Catalog {
 				"akafisty/do-josaphata-2.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(126, "Акафіст до святого київського Аскольда",
 				"akafisty/kyivskoho-askolda.html", SRC_AKAFISTY_MOLYTVA);
-		menu.text(127, "Акафіст до святителя Миколая", "akafisty/mykolaya.html",
-				SRC_AKAFISTY_MOLYTVA);
+		menu.text(127, "Акафіст до святителя Миколая",
+				"akafisty/mykolaya.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(128, "Акафіст до блаженного Омеляна Ковча",
 				"akafisty/omelyana-kovcha.html", SRC_AKAFISTY_MOLYTVA);
-		menu.text(129, "Акафіст до святого отця Піо", "akafisty/otsya-pio.html",
-				SRC_AKAFISTY_MOLYTVA);
+		menu.text(129, "Акафіст до святого отця Піо",
+				"akafisty/otsya-pio.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(130, "Акафіст до святого Романа Солодкоспівця",
 				"akafisty/romana-solodkospivtsya.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(131, "Акафіст до святого Івана Предтечі",
@@ -406,8 +407,8 @@ public class Catalog {
 				SRC_AKAFISTY_MOLYTVA);
 		menu.text(138, "Акафіст до святої Варвари", "akafisty/varvary.html",
 				SRC_AKAFISTY_MOLYTVA);
-		menu.text(139, "Акафіст до святої Параскеви", "akafisty/paraskevy.html",
-				SRC_AKAFISTY_MOLYTVA);
+		menu.text(139, "Акафіст до святої Параскеви",
+				"akafisty/paraskevy.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(
 				140,
 				"Акафіст Дрогобицьким священомученикам Якиму, Віталію та Северіяну",
@@ -438,8 +439,8 @@ public class Catalog {
 				SRC_DODATOK_KATEKHYZMU_2012);
 		menu.html(150, "Гріхи", "kateh-pravdy/hrikhy.html",
 				SRC_DODATOK_KATEKHYZMU_2012);
-		menu.html(151, "Християнський привіт", "kateh-pravdy/khryst-pryvit.html",
-				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(151, "Християнський привіт",
+				"kateh-pravdy/khryst-pryvit.html", SRC_DODATOK_KATEKHYZMU_2012);
 		return menu;
 	}
 
@@ -578,7 +579,7 @@ public class Catalog {
 			if (i >= 10) {
 				name += " (" + (i - 1) + ")";
 			}
-			sm.text(195+i, name, "psalmy/" + i + ".html", SRC_BIBLIA);
+			sm.text(195 + i, name, "psalmy/" + i + ".html", SRC_BIBLIA);
 		}
 	}
 
@@ -611,5 +612,25 @@ public class Catalog {
 					"Catalog: please increment NEXT_ID_TO_ADD to at least "
 							+ mi.getId() + 1);
 		}
+	}
+
+	private MenuItemBase getMenuItemById(int id, List<MenuItemBase> items) {
+		for (MenuItemBase mi : items) {
+			if (mi.getId() == id) {
+				return mi;
+			}
+			if (mi instanceof MenuItemSubMenu) {
+				MenuItemBase item = getMenuItemById(id,
+						((MenuItemSubMenu) mi).getSubItems());
+				if (item != null) {
+					return item;
+				}
+			}
+		}
+		return null;
+	}
+
+	public MenuItemBase getMenuItemById(int id) {
+		return getMenuItemById(id, topMenu);
 	}
 }

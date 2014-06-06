@@ -24,6 +24,7 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
 import com.tshevchuk.prayer.UIUtils;
+import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 
 public class TextViewFragment extends FragmentBase implements
@@ -135,7 +136,8 @@ public class TextViewFragment extends FragmentBase implements
 		case R.id.mi_about_prayer:
 			((HomeActivity) activity).displayFragment(
 					AboutPrayerFragment.getInstance(prayer), 0, null);
-			((HomeActivity) activity).sendAnalyticsOptionsMenuEvent("Опис");
+			((HomeActivity) activity).sendAnalyticsOptionsMenuEvent("Опис",
+					String.format("#%d %s", prayer.getId(), prayer.getName()));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -173,5 +175,10 @@ public class TextViewFragment extends FragmentBase implements
 			tvContent.setText(htmlContent);
 			activity.setProgressBarIndeterminateVisibility(false);
 		}
+	}
+
+	@Override
+	protected MenuItemBase getMenuItem() {
+		return prayer;
 	}
 }

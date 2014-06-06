@@ -32,6 +32,8 @@ import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
 
 public class HomeActivity extends Activity {
+	public final static String PARAM_SCREEN_ID = "screen_id";
+
 	private Catalog catalog;
 
 	private DrawerLayout drawerLayout;
@@ -64,7 +66,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				displayFragment(position);
+				displayMenuItem(catalog.getTopMenuItems().get(position));
 			}
 		});
 
@@ -93,7 +95,15 @@ public class HomeActivity extends Activity {
 		drawerLayout.setDrawerListener(drawerToggle);
 
 		if (savedInstanceState == null) {
-			displayFragment(0);
+			MenuItemBase mi = catalog.getTopMenuItems().get(0);
+			int id = 0;
+			if (getIntent() != null) {
+				id = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);
+				if (id != 0) {
+					mi = catalog.getMenuItemById(id);
+				}
+			}
+			displayMenuItem(mi);
 		}
 	}
 
@@ -135,22 +145,23 @@ public class HomeActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.mi_settings:
 			displayFragment(new SettingsFragment(), 0, item.getTitle());
-			sendAnalyticsOptionsMenuEvent(item.getTitle());
+			sendAnalyticsOptionsMenuEvent(item.getTitle(), null);
 			return true;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void sendAnalyticsOptionsMenuEvent(CharSequence menuItemName) {
+	public void sendAnalyticsOptionsMenuEvent(CharSequence menuItemName,
+			String param) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
-		t.send(new HitBuilders.EventBuilder()
-				.setCategory(Analytics.CAT_OPTIONS_MENU)
-				.setAction(menuItemName.toString()).build());
-	}
-
-	private void displayFragment(int position) {
-		displayMenuItem(catalog.getTopMenuItems().get(position));
+		HitBuilders.EventBuilder eb = new HitBuilders.EventBuilder();
+		eb.setCategory(Analytics.CAT_OPTIONS_MENU).setAction(
+				menuItemName.toString());
+		if (!TextUtils.isEmpty(param)) {
+			eb.setLabel(param);
+		}
+		t.send(eb.build());
 	}
 
 	public void displayMenuItem(MenuItemBase mi) {
@@ -160,7 +171,7 @@ public class HomeActivity extends Activity {
 		} else if (mi instanceof MenuItemSubMenu) {
 			f = SubMenuFragment.getInstance((MenuItemSubMenu) mi);
 		} else if (mi instanceof MenuItemCalendar) {
-			f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar)mi);
+			f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar) mi);
 		}
 
 		displayFragment(f, mi.getId(), mi.getName());

@@ -66,4 +66,9 @@ public class SubMenuFragment extends FragmentBase {
 		}
 		return false;
 	}
+	
+	@Override
+	protected MenuItemBase getMenuItem() {
+		return subMenu;
+	}
 }
