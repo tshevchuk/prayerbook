@@ -3,6 +3,7 @@ package com.tshevchuk.prayer;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -23,10 +24,12 @@ import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
+import com.tshevchuk.prayer.data.MenuItemOftenUsed;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemSubMenu;
 import com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.fragments.FragmentBase;
+import com.tshevchuk.prayer.fragments.OftenUsedFragment;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
 import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
@@ -95,7 +98,7 @@ public class HomeActivity extends Activity {
 		drawerLayout.setDrawerListener(drawerToggle);
 
 		if (savedInstanceState == null) {
-			MenuItemBase mi = catalog.getTopMenuItems().get(0);
+			MenuItemBase mi = catalog.getTopMenuItems().get(1);
 			int id = 0;
 			if (getIntent() != null) {
 				id = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);
@@ -164,7 +167,7 @@ public class HomeActivity extends Activity {
 		t.send(eb.build());
 	}
 
-	public void displayMenuItem(MenuItemBase mi) {
+	public void displayMenuItem(final MenuItemBase mi) {
 		FragmentBase f = null;
 		if (mi instanceof MenuItemPrayer) {
 			f = TextViewFragment.getInstance(((MenuItemPrayer) mi));
@@ -172,9 +175,22 @@ public class HomeActivity extends Activity {
 			f = SubMenuFragment.getInstance((MenuItemSubMenu) mi);
 		} else if (mi instanceof MenuItemCalendar) {
 			f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar) mi);
+		} else if (mi instanceof MenuItemOftenUsed) {
+			f = OftenUsedFragment.getInstance((MenuItemOftenUsed) mi);
 		}
 
 		displayFragment(f, mi.getId(), mi.getName());
+
+		new AsyncTask<Void, Void, Void>() {
+			@Override
+			protected Void doInBackground(Void... params) {
+				if (!(mi instanceof MenuItemOftenUsed)) {
+					PreferenceManager.getInstance().markMenuItemAsOpened(
+							mi.getId());
+				}
+				return null;
+			}
+		}.execute();
 	}
 
 	public void displayFragment(Fragment fragment, int id, CharSequence title) {

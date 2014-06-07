@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import android.util.SparseArray;
+
 import com.tshevchuk.prayer.Utils;
 
 public class Catalog {
@@ -16,12 +18,14 @@ public class Catalog {
 	private static final String SRC_AKAFISTY_MOLYTVA = "МОЛИТВА - Акафіст http://molytva.at.ua/index/akafist/0-293";
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
 
-	private static final int NEXT_ID_TO_ADD = 400;
+	private static final int NEXT_ID_TO_ADD = 402;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
+	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
 
 	{
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
+		menu.addSubItem(new MenuItemOftenUsed(400));
 		menu.html(1, "Щоденні молитви", "molytvy-schodenni.html",
 				SRC_DODATOK_KATEKHYZMU_2012);
 		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
@@ -445,7 +449,7 @@ public class Catalog {
 	}
 
 	private MenuItemSubMenu addProSpovidIPrychastya() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(0, "Сповідь та причастя");
+		MenuItemSubMenu menu = new MenuItemSubMenu(401, "Сповідь та причастя");
 		menu.html(152, "Про щастя людини", "pro-spovid/pro-schastya.html",
 				SRC_PRO_SPOVID);
 		menu.html(153, "Церква як Божа установа",
@@ -631,6 +635,11 @@ public class Catalog {
 	}
 
 	public MenuItemBase getMenuItemById(int id) {
-		return getMenuItemById(id, topMenu);
+		MenuItemBase mi = menuItemsByIds.get(id);
+		if (mi == null) {
+			mi = getMenuItemById(id, topMenu);
+			menuItemsByIds.put(id, mi);
+		}
+		return mi;
 	}
 }

@@ -1,9 +1,8 @@
 package com.tshevchuk.prayer;
 
-import java.util.Arrays;
-
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
@@ -36,10 +35,10 @@ public class PreferenceManager {
 				.getString(PREF_TEXT_FONT_SIZE, "18"));
 	}
 
-	public int[] getRecentMenuItems() {
+	public synchronized int[] getRecentMenuItems() {
 		if (recentMenuItemsId == null) {
 			String s = sharedPrefs.getString(PREF_RECENT_MENU_ITEMS, "");
-			String[] idsStr = TextUtils.split(s, "|");
+			String[] idsStr = TextUtils.split(s, "\\|");
 			int[] ids = new int[idsStr.length];
 			for (int i = 0; i < idsStr.length; ++i) {
 				ids[i] = Integer.parseInt(idsStr[i]);
@@ -49,7 +48,7 @@ public class PreferenceManager {
 		return recentMenuItemsId;
 	}
 
-	public void markMenuItemAsOpened(int menuItemId) {
+	public synchronized void markMenuItemAsOpened(int menuItemId) {
 		int[] recentIds = getRecentMenuItems();
 		int index = -1;
 		for (int i = 0; i < recentIds.length; ++i) {
@@ -88,6 +87,7 @@ public class PreferenceManager {
 			sb.append('|').append(newRecentIds[i]);
 		}
 		recentMenuItemsId = newRecentIds;
-		sharedPrefs.edit().putString(PREF_RECENT_MENU_ITEMS, sb.toString());
+		sharedPrefs.edit().putString(PREF_RECENT_MENU_ITEMS, sb.toString())
+				.apply();
 	}
 }
