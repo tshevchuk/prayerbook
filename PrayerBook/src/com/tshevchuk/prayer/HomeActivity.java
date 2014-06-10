@@ -21,6 +21,7 @@ import android.widget.ListView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.tjeannin.apprate.AppRate;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
@@ -107,6 +108,10 @@ public class HomeActivity extends Activity {
 				}
 			}
 			displayMenuItem(mi);
+
+			new AppRate(this).setShowIfAppHasCrashed(false)
+					.setMinDaysUntilPrompt(5).setMinLaunchesUntilPrompt(3)
+					.init();
 		}
 	}
 
