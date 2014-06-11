@@ -1,6 +1,5 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.R.menu;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;

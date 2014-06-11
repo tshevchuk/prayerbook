@@ -17,6 +17,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -31,6 +33,7 @@ import com.tshevchuk.prayer.data.MenuItemSubMenu;
 import com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.fragments.FragmentBase;
 import com.tshevchuk.prayer.fragments.OftenUsedFragment;
+import com.tshevchuk.prayer.fragments.SearchFragment;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
 import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
@@ -43,6 +46,7 @@ public class HomeActivity extends Activity {
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
 	private ActionBarDrawerToggle drawerToggle;
+	private SearchView searchView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +136,33 @@ public class HomeActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.actionbar, menu);
+		MenuItem miSearch = menu.findItem(R.id.mi_search);
+		searchView = (SearchView) miSearch.getActionView();
+		searchView.setOnQueryTextListener(new OnQueryTextListener() {
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				search(query);
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				return false;
+			}
+		});
 		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onSearchRequested() {
+		if (searchView != null) {
+			if (searchView.isIconified()) {
+				searchView.setIconified(false);
+			} else {
+				search(searchView.getQuery().toString());
+			}
+		}
+		return super.onSearchRequested();
 	}
 
 	@Override
@@ -226,5 +256,17 @@ public class HomeActivity extends Activity {
 				.send(new HitBuilders.EventBuilder()
 						.setCategory("Fragment Opened")
 						.setAction(id + " " + title).build());
+	}
+
+	private void search(String query) {
+		SearchFragment sf = null;
+		Fragment f = getFragmentManager().findFragmentById(R.id.content_frame);
+		if (f instanceof SearchFragment) {
+			sf = (SearchFragment) f;
+		} else {
+			sf = new SearchFragment();
+			displayFragment(sf, 0, null);
+		}
+		sf.setItemsForSearchPhrase(query);
 	}
 }
