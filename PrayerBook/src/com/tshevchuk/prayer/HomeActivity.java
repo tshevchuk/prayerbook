@@ -114,9 +114,11 @@ public class HomeActivity extends Activity {
 			}
 			displayMenuItem(mi);
 
-			new AppRate(this).setShowIfAppHasCrashed(false)
-					.setMinDaysUntilPrompt(5).setMinLaunchesUntilPrompt(3)
-					.init();
+			if (Utils.isNetworkAvailable()) {
+				new AppRate(this).setShowIfAppHasCrashed(false)
+						.setMinDaysUntilPrompt(5).setMinLaunchesUntilPrompt(3)
+						.init();
+			}
 		}
 	}
 

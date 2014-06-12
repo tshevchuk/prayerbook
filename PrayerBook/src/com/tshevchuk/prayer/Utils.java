@@ -6,6 +6,8 @@ import java.util.Locale;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 public class Utils {
 	private static Locale ukrainianLocale;
@@ -15,7 +17,7 @@ public class Utils {
 				.open(fileName);
 		java.util.Scanner s = new java.util.Scanner(input);
 		try {
-			s = s.useDelimiter("\\A");
+			s.useDelimiter("\\A");
 			return s.hasNext() ? s.next() : "";
 		} finally {
 			s.close();
@@ -32,5 +34,13 @@ public class Utils {
 			ukrainianLocale = new Locale("ukr", "UKR");
 		}
 		return ukrainianLocale;
+	}
+
+	public static boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) PrayerBookApplication
+				.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 }
