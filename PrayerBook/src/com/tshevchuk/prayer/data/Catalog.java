@@ -492,28 +492,28 @@ public class Catalog {
 				"Молитва – Благословення вагітних жінок",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-vahitnykh-zhinok.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(168, "Молитва матері, яка очікує дитину",
+		sm.html(168, "Молитва матері, яка очікує дитину",
 				"rizni-potreby/dlya-vahitnykh/materi-ochikuye-dytynu.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(169,
+		sm.html(169,
 				"Молитва до Богородиці для допомоги жінкам у часі пологів",
 				"rizni-potreby/dlya-vahitnykh/do-bohorodytsi-dopomohy-pry-polohakh.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(170, "Молитва вагітних жінок за успішні пологи",
+		sm.html(170, "Молитва вагітних жінок за успішні пологи",
 				"rizni-potreby/dlya-vahitnykh/za-uspishni-polohy.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(171, "Молитва при важких пологах",
+		sm.html(171, "Молитва при важких пологах",
 				"rizni-potreby/dlya-vahitnykh/pry-vazhkykh-polohakh.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
 		sm.text(172,
 				"Молитва – Благословення жінки після пологів",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-polohiv.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(173,
+		sm.html(173,
 				"Молитва за ласку годування грудьми",
 				"rizni-potreby/dlya-vahitnykh/za-lasku-hoduvannya-hruddyu.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(174,
+		sm.html(174,
 				"Молитва – Благословення вагітних жінок після Літургії",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-liturhiyi.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
