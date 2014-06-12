@@ -1,15 +1,13 @@
 package com.tshevchuk.prayer;
 
-import java.util.Arrays;
-
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
 	public static final String PREF_NIGHT_MODE = "pref_nightMode";
 	public static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
+	public static final String PREF_ABOUT_APP = "pref_aboutApp";
 
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 

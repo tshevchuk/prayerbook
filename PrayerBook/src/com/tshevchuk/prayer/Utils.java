@@ -6,6 +6,8 @@ import java.util.Locale;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -42,5 +44,21 @@ public class Utils {
 		NetworkInfo activeNetworkInfo = connectivityManager
 				.getActiveNetworkInfo();
 		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+	}
+
+	public static final String getApplicationNameAndVersion() {
+		Context context = PrayerBookApplication.getInstance();
+		PackageManager packageManager = context.getPackageManager();
+		ApplicationInfo applicationInfo;
+		String pkgNm = context.getPackageName();
+		String ver = "";
+		try {
+			applicationInfo = packageManager.getApplicationInfo(pkgNm, 0);
+			ver = context.getPackageManager().getPackageInfo(pkgNm, 0).versionName;
+		} catch (final NameNotFoundException e) {
+			applicationInfo = null;
+		}
+		return (String) (applicationInfo != null ? packageManager
+				.getApplicationLabel(applicationInfo) + " " + ver : "(unknown)");
 	}
 }

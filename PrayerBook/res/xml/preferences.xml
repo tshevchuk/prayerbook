@@ -15,4 +15,8 @@
         android:key="pref_textFontSize"
         android:title="Розмір шрифта" />
 
+    <Preference
+        android:key="pref_aboutApp"
+        android:title="Про програму" />
+
 </PreferenceScreen>

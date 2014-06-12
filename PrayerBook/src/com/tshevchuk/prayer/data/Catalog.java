@@ -1,10 +1,12 @@
 package com.tshevchuk.prayer.data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.tshevchuk.prayer.Utils;
@@ -641,5 +643,24 @@ public class Catalog {
 			menuItemsByIds.put(id, mi);
 		}
 		return mi;
+	}
+
+	public Set<String> getAllSources() {
+		Set<String> sources = new HashSet<String>();
+		for (MenuItemBase mi : topMenu)
+			addSources(sources, mi);
+		return sources;
+	}
+
+	private void addSources(Set<String> sources, MenuItemBase mi) {
+		if (mi instanceof MenuItemPrayer) {
+			String src = ((MenuItemPrayer) mi).getSource();
+			if (!TextUtils.isEmpty(src)) {
+				sources.add(src);
+			}
+		} else if (mi instanceof MenuItemSubMenu) {
+			for (MenuItemBase sm : ((MenuItemSubMenu) mi).getSubItems())
+				addSources(sources, sm);
+		}
 	}
 }
