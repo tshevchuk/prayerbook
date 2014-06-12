@@ -19,8 +19,9 @@ public class Catalog {
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
 	private static final String SRC_AKAFISTY_MOLYTVA = "МОЛИТВА - Акафіст http://molytva.at.ua/index/akafist/0-293";
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
+	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
 
-	private static final int NEXT_ID_TO_ADD = 402;
+	private static final int NEXT_ID_TO_ADD = 430;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -60,6 +61,95 @@ public class Catalog {
 		topMenu = menu.getSubItems();
 
 		verifyUniqueId();
+	}
+
+	private MenuItemSubMenu addMolytvyVijskovykhFormuvan() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(403,
+				"Молитви представників військових формувань");
+
+		menu.text(404, "Молитва військовослужбовця",
+				"rizni-potreby/vijskovykh-formuvan/vijskovosluzhbovtsya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(405, "Молитва офіцера",
+				"rizni-potreby/vijskovykh-formuvan/ofitsera.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(406, "Молитва військовослужбовця повітряних сил",
+				"rizni-potreby/vijskovykh-formuvan/povitryanykh-syl.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(407, "Молитва військовослужбовця військово-морських сил",
+				"rizni-potreby/vijskovykh-formuvan/vijskovo-morskykh-syl.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(408, "Молитва військовослужбовця сухопутних військ",
+				"rizni-potreby/vijskovykh-formuvan/sukhoputnykh.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(409, "Молитва за щасливу подорож",
+				"rizni-potreby/vijskovykh-formuvan/schaslyvu-podorozh.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(410,
+				"Молитва за капітанів кораблів і тих, що подорожують на водах",
+				"rizni-potreby/vijskovykh-formuvan/korabli-vody.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(411, "Молитва військового водія",
+				"rizni-potreby/vijskovykh-formuvan/vodiya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(412, "Молитва артилериста",
+				"rizni-potreby/vijskovykh-formuvan/artelerysta.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(413, "Молитва десантника",
+				"rizni-potreby/vijskovykh-formuvan/desantnyka.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(414, "Молитва зв’язківця",
+				"rizni-potreby/vijskovykh-formuvan/zvazkivtsya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(415, "Молитва танкіста",
+				"rizni-potreby/vijskovykh-formuvan/tankista.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(416, "Молитва курсанта",
+				"rizni-potreby/vijskovykh-formuvan/kursanta.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(417, "Молитва рятівника",
+				"rizni-potreby/vijskovykh-formuvan/ryativnyka.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(418, "Молитва прикордонника",
+				"rizni-potreby/vijskovykh-formuvan/prykordonnyka.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(
+				419,
+				"Молитва працівника пенітенціарної служби",
+				"rizni-potreby/vijskovykh-formuvan/penitentsiarnoyi-sluzhby.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(420, "Молитва правоохоронця",
+				"rizni-potreby/vijskovykh-formuvan/pravookhorontsya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(421, "Молитва за мир",
+				"rizni-potreby/vijskovykh-formuvan/za-myr.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(422, "Молитва під час бойових дій",
+				"rizni-potreby/vijskovykh-formuvan/bojovykh-dij.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(423, "Молитва перед боєм",
+				"rizni-potreby/vijskovykh-formuvan/pered-boyem.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(424, "Коротка молитва під час бою",
+				"rizni-potreby/vijskovykh-formuvan/pid-chas-boyu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(425, "Молитва полоненого",
+				"rizni-potreby/vijskovykh-formuvan/polonenoho.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(426, "Молитва пораненого чи хворого воїна",
+				"rizni-potreby/vijskovykh-formuvan/poranenoho-khvoroho.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(427, "Молитва за ворогів",
+				"rizni-potreby/vijskovykh-formuvan/vorohiv.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(428, "Пом’яник",
+				"rizni-potreby/vijskovykh-formuvan/pomyanyk.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(429, "Молитва за тих, що впали в бою",
+				"rizni-potreby/vijskovykh-formuvan/vpaly-v-boyu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+
+		return menu;
 	}
 
 	private MenuItemSubMenu addPisni() {
@@ -520,6 +610,7 @@ public class Catalog {
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-liturhiyi.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
 
+		menu.addSubItem(addMolytvyVijskovykhFormuvan());
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(176, "Молитва на всяке прошення",
