@@ -21,7 +21,7 @@ public class Catalog {
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
 	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
 
-	private static final int NEXT_ID_TO_ADD = 430;
+	private static final int NEXT_ID_TO_ADD = 437;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -147,6 +147,15 @@ public class Catalog {
 				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.text(429, "Молитва за тих, що впали в бою",
 				"rizni-potreby/vijskovykh-formuvan/vpaly-v-boyu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(430, "Молитва матері військового",
+				"rizni-potreby/vijskovykh-formuvan/materi.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(431, "Молитва дружини військового",
+				"rizni-potreby/vijskovykh-formuvan/druzhyny.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(432, "Молитва воїна за родину",
+				"rizni-potreby/vijskovykh-formuvan/za-rodynu.html",
 				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 
 		return menu;
@@ -611,6 +620,7 @@ public class Catalog {
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
 
 		menu.addSubItem(addMolytvyVijskovykhFormuvan());
+
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(176, "Молитва на всяке прошення",
@@ -632,20 +642,26 @@ public class Catalog {
 		menu.html(182, "Молитва у годині смерти",
 				"rizni-potreby/u-hodyni-smerti.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(434, "Молитва за померлих",
+				"rizni-potreby/za-pomerlykh.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(183, "Молитва християнської родини",
 				"rizni-potreby/khryst-rodyny.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(184, "Молитва батьків за дітей",
 				"rizni-potreby/batkiv-za-ditey.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(185, "Молитва батьків за дітей",
-				"rizni-potreby/batkiv-za-ditey.html",
+		menu.html(185, "Молитва дітей за батьків",
+				"rizni-potreby/ditey-za-batkiv.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.text(186, "Молитва за чоловіка (дружину)",
 				"rizni-potreby/za-cholovika-druzhynu.html",
 				"МОЛИТВА http://molytva.at.ua/index/rodinni_molitvi/0-151");
 		menu.html(187, "Молитва учня (учениці)", "rizni-potreby/uchnya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(433, "Молитва за вибір стану",
+				"rizni-potreby/vybir-stanu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(188, "Молитва за перемогу над спокусами",
 				"rizni-potreby/peremoha-nad-spokusamy.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -667,6 +683,12 @@ public class Catalog {
 		menu.html(194, "Молитви за з’єднання всіх християн",
 				"rizni-potreby/zyednannya-khrystyyan.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(436, "Молитва за український народ",
+				"rizni-potreby/za-ukr-narod.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(435, "Молитва на Новий рік",
+				"rizni-potreby/na-novyj-rik.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		return menu;
 	}
 
