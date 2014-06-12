@@ -23,6 +23,7 @@ import android.widget.SearchView.OnQueryTextListener;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.HitBuilders.EventBuilder;
 import com.tjeannin.apprate.AppRate;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
@@ -147,7 +148,10 @@ public class HomeActivity extends Activity {
 
 			@Override
 			public boolean onQueryTextChange(String newText) {
-				return false;
+				if (getFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
+					search(newText);
+				}
+				return true;
 			}
 		});
 		return super.onCreateOptionsMenu(menu);
@@ -268,5 +272,15 @@ public class HomeActivity extends Activity {
 			displayFragment(sf, 0, null);
 		}
 		sf.setItemsForSearchPhrase(query);
+
+		Tracker t = PrayerBookApplication.getInstance().getTracker();
+		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
+				Analytics.CAT_SEARCH).setAction(query);
+		t.send(event.build());
+
+	}
+
+	public SearchView getSearchView() {
+		return searchView;
 	}
 }
