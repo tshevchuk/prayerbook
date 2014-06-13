@@ -99,6 +99,7 @@ public class HomeActivity extends Activity {
 				// getActionBar().setTitle(mDrawerTitle);
 				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
+				getActionBar().show();
 			}
 		};
 		drawerLayout.setDrawerListener(drawerToggle);

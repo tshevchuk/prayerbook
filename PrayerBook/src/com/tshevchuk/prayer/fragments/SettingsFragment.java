@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.HitBuilders.EventBuilder;
@@ -39,6 +43,21 @@ public class SettingsFragment extends PreferenceFragment implements
 				return true;
 			}
 		});
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View v = super.onCreateView(inflater, container, savedInstanceState);
+		TypedValue tv = new TypedValue();
+		int abHeight = 0;
+		if (activity.getTheme().resolveAttribute(android.R.attr.actionBarSize,
+				tv, true)) {
+			abHeight = TypedValue.complexToDimensionPixelSize(tv.data,
+					getResources().getDisplayMetrics());
+		}
+		v.setPadding(0, abHeight, 0, 0);
+		return v;
 	}
 
 	@Override
