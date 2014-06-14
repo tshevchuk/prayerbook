@@ -1,11 +1,14 @@
 package com.tshevchuk.prayer.fragments;
 
+import java.util.Date;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,18 +16,25 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.HomeActivity;
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PrayerLoader;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
 import com.tshevchuk.prayer.UIUtils;
+import com.tshevchuk.prayer.data.CalendarDay;
+import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.MenuItemBase;
+import com.tshevchuk.prayer.data.MenuItemCalendar;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 
 public class TextViewFragment extends FragmentBase implements
@@ -35,7 +45,10 @@ public class TextViewFragment extends FragmentBase implements
 	private CharSequence htmlContent;
 
 	private TextView tvContent;
-	private Activity activity;
+	private HomeActivity activity;
+	private LinearLayout llToday;
+	private TextView tvDay;
+	private TextView tvDescription;
 
 	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
 		TextViewFragment f = new TextViewFragment();
@@ -48,7 +61,7 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		this.activity = activity;
+		this.activity = (HomeActivity) activity;
 	}
 
 	@Override
@@ -68,7 +81,12 @@ public class TextViewFragment extends FragmentBase implements
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_text_view, container, false);
+
 		tvContent = (TextView) v.findViewById(R.id.tv_content);
+		llToday = (LinearLayout) v.findViewById(R.id.ll_today);
+		tvDay = (TextView) v.findViewById(R.id.tvDay);
+		tvDescription = (TextView) v.findViewById(R.id.tvDescription);
+
 		if (!getResources().getBoolean(R.bool.has_sw480)) {
 			final ResponsiveScrollView svScroll = (ResponsiveScrollView) v
 					.findViewById(R.id.svScroll);
@@ -113,6 +131,14 @@ public class TextViewFragment extends FragmentBase implements
 			});
 		}
 
+		llToday.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				activity.displayMenuItem(PrayerBookApplication.getInstance()
+						.getCatalog().getMenuItemById(Catalog.ID_CALENDAR));
+			}
+		});
+
 		return v;
 	}
 
@@ -120,8 +146,26 @@ public class TextViewFragment extends FragmentBase implements
 	public void onResume() {
 		super.onResume();
 		activity.getActionBar().setTitle(prayer.getFullName());
-		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, PreferenceManager
-				.getInstance().getFontSizeSp());
+		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
+		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+
+		if (PreferenceManager.getInstance().isShowTodayCalendarEnabled()) {
+			llToday.setVisibility(View.VISIBLE);
+			CerkovnyyCalendar cal = CerkovnyyCalendar.getInstance();
+			CalendarDay day = cal.getCalendarDay(new Date());
+			String d = tvDay.getText().toString();
+			if (day.isDateRed()) {
+				d = "<font color=\"red\">" + d + "</font>";
+			}
+			tvDay.setText(Html.fromHtml(d));
+			tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+			tvDescription.setText(Html
+					.fromHtml(day.getDescription().toString()));
+			tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+
+		} else {
+			llToday.setVisibility(View.GONE);
+		}
 	}
 
 	@Override

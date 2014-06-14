@@ -4,7 +4,6 @@
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="pref_nightMode"
-        android:summary="Нічний режим"
         android:title="Нічний режим" />
 
     <ListPreference
@@ -14,6 +13,12 @@
         android:entryValues="@array/TextFontSizes"
         android:key="pref_textFontSize"
         android:title="Розмір шрифта" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="pref_showTodayCalendar"
+        android:summary="На екрані «Щоденні молитви»"
+        android:title="Календар на сьогодні" />
 
     <Preference
         android:key="pref_aboutApp"

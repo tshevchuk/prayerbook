@@ -21,6 +21,9 @@ public class Catalog {
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
 	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
 
+	public static final int ID_SCHODENNI_MOLYTVY = 1;
+	public static final int ID_CALENDAR = 5;
+
 	private static final int NEXT_ID_TO_ADD = 437;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
@@ -29,8 +32,8 @@ public class Catalog {
 	{
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
 		menu.addSubItem(new MenuItemOftenUsed(400));
-		menu.html(1, "Щоденні молитви", "molytvy-schodenni.html",
-				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
+				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012);
 		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
@@ -43,7 +46,7 @@ public class Catalog {
 
 		menu.addSubItem(addMolytvyRizniPotreby());
 
-		menu.addSubItem(new MenuItemCalendar(5));
+		menu.addSubItem(new MenuItemCalendar(ID_CALENDAR));
 
 		MenuItemSubMenu psalmy = new MenuItemSubMenu(6, "Псалми");
 		addPsaloms(psalmy);
