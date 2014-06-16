@@ -38,7 +38,7 @@ public class PreferenceManager {
 	}
 
 	public boolean isShowTodayCalendarEnabled() {
-		return sharedPrefs.getBoolean(PREF_SHOW_TODAY_CALENDAR, true);
+		return sharedPrefs.getBoolean(PREF_SHOW_TODAY_CALENDAR, false);
 	}
 
 	public synchronized int[] getRecentMenuItems() {

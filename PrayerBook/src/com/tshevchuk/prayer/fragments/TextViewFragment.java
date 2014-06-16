@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.fragments;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.ActionBar;
@@ -30,11 +31,11 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
 import com.tshevchuk.prayer.UIUtils;
+import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.CalendarDay;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.MenuItemBase;
-import com.tshevchuk.prayer.data.MenuItemCalendar;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 
 public class TextViewFragment extends FragmentBase implements
@@ -153,7 +154,8 @@ public class TextViewFragment extends FragmentBase implements
 			llToday.setVisibility(View.VISIBLE);
 			CerkovnyyCalendar cal = CerkovnyyCalendar.getInstance();
 			CalendarDay day = cal.getCalendarDay(new Date());
-			String d = tvDay.getText().toString();
+			String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
+					.format(day.getDay());
 			if (day.isDateRed()) {
 				d = "<font color=\"red\">" + d + "</font>";
 			}

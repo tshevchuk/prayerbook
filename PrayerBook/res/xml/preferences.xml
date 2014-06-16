@@ -15,7 +15,7 @@
         android:title="Розмір шрифта" />
 
     <CheckBoxPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="pref_showTodayCalendar"
         android:summary="На екрані «Щоденні молитви»"
         android:title="Календар на сьогодні" />

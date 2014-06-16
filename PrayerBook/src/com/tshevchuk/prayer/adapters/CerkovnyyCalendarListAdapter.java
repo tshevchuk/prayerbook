@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.CalendarDay;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 
@@ -38,8 +39,9 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 	public CerkovnyyCalendarListAdapter(Context context, int year) {
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		dayDateFormat = new SimpleDateFormat("d EE", Locale.getDefault());
-		dayOldStyleFormat = new SimpleDateFormat("d MMM", Locale.getDefault());
+		dayDateFormat = new SimpleDateFormat("d EE", Utils.getUkrainianLocale());
+		dayOldStyleFormat = new SimpleDateFormat("d MMM",
+				Utils.getUkrainianLocale());
 		calendar = Calendar.getInstance();
 		currentYear = calendar.get(Calendar.YEAR);
 		currentDayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
