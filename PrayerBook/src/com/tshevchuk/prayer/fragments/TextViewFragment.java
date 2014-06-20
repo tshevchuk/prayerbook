@@ -150,7 +150,8 @@ public class TextViewFragment extends FragmentBase implements
 		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
 
-		if (PreferenceManager.getInstance().isShowTodayCalendarEnabled()) {
+		if (PreferenceManager.getInstance().isShowTodayCalendarEnabled()
+				&& prayer.getId() == Catalog.ID_SCHODENNI_MOLYTVY) {
 			llToday.setVisibility(View.VISIBLE);
 			CerkovnyyCalendar cal = CerkovnyyCalendar.getInstance();
 			CalendarDay day = cal.getCalendarDay(new Date());
