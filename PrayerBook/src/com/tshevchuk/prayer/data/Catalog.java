@@ -19,12 +19,13 @@ public class Catalog {
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
 	private static final String SRC_AKAFISTY_MOLYTVA = "МОЛИТВА - Акафіст http://molytva.at.ua/index/akafist/0-293";
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
+	private static final String SRC_MOLEBNI_KYRIOS = "Кіріос - Молебні http://kyrios.org.ua/spirituality/molebni.html";
 	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
 
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 
-	private static final int NEXT_ID_TO_ADD = 437;
+	private static final int NEXT_ID_TO_ADD = 463;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -55,7 +56,7 @@ public class Catalog {
 		menu.addSubItem(addAkafisty());
 		menu.addSubItem(addVervytsya());
 
-		menu.addSubItem(addLiturhiya());
+		menu.addSubItem(addBohosluzhinnya());
 		menu.addSubItem(addKatekhPravdy());
 		menu.addSubItem(addProSpovidIPrychastya());
 
@@ -361,17 +362,100 @@ public class Catalog {
 		return menu;
 	}
 
-	private MenuItemSubMenu addLiturhiya() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Літургія");
+	private MenuItemSubMenu addBohosluzhinnya() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Богослужіння");
+
+		MenuItemSubMenu sm = menu.subMenu(437, "Молебні");
+		sm.html(438,
+				"Чин молебня під час війни проти супротивників",
+				"bohosluzhinnya/molebni/vijny.html",
+				"Християнський портал КІРІОС http://kyrios.org.ua/spirituality/molebni/12477-chin-molebnja-pid-chas-vijni-proti-suprotivnikiv.html , за матеріалами оф.сайту храму свщм. Климентія Шептицького http://klymentij.blogspot.com/ .");
+		sm.html(439,
+				"Молебень до святого рівноапостольного князя Володимира Великого, хрестителя Русі-України",
+				"bohosluzhinnya/molebni/volodymyra-velykoho.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(440,
+				"Молебень до блаженних новомучеників Української Греко-Католицької Церкви",
+				"bohosluzhinnya/molebni/novomuchenykiv-ugcc.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(451,
+				"Молебень до блаженних новомучеників Української Греко-Католицької Церкви (1)",
+				"bohosluzhinnya/molebni/novomuchenykiv-ugcc-1.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(441, "Молебень до преподобного Шарбеля Чудотворця",
+				"bohosluzhinnya/molebni/scherbalya-chudotvortsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(442, "Молебень в часі посухи",
+				"bohosluzhinnya/molebni/posukhy.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(443,
+				"Молебень до священномученика Теодора (Ромжі), єпископа Мукачівського",
+				"bohosluzhinnya/molebni/teodora-romzhi.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(444, "Молебень до Пресвятої Богородиці на честь її Покрову",
+				"bohosluzhinnya/molebni/bohorodytsi-pokrovu.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(445, "Молебень до св. Миколая Чудотворця",
+				"bohosluzhinnya/molebni/mykolaya-chudotvortsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(446,
+				"Параклис, або Канон молебний до Пресвятої Богородиці, який співається у всякій скорботі душевній",
+				"bohosluzhinnya/molebni/bohorodytsi-skorboti.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(447, "Молебень до Божого милосердя",
+				"bohosluzhinnya/molebni/bozhoho-myloserdya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(448, "Молебень до Христа Спасителя",
+				"bohosluzhinnya/molebni/khrysta-spasytelya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(449, "Молебень до Святого Духа",
+				"bohosluzhinnya/molebni/sv-dukha.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(450, "Молебень на Святу Пасху",
+				"bohosluzhinnya/molebni/sv-paskhu.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(452,
+				"Молебень за примирення святої Церкви та визволення її від напастей єретиків і віровідступників",
+				"bohosluzhinnya/molebni/prymyrennya-tserkvy.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(453, "Молебень на початок Нового року",
+				"bohosluzhinnya/molebni/pochatok-novoho-roku.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(454,
+				"Молебень до святого великомученика і чудотворця Юрія Побідоносця",
+				"bohosluzhinnya/molebni/yuriya-pobidonostsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(455, "Молебень перед початком навчання дітей",
+				"bohosluzhinnya/molebni/pered-pochatkom-navch-ditey.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(456,
+				"Молебень в часі губительного мору і смертоносної недуги (епідемії)",
+				"bohosluzhinnya/molebni/mor-i-neduha.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(457, "Подячний молебень у дні громадянських і державних свят",
+				"bohosluzhinnya/molebni/hrom-i-derzh-svyata.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(458,
+				"Молебень до найсолодшого Господа нашого Ісуса Христа Чоловіколюбця",
+				"bohosluzhinnya/molebni/isusa-khrysta-cholovikolyubtsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.text(459, "Молебень до св. Йосифа",
+				"bohosluzhinnya/molebni/sv-josypha.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(460,
+				"Молебень до Матері Божої Непорочно Зачатої.",
+				"bohosluzhinnya/molebni/materi-bozhoyi-neporochno-zachatoyi.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(461, "Молебень до Пресвятої Богородиці",
+				"bohosluzhinnya/molebni/presv-bohorodytsi.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(462, "Молебень за недужих",
+				"bohosluzhinnya/molebni/neduzhykh.html", SRC_MOLEBNI_KYRIOS);
+
 		menu.html(
 				83,
 				"Божественна Літургія св. отця нашого Йоана Золотоустого",
-				"liturhiya/liturhiya-ugcc.html",
+				"bohosluzhinnya/liturhiya-ugcc.html",
 				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011");
 		menu.html(
 				84,
 				"Чин священної і Божественної Літургії святого Івана Золотоустого",
-				"liturhiya/liturhiya.html",
+				"bohosluzhinnya/liturhiya.html",
 				"Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html");
 		return menu;
 	}
