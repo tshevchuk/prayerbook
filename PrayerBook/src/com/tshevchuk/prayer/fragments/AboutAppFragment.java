@@ -1,5 +1,9 @@
 package com.tshevchuk.prayer.fragments;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +27,10 @@ public class AboutAppFragment extends FragmentBase {
 		sb.append("Історія змін: https://code.google.com/p/prayerbook/wiki/ReleaseNotes\n\n");
 		sb.append("Допомогти проекту можна наступними способами: https://code.google.com/p/prayerbook/wiki/HowToContribute\n\n");
 		sb.append("Джерела текстів:\n");
-		for (String src : PrayerBookApplication.getInstance().getCatalog()
-				.getAllSources()) {
+		List<String> srcs = new ArrayList<String>(PrayerBookApplication
+				.getInstance().getCatalog().getAllSources());
+		Collections.sort(srcs);
+		for (String src : srcs) {
 			sb.append(" • ").append(src).append("\n");
 		}
 		((TextView) v.findViewById(R.id.tv_content)).setText(sb);
