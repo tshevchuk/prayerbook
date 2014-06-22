@@ -51,13 +51,13 @@ public class HomeActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
 		PreferenceManager pm = PreferenceManager.getInstance();
 		setTheme(pm.isNightModeEnabled() ? R.style.PrayerBook_ThemeDark
 				: R.style.PrayerBook_ThemeLight);
 
 		super.onCreate(savedInstanceState);
-
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
 		setContentView(R.layout.a_home);
 		setProgressBarIndeterminateVisibility(false);
