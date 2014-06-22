@@ -17,10 +17,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.HitBuilders.EventBuilder;
+import com.tjeannin.apprate.AppRate;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
@@ -30,6 +34,7 @@ import com.tshevchuk.prayer.data.MenuItemSubMenu;
 import com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.fragments.FragmentBase;
 import com.tshevchuk.prayer.fragments.OftenUsedFragment;
+import com.tshevchuk.prayer.fragments.SearchFragment;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
 import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
@@ -42,16 +47,17 @@ public class HomeActivity extends Activity {
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
 	private ActionBarDrawerToggle drawerToggle;
+	private SearchView searchView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
 		PreferenceManager pm = PreferenceManager.getInstance();
 		setTheme(pm.isNightModeEnabled() ? R.style.PrayerBook_ThemeDark
 				: R.style.PrayerBook_ThemeLight);
 
 		super.onCreate(savedInstanceState);
-
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
 		setContentView(R.layout.a_home);
 		setProgressBarIndeterminateVisibility(false);
@@ -93,6 +99,7 @@ public class HomeActivity extends Activity {
 				// getActionBar().setTitle(mDrawerTitle);
 				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
+				getActionBar().show();
 			}
 		};
 		drawerLayout.setDrawerListener(drawerToggle);
@@ -107,6 +114,12 @@ public class HomeActivity extends Activity {
 				}
 			}
 			displayMenuItem(mi);
+
+			if (Utils.isNetworkAvailable()) {
+				new AppRate(this).setShowIfAppHasCrashed(false)
+						.setMinDaysUntilPrompt(5).setMinLaunchesUntilPrompt(3)
+						.init();
+			}
 		}
 	}
 
@@ -127,7 +140,36 @@ public class HomeActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.actionbar, menu);
+		MenuItem miSearch = menu.findItem(R.id.mi_search);
+		searchView = (SearchView) miSearch.getActionView();
+		searchView.setOnQueryTextListener(new OnQueryTextListener() {
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				search(query);
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				if (getFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
+					search(newText);
+				}
+				return true;
+			}
+		});
 		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onSearchRequested() {
+		if (searchView != null) {
+			if (searchView.isIconified()) {
+				searchView.setIconified(false);
+			} else {
+				search(searchView.getQuery().toString());
+			}
+		}
+		return super.onSearchRequested();
 	}
 
 	@Override
@@ -221,5 +263,27 @@ public class HomeActivity extends Activity {
 				.send(new HitBuilders.EventBuilder()
 						.setCategory("Fragment Opened")
 						.setAction(id + " " + title).build());
+	}
+
+	private void search(String query) {
+		SearchFragment sf = null;
+		Fragment f = getFragmentManager().findFragmentById(R.id.content_frame);
+		if (f instanceof SearchFragment) {
+			sf = (SearchFragment) f;
+		} else {
+			sf = new SearchFragment();
+			displayFragment(sf, 0, null);
+		}
+		sf.setItemsForSearchPhrase(query);
+
+		Tracker t = PrayerBookApplication.getInstance().getTracker();
+		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
+				Analytics.CAT_SEARCH).setAction(query);
+		t.send(event.build());
+
+	}
+
+	public SearchView getSearchView() {
+		return searchView;
 	}
 }

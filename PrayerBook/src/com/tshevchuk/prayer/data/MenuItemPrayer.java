@@ -2,12 +2,11 @@ package com.tshevchuk.prayer.data;
 
 import android.text.TextUtils;
 
-
 public class MenuItemPrayer extends MenuItemBase {
 	private static final long serialVersionUID = 1L;
 
 	private String fileName;
-	private String about;
+	private String source;
 	private String fullName;
 	private boolean isHtml = true;
 
@@ -18,7 +17,7 @@ public class MenuItemPrayer extends MenuItemBase {
 
 	public MenuItemPrayer(int id, String name, String fileName, String source) {
 		this(id, name, fileName);
-		setSource(source);
+		this.source = source;
 	}
 
 	public String getFileName() {
@@ -26,12 +25,16 @@ public class MenuItemPrayer extends MenuItemBase {
 	}
 
 	public MenuItemPrayer setSource(String source) {
-		this.about = "Джерело тексту: " + source;
+		this.source = source;
 		return this;
 	}
 
 	public String getAbout() {
-		return about;
+		return "Джерело тексту: " + source;
+	}
+	
+	public String getSource(){
+		return source;
 	}
 
 	public MenuItemPrayer setFullName(String fullName) {

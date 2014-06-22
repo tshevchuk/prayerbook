@@ -1,10 +1,12 @@
 package com.tshevchuk.prayer.data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.tshevchuk.prayer.Utils;
@@ -17,8 +19,16 @@ public class Catalog {
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
 	private static final String SRC_AKAFISTY_MOLYTVA = "МОЛИТВА - Акафіст http://molytva.at.ua/index/akafist/0-293";
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
+	private static final String SRC_MOLEBNI_KYRIOS = "Християнський портал Кіріос - Молебні http://kyrios.org.ua/spirituality/molebni.html";
+	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
+	private static final String SRC_TREBNYK_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html";
+	private static final String SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2001";
+	private static final String SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2012";
 
-	private static final int NEXT_ID_TO_ADD = 402;
+	public static final int ID_SCHODENNI_MOLYTVY = 1;
+	public static final int ID_CALENDAR = 5;
+
+	private static final int NEXT_ID_TO_ADD = 564;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -26,8 +36,8 @@ public class Catalog {
 	{
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
 		menu.addSubItem(new MenuItemOftenUsed(400));
-		menu.html(1, "Щоденні молитви", "molytvy-schodenni.html",
-				SRC_DODATOK_KATEKHYZMU_2012);
+		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
+				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012);
 		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
@@ -40,7 +50,7 @@ public class Catalog {
 
 		menu.addSubItem(addMolytvyRizniPotreby());
 
-		menu.addSubItem(new MenuItemCalendar(5));
+		menu.addSubItem(new MenuItemCalendar(ID_CALENDAR));
 
 		MenuItemSubMenu psalmy = new MenuItemSubMenu(6, "Псалми");
 		addPsaloms(psalmy);
@@ -49,7 +59,7 @@ public class Catalog {
 		menu.addSubItem(addAkafisty());
 		menu.addSubItem(addVervytsya());
 
-		menu.addSubItem(addLiturhiya());
+		menu.addSubItem(addBohosluzhinnya());
 		menu.addSubItem(addKatekhPravdy());
 		menu.addSubItem(addProSpovidIPrychastya());
 
@@ -58,6 +68,402 @@ public class Catalog {
 		topMenu = menu.getSubItems();
 
 		verifyUniqueId();
+	}
+
+	private MenuItemSubMenu addTrebnyk() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(468, "Требник");
+		menu.html(469, "Молитви у перший день, коли жінка породила дитину",
+				"trebnyk/persh-den-porodyla.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(471, "Молитва для знаменування дитяти у 8-ий день",
+				"trebnyk/dytya-8j-den.html", SRC_TREBNYK_LITURHIJNI_PEREKLADY);
+		menu.html(472, "Молитва над матір’ю у 40-й день",
+				"trebnyk/nad-matiryu-40j-den.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(473, "Молитва над жінкою, яка поронила дитя",
+				"trebnyk/zhinkoyu-poronyla-dytya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(474, "Чин оглашення перед Хрещенням",
+				"trebnyk/chyn-ohlashennya-pered-khreshchennyam.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(475, "Чин Хрещення", "trebnyk/chyn-khreschennya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(476, "Чин Миропомазання", "trebnyk/chyn-myropomazannya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(477, "Поучення як хрестити коротко в небезпеці смерти",
+				"trebnyk/pouchennya-khrestyty-v-nebezp-smerti.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(478, "Чин сповіді", "trebnyk/chyn-spovidi.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(479, "Молитва розрішення від клятви",
+				"trebnyk/molytva-rozrishennya-vid-klyatvy.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(480, "Чин причастя хворого",
+				"trebnyk/chyn-prychastya-khvoroho.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(481, "Чин вінчання", "trebnyk/chyn-vinchannya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(482, "Чин введення в церкву вперше одруженої",
+				"trebnyk/chyn-vvedennya-v-tserkvu-vpershe-odruzhenoji.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(483, "Чин вдруге вінчаних",
+				"trebnyk/chyn-vdruhe-vinchanykh.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(484, "Чин малого єлеосвячення",
+				"trebnyk/chyn-maloho-yeleoosvyachennya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(485, "Чин похорону мирян",
+				"trebnyk/chyn-pokhoronu-myryan.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(486, "Чин похорону усопших у світлий тиждень",
+				"trebnyk/chyn-pokhoronu-usopshykh.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(487, "Похорон мирських ієреїв",
+				"trebnyk/pokhoron-myrskykh-iyereyiv.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(488, "Похорон ієреїв у світлий тиждень",
+				"trebnyk/pokhoron-iyereyiv-svitlyj-tyzhden.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(489, "Чин похорону дитини",
+				"trebnyk/chyn-pokhoronu-dytyny.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(490, "Чин похорону дитини у світлий тиждень",
+				"trebnyk/chyn-pokhoronu-dytyny-svitlyj-tyzhden.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(491, "Чин великої панахиди або парастасу",
+				"trebnyk/chyn-velykoyi-panakhydy-abo-parastasu.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(492, "Молитва на всяку неміч",
+				"trebnyk/molytva-na-vsyaku-nemich.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(493, "Молитва тому, хто хоче йти в путь",
+				"trebnyk/molytva-tomu-khto-jde-v-put.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(494, "Чин благословення дітей перед початком навчання",
+				"trebnyk/chyn-blahoslovennya-ditey-pered-navchannyam.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(495,
+				"Чин благословення подруж, що прожили разом 25 або 50 років",
+				"trebnyk/chyn-blahoslovennya-podruzh-25-50-rokiv.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(496, "Чин великого освячення води святих Богоявлень",
+				"trebnyk/chyn-velykoho-osvyachennya-vody.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(497, "Чин малого освячення води",
+				"trebnyk/chyn-maloho-osvyachennya-vody.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(534, "Чин малого освячення води у скороченні",
+				"trebnyk/chyn-maloho-osvyach-vody-skoroch-1.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(499, "Благословення свічок у празник Стрітення ГНІХ",
+				"trebnyk/blahoslovennya-svichok-stritenya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(
+				500,
+				"Благословення і освячення верби у Квітну неділю",
+				"trebnyk/blahoslovennya-i-osvyachennya-verby-kvitnu-nedily.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(501, "Молитва на благословення артоса",
+				"trebnyk/blahoslovennya-artosa.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(502,
+				"Чин благословення пасок і іншої поживи у Святу Неділю Пасхи",
+				"trebnyk/blahoslovennya-pasok.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(
+				503,
+				"Чин благословення первоплодів у празник Преображення Господнього",
+				"trebnyk/blahoslovennya-pervoplodiv-praznyk-preobrazhennya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(504,
+				"Чин благословення зілля в день Успення Пресвятої Богородиці",
+				"trebnyk/blahoslovennya-zillya-uspennya-bohorodytsi.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(
+				505,
+				"Чин благословення книги святих євангелій та інших богослужбових книг",
+				"trebnyk/blahoslovennya-yevanhelij.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(506, "Чин благословення і освячення богослужбового посуду",
+				"trebnyk/blahoslovennya-bohosluzhbovoho-posudu.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(507,
+				"Чин благословення покровців для покривання святих дарів",
+				"trebnyk/blahoslovennya-pokrovtsiv-pokryvannya-sv-dariv.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(508, "Чин благословення і освячення священичих риз",
+				"trebnyk/blahoslovennya-ryz.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(509, "Чин благословення і освячення новопоставленого хреста",
+				"trebnyk/blahoslovennya-novopostavlenoho-khresta.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(510, "Чин благословення і освячення ікон - Тройці",
+				"trebnyk/blahoslovennya-ikon-trojtsi.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(511, "Чин благословення і освячення ікон - Христа",
+				"trebnyk/blahoslovennya-ikon-khrysta.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(512, "Чин благословення і освячення ікон - Богородиці",
+				"trebnyk/blahoslovennya-ikon-bohorodytsi.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(513, "Чин благословення і освячення ікон - Святих",
+				"trebnyk/blahoslovennya-ikon-svyatykh.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(514, "Чин благословення і освячення церковних хоругов",
+				"trebnyk/blahoslovennya-khoruhov.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(515, "Молитва на освячення всякої речі",
+				"trebnyk/molytva-osvyach-vsyakoyi-rechi.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(516, "Чин благословення нового дому",
+				"trebnyk/blahoslovennya-novoho-domu.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(517, "Чин святої П’ятдесятниці",
+				"trebnyk/chyn-pyatdesyatnytsi.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(518, "Чин загального молебня",
+				"trebnyk/chyn-zahalnoho-molebnya.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(519, "Молебень на святу Пасху",
+				"trebnyk/moleben-na-sv-paskhu.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		menu.html(520, "Скорочений чин Єлеопомазання",
+				"trebnyk/skorochenyj-chyn-yeleopomazannya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(521, "Чин молебня над хворим",
+				"trebnyk/chyn-molebnya-nad-khvorymy.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(522, "Молитва над хворим, що терпить від безсоння",
+				"trebnyk/molytva-khvoryj-bezsonnya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(523, "Чин благословення дітей",
+				"trebnyk/chyn-blahoslovennya-ditey.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(524, "Молитва над бездітним подружжям",
+				"trebnyk/molytva-nad-bezditnym-podruzzhyam.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(525, "Молитва за тих, що творять нам милостиню",
+				"trebnyk/molytva-tvoryat-mylostynyu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(526, "Чин благодарення за здійснені прохання",
+				"trebnyk/chyn-blahodarennya-zdijsneni-prokhannya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(527, "Молитвоний чин відвідин перед Різдвом",
+				"trebnyk/molytovn-chyn-vidvidyn-pered-rizdvom.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(528, "Молитва під час відвідин на Богоявлення",
+				"trebnyk/molytva-vidvidyn-bohoyavlennya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(529, "Молитви на початок святої і великої Чотиридесятниці",
+				"trebnyk/molytva-na-pochatok-sv-chotyrydesyatnytsi.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(530, "Молитви перед Пасхальним причастям",
+				"trebnyk/molytva-pered-sv-paskhalnym-prychastyam.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(531, "Чин введення новопоставленого пароха",
+				"trebnyk/chyn-vvedennya-novopostavlenoho-parokha.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(532, "Чин прийняття у церковне братство",
+				"trebnyk/chyn-pryjnyattya-u-tserkovne-bratstvo.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(
+				533,
+				"Чин присяги стриманости від вживання алкогольних напоїв",
+				"trebnyk/chyn-prysyahy-strymanosti-vid-vzhyvannya-alkoholyu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(535, "Чин благословення посуду церковного",
+				"trebnyk/blahosl-posudu-tserkovnoho.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(536, "Чин благословення дароносиці",
+				"trebnyk/chyn-blahoslovennya-daronosytsi.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(537, "Чин благословення нового кивоту",
+				"trebnyk/chyn-blahosl-novoho-kyvotu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(
+				538,
+				"Чин благословення посудин для зберігання мощей святих",
+				"trebnyk/chyn-blahoslovennya-posudyn-zberihannya-moschej-svyatykh.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(539, "Благословення кадила",
+				"trebnyk/blahoslovennya-kadyla.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(540, "Чин благословення напрестольного хреста",
+				"trebnyk/chyn-blahoslovennya-naprestolnoho-khresta.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(541, "Чин благословення хреста нагрудного",
+				"trebnyk/chyn-blahoslovennya-khresta-nahrudnoho.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(542, "Благословення храмових світильників або свічок",
+				"trebnyk/blahoslovennya-khramovykh-svitylnykiv.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(
+				543,
+				"Чин благословення і положення першого каменя на оснування церкви",
+				"trebnyk/blahoslovennya-pershoho-kamenya-osnuvannya-tserkvy.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(544, "Чин благословення нової церкви",
+				"trebnyk/blahoslovennya-novoyi-tserkvy.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(545, "Чин благословення накупольного хреста",
+				"trebnyk/blahoslovennya-nakupolnoho-khresta.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(546, "Чин благословення і освячення іконостасу",
+				"trebnyk/blahoslovennya-ikonostasu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(547, "Чин благословення нової дзвениці",
+				"trebnyk/blahoslovennya-novoyi-dzvenytsi.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(548, "Чин благословення дзвонів",
+				"trebnyk/blahoslovennya-dzvoniv.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(549, "Чин благословення нового цвинтаря",
+				"trebnyk/blahoslovennya-novoho-tsvyntarya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(550, "Чин примирення оскверненого цвинтаря",
+				"trebnyk/chyn-prymyrennya-oskvernenoho-tsvyntarya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(551, "Чин благословення гробниці або надгробку",
+				"trebnyk/chyn-blahoslovennya-hrobnytsi-nadhrobku.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(552, "Молитви під час посухи",
+				"trebnyk/molytva-pid-chas-posukhy.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(553, "Молитви під час сльоти",
+				"trebnyk/molytva-pid-chas-sljoty.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(554, "Чин благословення оснування нового дому",
+				"trebnyk/chyn-blahoslovennya-osnuvannya-novoho-domu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(555, "Чин благословення нового дому",
+				"trebnyk/chyn-blahoslovennya-novoho-domu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(556, "Чин благословення моста",
+				"trebnyk/chyn-blahoslovennya-mosta.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(557, "Чин благословення транспортного засобу",
+				"trebnyk/chyn-blahoslovennya-transportnoho-zasobu.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(558, "Чин благословення корабля",
+				"trebnyk/chyn-blahoslovennya-korablya.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(559, "Благословення на копання криниці",
+				"trebnyk/blahoslovennya-na-kopannya-krynytsi.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(560, "Чин благословення стада худоби",
+				"trebnyk/chyn-blahoslovennya-stada-khudoby.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(561, "Молитва на освячення всякої речі",
+				"trebnyk/molytva-na-osvyachennya-vsyakoyi-rechi.html",
+				SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY);
+		menu.html(
+				562,
+				"Йорданські душпастирські відвідини з свяченою водою",
+				"trebnyk/jordanski-dushpastyrski-vidvidyny-z-osvyachenoyu-vodoyu.html",
+				SRC_TREBNYK_LITURHIJNI_PEREKLADY);
+		menu.html(563, "Благословення транспортного засобу",
+				"trebnyk/blahoslovennya-transportnoho-zasobu.html",
+				SRC_TREBNYK_LITURHIJNI_PEREKLADY);
+
+		return menu;
+	}
+
+	private MenuItemSubMenu addMolytvyVijskovykhFormuvan() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(403,
+				"Молитви представників військових формувань");
+
+		menu.text(404, "Молитва військовослужбовця",
+				"rizni-potreby/vijskovykh-formuvan/vijskovosluzhbovtsya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(405, "Молитва офіцера",
+				"rizni-potreby/vijskovykh-formuvan/ofitsera.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(406, "Молитва військовослужбовця повітряних сил",
+				"rizni-potreby/vijskovykh-formuvan/povitryanykh-syl.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(407, "Молитва військовослужбовця військово-морських сил",
+				"rizni-potreby/vijskovykh-formuvan/vijskovo-morskykh-syl.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(408, "Молитва військовослужбовця сухопутних військ",
+				"rizni-potreby/vijskovykh-formuvan/sukhoputnykh.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(409, "Молитва за щасливу подорож",
+				"rizni-potreby/vijskovykh-formuvan/schaslyvu-podorozh.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(410,
+				"Молитва за капітанів кораблів і тих, що подорожують на водах",
+				"rizni-potreby/vijskovykh-formuvan/korabli-vody.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(411, "Молитва військового водія",
+				"rizni-potreby/vijskovykh-formuvan/vodiya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(412, "Молитва артилериста",
+				"rizni-potreby/vijskovykh-formuvan/artelerysta.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(413, "Молитва десантника",
+				"rizni-potreby/vijskovykh-formuvan/desantnyka.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(414, "Молитва зв’язківця",
+				"rizni-potreby/vijskovykh-formuvan/zvazkivtsya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(415, "Молитва танкіста",
+				"rizni-potreby/vijskovykh-formuvan/tankista.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(416, "Молитва курсанта",
+				"rizni-potreby/vijskovykh-formuvan/kursanta.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(417, "Молитва рятівника",
+				"rizni-potreby/vijskovykh-formuvan/ryativnyka.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(418, "Молитва прикордонника",
+				"rizni-potreby/vijskovykh-formuvan/prykordonnyka.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(
+				419,
+				"Молитва працівника пенітенціарної служби",
+				"rizni-potreby/vijskovykh-formuvan/penitentsiarnoyi-sluzhby.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(420, "Молитва правоохоронця",
+				"rizni-potreby/vijskovykh-formuvan/pravookhorontsya.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(421, "Молитва за мир",
+				"rizni-potreby/vijskovykh-formuvan/za-myr.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(422, "Молитва під час бойових дій",
+				"rizni-potreby/vijskovykh-formuvan/bojovykh-dij.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(423, "Молитва перед боєм",
+				"rizni-potreby/vijskovykh-formuvan/pered-boyem.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(424, "Коротка молитва під час бою",
+				"rizni-potreby/vijskovykh-formuvan/pid-chas-boyu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(425, "Молитва полоненого",
+				"rizni-potreby/vijskovykh-formuvan/polonenoho.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(426, "Молитва пораненого чи хворого воїна",
+				"rizni-potreby/vijskovykh-formuvan/poranenoho-khvoroho.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(427, "Молитва за ворогів",
+				"rizni-potreby/vijskovykh-formuvan/vorohiv.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(428, "Пом’яник",
+				"rizni-potreby/vijskovykh-formuvan/pomyanyk.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(429, "Молитва за тих, що впали в бою",
+				"rizni-potreby/vijskovykh-formuvan/vpaly-v-boyu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(430, "Молитва матері військового",
+				"rizni-potreby/vijskovykh-formuvan/materi.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(431, "Молитва дружини військового",
+				"rizni-potreby/vijskovykh-formuvan/druzhyny.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(432, "Молитва воїна за родину",
+				"rizni-potreby/vijskovykh-formuvan/za-rodynu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+
+		return menu;
 	}
 
 	private MenuItemSubMenu addPisni() {
@@ -257,18 +663,112 @@ public class Catalog {
 		return menu;
 	}
 
-	private MenuItemSubMenu addLiturhiya() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Літургія");
+	private MenuItemSubMenu addBohosluzhinnya() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Богослужіння");
+
+		MenuItemSubMenu sm = menu.subMenu(437, "Молебні");
+		sm.html(448, "Молебень до Христа Спасителя",
+				"bohosluzhinnya/molebni/khrysta-spasytelya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(458,
+				"Молебень до найсолодшого Господа нашого Ісуса Христа Чоловіколюбця",
+				"bohosluzhinnya/molebni/isusa-khrysta-cholovikolyubtsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(447, "Молебень до Божого милосердя",
+				"bohosluzhinnya/molebni/bozhoho-myloserdya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(449, "Молебень до Святого Духа",
+				"bohosluzhinnya/molebni/sv-dukha.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(461, "Молебень до Пресвятої Богородиці",
+				"bohosluzhinnya/molebni/presv-bohorodytsi.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(444, "Молебень до Пресвятої Богородиці на честь її Покрову",
+				"bohosluzhinnya/molebni/bohorodytsi-pokrovu.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(446,
+				"Параклис, або Канон молебний до Пресвятої Богородиці, який співається у всякій скорботі душевній",
+				"bohosluzhinnya/molebni/bohorodytsi-skorboti.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(460,
+				"Молебень до Матері Божої Непорочно Зачатої.",
+				"bohosluzhinnya/molebni/materi-bozhoyi-neporochno-zachatoyi.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(440,
+				"Молебень до блаженних новомучеників Української Греко-Католицької Церкви",
+				"bohosluzhinnya/molebni/novomuchenykiv-ugcc.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(451,
+				"Молебень до блаженних новомучеників Української Греко-Католицької Церкви (1)",
+				"bohosluzhinnya/molebni/novomuchenykiv-ugcc-1.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(439,
+				"Молебень до святого рівноапостольного князя Володимира Великого, хрестителя Русі-України",
+				"bohosluzhinnya/molebni/volodymyra-velykoho.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(445, "Молебень до св. Миколая Чудотворця",
+				"bohosluzhinnya/molebni/mykolaya-chudotvortsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(441, "Молебень до преподобного Шарбеля Чудотворця",
+				"bohosluzhinnya/molebni/scherbalya-chudotvortsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(443,
+				"Молебень до священномученика Теодора (Ромжі), єпископа Мукачівського",
+				"bohosluzhinnya/molebni/teodora-romzhi.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.text(459, "Молебень до св. Йосифа",
+				"bohosluzhinnya/molebni/sv-josypha.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(454,
+				"Молебень до святого великомученика і чудотворця Юрія Побідоносця",
+				"bohosluzhinnya/molebni/yuriya-pobidonostsya.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(438,
+				"Чин молебня під час війни проти супротивників",
+				"bohosluzhinnya/molebni/vijny.html",
+				"Християнський портал КІРІОС http://kyrios.org.ua/spirituality/molebni/12477-chin-molebnja-pid-chas-vijni-proti-suprotivnikiv.html , за матеріалами оф.сайту храму свщм. Климентія Шептицького http://klymentij.blogspot.com/ .");
+		sm.html(442, "Молебень в часі посухи",
+				"bohosluzhinnya/molebni/posukhy.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(450, "Молебень на Святу Пасху",
+				"bohosluzhinnya/molebni/sv-paskhu.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(452,
+				"Молебень за примирення святої Церкви та визволення її від напастей єретиків і віровідступників",
+				"bohosluzhinnya/molebni/prymyrennya-tserkvy.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(453, "Молебень на початок Нового року",
+				"bohosluzhinnya/molebni/pochatok-novoho-roku.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(455, "Молебень перед початком навчання дітей",
+				"bohosluzhinnya/molebni/pered-pochatkom-navch-ditey.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(456,
+				"Молебень в часі губительного мору і смертоносної недуги (епідемії)",
+				"bohosluzhinnya/molebni/mor-i-neduha.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(457, "Подячний молебень у дні громадянських і державних свят",
+				"bohosluzhinnya/molebni/hrom-i-derzh-svyata.html",
+				SRC_MOLEBNI_KYRIOS);
+		sm.html(462, "Молебень за недужих",
+				"bohosluzhinnya/molebni/neduzhykh.html", SRC_MOLEBNI_KYRIOS);
+
+		menu.addSubItem(addTrebnyk());
+
 		menu.html(
 				83,
 				"Божественна Літургія св. отця нашого Йоана Золотоустого",
-				"liturhiya/liturhiya-ugcc.html",
+				"bohosluzhinnya/liturhiya-ugcc.html",
 				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011");
 		menu.html(
 				84,
 				"Чин священної і Божественної Літургії святого Івана Золотоустого",
-				"liturhiya/liturhiya.html",
-				"Християнський портал Кіріос http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html");
+				"bohosluzhinnya/liturhiya.html",
+				"Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html");
+		menu.html(467, "Чин утрені", "bohosluzhinnya/utrennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(466, "Чин вечірні", "bohosluzhinnya/vechirnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(
+				465,
+				"Хресна дорога",
+				"bohosluzhinnya/khresna-doroha.html",
+				"Християнський портал Кіріос - Хресна дорога http://kyrios.org.ua/spirituality/bogosluzhinnja/1521-hresna-doroga.html");
 		return menu;
 	}
 
@@ -492,31 +992,33 @@ public class Catalog {
 				"Молитва – Благословення вагітних жінок",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-vahitnykh-zhinok.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(168, "Молитва матері, яка очікує дитину",
+		sm.html(168, "Молитва матері, яка очікує дитину",
 				"rizni-potreby/dlya-vahitnykh/materi-ochikuye-dytynu.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(169,
+		sm.html(169,
 				"Молитва до Богородиці для допомоги жінкам у часі пологів",
 				"rizni-potreby/dlya-vahitnykh/do-bohorodytsi-dopomohy-pry-polohakh.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(170, "Молитва вагітних жінок за успішні пологи",
+		sm.html(170, "Молитва вагітних жінок за успішні пологи",
 				"rizni-potreby/dlya-vahitnykh/za-uspishni-polohy.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(171, "Молитва при важких пологах",
+		sm.html(171, "Молитва при важких пологах",
 				"rizni-potreby/dlya-vahitnykh/pry-vazhkykh-polohakh.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
 		sm.text(172,
 				"Молитва – Благословення жінки після пологів",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-polohiv.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(173,
+		sm.html(173,
 				"Молитва за ласку годування грудьми",
 				"rizni-potreby/dlya-vahitnykh/za-lasku-hoduvannya-hruddyu.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(174,
+		sm.html(174,
 				"Молитва – Благословення вагітних жінок після Літургії",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-liturhiyi.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
+
+		menu.addSubItem(addMolytvyVijskovykhFormuvan());
 
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -539,20 +1041,26 @@ public class Catalog {
 		menu.html(182, "Молитва у годині смерти",
 				"rizni-potreby/u-hodyni-smerti.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(434, "Молитва за померлих",
+				"rizni-potreby/za-pomerlykh.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(183, "Молитва християнської родини",
 				"rizni-potreby/khryst-rodyny.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(184, "Молитва батьків за дітей",
 				"rizni-potreby/batkiv-za-ditey.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(185, "Молитва батьків за дітей",
-				"rizni-potreby/batkiv-za-ditey.html",
+		menu.html(185, "Молитва дітей за батьків",
+				"rizni-potreby/ditey-za-batkiv.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.text(186, "Молитва за чоловіка (дружину)",
 				"rizni-potreby/za-cholovika-druzhynu.html",
-				"МОЛИТВА http://molytva.at.ua/index/rodinni_molitvi/0-151");
+				"МОЛИТВА - Родинні молитви http://molytva.at.ua/index/rodinni_molitvi/0-151");
 		menu.html(187, "Молитва учня (учениці)", "rizni-potreby/uchnya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(433, "Молитва за вибір стану",
+				"rizni-potreby/vybir-stanu.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(188, "Молитва за перемогу над спокусами",
 				"rizni-potreby/peremoha-nad-spokusamy.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -574,6 +1082,12 @@ public class Catalog {
 		menu.html(194, "Молитви за з’єднання всіх християн",
 				"rizni-potreby/zyednannya-khrystyyan.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(436, "Молитва за український народ",
+				"rizni-potreby/za-ukr-narod.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
+		menu.text(435, "Молитва на Новий рік",
+				"rizni-potreby/na-novyj-rik.html",
+				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		return menu;
 	}
 
@@ -614,7 +1128,7 @@ public class Catalog {
 		if (NEXT_ID_TO_ADD <= mi.getId()) {
 			throw new RuntimeException(
 					"Catalog: please increment NEXT_ID_TO_ADD to at least "
-							+ mi.getId() + 1);
+							+ (mi.getId() + 1));
 		}
 	}
 
@@ -641,5 +1155,24 @@ public class Catalog {
 			menuItemsByIds.put(id, mi);
 		}
 		return mi;
+	}
+
+	public Set<String> getAllSources() {
+		Set<String> sources = new HashSet<String>();
+		for (MenuItemBase mi : topMenu)
+			addSources(sources, mi);
+		return sources;
+	}
+
+	private void addSources(Set<String> sources, MenuItemBase mi) {
+		if (mi instanceof MenuItemPrayer) {
+			String src = ((MenuItemPrayer) mi).getSource();
+			if (!TextUtils.isEmpty(src)) {
+				sources.add(src);
+			}
+		} else if (mi instanceof MenuItemSubMenu) {
+			for (MenuItemBase sm : ((MenuItemSubMenu) mi).getSubItems())
+				addSources(sources, sm);
+		}
 	}
 }

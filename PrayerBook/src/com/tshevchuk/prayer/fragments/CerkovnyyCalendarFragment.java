@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.R.menu;
+import java.util.Calendar;
+
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -135,20 +136,39 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 			lvCalendar.setSelection(0);
 		}
 		this.year = year;
-		updateMonth(position, true);
+
+		final int pos = position;
+		lvCalendar.post(new Runnable() {
+			@Override
+			public void run() {
+				updateMonth(pos, true);
+			}
+		});
 	}
 
 	private void updateMonth(int firstVisibleItem, boolean force) {
 		if (prevFirstVisibleItem != firstVisibleItem || force) {
-			java.util.Calendar cal = java.util.Calendar.getInstance();
-			cal.set(java.util.Calendar.YEAR, year);
-			cal.set(java.util.Calendar.DAY_OF_YEAR, firstVisibleItem + 1);
-			tvMonth.setText(CerkovnyyCalendarListAdapter.MONTHES[cal
-					.get(java.util.Calendar.MONTH)] + " " + year + " року");
+			java.util.Calendar cal1 = java.util.Calendar.getInstance();
+			cal1.set(java.util.Calendar.YEAR, year);
+			cal1.set(java.util.Calendar.DAY_OF_YEAR, firstVisibleItem + 1);
+			java.util.Calendar cal2 = java.util.Calendar.getInstance();
+			cal2.set(java.util.Calendar.YEAR, year);
+			cal2.set(java.util.Calendar.DAY_OF_YEAR,
+					lvCalendar.getLastVisiblePosition() + 1);
+			StringBuilder sb = new StringBuilder();
+			sb.append(CerkovnyyCalendarListAdapter.MONTHES[cal1
+					.get(java.util.Calendar.MONTH)]);
+			if (cal2.get(Calendar.MONTH) != cal1.get(Calendar.MONTH)) {
+				sb.append('-').append(
+						CerkovnyyCalendarListAdapter.MONTHES[cal2
+								.get(java.util.Calendar.MONTH)]);
+			}
+			sb.append(' ').append(year).append(" року");
+			tvMonth.setText(sb);
 			prevFirstVisibleItem = firstVisibleItem;
 		}
 	}
-	
+
 	@Override
 	protected MenuItemBase getMenuItem() {
 		return menuItem;

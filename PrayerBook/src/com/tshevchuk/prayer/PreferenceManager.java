@@ -1,15 +1,14 @@
 package com.tshevchuk.prayer;
 
-import java.util.Arrays;
-
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
 	public static final String PREF_NIGHT_MODE = "pref_nightMode";
 	public static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
+	public static final String PREF_ABOUT_APP = "pref_aboutApp";
+	public static final String PREF_SHOW_TODAY_CALENDAR = "pref_showTodayCalendar";
 
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
@@ -36,6 +35,10 @@ public class PreferenceManager {
 	public int getFontSizeSp() {
 		return Integer.parseInt(sharedPrefs
 				.getString(PREF_TEXT_FONT_SIZE, "18"));
+	}
+
+	public boolean isShowTodayCalendarEnabled() {
+		return sharedPrefs.getBoolean(PREF_SHOW_TODAY_CALENDAR, false);
 	}
 
 	public synchronized int[] getRecentMenuItems() {
