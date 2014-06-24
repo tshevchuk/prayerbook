@@ -18,6 +18,7 @@ public class Catalog {
 	private static final String SRC_PRO_SPOVID = "Про Сповідь. о. Порфирій В. Шумило, ЧСВВ, бр. Пімен І. Коневич, ЧСВВ http://osbm-buchach.org.ua/knygy/pro-spovid.html";
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
 	private static final String SRC_AKAFISTY_MOLYTVA = "МОЛИТВА - Акафіст http://molytva.at.ua/index/akafist/0-293";
+	private static final String SRC_AKAFISTY_KYRIOS = "Християнський портал Кіріос - Акафісти http://kyrios.org.ua/spirituality/akafisti.html";
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
 	private static final String SRC_MOLEBNI_KYRIOS = "Християнський портал Кіріос - Молебні http://kyrios.org.ua/spirituality/molebni.html";
 	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
@@ -28,7 +29,7 @@ public class Catalog {
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 
-	private static final int NEXT_ID_TO_ADD = 564;
+	private static final int NEXT_ID_TO_ADD = 565;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -889,6 +890,8 @@ public class Catalog {
 				"akafisty/kyivskoho-askolda.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(127, "Акафіст до святителя Миколая",
 				"akafisty/mykolaya.html", SRC_AKAFISTY_MOLYTVA);
+		menu.text(564, "Акафіст до святого Йосифа Обручника",
+				"akafisty/josypha.html", SRC_AKAFISTY_KYRIOS);
 		menu.text(128, "Акафіст до блаженного Омеляна Ковча",
 				"akafisty/omelyana-kovcha.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(129, "Акафіст до святого отця Піо",
