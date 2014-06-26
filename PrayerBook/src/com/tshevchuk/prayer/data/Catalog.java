@@ -30,7 +30,7 @@ public class Catalog {
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 
-	private static final int NEXT_ID_TO_ADD = 575;
+	private static final int NEXT_ID_TO_ADD = 576;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -756,6 +756,10 @@ public class Catalog {
 				"Молебень до святого великомученика і чудотворця Юрія Побідоносця",
 				"bohosluzhinnya/molebni/yuriya-pobidonostsya.html",
 				SRC_MOLEBNI_KYRIOS);
+		sm.html(575,
+				"Молебень до священомученика Йосафата Кунцевича",
+				"bohosluzhinnya/molebni/josaphata-kuntsevycha.html",
+				SRC_MOLEBNI_MOLYTVA);
 		sm.html(438,
 				"Чин молебня під час війни проти супротивників",
 				"bohosluzhinnya/molebni/vijny.html",
