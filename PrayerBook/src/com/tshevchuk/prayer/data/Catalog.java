@@ -21,6 +21,7 @@ public class Catalog {
 	private static final String SRC_AKAFISTY_KYRIOS = "Християнський портал Кіріос - Акафісти http://kyrios.org.ua/spirituality/akafisti.html";
 	private static final String SRC_VERVYTSYA_MOLYTVA = "МОЛИТВА - Вервиці http://molytva.at.ua/index/vervici/0-46";
 	private static final String SRC_MOLEBNI_KYRIOS = "Християнський портал Кіріос - Молебні http://kyrios.org.ua/spirituality/molebni.html";
+	private static final String SRC_MOLEBNI_MOLYTVA = "МОЛИТВА - Молебні http://molytva.at.ua/index/molebni/0-274";
 	private static final String SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA = "МОЛИТОВНИК військовослужбовця «Молись і служи!». Департамент Патріаршої курії Української Греко-Католицької Церкви у справах душпастирства силових структур України. Київ. 2013 рік";
 	private static final String SRC_TREBNYK_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html";
 	private static final String SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2001";
@@ -29,7 +30,7 @@ public class Catalog {
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 
-	private static final int NEXT_ID_TO_ADD = 565;
+	private static final int NEXT_ID_TO_ADD = 575;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -39,17 +40,9 @@ public class Catalog {
 		menu.addSubItem(new MenuItemOftenUsed(400));
 		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
 				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012);
-		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-
-		menu.addSubItem(addMolytvyNaKozhenDen());
-
-		menu.html(4, "Молитви при трапезі", "molytvy-pry-trapezi.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-
 		menu.addSubItem(addMolytvyRizniPotreby());
+		menu.addSubItem(addMolytvyNaKozhenDen());
+		menu.addSubItem(addMolytvy());
 
 		menu.addSubItem(new MenuItemCalendar(ID_CALENDAR));
 
@@ -69,6 +62,47 @@ public class Catalog {
 		topMenu = menu.getSubItems();
 
 		verifyUniqueId();
+	}
+
+	private MenuItemSubMenu addMolytvy() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(565, "Молитви");
+		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.addSubItem(addMolytvyDoSvyatykh());
+
+		return menu;
+	}
+
+	private MenuItemSubMenu addMolytvyDoSvyatykh() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(566, "Молитви до святих");
+		menu.text(567, "Молитва до святого Володимира",
+				"molytvy-do-svyatykh/volodymyra.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(568, "Молитва до святої княгині Ольги",
+				"molytvy-do-svyatykh/olhy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(569, "Молитва до святих Бориса і Гліба",
+				"molytvy-do-svyatykh/borysa-i-hliba.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(570, "Молитва до святого Антонія Печерського",
+				"molytvy-do-svyatykh/antoniya-pecherskoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(571, "Молитва до святого Теодосія Печерського",
+				"molytvy-do-svyatykh/teodosiya-pechersokoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(572, "Молитва до святого Йосафата і мучеників",
+				"molytvy-do-svyatykh/josaphata-i-muchenykiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(573, "Молитва до святого Йосафата",
+				"molytvy-do-svyatykh/josaphata.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(574, "Молитва до всіх святих українського народу",
+				"molytvy-do-svyatykh/vsikh-svyatykh-ukr-narodu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
+		return menu;
 	}
 
 	private MenuItemSubMenu addTrebnyk() {
@@ -1023,6 +1057,8 @@ public class Catalog {
 
 		menu.addSubItem(addMolytvyVijskovykhFormuvan());
 
+		menu.html(4, "Молитви при трапезі", "molytvy-pry-trapezi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(176, "Молитва на всяке прошення",
