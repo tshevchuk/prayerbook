@@ -26,11 +26,12 @@ public class Catalog {
 	private static final String SRC_TREBNYK_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html";
 	private static final String SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2001";
 	private static final String SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2012";
+	private static final String SRC_PISNI_KYRIOS = "Християнський портал Кіріос - Слова і ноти http://kyrios.org.ua/music/words-and-notes.html";
 
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 
-	private static final int NEXT_ID_TO_ADD = 576;
+	private static final int NEXT_ID_TO_ADD = 672;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -66,12 +67,76 @@ public class Catalog {
 
 	private MenuItemSubMenu addMolytvy() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(565, "Молитви");
+		menu.addSubItem(addMolytvyDoSvyatykh());
+		menu.addSubItem(addMolytvyNaProslavuUkrSluhBozhykh());
+		menu.addSubItem(addMolytvyMytropolytaAndreya());
 		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.addSubItem(addMolytvyDoSvyatykh());
+		menu.text(594, "Молитва Іларіона, митрополита Київського",
+				"molytvy/ilariona.html", SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 
+		return menu;
+	}
+
+	private MenuItemSubMenu addMolytvyMytropolytaAndreya() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(582,
+				"Молитви митрополита Андрея");
+		menu.text(583, "Приречення вірної служби Ісусові Христові",
+				"molytvy/mytropolyta-andreya/sluzhby-isusovi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(584, "Молитва про божу мудрість",
+				"molytvy/mytropolyta-andreya/bozhu-mudrist.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(585, "Інша молитва про божу мудрість",
+				"molytvy/mytropolyta-andreya/bozhu-mudrist-insha.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(586, "Молитва за український нарід",
+				"molytvy/mytropolyta-andreya/ukr-narid.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(587, "Молитва про кращу долю українського народу",
+				"molytvy/mytropolyta-andreya/dolyu-ukr-narodu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(588, "Інша молитва за український нарід",
+				"molytvy/mytropolyta-andreya/ukr-narid-insha.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(589, "Молитва до Пресвятої Богоматері",
+				"molytvy/mytropolyta-andreya/presv-bohomateri.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(590, "Молитва за українську родину",
+				"molytvy/mytropolyta-andreya/ukr-rodynu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(591, "Молитва до св. Йосифа за родину",
+				"molytvy/mytropolyta-andreya/sv-josypha-za-rodynu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(592, "Молитва про добрих українських священиків",
+				"molytvy/mytropolyta-andreya/dobrykh-svyaschennykiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(593, "Молитва про ласки для священиків",
+				"molytvy/mytropolyta-andreya/lasky-dlya-svyaschennykiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		return menu;
+	}
+
+	private MenuItemSubMenu addMolytvyNaProslavuUkrSluhBozhykh() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(576,
+				"Молитви на прославу українських слуг Божих");
+		menu.text(577, "Молитва за прославу митрополита Андрея Шептицького",
+				"molytvy/na-proslavu-ukr-sluh-bozhykh/a-sheptytskoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(578, "Молитва за прославу єпископа Павла Ґойдича",
+				"molytvy/na-proslavu-ukr-sluh-bozhykh/p-gojdycha.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(579, "Молитва про заступництво отця Климентія Шептицького",
+				"molytvy/na-proslavu-ukr-sluh-bozhykh/k-sheptytskoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(580, "Молитва за прославу сестри Софронії Ерделі",
+				"molytvy/na-proslavu-ukr-sluh-bozhykh/s-erdeli.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.text(581, "Молитва за прославу сестри Йосафати Гордашевськоі",
+				"molytvy/na-proslavu-ukr-sluh-bozhykh/j-hordashevskoji.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
 
@@ -555,6 +620,110 @@ public class Catalog {
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		sm.text(27, "По всьому світу", "pisni/kolyady/po-vsjomu-svitu.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.html(632, "Ірод-цар за Христом ганявся",
+				"pisni/kolyady/irod-tsar-za-khrystom-hanyavsya.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(633, "А у місті Русалимі",
+				"pisni/kolyady/a-u-misti-rusalymi.html", SRC_PISNI_KYRIOS);
+		sm.text(634, "Ангел Божий із небес",
+				"pisni/kolyady/anhel-bozhyj-iz-nebes.html", SRC_PISNI_KYRIOS);
+		sm.text(635, "Ангели, снижайтеся",
+				"pisni/kolyady/anhely-snyzhajtesya.html", SRC_PISNI_KYRIOS);
+		sm.text(636, "В Вифлеємі тайна",
+				"pisni/kolyady/v-vyfleyemi-tajna.html", SRC_PISNI_KYRIOS);
+		sm.text(637, "В Вифлеємі у вертепі",
+				"pisni/kolyady/v-vyfleyemi-u-vertepi.html", SRC_PISNI_KYRIOS);
+		sm.text(638, "В галицькій землі",
+				"pisni/kolyady/v-halytskij-zemli.html", SRC_PISNI_KYRIOS);
+		sm.text(639, "В глибокій долині",
+				"pisni/kolyady/v-hlybokij-dolyni.html", SRC_PISNI_KYRIOS);
+		sm.text(640, "В різдвяну ніч", "pisni/kolyady/v-rizdvyanu-nich.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(641, "Вітай, Ісусе", "pisni/kolyady/vitaj-isuse.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(643, "Возвеселіться, християни",
+				"pisni/kolyady/vozveselitsya-khrystyyany.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(644, "Діва Марія церкву строїла",
+				"pisni/kolyady/diva-mariya-tserkvu-stroyila.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(645, "Дивная новина днесь ся являє",
+				"pisni/kolyady/dyvnaya-novyna-dnes-sya-yavlyaye.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(646, "Добрий вечір тобі, пане господарю",
+				"pisni/kolyady/dobryj-vechir-tobi-pane-hospodaryu.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(647, "Землю Юдейську", "pisni/kolyady/zemlyu-yudejsku.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(648, "Коли Христос родився",
+				"pisni/kolyady/koly-khrystos-rodyvsya.html", SRC_PISNI_KYRIOS);
+		sm.text(649, "Коляда", "pisni/kolyady/kolyada.html", SRC_PISNI_KYRIOS);
+		sm.text(650, "Народився Бог на санях",
+				"pisni/kolyady/narodyvsya-boh-na-sanyakh.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(651, "Не плач, Рахиле", "pisni/kolyady/ne-plach-rakhyle.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(652, "Нині, Адаме", "pisni/kolyady/nyni-adame.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(653, "Нова радість стала (2)",
+				"pisni/kolyady/nova-radist-stala-2.html", SRC_PISNI_KYRIOS);
+		sm.text(654, "Ой, як же було ізпрежди віка",
+				"pisni/kolyady/oj-yak-zhe-bulo-izprezhdy-vika.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(655, "Пречистая Діва сина породила",
+				"pisni/kolyady/prechystaya-diva-syna-porodyla.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(656, "Прилетіли ангелята",
+				"pisni/kolyady/pryletily-anhelyata.html", SRC_PISNI_KYRIOS);
+		sm.text(657, "Радуйся, світ", "pisni/kolyady/radujsya-svit.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(658, "Свята ніч", "pisni/kolyady/svyata-nich.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(659, "Спи, Ісусе, спи", "pisni/kolyady/spy-isuse-spy.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(660, "Сумний Святий Вечір",
+				"pisni/kolyady/sumnyj-svyatyj-vechir.html", SRC_PISNI_KYRIOS);
+		sm.text(661, "Темненькая нічка",
+				"pisni/kolyady/temnenkaya-nichka.html", SRC_PISNI_KYRIOS);
+		sm.text(662, "Тиха ніч, свята ніч",
+				"pisni/kolyady/tykha-nich-svyata-nich.html", SRC_PISNI_KYRIOS);
+		sm.text(663, "Христос родився", "pisni/kolyady/khrystos-rodyvsya.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(664, "Хто там по дорозі",
+				"pisni/kolyady/khto-tam-po-dorozi.html", SRC_PISNI_KYRIOS);
+		sm.text(665, "Чудо у Давида домі",
+				"pisni/kolyady/chudo-u-davyda-domi.html", SRC_PISNI_KYRIOS);
+		sm.text(667, "Шедше тріє царі",
+				"pisni/kolyady/shedshe-triye-tsari.html", SRC_PISNI_KYRIOS);
+		sm.text(668, "Що то за предиво",
+				"pisni/kolyady/scho-to-za-predyvo.html", SRC_PISNI_KYRIOS);
+		sm.text(669, "Яка ж радість", "pisni/kolyady/yaka-zh-radist.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(670, "Ясна зоря", "pisni/kolyady/yasna-zorya.html",
+				SRC_PISNI_KYRIOS);
+
+		sm = menu.subMenu(595, "Щедрівки");
+		sm.text(596, "Прийшли до вас щедрівці",
+				"pisni/schedrivky/pryjshly-schedrivtsi.html", SRC_PISNI_KYRIOS);
+		sm.text(597, "Щедрий вечір всім нам",
+				"pisni/schedrivky/schedryj-vechir.html", SRC_PISNI_KYRIOS);
+		sm.text(598, "Ой чи є, чи нема пан господар вдома",
+				"pisni/schedrivky/oj-chy-ye-pan-hospodar.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(599, "Щедрик, щедрик, щедрівочка",
+				"pisni/schedrivky/schedryk.html", SRC_PISNI_KYRIOS);
+		sm.text(600, "Ой сивая та і зозулечка",
+				"pisni/schedrivky/zozulenka.html", SRC_PISNI_KYRIOS);
+		sm.text(601, "Ой, господар, господарочку",
+				"pisni/schedrivky/oj-hospodar.html", SRC_PISNI_KYRIOS);
+		sm.text(602, "Стоїть явір зелененький", "pisni/schedrivky/yavir.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(603, "Павочка ходить", "pisni/schedrivky/pavochka-khodyt.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(671,
+				"Ти, Йордане, приготовися",
+				"pisni/schedrivky/ty-jordane.html",
+				"Українські пісні - Ти, Йордане, приготовися http://www.pisni.org.ua/songs/2170624.html");
 
 		sm = menu.subMenu(28, "Великопосні пісні");
 		sm.text(29, "Люди мої, люди",
@@ -574,6 +743,29 @@ public class Catalog {
 		sm.text(34, "Хрест на плечі накладають",
 				"pisni/velykoposni/khrest-na-plechi-nakladayut.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.text(620, "Ісус перед стражданням",
+				"pisni/velykoposni/isus-pered-strazhdannyam.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(621, "Христос вийшов з храму",
+				"pisni/velykoposni/khrystos-vyjshov-z-khramu.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(622, "Прийди до мене", "pisni/velykoposni/pryjdy-do-mene.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(623, "По святій горі",
+				"pisni/velykoposni/po-svyatij-hori.html", SRC_PISNI_KYRIOS);
+		sm.text(624, "Настала ніч", "pisni/velykoposni/nastala-nich.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(625, "Голгофа. Хрест",
+				"pisni/velykoposni/holhopha-khrest.html", SRC_PISNI_KYRIOS);
+		sm.text(626, "Голгофа", "pisni/velykoposni/holhopha.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(627, "Моліться батьки",
+				"pisni/velykoposni/molitsya-batky.html", SRC_PISNI_KYRIOS);
+		sm.text(628, "Маріє гляди", "pisni/velykoposni/mariye-hlyady.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(629, "Коли на волю проситься сльоза",
+				"pisni/velykoposni/koly-na-volyu-prosytsya-sljoza.html",
+				SRC_PISNI_KYRIOS);
 
 		sm = menu.subMenu(35, "Воскресні пісні");
 		sm.text(36, "Сей день", "pisni/voskresni/sej-den.html",
@@ -600,6 +792,29 @@ public class Catalog {
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		sm.text(45, "Тіло Христове", "pisni/khrysta/tilo-khrystove.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.text(604,
+				"На чудовій Україні",
+				"pisni/khrysta/na-chudovij-ukrayini.html",
+				"Українські пісні - На чудовій Україні http://www.pisni.org.ua/songs/472333.html");
+		sm.text(605, "Хто Тебе приймає, Христе",
+				"pisni/khrysta/khro-tebe-pryjmaye-khryste.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(606, "Будь благословенний",
+				"pisni/khrysta/bud-blahoslovennyj.html", SRC_PISNI_KYRIOS);
+		sm.text(607, "В страсі і покорі",
+				"pisni/khrysta/v-strasi-i-pokori.html", SRC_PISNI_KYRIOS);
+		sm.text(608, "Святе Причастя", "pisni/khrysta/svyate-prychastya.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(609, "Хочу я з Тобою жить",
+				"pisni/khrysta/khochu-z-toboyu-zhyt.html", SRC_PISNI_KYRIOS);
+		sm.text(610, "Люблю Тебе", "pisni/khrysta/lyublyu-tebe.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(611, "Лине пісня про Ісуса",
+				"pisni/khrysta/lyne-pisnya-pro-isusa.html", SRC_PISNI_KYRIOS);
+		sm.text(612, "Зійшла зоря", "pisni/khrysta/zijshla-zorya.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(613, "Боже – Ти Бог мій",
+				"pisni/khrysta/bozhe-ty-boh-mij.html", SRC_PISNI_KYRIOS);
 
 		sm = menu.subMenu(46, "Пісня до Святого Духа");
 		sm.text(47, "Царю небесний", "pisni/dukha/tsaryu-nebesnyj.html",
@@ -653,6 +868,22 @@ public class Catalog {
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		sm.text(66, "Там, де в небі", "pisni/bohorodytsi/tam-de-v-nebi.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.text(614, "Маріє, Діво Пресвята",
+				"pisni/bohorodytsi/mariye-divo-presvyata.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(615,
+				"Пісня до Матері Божої на честь Її Ліської чудотворної ікони",
+				"pisni/bohorodytsi/na-chest-liskoyi-ikony.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(616, "Унівська Мати Божа",
+				"pisni/bohorodytsi/univska-maty-bozha.html", SRC_PISNI_KYRIOS);
+		sm.text(617, "О Царице", "pisni/bohorodytsi/o-tsarytse.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(618, "О дивноє чудо з чудес",
+				"pisni/bohorodytsi/o-dyvo-dyvneye-z-chudes.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(619, "Ведуть в Зарваницю",
+				"pisni/bohorodytsi/vedut-v-zarvanytsu.html", SRC_PISNI_KYRIOS);
 
 		sm = menu.subMenu(67, "Пісні до святих");
 		sm.text(68, "Святий Великий Володимире",
@@ -678,6 +909,11 @@ public class Catalog {
 		sm.text(77, "Со святими упокой",
 				"pisni/pokhoronni/so-svyatymy-upokoj.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.text(630, "Моліться всі", "pisni/pokhoronni/molitsya-vsi.html",
+				SRC_PISNI_KYRIOS);
+		sm.text(631, "О, Боже Великий, з високого неба",
+				"pisni/pokhoronni/o-bozhe-velykyj-z-vysokoho-neba.html",
+				SRC_PISNI_KYRIOS);
 
 		return menu;
 
@@ -756,8 +992,7 @@ public class Catalog {
 				"Молебень до святого великомученика і чудотворця Юрія Побідоносця",
 				"bohosluzhinnya/molebni/yuriya-pobidonostsya.html",
 				SRC_MOLEBNI_KYRIOS);
-		sm.html(575,
-				"Молебень до священомученика Йосафата Кунцевича",
+		sm.html(575, "Молебень до священомученика Йосафата Кунцевича",
 				"bohosluzhinnya/molebni/josaphata-kuntsevycha.html",
 				SRC_MOLEBNI_MOLYTVA);
 		sm.html(438,
