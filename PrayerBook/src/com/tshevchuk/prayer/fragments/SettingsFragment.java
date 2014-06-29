@@ -63,6 +63,8 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
+		activity.getActionBar().setTitle("Налаштування");
+
 		getPreferenceScreen().getSharedPreferences()
 				.registerOnSharedPreferenceChangeListener(this);
 	}
