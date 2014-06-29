@@ -27,11 +27,12 @@ public class Catalog {
 	private static final String SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2001";
 	private static final String SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2012";
 	private static final String SRC_PISNI_KYRIOS = "Християнський портал Кіріос - Слова і ноти http://kyrios.org.ua/music/words-and-notes.html";
+	private static final String SRC_MOLYTVY_KYRIOS = "Християнський портал Кіріос - Молитви http://kyrios.org.ua/spirituality/prayer.html";
 
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 
-	private static final int NEXT_ID_TO_ADD = 672;
+	private static final int NEXT_ID_TO_ADD = 682;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -1293,7 +1294,42 @@ public class Catalog {
 				"Молитва – Благословення вагітних жінок після Літургії",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-liturhiyi.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
+		sm.text(673, "Молитва матері, що прагне народження зачатої дитини, а батько штовхає на вбивство",
+				"rizni-potreby/dlya-vahitnykh/materi-prahne-narodzh-batko-shtovkhaye-na-vbyvstvo.html",
+				SRC_MOLYTVY_KYRIOS);
 
+		sm = menu.subMenu(672, "Молитви батьків і дітей");
+		sm.html(184, "Молитва батьків за дітей",
+				"rizni-potreby/batky-dity/batkiv-za-ditey.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.html(185, "Молитва дітей за батьків",
+				"rizni-potreby/batky-dity/ditey-za-batkiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.text(674, "Молитва матері за дітей",
+				"rizni-potreby/batky-dity/materi-za-ditej.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.text(675, "Молитва матері за неслухняних дітей",
+				"rizni-potreby/batky-dity/materi-za-neslukhnyanykh-ditej.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.text(676, "Молитва подружжя, яке хоче, але не може мати дітей",
+				"rizni-potreby/batky-dity/podruzhzhya-khoche-a-ne-mozhe-maty-ditej.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.text(677, "Молитва за дітей, яким важко дається навчання",
+				"rizni-potreby/batky-dity/za-ditej-vazhko-navchannya.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.text(678, "Молитва при порушенні сну у дітей",
+				"rizni-potreby/batky-dity/porushennya-snu-ditej.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.text(679, "Молитва матері за дітей до Пресвятої Богородиці",
+				"rizni-potreby/batky-dity/materi-za-ditej-do-bohorodytsi.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.text(680, "Молитва за дітей на початок навчального року",
+				"rizni-potreby/batky-dity/za-ditej-pochatok-navch-roku.html",
+				SRC_MOLYTVY_KYRIOS);
+		sm.html(681, "Молитва матері за ненароджених загублених дітей",
+				"rizni-potreby/batky-dity/materi-za-nenarodzh-zahublenykh-ditej.html",
+				SRC_MOLYTVY_KYRIOS);
+		
 		menu.addSubItem(addMolytvyVijskovykhFormuvan());
 
 		menu.html(4, "Молитви при трапезі", "molytvy-pry-trapezi.html",
@@ -1324,12 +1360,6 @@ public class Catalog {
 				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(183, "Молитва християнської родини",
 				"rizni-potreby/khryst-rodyny.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(184, "Молитва батьків за дітей",
-				"rizni-potreby/batkiv-za-ditey.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(185, "Молитва дітей за батьків",
-				"rizni-potreby/ditey-za-batkiv.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.text(186, "Молитва за чоловіка (дружину)",
 				"rizni-potreby/za-cholovika-druzhynu.html",
