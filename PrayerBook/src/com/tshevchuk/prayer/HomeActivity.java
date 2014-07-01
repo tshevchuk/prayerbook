@@ -105,7 +105,8 @@ public class HomeActivity extends Activity {
 		drawerLayout.setDrawerListener(drawerToggle);
 
 		if (savedInstanceState == null) {
-			MenuItemBase mi = catalog.getTopMenuItems().get(1);
+			MenuItemBase mi = catalog.getMenuItemById(PreferenceManager
+					.getInstance().getDefaultMenuItemId());
 			int id = 0;
 			if (getIntent() != null) {
 				id = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);

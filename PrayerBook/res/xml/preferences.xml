@@ -14,6 +14,14 @@
         android:key="pref_textFontSize"
         android:title="Розмір шрифта" />
 
+    <ListPreference
+        android:defaultValue="400"
+        android:dialogTitle="Відкривати при старті програми"
+        android:entries="@array/DefaultScreens"
+        android:entryValues="@array/DefaultScreensIds"
+        android:key="pref_defaultScreens"
+        android:title="Відкривати при старті програми" />
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="pref_showTodayCalendar"

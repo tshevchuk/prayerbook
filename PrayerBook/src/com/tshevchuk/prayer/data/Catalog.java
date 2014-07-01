@@ -31,7 +31,10 @@ public class Catalog {
 
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
-
+	public static final int ID_FOR_EVERY_DAY = 85;
+	public static final int ID_FOR_EVERY_OCASION = 164;
+	public static final int ID_RECENT_SCREENS = 400;
+	
 	private static final int NEXT_ID_TO_ADD = 682;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();

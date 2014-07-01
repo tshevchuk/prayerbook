@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer;
 
+import com.tshevchuk.prayer.data.Catalog;
+
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
@@ -9,6 +11,7 @@ public class PreferenceManager {
 	public static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	public static final String PREF_ABOUT_APP = "pref_aboutApp";
 	public static final String PREF_SHOW_TODAY_CALENDAR = "pref_showTodayCalendar";
+	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
 
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
@@ -37,13 +40,19 @@ public class PreferenceManager {
 				.getString(PREF_TEXT_FONT_SIZE, "18"));
 	}
 
+	public int getDefaultMenuItemId() {
+		return Integer.valueOf(sharedPrefs.getString(PREF_DEFAULT_SCREENS,
+				String.valueOf(Catalog.ID_RECENT_SCREENS)));
+	}
+
 	public boolean isShowTodayCalendarEnabled() {
 		return sharedPrefs.getBoolean(PREF_SHOW_TODAY_CALENDAR, false);
 	}
 
 	public synchronized int[] getRecentMenuItems() {
 		if (recentMenuItemsId == null) {
-			String s = sharedPrefs.getString(PREF_RECENT_MENU_ITEMS, "");
+			String def = "1|1|164|1|5|1|85|1|2|1|6|1|3|1|7|1|78|1|94|1|82|1|176|1|401|1|81|1|184|1|147|1|175|1|80|1|186|1|86|1|82|1|83|1|14|1|4|1|87|1|468|1|79|1|39|1|179|1|437|1";
+			String s = sharedPrefs.getString(PREF_RECENT_MENU_ITEMS, def);
 			String[] items = TextUtils.split(s, "\\|");
 			int[] ids = new int[items.length / 2];
 			float[] showCount = new float[ids.length];
