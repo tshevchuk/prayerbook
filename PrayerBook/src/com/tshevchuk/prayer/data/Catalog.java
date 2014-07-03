@@ -926,11 +926,6 @@ public class Catalog {
 
 	private MenuItemSubMenu addVervytsya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(78, "Вервиця");
-		menu.text(79,
-				"П’ятнадцять обітниць для тих, хто відмовлятиме святу Вервицю",
-				"vervytsya/obitnytsi.html", SRC_VERVYTSYA_MOLYTVA)
-				.setFullName(
-						"П’ятнадцять обітниць для тих, хто відмовлятиме святу Вервицю (дані бл. Аланові де Рупе)");
 		menu.html(80, "Як молитися на Вервиці", "vervytsya/yak-molytysya.html",
 				SRC_VERVYTSYA_MOLYTVA);
 		menu.html(81, "Молитва на Вервиці",
