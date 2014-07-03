@@ -47,7 +47,7 @@ public class Catalog {
 				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012);
 		menu.addSubItem(addMolytvyRizniPotreby());
 		menu.addSubItem(addMolytvyNaKozhenDen());
-		menu.addSubItem(addMolytvy());
+		menu.addSubItem(addMolytvyRizni());
 
 		menu.addSubItem(new MenuItemCalendar(ID_CALENDAR));
 
@@ -69,11 +69,12 @@ public class Catalog {
 		verifyUniqueId();
 	}
 
-	private MenuItemSubMenu addMolytvy() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(565, "Молитви");
+	private MenuItemSubMenu addMolytvyRizni() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(565, "Молитви різні");
 		menu.addSubItem(addMolytvyDoSvyatykh());
 		menu.addSubItem(addMolytvyNaProslavuUkrSluhBozhykh());
 		menu.addSubItem(addMolytvyMytropolytaAndreya());
+		menu.addSubItem(addMolytvyVijskovykhFormuvan());
 		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
@@ -1042,11 +1043,6 @@ public class Catalog {
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(466, "Чин вечірні", "bohosluzhinnya/vechirnya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(
-				465,
-				"Хресна дорога",
-				"bohosluzhinnya/khresna-doroha.html",
-				"Християнський портал Кіріос - Хресна дорога http://kyrios.org.ua/spirituality/bogosluzhinnja/1521-hresna-doroga.html");
 		return menu;
 	}
 
@@ -1333,8 +1329,6 @@ public class Catalog {
 				"rizni-potreby/batky-dity/materi-za-nenarodzh-zahublenykh-ditej.html",
 				SRC_MOLYTVY_KYRIOS);
 		
-		menu.addSubItem(addMolytvyVijskovykhFormuvan());
-
 		menu.html(4, "Молитви при трапезі", "molytvy-pry-trapezi.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
