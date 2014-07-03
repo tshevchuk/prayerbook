@@ -948,8 +948,6 @@ public class Catalog {
 		sm.html(447, "Молебень до Божого милосердя",
 				"bohosluzhinnya/molebni/bozhoho-myloserdya.html",
 				SRC_MOLEBNI_KYRIOS);
-		sm.html(449, "Молебень до Святого Духа",
-				"bohosluzhinnya/molebni/sv-dukha.html", SRC_MOLEBNI_KYRIOS);
 		sm.html(461, "Молебень до Пресвятої Богородиці",
 				"bohosluzhinnya/molebni/presv-bohorodytsi.html",
 				SRC_MOLEBNI_KYRIOS);
@@ -1130,8 +1128,6 @@ public class Catalog {
 				"akafisty/svyatoho-dukha.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(114, "Акафіст до Ісуса Христа",
 				"akafisty/isusa-khrysta.html", SRC_AKAFISTY_MOLYTVA);
-		menu.text(115, "Акафіст до Божого Милосердя",
-				"akafisty/bozhoho-myloserdya.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(116, "Акафіст до Христових Страстей",
 				"akafisty/khrystovykh-strastej.html", SRC_AKAFISTY_MOLYTVA);
 		menu.text(117, "Акафіст до Живоносного Гробу і Воскресіння Христа",
