@@ -28,14 +28,15 @@ public class Catalog {
 	private static final String SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2012";
 	private static final String SRC_PISNI_KYRIOS = "Християнський портал Кіріос - Слова і ноти http://kyrios.org.ua/music/words-and-notes.html";
 	private static final String SRC_MOLYTVY_KYRIOS = "Християнський портал Кіріос - Молитви http://kyrios.org.ua/spirituality/prayer.html";
+	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
 
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
 	public static final int ID_CALENDAR = 5;
 	public static final int ID_FOR_EVERY_DAY = 85;
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
-	
-	private static final int NEXT_ID_TO_ADD = 682;
+
+	private static final int NEXT_ID_TO_ADD = 687;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -937,7 +938,23 @@ public class Catalog {
 	private MenuItemSubMenu addBohosluzhinnya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Богослужіння");
 
-		MenuItemSubMenu sm = menu.subMenu(437, "Молебні");
+		MenuItemSubMenu sm = menu
+				.subMenu(682,
+						"Чин священної і Божественної Літургії святого Івана Золотоустого");
+		sm.html(686, "Молитви перед Літургією",
+				"bohosluzhinnya/liturhiya/molytvy-pered-liturhiyeyu.html",
+				SRC_LITURHIYA_KYRIOS);
+		sm.html(683, "Проскомидія",
+				"bohosluzhinnya/liturhiya/proskomydiya.html",
+				SRC_LITURHIYA_KYRIOS);
+		sm.html(684, "Літургія Слова",
+				"bohosluzhinnya/liturhiya/slova.html",
+				SRC_LITURHIYA_KYRIOS);
+		sm.html(685, "Літургія Жертви",
+				"bohosluzhinnya/liturhiya/zhertvy.html",
+				SRC_LITURHIYA_KYRIOS);
+
+		sm = menu.subMenu(437, "Молебні");
 		sm.html(448, "Молебень до Христа Спасителя",
 				"bohosluzhinnya/molebni/khrysta-spasytelya.html",
 				SRC_MOLEBNI_KYRIOS);
@@ -1022,11 +1039,6 @@ public class Catalog {
 
 		menu.addSubItem(addTrebnyk());
 
-		menu.html(
-				84,
-				"Чин священної і Божественної Літургії святого Івана Золотоустого",
-				"bohosluzhinnya/liturhiya.html",
-				"Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html");
 		menu.html(467, "Чин утрені", "bohosluzhinnya/utrennya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(466, "Чин вечірні", "bohosluzhinnya/vechirnya.html",
@@ -1279,7 +1291,8 @@ public class Catalog {
 				"Молитва – Благословення вагітних жінок після Літургії",
 				"rizni-potreby/dlya-vahitnykh/blahoslovennya-pislya-liturhiyi.html",
 				SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH);
-		sm.text(673, "Молитва матері, що прагне народження зачатої дитини, а батько штовхає на вбивство",
+		sm.text(673,
+				"Молитва матері, що прагне народження зачатої дитини, а батько штовхає на вбивство",
 				"rizni-potreby/dlya-vahitnykh/materi-prahne-narodzh-batko-shtovkhaye-na-vbyvstvo.html",
 				SRC_MOLYTVY_KYRIOS);
 
@@ -1296,7 +1309,8 @@ public class Catalog {
 		sm.text(675, "Молитва матері за неслухняних дітей",
 				"rizni-potreby/batky-dity/materi-za-neslukhnyanykh-ditej.html",
 				SRC_MOLYTVY_KYRIOS);
-		sm.text(676, "Молитва подружжя, яке хоче, але не може мати дітей",
+		sm.text(676,
+				"Молитва подружжя, яке хоче, але не може мати дітей",
 				"rizni-potreby/batky-dity/podruzhzhya-khoche-a-ne-mozhe-maty-ditej.html",
 				SRC_MOLYTVY_KYRIOS);
 		sm.text(677, "Молитва за дітей, яким важко дається навчання",
@@ -1311,10 +1325,11 @@ public class Catalog {
 		sm.text(680, "Молитва за дітей на початок навчального року",
 				"rizni-potreby/batky-dity/za-ditej-pochatok-navch-roku.html",
 				SRC_MOLYTVY_KYRIOS);
-		sm.html(681, "Молитва матері за ненароджених загублених дітей",
+		sm.html(681,
+				"Молитва матері за ненароджених загублених дітей",
 				"rizni-potreby/batky-dity/materi-za-nenarodzh-zahublenykh-ditej.html",
 				SRC_MOLYTVY_KYRIOS);
-		
+
 		menu.html(4, "Молитви при трапезі", "molytvy-pry-trapezi.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
