@@ -1023,11 +1023,6 @@ public class Catalog {
 		menu.addSubItem(addTrebnyk());
 
 		menu.html(
-				83,
-				"Божественна Літургія св. отця нашого Йоана Золотоустого",
-				"bohosluzhinnya/liturhiya-ugcc.html",
-				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011");
-		menu.html(
 				84,
 				"Чин священної і Божественної Літургії святого Івана Золотоустого",
 				"bohosluzhinnya/liturhiya.html",
