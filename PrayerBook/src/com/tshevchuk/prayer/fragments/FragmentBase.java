@@ -66,6 +66,10 @@ public class FragmentBase extends Fragment {
 	public boolean isSameScreen(Fragment f) {
 		return getClass().equals(f.getClass());
 	}
+	
+	public boolean goBack(){
+		return false;
+	}
 
 	protected MenuItemBase getMenuItem() {
 		return null;

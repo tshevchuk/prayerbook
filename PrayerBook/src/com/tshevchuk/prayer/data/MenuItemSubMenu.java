@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
 public class MenuItemSubMenu extends MenuItemBase {
 	private static final long serialVersionUID = 1L;
@@ -27,21 +28,26 @@ public class MenuItemSubMenu extends MenuItemBase {
 		subItems.add(item);
 		return this;
 	}
-	
-	public MenuItemPrayer html(int id, String name,
-			String fileName, String source) {
+
+	public MenuItemPrayer html(int id, String name, String fileName,
+			String source) {
 		MenuItemPrayer mi = new MenuItemPrayer(id, name, fileName);
 		mi.setSource(source);
 		addSubItem(mi);
 		return mi;
 	}
 
-	public MenuItemPrayer text(int id, String name,
-			String fileName, String source) {
-		return html(id, name, fileName, source).setIsHtml(false);
+	public MenuItemPrayer text(int id, String name, String fileName,
+			String source) {
+		return html(id, name, fileName, source).setType(Type.Text);
 	}
-	
-	public MenuItemSubMenu subMenu(int id, String name){
+
+	public MenuItemPrayer web(int id, String name, String fileName,
+			String source) {
+		return html(id, name, fileName, source).setType(Type.HtmlInWebView);
+	}
+
+	public MenuItemSubMenu subMenu(int id, String name) {
 		MenuItemSubMenu sm = new MenuItemSubMenu(id, name);
 		addSubItem(sm);
 		return sm;

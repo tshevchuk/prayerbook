@@ -37,6 +37,7 @@ import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
+import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
 public class TextViewFragment extends FragmentBase implements
 		LoaderCallbacks<CharSequence> {
@@ -73,7 +74,8 @@ public class TextViewFragment extends FragmentBase implements
 		Bundle params = new Bundle();
 		params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
 				prayer.getFileName());
-		params.putBoolean(PrayerLoader.PARAM_IS_HTML, prayer.isHtml());
+		params.putBoolean(PrayerLoader.PARAM_IS_HTML,
+				prayer.getType() == Type.HtmlInTextView);
 		getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
 		activity.setProgressBarIndeterminateVisibility(true);
 	};
@@ -197,7 +199,7 @@ public class TextViewFragment extends FragmentBase implements
 					.getSerializable("prayer");
 			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments()
 					.getSerializable("prayer");
-			return p1.getFileName().equals(p2.getFileName());
+			return p1.getId() == p2.getId();
 		}
 		return false;
 	}

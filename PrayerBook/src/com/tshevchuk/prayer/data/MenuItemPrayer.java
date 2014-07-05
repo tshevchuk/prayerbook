@@ -3,12 +3,17 @@ package com.tshevchuk.prayer.data;
 import android.text.TextUtils;
 
 public class MenuItemPrayer extends MenuItemBase {
+	public enum Type {
+		Text, HtmlInTextView, HtmlInWebView
+	};
+
 	private static final long serialVersionUID = 1L;
 
 	private String fileName;
 	private String source;
 	private String fullName;
-	private boolean isHtml = true;
+	private Type type = Type.HtmlInTextView;
+	private String htmlLinkAnchor;
 
 	public MenuItemPrayer(int id, String name, String fileName) {
 		super(id, name);
@@ -32,8 +37,8 @@ public class MenuItemPrayer extends MenuItemBase {
 	public String getAbout() {
 		return "Джерело тексту: " + source;
 	}
-	
-	public String getSource(){
+
+	public String getSource() {
 		return source;
 	}
 
@@ -49,12 +54,20 @@ public class MenuItemPrayer extends MenuItemBase {
 		return fullName;
 	}
 
-	public MenuItemPrayer setIsHtml(boolean isHtml) {
-		this.isHtml = isHtml;
+	public MenuItemPrayer setType(Type type) {
+		this.type = type;
 		return this;
 	}
 
-	public boolean isHtml() {
-		return isHtml;
+	public Type getType() {
+		return type;
+	}
+
+	public String getHtmlLinkAnchor() {
+		return htmlLinkAnchor;
+	}
+
+	public void setHtmlLinkAnchor(String htmlLinkAnchor) {
+		this.htmlLinkAnchor = htmlLinkAnchor;
 	}
 }

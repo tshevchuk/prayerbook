@@ -30,9 +30,11 @@ import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
 import com.tshevchuk.prayer.data.MenuItemOftenUsed;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
+import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 import com.tshevchuk.prayer.data.MenuItemSubMenu;
 import com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.fragments.FragmentBase;
+import com.tshevchuk.prayer.fragments.HtmlViewFragment;
 import com.tshevchuk.prayer.fragments.OftenUsedFragment;
 import com.tshevchuk.prayer.fragments.SearchFragment;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
@@ -198,6 +200,17 @@ public class HomeActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	public void onBackPressed() {
+		Fragment curFragment = getFragmentManager().findFragmentById(
+				R.id.content_frame);
+		if (curFragment != null && curFragment instanceof FragmentBase
+				&& ((FragmentBase) curFragment).goBack()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
 	public void sendAnalyticsOptionsMenuEvent(CharSequence menuItemName,
 			String param) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
@@ -213,7 +226,11 @@ public class HomeActivity extends Activity {
 	public void displayMenuItem(final MenuItemBase mi) {
 		FragmentBase f = null;
 		if (mi instanceof MenuItemPrayer) {
-			f = TextViewFragment.getInstance(((MenuItemPrayer) mi));
+			if (((MenuItemPrayer) mi).getType() == Type.HtmlInWebView) {
+				f = HtmlViewFragment.getInstance((MenuItemPrayer) mi);
+			} else {
+				f = TextViewFragment.getInstance(((MenuItemPrayer) mi));
+			}
 		} else if (mi instanceof MenuItemSubMenu) {
 			f = SubMenuFragment.getInstance((MenuItemSubMenu) mi);
 		} else if (mi instanceof MenuItemCalendar) {

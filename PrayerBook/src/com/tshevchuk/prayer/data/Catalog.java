@@ -14,6 +14,7 @@ import com.tshevchuk.prayer.Utils;
 public class Catalog {
 	private static final String SRC_BIBLIA = "Біблія, переклад Івана Хоменка";
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
+	private static final String SRC_MOLYTVOSLOV = "Молитвослов. Видавництво ОО. Василіян, Рим-Торонто, 1990.";
 	private static final String SRC_DODATOK_KATEKHYZMU_2012 = "Додаток до Катехизму УГКЦ «Христос – наша Пасха» 2012 року";
 	private static final String SRC_PRO_SPOVID = "Про Сповідь. о. Порфирій В. Шумило, ЧСВВ, бр. Пімен І. Коневич, ЧСВВ http://osbm-buchach.org.ua/knygy/pro-spovid.html";
 	private static final String SRC_UROKY_BIBLIYI_DLYA_VAHITNYKH = "Уроки Біблії http://bible-lessons.in.ua/molutva/dljavagitnux.html";
@@ -36,7 +37,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 687;
+	private static final int NEXT_ID_TO_ADD = 700;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -947,12 +948,41 @@ public class Catalog {
 		sm.html(683, "Проскомидія",
 				"bohosluzhinnya/liturhiya/proskomydiya.html",
 				SRC_LITURHIYA_KYRIOS);
-		sm.html(684, "Літургія Слова",
-				"bohosluzhinnya/liturhiya/slova.html",
+		sm.html(684, "Літургія Слова", "bohosluzhinnya/liturhiya/slova.html",
 				SRC_LITURHIYA_KYRIOS);
 		sm.html(685, "Літургія Жертви",
-				"bohosluzhinnya/liturhiya/zhertvy.html",
-				SRC_LITURHIYA_KYRIOS);
+				"bohosluzhinnya/liturhiya/zhertvy.html", SRC_LITURHIYA_KYRIOS);
+
+		sm = menu.subMenu(687, "Часослов");
+		sm.web(688, "Вечірня", "bohosluzhinnya/chasoslov/vechirnya.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(689, "Мале Повечір’я",
+				"bohosluzhinnya/chasoslov/male-povechirya.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(690, "Велике Повечір'я",
+				"bohosluzhinnya/chasoslov/velyke-povechirya.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(691, "Північна Щоденна",
+				"bohosluzhinnya/chasoslov/pivnichna-schodenna.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(692, "Північна Суботня",
+				"bohosluzhinnya/chasoslov/pivnichna-subotnya.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(693, "Північна Недільна",
+				"bohosluzhinnya/chasoslov/pivnichna-nedilna.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(694, "Утреня", "bohosluzhinnya/chasoslov/utrenya.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(695, "Час Перший",
+				"bohosluzhinnya/chasoslov/chas-pershyj.html", SRC_MOLYTVOSLOV);
+		sm.web(696, "Час Третій", "bohosluzhinnya/chasoslov/chas-tretij.html",
+				SRC_MOLYTVOSLOV);
+		sm.web(697, "Час Шостий",
+				"bohosluzhinnya/chasoslov/chas-shostyj.html", SRC_MOLYTVOSLOV);
+		sm.web(698, "Час Дев’ятий",
+				"bohosluzhinnya/chasoslov/chas-devyatyj.html", SRC_MOLYTVOSLOV);
+		sm.web(699, "Обідниця", "bohosluzhinnya/chasoslov/obitnytsya.html",
+				SRC_MOLYTVOSLOV);
 
 		sm = menu.subMenu(437, "Молебні");
 		sm.html(448, "Молебень до Христа Спасителя",
