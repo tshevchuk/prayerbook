@@ -981,7 +981,7 @@ public class Catalog {
 				"bohosluzhinnya/chasoslov/chas-shostyj.html", SRC_MOLYTVOSLOV);
 		sm.web(698, "Час Дев’ятий",
 				"bohosluzhinnya/chasoslov/chas-devyatyj.html", SRC_MOLYTVOSLOV);
-		sm.web(699, "Обідниця", "bohosluzhinnya/chasoslov/obitnytsya.html",
+		sm.web(699, "Обідниця", "bohosluzhinnya/chasoslov/obidnytsya.html",
 				SRC_MOLYTVOSLOV);
 
 		sm = menu.subMenu(437, "Молебні");
