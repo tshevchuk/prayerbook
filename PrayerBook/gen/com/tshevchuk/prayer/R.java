@@ -9,6 +9,8 @@ package com.tshevchuk.prayer;
 
 public final class R {
     public static final class array {
+        public static final int DefaultScreens=0x7f090002;
+        public static final int DefaultScreensIds=0x7f090001;
         public static final int TextFontSizes=0x7f090000;
     }
     public static final class attr {
@@ -104,6 +106,10 @@ containing a value of this type.
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
+        public static final int pb_actionBarSearchIconDrawable=0x7f010013;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
         public static final int pb_navigationDrawerIconDrawable=0x7f010011;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -194,10 +200,11 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f050006;
         public static final int common_signin_btn_light_text_focused=0x7f050007;
         public static final int common_signin_btn_light_text_pressed=0x7f050005;
-        public static final int common_signin_btn_text_dark=0x7f05000d;
-        public static final int common_signin_btn_text_light=0x7f05000e;
-        public static final int gray=0x7f05000c;
-        public static final int transparent=0x7f05000b;
+        public static final int common_signin_btn_text_dark=0x7f05000e;
+        public static final int common_signin_btn_text_light=0x7f05000f;
+        public static final int gray=0x7f05000d;
+        public static final int transparent=0x7f05000c;
+        public static final int white=0x7f05000b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -206,62 +213,73 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f0b0001;
     }
     public static final class drawable {
-        public static final int cerkovnyy_calendar_current_day_background=0x7f020000;
-        public static final int common_signin_btn_icon_dark=0x7f020001;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f020002;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020003;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020004;
-        public static final int common_signin_btn_icon_disabled_light=0x7f020005;
-        public static final int common_signin_btn_icon_focus_dark=0x7f020006;
-        public static final int common_signin_btn_icon_focus_light=0x7f020007;
-        public static final int common_signin_btn_icon_light=0x7f020008;
-        public static final int common_signin_btn_icon_normal_dark=0x7f020009;
-        public static final int common_signin_btn_icon_normal_light=0x7f02000a;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f02000b;
-        public static final int common_signin_btn_icon_pressed_light=0x7f02000c;
-        public static final int common_signin_btn_text_dark=0x7f02000d;
-        public static final int common_signin_btn_text_disabled_dark=0x7f02000e;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02000f;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f020010;
-        public static final int common_signin_btn_text_disabled_light=0x7f020011;
-        public static final int common_signin_btn_text_focus_dark=0x7f020012;
-        public static final int common_signin_btn_text_focus_light=0x7f020013;
-        public static final int common_signin_btn_text_light=0x7f020014;
-        public static final int common_signin_btn_text_normal_dark=0x7f020015;
-        public static final int common_signin_btn_text_normal_light=0x7f020016;
-        public static final int common_signin_btn_text_pressed_dark=0x7f020017;
-        public static final int common_signin_btn_text_pressed_light=0x7f020018;
-        public static final int ic_launcher=0x7f020019;
-        public static final int ic_navigation_drawer_dark=0x7f02001a;
-        public static final int ic_navigation_drawer_light=0x7f02001b;
-        public static final int ic_plusone_medium_off_client=0x7f02001c;
-        public static final int ic_plusone_small_off_client=0x7f02001d;
-        public static final int ic_plusone_standard_off_client=0x7f02001e;
-        public static final int ic_plusone_tall_off_client=0x7f02001f;
+        public static final int background_transparent_clickable=0x7f020000;
+        public static final int cerkovnyy_calendar_current_day_background=0x7f020001;
+        public static final int common_signin_btn_icon_dark=0x7f020002;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020003;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020004;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020005;
+        public static final int common_signin_btn_icon_disabled_light=0x7f020006;
+        public static final int common_signin_btn_icon_focus_dark=0x7f020007;
+        public static final int common_signin_btn_icon_focus_light=0x7f020008;
+        public static final int common_signin_btn_icon_light=0x7f020009;
+        public static final int common_signin_btn_icon_normal_dark=0x7f02000a;
+        public static final int common_signin_btn_icon_normal_light=0x7f02000b;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f02000c;
+        public static final int common_signin_btn_icon_pressed_light=0x7f02000d;
+        public static final int common_signin_btn_text_dark=0x7f02000e;
+        public static final int common_signin_btn_text_disabled_dark=0x7f02000f;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020010;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f020011;
+        public static final int common_signin_btn_text_disabled_light=0x7f020012;
+        public static final int common_signin_btn_text_focus_dark=0x7f020013;
+        public static final int common_signin_btn_text_focus_light=0x7f020014;
+        public static final int common_signin_btn_text_light=0x7f020015;
+        public static final int common_signin_btn_text_normal_dark=0x7f020016;
+        public static final int common_signin_btn_text_normal_light=0x7f020017;
+        public static final int common_signin_btn_text_pressed_dark=0x7f020018;
+        public static final int common_signin_btn_text_pressed_light=0x7f020019;
+        public static final int content_vervytsya=0x7f02001a;
+        public static final int ic_actionbar_search_dark=0x7f02001b;
+        public static final int ic_actionbar_search_light=0x7f02001c;
+        public static final int ic_launcher=0x7f02001d;
+        public static final int ic_navigation_drawer_dark=0x7f02001e;
+        public static final int ic_navigation_drawer_light=0x7f02001f;
+        public static final int ic_plusone_medium_off_client=0x7f020020;
+        public static final int ic_plusone_small_off_client=0x7f020021;
+        public static final int ic_plusone_standard_off_client=0x7f020022;
+        public static final int ic_plusone_tall_off_client=0x7f020023;
     }
     public static final class id {
-        public static final int button1=0x7f060013;
+        public static final int button1=0x7f060018;
         public static final int content_frame=0x7f060006;
         public static final int drawer_layout=0x7f060005;
         public static final int hybrid=0x7f060004;
         public static final int left_drawer=0x7f060007;
-        public static final int lvCalendar=0x7f06000b;
-        public static final int lvItems=0x7f060010;
-        public static final int mi_about_prayer=0x7f060015;
-        public static final int mi_settings=0x7f060014;
+        public static final int ll_today=0x7f060017;
+        public static final int lvCalendar=0x7f06000e;
+        public static final int lvItems=0x7f060014;
+        public static final int mi_about_prayer=0x7f06001c;
+        public static final int mi_create_shortcut=0x7f06001b;
+        public static final int mi_search=0x7f06001a;
+        public static final int mi_settings=0x7f060019;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int satellite=0x7f060002;
-        public static final int svScroll=0x7f060011;
+        public static final int svScroll=0x7f060008;
         public static final int terrain=0x7f060003;
-        public static final int tvDay=0x7f06000d;
-        public static final int tvDayOldStyle=0x7f06000e;
-        public static final int tvDescription=0x7f06000f;
-        public static final int tvMonth=0x7f06000a;
-        public static final int tv_about=0x7f060009;
-        public static final int tv_content=0x7f060012;
-        public static final int tv_name=0x7f060008;
-        public static final int vMonthSeparator=0x7f06000c;
+        public static final int tvDay=0x7f060010;
+        public static final int tvDayOldStyle=0x7f060011;
+        public static final int tvDescription=0x7f060012;
+        public static final int tvHeader=0x7f060015;
+        public static final int tvMonth=0x7f06000d;
+        public static final int tvName=0x7f060016;
+        public static final int tv_about=0x7f06000c;
+        public static final int tv_app_name=0x7f060009;
+        public static final int tv_content=0x7f06000a;
+        public static final int tv_name=0x7f06000b;
+        public static final int vMonthSeparator=0x7f06000f;
+        public static final int wv_content=0x7f060013;
     }
     public static final class integer {
         public static final int ga_sessionTimeout=0x7f080001;
@@ -269,16 +287,23 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int a_home=0x7f030000;
-        public static final int f_about_prayer=0x7f030001;
-        public static final int f_cerkovnyy_calendar=0x7f030002;
-        public static final int f_cerkovnyy_calendar_item=0x7f030003;
-        public static final int f_submenu=0x7f030004;
-        public static final int f_text_view=0x7f030005;
-        public static final int i_drawer_menu=0x7f030006;
+        public static final int f_about_app=0x7f030001;
+        public static final int f_about_prayer=0x7f030002;
+        public static final int f_cerkovnyy_calendar=0x7f030003;
+        public static final int f_cerkovnyy_calendar_item=0x7f030004;
+        public static final int f_html_view=0x7f030005;
+        public static final int f_often_used=0x7f030006;
+        public static final int f_search=0x7f030007;
+        public static final int f_search_header=0x7f030008;
+        public static final int f_search_item=0x7f030009;
+        public static final int f_submenu=0x7f03000a;
+        public static final int f_text_view=0x7f03000b;
+        public static final int i_drawer_menu=0x7f03000c;
     }
     public static final class menu {
         public static final int actionbar=0x7f0d0000;
-        public static final int actionbar_textviewfragment=0x7f0d0001;
+        public static final int actionbar_create_shortcut=0x7f0d0001;
+        public static final int actionbar_textviewfragment=0x7f0d0002;
     }
     public static final class string {
         public static final int action_settings=0x7f07001d;
@@ -383,8 +408,9 @@ containing a value of this type.
         public static final int location_client_powered_by_google=0x7f07001a;
     }
     public static final class style {
-        public static final int PrayerBook_ThemeDark=0x7f0c0000;
-        public static final int PrayerBook_ThemeLight=0x7f0c0001;
+        public static final int PrayerBook_ActionBarDark=0x7f0c0000;
+        public static final int PrayerBook_ThemeDark=0x7f0c0001;
+        public static final int PrayerBook_ThemeLight=0x7f0c0002;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;
