@@ -37,7 +37,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 700;
+	private static final int NEXT_ID_TO_ADD = 702;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -77,10 +77,14 @@ public class Catalog {
 		menu.addSubItem(addMolytvyNaProslavuUkrSluhBozhykh());
 		menu.addSubItem(addMolytvyMytropolytaAndreya());
 		menu.addSubItem(addMolytvyVijskovykhFormuvan());
-		menu.html(2, "Ранішні молитви", "molytvy-ranishni.html",
+		menu.html(2, "Ранішні молитви", "molytvy/molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(3, "Вечірні молитви", "molytvy-vechirni.html",
+		menu.html(700, "Ранішні молитви (1)",
+				"molytvy/molytvy-ranishni-1.html", SRC_MOLYTVY_KYRIOS);
+		menu.html(3, "Вечірні молитви", "molytvy/molytvy-vechirni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(701, "Вечірні молитви (1)",
+				"molytvy/molytvy-vechirni-1.html", SRC_MOLYTVY_KYRIOS);
 		menu.text(594, "Молитва Іларіона, митрополита Київського",
 				"molytvy/ilariona.html", SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 
@@ -973,12 +977,12 @@ public class Catalog {
 				SRC_MOLYTVOSLOV);
 		sm.web(694, "Утреня", "bohosluzhinnya/chasoslov/utrenya.html",
 				SRC_MOLYTVOSLOV);
-		sm.web(695, "Час Перший",
-				"bohosluzhinnya/chasoslov/chas-pershyj.html", SRC_MOLYTVOSLOV);
+		sm.web(695, "Час Перший", "bohosluzhinnya/chasoslov/chas-pershyj.html",
+				SRC_MOLYTVOSLOV);
 		sm.web(696, "Час Третій", "bohosluzhinnya/chasoslov/chas-tretij.html",
 				SRC_MOLYTVOSLOV);
-		sm.web(697, "Час Шостий",
-				"bohosluzhinnya/chasoslov/chas-shostyj.html", SRC_MOLYTVOSLOV);
+		sm.web(697, "Час Шостий", "bohosluzhinnya/chasoslov/chas-shostyj.html",
+				SRC_MOLYTVOSLOV);
 		sm.web(698, "Час Дев’ятий",
 				"bohosluzhinnya/chasoslov/chas-devyatyj.html", SRC_MOLYTVOSLOV);
 		sm.web(699, "Обідниця", "bohosluzhinnya/chasoslov/obidnytsya.html",
