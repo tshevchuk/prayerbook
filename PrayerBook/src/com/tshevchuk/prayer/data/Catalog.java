@@ -29,6 +29,7 @@ public class Catalog {
 	private static final String SRC_TREBNYK_2012_LITURHIJNI_PEREKLADY = "Літургійні переклади УКГЦ - Требник http://ugcc-littexts-ukr.blogspot.com/p/blog-page_7695.html на основі Требник Львів 2012";
 	private static final String SRC_PISNI_KYRIOS = "Християнський портал Кіріос - Слова і ноти http://kyrios.org.ua/music/words-and-notes.html";
 	private static final String SRC_MOLYTVY_KYRIOS = "Християнський портал Кіріос - Молитви http://kyrios.org.ua/spirituality/prayer.html";
+	private static final String SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA = "Християнський портал Кіріос - Молитви до Пресвятої Богородиці на кожен день тижня (преп. Ніла Сорського) http://kyrios.org.ua/spirituality/prayer/816-molitvi-do-presvjatoyi-bogoroditsi-na-kozhen-den-tizhnja-prep-nila-sorskogo.html";
 	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
 
 	public static final int ID_SCHODENNI_MOLYTVY = 1;
@@ -37,7 +38,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 702;
+	private static final int NEXT_ID_TO_ADD = 710;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -77,6 +78,35 @@ public class Catalog {
 		menu.addSubItem(addMolytvyNaProslavuUkrSluhBozhykh());
 		menu.addSubItem(addMolytvyMytropolytaAndreya());
 		menu.addSubItem(addMolytvyVijskovykhFormuvan());
+
+		MenuItemSubMenu sm = menu
+				.subMenu(702,
+						"Молитви до Пресвятої Богородиці на кожен день тижня (преп. Ніла Сорського)");
+		sm.text(703,
+				"У понеділок",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/ponedilok.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+		sm.text(704,
+				"У вівторок",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/vivtorok.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+		sm.text(705, "У середу",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/sereda.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+		sm.text(706, "У четвер",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/chetver.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+		sm.text(707,
+				"У п’ятницю",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/pyatnytsya.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+		sm.text(708, "У суботу",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/subota.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+		sm.text(709, "У неділю",
+				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/nedilya.html",
+				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
+
 		menu.html(2, "Ранішні молитви", "molytvy/molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(700, "Ранішні молитви (1)",
