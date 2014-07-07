@@ -38,7 +38,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 710;
+	private static final int NEXT_ID_TO_ADD = 712;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -107,6 +107,8 @@ public class Catalog {
 				"molytvy/do-presv-bohorodytsi-kozhen-den-tyzhnya/nedilya.html",
 				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
 
+		menu.html(710, "Ісусова молитва", "molytvy/isusova.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(2, "Ранішні молитви", "molytvy/molytvy-ranishni.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(700, "Ранішні молитви (1)",
@@ -966,6 +968,9 @@ public class Catalog {
 				SRC_VERVYTSYA_MOLYTVA);
 		menu.html(81, "Молитва на Вервиці",
 				"vervytsya/molytva-na-vervytsi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(711, "Молитва на чотках",
+				"vervytsya/molytva-na-chotkakh.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
