@@ -38,7 +38,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 712;
+	private static final int NEXT_ID_TO_ADD = 714;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -1319,6 +1319,9 @@ public class Catalog {
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(163, "Молитви по святім причастю",
 				"pro-spovid/molytvy-pislya-prychastya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(712, "Молитовне правило до Святого Причастя",
+				"pro-spovid/molytovne-pravylo.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
