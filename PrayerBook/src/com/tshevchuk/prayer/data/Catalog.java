@@ -38,7 +38,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 714;
+	private static final int NEXT_ID_TO_ADD = 893;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -1106,12 +1106,590 @@ public class Catalog {
 		sm.html(462, "Молебень за недужих",
 				"bohosluzhinnya/molebni/neduzhykh.html", SRC_MOLEBNI_KYRIOS);
 
+		menu.addSubItem(addSluzhbyPryjditePoklonimsya());
 		menu.addSubItem(addTrebnyk());
 
 		menu.html(467, "Чин утрені", "bohosluzhinnya/utrennya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		menu.html(466, "Чин вечірні", "bohosluzhinnya/vechirnya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		return menu;
+	}
+
+	private MenuItemSubMenu addSluzhbyPryjditePoklonimsya() {
+		MenuItemSubMenu menu = new MenuItemSubMenu(714, "Служби");
+
+		MenuItemSubMenu sm = menu.subMenu(715, "Служби на різні потреби");
+		sm.web(716, "Служба за померлих",
+				"bohosluzhinnya/sluzhby/za-pomerlykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(717, "Служба на всяке прошення",
+				"bohosluzhinnya/sluzhby/na-vsyake-proshennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(718, "Служба подяки", "bohosluzhinnya/sluzhby/podyaky.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(719, "Служба про поміч Святого Духа",
+				"bohosluzhinnya/sluzhby/pro-pomich-sv-dukha.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(720, "Служба за недужих",
+				"bohosluzhinnya/sluzhby/za-neduzhykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(721, "Служба за подорожніх",
+				"bohosluzhinnya/sluzhby/za-podorozhnikh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
+		sm = menu.subMenu(728, "Повсякденна служба");
+		sm.web(722, "Понеділок", "bohosluzhinnya/sluzhby/ponedilok.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(723, "Вівторок", "bohosluzhinnya/sluzhby/vivtorok.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(724, "Середа", "bohosluzhinnya/sluzhby/sereda.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(725, "Четвер", "bohosluzhinnya/sluzhby/chetver.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(726, "П’ятниця", "bohosluzhinnya/sluzhby/pyatnytsya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(727, "Субота", "bohosluzhinnya/sluzhby/subota.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
+		sm = menu.subMenu(729, "Загальні служби святим");
+		sm.web(730, "Служба Пресвятій Богородиці",
+				"bohosluzhinnya/sluzhby/zahalni/presv-bohorodytsi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(731, "Служба ангелам",
+				"bohosluzhinnya/sluzhby/zahalni/anhelam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(732, "Служба пророкам",
+				"bohosluzhinnya/sluzhby/zahalni/prorokam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(733, "Служба апостолам",
+				"bohosluzhinnya/sluzhby/zahalni/apostolam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(734, "Служба святителеві",
+				"bohosluzhinnya/sluzhby/zahalni/svyatytelevi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(735, "Служба святителям",
+				"bohosluzhinnya/sluzhby/zahalni/svyatytelyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(736,
+				"Служба преподобним і Христа ради юродивим",
+				"bohosluzhinnya/sluzhby/zahalni/prepodobnym-i-khrysta-rady-yurodyvym.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(737, "Служба мученикові",
+				"bohosluzhinnya/sluzhby/zahalni/muchenykovi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(738, "Служба мученикам",
+				"bohosluzhinnya/sluzhby/zahalni/muchenykam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(739, "Служба священномученикові",
+				"bohosluzhinnya/sluzhby/zahalni/svyaschenomuchenykovi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(740, "Служба священномученикам",
+				"bohosluzhinnya/sluzhby/zahalni/svyaschenomuchenykam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(741, "Служба преподобномученикові",
+				"bohosluzhinnya/sluzhby/zahalni/prepodobnomuchenykovi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(742, "Служба преподобномученикам",
+				"bohosluzhinnya/sluzhby/zahalni/prepodobnomuchenykam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(743, "Служба святим мученицям",
+				"bohosluzhinnya/sluzhby/zahalni/sv-muchenytsyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(744, "Служба преподобним жінкам",
+				"bohosluzhinnya/sluzhby/zahalni/prepodobnym-zhinkam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(745, "Служба ісповідникам",
+				"bohosluzhinnya/sluzhby/zahalni/ispovisnykam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(892,
+				"Служба безсребреникам і чудотворцям",
+				"bohosluzhinnya/sluzhby/zahalni/bezsrebrenykam-i-chudotvortsyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
+		sm = menu.subMenu(746, "Служби на рухомі свята");
+		sm.web(747, "Свята і велика неділя Пасхи",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-paskhy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(748,
+				"Понеділок Світлого тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/ponedilok-svitloho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(749,
+				"Вівторок Світлого тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/vivtorok-svitloho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(750, "Середа Світлого тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/sereda-svitloho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(751, "Четвер Світлого тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/chetver-svitloho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(752,
+				"П’ятниця Світлого тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/pyatnytsya-svitloho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(753, "Субота Світлого тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-svitloho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(754, "Неділя 2, про Тому",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-2-pro-tomu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(755, "Неділя 3, про мироносиць",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-3-pro-myronosyts.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(756,
+				"Неділя 4, про розслабленого",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-4-pro-rozslablenoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(757, "Середа переполовення",
+				"bohosluzhinnya/sluzhby/rukhomi/sereda-perepolovennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(758, "Неділя 5, про самарянку",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-5-pro-samaryanku.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(759,
+				"Неділя 6, про сліпородженого",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-6-pro-sliporodzhenoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(760, "Четвер Вознесення",
+				"bohosluzhinnya/sluzhby/rukhomi/chetver-voznesennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(761,
+				"Неділя 7, святих Отців 1-го вселенського собору в Нікеї",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-7-svyatykh-ottsiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(762,
+				"Субота 7, перед П’ятдесятницею",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-7-pered-pyatdesyatnytseyu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(763, "Неділя П’ятдесятниці",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-pyatdesyatnytsi.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(764, "Понеділок Святого Духа",
+				"bohosluzhinnya/sluzhby/rukhomi/ponedilok-sv-dukha.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(765, "Неділя 1, всіх святих",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-1-vsikh-svyatykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(766,
+				"Четвер по Неділі всіх святих",
+				"bohosluzhinnya/sluzhby/rukhomi/chetver-po-nedili-vsikh-svyatykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(767, "П’ятниця 3-го тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/pyatnytsya-3ho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(768, "Субота 3-го тижня",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-3ho-tyzhnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(769, "Неділя 4, всіх святих українського народу",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-4-vsikh-svyatykh.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(770,
+				"Неділя 33, про митаря і фарисея",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-33-pro-mytarya-i-faryseya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(771,
+				"Неділя 34, про блудного сина",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-pro-bludnoho-syna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(772, "Субота 35, м’ясопусна",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-35-myasopusna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(773, "Неділя 35, м’ясопусна",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-35-myasopusna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(774, "Субота 36, сиропусна",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-36-syropusna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(775, "Неділя 36, сиропусна",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-36-syropusna.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(776, "Субота 1 посту, великомученика Теодора Тирона",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-1-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(777, "Неділя 1 посту, православія",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-1-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(778, "Субота 2 посту",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-2-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(779, "Неділя 2 посту",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-2-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(780, "Субота 3 посту",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-3-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(781, "Неділя 3 посту, Хрестопоклонна",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-3-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(782, "Субота 4 посту",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-4-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(783, "Неділя 4 посту, преподобного Йоана Ліствичника",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-4-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(784, "Субота 5 посту, акафістова",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-5-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(785, "Неділя 5 посту, преподобної Марії Єгипетської",
+				"bohosluzhinnya/sluzhby/rukhomi/nedilya-5-postu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(786, "Субота 6, Лазарева",
+				"bohosluzhinnya/sluzhby/rukhomi/subota-6-lazareva.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(787, "Квітна неділя",
+				"bohosluzhinnya/sluzhby/rukhomi/kvitna-nedilya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(788, "Святий великий четвер",
+				"bohosluzhinnya/sluzhby/rukhomi/svyatyj-velykyj-chetver.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(789, "Свята велика субота",
+				"bohosluzhinnya/sluzhby/rukhomi/svyata-velyka-subota.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
+		sm = menu.subMenu(790, "Служби празників і святим");
+		sm.web(791,
+				"1 вересня, Начало Нового церковного року, Собор Пресвятої Богородиці, Преподобного Симеона Стовпника",
+				"bohosluzhinnya/sluzhby/nerukhomi/1-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(792, "7 вересня, Передпразденство Різдва Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/7-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(793, "8 вересня, Різдво Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/8-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(794, "12 вересня",
+				"bohosluzhinnya/sluzhby/nerukhomi/12-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(795,
+				"Субота перед Воздвиженням",
+				"bohosluzhinnya/sluzhby/nerukhomi/subota-pered-vozdvyzhennyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(796,
+				"Неділя перед Воздвиженням",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-pered-vozdvyzhennyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(797, "14 вересня, Воздвиження чесного Хреста",
+				"bohosluzhinnya/sluzhby/nerukhomi/14-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(798, "Субота по Воздвиженні",
+				"bohosluzhinnya/sluzhby/nerukhomi/subota-po-vozdvyzhenni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(799,
+				"Неділя по Воздвиженні",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-po-vozdvyzhenni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(800, "21 вересня",
+				"bohosluzhinnya/sluzhby/nerukhomi/21-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(801,
+				"26 вересня, Переставлення святого апостола і євангелиста Йоана Богослова",
+				"bohosluzhinnya/sluzhby/nerukhomi/26-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(802,
+				"28 вересня, Преподобного отця нашого і ісповідника Харитона",
+				"bohosluzhinnya/sluzhby/nerukhomi/28-veresnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(803, "1 жовтня, Покров Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/1-zhovtnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(804, "6 жовтня, Святого апостола Томи",
+				"bohosluzhinnya/sluzhby/nerukhomi/6-zhovtnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(805, "9 жовтня, Святого апостола Якова Алфеєвого",
+				"bohosluzhinnya/sluzhby/nerukhomi/9-zhovtnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(806, "11 жовтня, Святих Отців сьомого собору",
+				"bohosluzhinnya/sluzhby/nerukhomi/11-zhovtnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(807, "18 жовтня, Святого євангелиста Луки",
+				"bohosluzhinnya/sluzhby/nerukhomi/18-zhovtnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(808, "26 жовтня, Великомученика Димитрія Мироточця",
+				"bohosluzhinnya/sluzhby/nerukhomi/26-zhovtnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(809,
+				"8 листопада, Собор архистратига Михаїла і інших безплотних сил",
+				"bohosluzhinnya/sluzhby/nerukhomi/8-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(810,
+				"12 листопада, Священномученика Йосафата, архиєпископа Полоцького",
+				"bohosluzhinnya/sluzhby/nerukhomi/12-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(811,
+				"13 листопада, Святого Йоана Золотоустого, архиєпископа Царгородського",
+				"bohosluzhinnya/sluzhby/nerukhomi/13-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(812, "14 листопада, Святого апостола Филипа",
+				"bohosluzhinnya/sluzhby/nerukhomi/14-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(813, "16 листопада, Святого євангелиста Матея",
+				"bohosluzhinnya/sluzhby/nerukhomi/16-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(814,
+				"20 листопада, Передпразденство Входу в храм Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/20-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(815, "21 листопада, Вхід у храм Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/21-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(816, "25 листопада",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(817, "30 листопада, Апостола Андрея Первозваного",
+				"bohosluzhinnya/sluzhby/nerukhomi/30-lystopada.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(818, "5 грудня, Преподобного Сави Освященного",
+				"bohosluzhinnya/sluzhby/nerukhomi/5-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(819, "6 грудня, Святого Миколая Чудотворця",
+				"bohosluzhinnya/sluzhby/nerukhomi/6-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(820,
+				"9 грудня, Зачаття святої Анни, коли зачала Пресвяту Богородицю",
+				"bohosluzhinnya/sluzhby/nerukhomi/9-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(821, "Неділя святих Праотців",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-sv-praottsiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(822,
+				"13 грудня, Мучеників Євстратія, Авксентія, Євгенія, Мардарія і Ореста",
+				"bohosluzhinnya/sluzhby/nerukhomi/13-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(823, "Субота перед Різдвом Христовим",
+				"bohosluzhinnya/sluzhby/nerukhomi/subota-pered-rizdvom.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(824, "Неділя перед Різдвом Христовим, святих Отців",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-pered-rizdvom.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(825, "20-23 грудня, Передпразденство Різдва Христового",
+				"bohosluzhinnya/sluzhby/nerukhomi/20-23-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(826, "24 грудня, Навечір’я Різдва Христового",
+				"bohosluzhinnya/sluzhby/nerukhomi/24-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(827, "25 грудня, Різдво Господа нашого Ісуса Христа",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(828, "26 грудня, Собор Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/26-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(829,
+				"Субота по Різдві Христовім",
+				"bohosluzhinnya/sluzhby/nerukhomi/subota-po-rizdvi-khrestovim.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(830,
+				"Неділя по Різдві Христовім",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-po-rizdvi-khrestovim.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(831, "27 грудня, Святого первомученика Стефана",
+				"bohosluzhinnya/sluzhby/nerukhomi/27-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(832, "31 грудня",
+				"bohosluzhinnya/sluzhby/nerukhomi/31-hrudnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(833,
+				"1 січня, Найменування Господа Ісуса Христа; і святого Василія Великого, архиєпископа Кесарії Кападокійської",
+				"bohosluzhinnya/sluzhby/nerukhomi/1-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(834,
+				"Субота перед Просвіщенням",
+				"bohosluzhinnya/sluzhby/nerukhomi/subota-pered-prosvischennyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(835,
+				"Неділя перед Просвіщенням",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-pered-prosvischennyam.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(836,
+				"2-4 січня, Передпразденство Просвіщення",
+				"bohosluzhinnya/sluzhby/nerukhomi/predprazdnenstvo-prosvischennya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(837, "5 січня, Навечір’я Просвіщення",
+				"bohosluzhinnya/sluzhby/nerukhomi/5-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(838, "6 січня, Святе Богоявлення",
+				"bohosluzhinnya/sluzhby/nerukhomi/6-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(839,
+				"Субота по Просвіщенні",
+				"bohosluzhinnya/sluzhby/nerukhomi/subota-po-prosvischenni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(840,
+				"Неділя по Просвіщенні",
+				"bohosluzhinnya/sluzhby/nerukhomi/nedilya-po-prosvischenni.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(841,
+				"11 січня, Преподобного Теодосія Великого, спільного життя начальника",
+				"bohosluzhinnya/sluzhby/nerukhomi/11-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(842, "І4 січня",
+				"bohosluzhinnya/sluzhby/nerukhomi/14-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(843, "17 січня, Преподобного Антонія Великого",
+				"bohosluzhinnya/sluzhby/nerukhomi/17-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(844, "20 січня, Преподобного Євтимія Великого",
+				"bohosluzhinnya/sluzhby/nerukhomi/20-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(845,
+				"25 січня, Святого Григорія Богослова, архиєпископа Царгородського",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(846, "27 січня, Перенесення мощів святого Йоана Золотоустого",
+				"bohosluzhinnya/sluzhby/nerukhomi/27-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(847,
+				"30 січня, Трьох святителів: Василія Великого, Григорія Богослова і Йоана Золотоустого",
+				"bohosluzhinnya/sluzhby/nerukhomi/30-sichnya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(848, "1 лютого, Передпразденство Стрітення",
+				"bohosluzhinnya/sluzhby/nerukhomi/1-lut.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(849, "2 лютого, Стрітення Господа Ісуса Христа",
+				"bohosluzhinnya/sluzhby/nerukhomi/2-lut.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(850, "9 лютого", "bohosluzhinnya/sluzhby/nerukhomi/9-lut.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(851,
+				"14 лютого, Переставлення преподобного Кирила, учителя слов’янського",
+				"bohosluzhinnya/sluzhby/nerukhomi/14-lut.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(852,
+				"24 лютого, Перше і друге знайдення голови святого Йоана Хрестителя",
+				"bohosluzhinnya/sluzhby/nerukhomi/24-lut.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(853,
+				"9 березня, Святих сорок мучеників, замучених у Севастійськім озері",
+				"bohosluzhinnya/sluzhby/nerukhomi/9-ber.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(854, "24 березня, Передпразденство Благовіщення",
+				"bohosluzhinnya/sluzhby/nerukhomi/24-ber.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(855, "25 березня, Благовіщення Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-ber.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(856,
+				"6 квітня, Переставлення святого Методія, учителя слов’янського",
+				"bohosluzhinnya/sluzhby/nerukhomi/6-kv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(857, "23 квітня, Великомученика Юрія Переможця",
+				"bohosluzhinnya/sluzhby/nerukhomi/23-kv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(858, "25 квітня, Святого євангелиста Марка",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-kv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(859, "30 квітня, Святого апостола Якова, брата Йоана Богослова",
+				"bohosluzhinnya/sluzhby/nerukhomi/30-kv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(860, "3 травня, Преподобного Теодосія Печерського",
+				"bohosluzhinnya/sluzhby/nerukhomi/3-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(861, "8 травня, Апостола і євангелиста Йоана Богослова",
+				"bohosluzhinnya/sluzhby/nerukhomi/8-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(862,
+				"9 травня, Перенесення мощів святого Миколая з Мир до міста Барі",
+				"bohosluzhinnya/sluzhby/nerukhomi/9-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(863, "10 травня, Святого апостола Симона Зилота",
+				"bohosluzhinnya/sluzhby/nerukhomi/10-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(864,
+				"11 травня, Святих рівноапостольних Кирила і Методія, учителів слов’янських",
+				"bohosluzhinnya/sluzhby/nerukhomi/11-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(865, "21 травня, Святих рівноапостольних Константина і Олени",
+				"bohosluzhinnya/sluzhby/nerukhomi/21-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(866,
+				"25 травня, Третє віднайдення голови святого Йоана Хрестителя",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-tr.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(867, "11 червня, Апостолів Вартоломея і Варнави",
+				"bohosluzhinnya/sluzhby/nerukhomi/11-cher.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(868,
+				"19 червня, Святого апостола Юди, брата Господнього по плоті",
+				"bohosluzhinnya/sluzhby/nerukhomi/19-cher.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(869, "24 червня, Різдво чесного Йоана Предтечі",
+				"bohosluzhinnya/sluzhby/nerukhomi/24-cher.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(870, "29 червня, Верховних апостолів Петра і Павла",
+				"bohosluzhinnya/sluzhby/nerukhomi/29-cher.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(871, "30 червня, Собор святих дванадцяти апостолів",
+				"bohosluzhinnya/sluzhby/nerukhomi/30-cher.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(872,
+				"2 липня, Положення чесної ризи Пресвятої Богородиці у Влахерні",
+				"bohosluzhinnya/sluzhby/nerukhomi/2-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(873, "5 липня, Преподобного Атанасія Атонського",
+				"bohosluzhinnya/sluzhby/nerukhomi/5-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(874, "10 липня, Преподобного Антонія Печерського",
+				"bohosluzhinnya/sluzhby/nerukhomi/10-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(875,
+				"11 липня, Переставлення блаженної Ольги, княгині Київської, у святому хрещенні названої Оленою",
+				"bohosluzhinnya/sluzhby/nerukhomi/11-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(876,
+				"15 липня, Святого рівноапостола, великого князя Володимира, у святому хрещенні названого Василієм",
+				"bohosluzhinnya/sluzhby/nerukhomi/15-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(877, "І6 липня, Святих Отців шести вселенських соборів",
+				"bohosluzhinnya/sluzhby/nerukhomi/16-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(878, "20 липня, Святого пророка Іллі",
+				"bohosluzhinnya/sluzhby/nerukhomi/20-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(879,
+				"24 липня, Святих мучеників Бориса і Гліба, у святому хрещенні названих Романом і Давидом",
+				"bohosluzhinnya/sluzhby/nerukhomi/24-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(880,
+				"25 липня, Успення святої Анни, матері Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/25-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(881, "27 липня, Святого великомученика і цілителя Пантелеймона",
+				"bohosluzhinnya/sluzhby/nerukhomi/27-lyp.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(882, "5 серпня, Передпразденство Переображення",
+				"bohosluzhinnya/sluzhby/nerukhomi/5-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(883, "6 серпня, Переображення Ісуса Христа",
+				"bohosluzhinnya/sluzhby/nerukhomi/6-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(884, "9 серпня, Святого апостола Матія",
+				"bohosluzhinnya/sluzhby/nerukhomi/9-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(885, "13 серпня",
+				"bohosluzhinnya/sluzhby/nerukhomi/13-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(886,
+				"14 серпня, Передпразденство Успення. I перенесення мощів преподобного Теодосія, ігумена Печерського",
+				"bohosluzhinnya/sluzhby/nerukhomi/14-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(887, "15 серпня, Успення Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/15-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(888, "23 серпня",
+				"bohosluzhinnya/sluzhby/nerukhomi/23-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(889, "29 серпня, Усікновення голови святого Йоана Хрестителя",
+				"bohosluzhinnya/sluzhby/nerukhomi/29-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(890, "31 серпня, Положення чесного пояса Пресвятої Богородиці",
+				"bohosluzhinnya/sluzhby/nerukhomi/31-ser.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
+		menu.web(891, "Воскресна служба восьми гласів",
+				"bohosluzhinnya/sluzhby/voskresna-sluzhba-8-hlasiv.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+
 		return menu;
 	}
 
