@@ -51,7 +51,7 @@ public class PreferenceManager {
 
 	public synchronized int[] getRecentMenuItems() {
 		if (recentMenuItemsId == null) {
-			String def = "1|1|164|1|5|1|85|1|2|1|6|1|3|1|7|1|78|1|94|1|82|1|176|1|401|1|81|1|184|1|147|1|175|1|80|1|186|1|86|1|82|1|83|1|14|1|4|1|87|1|468|1|79|1|39|1|179|1|437|1";
+			String def = "1|1|164|1|5|1|85|1|2|1|6|1|3|1|7|1|78|1|94|1|82|1|176|1|401|1|81|1|184|1|147|1|175|1|80|1|186|1|86|1|83|1|14|1|4|1|87|1|468|1|79|1|39|1|179|1|437|1";
 			String s = sharedPrefs.getString(PREF_RECENT_MENU_ITEMS, def);
 			String[] items = TextUtils.split(s, "\\|");
 			int[] ids = new int[items.length / 2];
