@@ -89,7 +89,7 @@ public class OftenUsedFragment extends FragmentBase {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				((HomeActivity) getActivity()).displayMenuItem(oftenUsedItems
-						.get(position));
+						.get(position - 1));
 			}
 		});
 
