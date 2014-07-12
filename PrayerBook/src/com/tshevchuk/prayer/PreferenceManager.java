@@ -10,7 +10,6 @@ public class PreferenceManager {
 	public static final String PREF_NIGHT_MODE = "pref_nightMode";
 	public static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	public static final String PREF_ABOUT_APP = "pref_aboutApp";
-	public static final String PREF_SHOW_TODAY_CALENDAR = "pref_showTodayCalendar";
 	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
 
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
@@ -43,10 +42,6 @@ public class PreferenceManager {
 	public int getDefaultMenuItemId() {
 		return Integer.valueOf(sharedPrefs.getString(PREF_DEFAULT_SCREENS,
 				String.valueOf(Catalog.ID_RECENT_SCREENS)));
-	}
-
-	public boolean isShowTodayCalendarEnabled() {
-		return sharedPrefs.getBoolean(PREF_SHOW_TODAY_CALENDAR, false);
 	}
 
 	public synchronized int[] getRecentMenuItems() {

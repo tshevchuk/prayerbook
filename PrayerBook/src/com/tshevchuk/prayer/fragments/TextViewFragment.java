@@ -48,9 +48,6 @@ public class TextViewFragment extends FragmentBase implements
 
 	private TextView tvContent;
 	private HomeActivity activity;
-	private LinearLayout llToday;
-	private TextView tvDay;
-	private TextView tvDescription;
 
 	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
 		TextViewFragment f = new TextViewFragment();
@@ -86,9 +83,6 @@ public class TextViewFragment extends FragmentBase implements
 		View v = inflater.inflate(R.layout.f_text_view, container, false);
 
 		tvContent = (TextView) v.findViewById(R.id.tv_content);
-		llToday = (LinearLayout) v.findViewById(R.id.ll_today);
-		tvDay = (TextView) v.findViewById(R.id.tvDay);
-		tvDescription = (TextView) v.findViewById(R.id.tvDescription);
 
 		if (!getResources().getBoolean(R.bool.has_sw480)) {
 			final ResponsiveScrollView svScroll = (ResponsiveScrollView) v
@@ -134,14 +128,6 @@ public class TextViewFragment extends FragmentBase implements
 			});
 		}
 
-		llToday.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				activity.displayMenuItem(PrayerBookApplication.getInstance()
-						.getCatalog().getMenuItemById(Catalog.ID_CALENDAR));
-			}
-		});
-
 		return v;
 	}
 
@@ -151,26 +137,6 @@ public class TextViewFragment extends FragmentBase implements
 		activity.getActionBar().setTitle(prayer.getFullName());
 		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-
-		if (PreferenceManager.getInstance().isShowTodayCalendarEnabled()
-				&& prayer.getId() == Catalog.ID_SCHODENNI_MOLYTVY) {
-			llToday.setVisibility(View.VISIBLE);
-			CerkovnyyCalendar cal = CerkovnyyCalendar.getInstance();
-			CalendarDay day = cal.getCalendarDay(new Date());
-			String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
-					.format(day.getDay());
-			if (day.isDateRed()) {
-				d = "<font color=\"red\">" + d + "</font>";
-			}
-			tvDay.setText(Html.fromHtml(d));
-			tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-			tvDescription.setText(Html
-					.fromHtml(day.getDescription().toString()));
-			tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-
-		} else {
-			llToday.setVisibility(View.GONE);
-		}
 	}
 
 	@Override
