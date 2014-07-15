@@ -12,7 +12,6 @@ import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,9 +63,9 @@ public class HtmlViewFragment extends FragmentBase {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		WebSettings settings = wvContent.getSettings();
+		
 		if (savedInstanceState == null) {
-			WebSettings settings = wvContent.getSettings();
-			settings.setDefaultTextEncodingName("utf-8");
 			settings.setDefaultFontSize(PreferenceManager.getInstance()
 					.getFontSizeSp());
 			settings.setJavaScriptEnabled(true);
@@ -174,7 +173,8 @@ public class HtmlViewFragment extends FragmentBase {
 		} else {
 			wvContent.restoreState(savedInstanceState);
 		}
-
+		
+		settings.setDefaultTextEncodingName("utf-8");
 	}
 
 	private void loadPrayer(MenuItemPrayer p) {
