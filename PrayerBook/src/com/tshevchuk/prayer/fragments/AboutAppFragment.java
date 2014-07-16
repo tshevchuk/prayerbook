@@ -24,8 +24,14 @@ public class AboutAppFragment extends FragmentBase {
 				.getApplicationNameAndVersion());
 		StringBuilder sb = new StringBuilder();
 		sb.append("Автор: Тарас Шевчук taras.shevchuk@gmail.com\n\n");
+		
+		sb.append("Подяки:\nІван Дутка - за поради і зауваження, надані деякі тексти;\n");
+		sb.append("Степан Сус - за поширення програми в Facebook\n\n");
+		
 		sb.append("Історія змін: https://code.google.com/p/prayerbook/wiki/ReleaseNotes\n\n");
+		
 		sb.append("Допомогти проекту можна наступними способами: https://code.google.com/p/prayerbook/wiki/HowToContribute\n\n");
+		
 		sb.append("Джерела текстів:\n");
 		List<String> srcs = new ArrayList<String>(PrayerBookApplication
 				.getInstance().getCatalog().getAllSources());
