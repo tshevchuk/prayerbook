@@ -86,7 +86,7 @@ public class SettingsFragment extends PreferenceFragment implements
 		} else if (key.equals(PreferenceManager.PREF_TEXT_FONT_SIZE)) {
 			sendAnalyticsSettingsChanged(key,
 					sharedPreferences.getString(key, ""));
-		} else if (key.equals(PreferenceManager.PREF_RECENT_MENU_ITEMS)) {
+		} else if (key.equals(PreferenceManager.PREF_DEFAULT_SCREENS)) {
 			sendAnalyticsSettingsChanged(key,
 					sharedPreferences.getString(key, ""));
 		}
