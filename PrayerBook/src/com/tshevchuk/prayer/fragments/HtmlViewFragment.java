@@ -18,11 +18,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerBookApplication;
@@ -34,9 +36,14 @@ import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
 public class HtmlViewFragment extends FragmentBase {
 	private List<MenuItemPrayer> prayers = new ArrayList<MenuItemPrayer>();
-	private HomeActivity activity;
+	private Float scrollProgression;
+	private boolean isViewCreated = false;
 
+	private HomeActivity activity;
 	private WebView wvContent;
+
+	public HtmlViewFragment() {
+	}
 
 	public static HtmlViewFragment getInstance(MenuItemPrayer prayer) {
 		HtmlViewFragment f = new HtmlViewFragment();
@@ -53,9 +60,16 @@ public class HtmlViewFragment extends FragmentBase {
 	}
 
 	@Override
+	public void onDetach() {
+		super.onDetach();
+		activity = null;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
+		setRetainInstance(true);
 		prayers.add((MenuItemPrayer) getArguments().getSerializable("prayer"));
 	};
 
@@ -64,11 +78,32 @@ public class HtmlViewFragment extends FragmentBase {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		WebSettings settings = wvContent.getSettings();
-		
-		if (savedInstanceState == null) {
-			settings.setDefaultFontSize(PreferenceManager.getInstance()
-					.getFontSizeSp());
+		settings.setDefaultFontSize(PreferenceManager.getInstance()
+				.getFontSizeSp());
+	}
+
+	private void loadPrayer(MenuItemPrayer p) {
+		String url = "file:///android_asset/" + p.getFileName();
+		if (!TextUtils.isEmpty(p.getHtmlLinkAnchor())) {
+			url += "#" + p.getHtmlLinkAnchor();
+		}
+		wvContent.loadUrl(url);
+	}
+
+	@SuppressLint("SetJavaScriptEnabled")
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.f_html_view, container, false);
+		FrameLayout flContent = (FrameLayout) v.findViewById(R.id.fl_content);
+		if (wvContent == null) {
+			wvContent = new WebView(activity);
+			wvContent.setLayoutParams(new FrameLayout.LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+			WebSettings settings = wvContent.getSettings();
 			settings.setJavaScriptEnabled(true);
+			settings.setDefaultTextEncodingName("utf-8");
+
 			wvContent.setWebChromeClient(new WebChromeClient() {
 				@Override
 				public void onProgressChanged(WebView view, int newProgress) {
@@ -122,6 +157,7 @@ public class HtmlViewFragment extends FragmentBase {
 					getActivity().getActionBar()
 							.setTitle(getPrayer().getName());
 
+
 					if (!TextUtils.isEmpty(anchor)) {
 						StringBuilder sb = new StringBuilder();
 						sb.append(
@@ -170,34 +206,19 @@ public class HtmlViewFragment extends FragmentBase {
 
 			activity.setProgressBarIndeterminateVisibility(true);
 			loadPrayer(getPrayer());
-		} else {
-			wvContent.restoreState(savedInstanceState);
 		}
-		
-		settings.setDefaultTextEncodingName("utf-8");
-	}
+		flContent.addView(wvContent);
 
-	private void loadPrayer(MenuItemPrayer p) {
-		String url = "file:///android_asset/" + p.getFileName();
-		if (!TextUtils.isEmpty(p.getHtmlLinkAnchor())) {
-			url += "#" + p.getHtmlLinkAnchor();
-		}
-		wvContent.loadUrl(url);
-	}
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.f_html_view, container, false);
-		wvContent = (WebView) v.findViewById(R.id.wv_content);
-
+		isViewCreated = true;
 		return v;
 	}
 
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		wvContent = null;
+		isViewCreated = false;
+
+		((ViewGroup) wvContent.getParent()).removeView(wvContent);
 	}
 
 	@Override
@@ -231,12 +252,6 @@ public class HtmlViewFragment extends FragmentBase {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		wvContent.saveState(outState);
 	}
 
 	@Override

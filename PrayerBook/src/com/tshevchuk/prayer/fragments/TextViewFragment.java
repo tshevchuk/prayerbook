@@ -1,15 +1,11 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,24 +13,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.HomeActivity;
-import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PrayerLoader;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
 import com.tshevchuk.prayer.UIUtils;
-import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.data.CalendarDay;
-import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
@@ -45,9 +34,11 @@ public class TextViewFragment extends FragmentBase implements
 
 	private MenuItemPrayer prayer;
 	private CharSequence htmlContent;
+	private Integer firstVisibleCharacterOffset = null;
 
 	private TextView tvContent;
 	private HomeActivity activity;
+	private ResponsiveScrollView svScroll;
 
 	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
 		TextViewFragment f = new TextViewFragment();
@@ -64,17 +55,20 @@ public class TextViewFragment extends FragmentBase implements
 	}
 
 	@Override
+	public void onDetach() {
+		super.onDetach();
+		activity = null;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 		prayer = (MenuItemPrayer) getArguments().getSerializable("prayer");
-		Bundle params = new Bundle();
-		params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
-				prayer.getFileName());
-		params.putBoolean(PrayerLoader.PARAM_IS_HTML,
-				prayer.getType() == Type.HtmlInTextView);
-		getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
-		activity.setProgressBarIndeterminateVisibility(true);
+		if (savedInstanceState != null) {
+			firstVisibleCharacterOffset = savedInstanceState
+					.getInt("firstVisibleCharOffset");
+		}
 	};
 
 	@Override
@@ -83,10 +77,9 @@ public class TextViewFragment extends FragmentBase implements
 		View v = inflater.inflate(R.layout.f_text_view, container, false);
 
 		tvContent = (TextView) v.findViewById(R.id.tv_content);
+		svScroll = (ResponsiveScrollView) v.findViewById(R.id.svScroll);
 
 		if (!getResources().getBoolean(R.bool.has_sw480)) {
-			final ResponsiveScrollView svScroll = (ResponsiveScrollView) v
-					.findViewById(R.id.svScroll);
 			svScroll.setOnEndScrollListener(new OnEndScrollListener() {
 				@Override
 				public void onEndScroll(boolean moveContentUp, boolean isFling,
@@ -128,7 +121,25 @@ public class TextViewFragment extends FragmentBase implements
 			});
 		}
 
+		activity.setProgressBarIndeterminateVisibility(true);
+		if (htmlContent == null) {
+			Bundle params = new Bundle();
+			params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
+					prayer.getFileName());
+			params.putBoolean(PrayerLoader.PARAM_IS_HTML,
+					prayer.getType() == Type.HtmlInTextView);
+			getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
+		} else {
+			updateHtmlContent();
+		}
+
 		return v;
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		firstVisibleCharacterOffset = getFirstVisibleCharacterOffset();
 	}
 
 	@Override
@@ -137,6 +148,21 @@ public class TextViewFragment extends FragmentBase implements
 		activity.getActionBar().setTitle(prayer.getFullName());
 		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt("firstVisibleCharOffset",
+				getFirstVisibleCharacterOffset());
+	}
+
+	private int getFirstVisibleCharacterOffset() {
+		final int firstVisableLineOffset = tvContent.getLayout()
+				.getLineForVertical(svScroll.getScrollY());
+		final int firstVisableCharacterOffset = tvContent.getLayout()
+				.getLineStart(firstVisableLineOffset);
+		return firstVisableCharacterOffset;
 	}
 
 	@Override
@@ -189,6 +215,20 @@ public class TextViewFragment extends FragmentBase implements
 		if (htmlContent != null && tvContent != null) {
 			tvContent.setText(htmlContent);
 			activity.setProgressBarIndeterminateVisibility(false);
+
+			svScroll.post(new Runnable() {
+				public void run() {
+					if (firstVisibleCharacterOffset != null) {
+						final int firstVisableLineOffset = tvContent
+								.getLayout().getLineForOffset(
+										firstVisibleCharacterOffset);
+						final int pixelOffset = tvContent.getLayout()
+								.getLineTop(firstVisableLineOffset);
+						svScroll.scrollTo(0, pixelOffset);
+						firstVisibleCharacterOffset = null;
+					}
+				}
+			});
 		}
 	}
 

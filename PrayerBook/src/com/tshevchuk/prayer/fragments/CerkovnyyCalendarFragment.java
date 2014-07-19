@@ -33,6 +33,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	private int[] years = calendar.getYears();
 	private String[] formattedYears;
 	private MenuItemCalendar menuItem;
+	private Integer initPosition;
 
 	private Activity activity;
 	private ListView lvCalendar;
@@ -56,16 +57,31 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		year = currentYear = java.util.Calendar.getInstance().get(
+				java.util.Calendar.YEAR);
 		menuItem = (MenuItemCalendar) getArguments().getSerializable(
 				"menu_item");
 		actionBar = getActivity().getActionBar();
-		year = currentYear = java.util.Calendar.getInstance().get(
-				java.util.Calendar.YEAR);
 		formattedYears = new String[years.length];
 		for (int i = 0; i < years.length; ++i) {
 			formattedYears[i] = years[i] + " рік";
 		}
-	};
+
+		if (savedInstanceState != null) {
+			year = savedInstanceState.getInt("year");
+		}
+
+		if (savedInstanceState != null) {
+			initPosition = savedInstanceState.getInt("firstVisiblePosition");
+		}
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,9 +102,15 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 				updateMonth(firstVisibleItem, false);
 			}
 		});
-		showCalendarForYear(year);
+		showCalendarForYear(year, initPosition);
 
 		return v;
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		initPosition = lvCalendar.getFirstVisiblePosition();
 	}
 
 	@Override
@@ -102,13 +124,17 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 					@Override
 					public boolean onNavigationItemSelected(int itemPosition,
 							long itemId) {
-						showCalendarForYear(years[itemPosition]);
-						Tracker t = PrayerBookApplication.getInstance()
-								.getTracker();
-						t.send(new HitBuilders.EventBuilder()
-								.setCategory(Analytics.CAT_CERKOVNYY_CALENDAR)
-								.setAction("Вибрано рік")
-								.setLabel(formattedYears[itemPosition]).build());
+						if (years[itemPosition] != year) {
+							showCalendarForYear(years[itemPosition], null);
+							Tracker t = PrayerBookApplication.getInstance()
+									.getTracker();
+							t.send(new HitBuilders.EventBuilder()
+									.setCategory(
+											Analytics.CAT_CERKOVNYY_CALENDAR)
+									.setAction("Вибрано рік")
+									.setLabel(formattedYears[itemPosition])
+									.build());
+						}
 						return true;
 					}
 				});
@@ -125,17 +151,25 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 	}
 
-	private void showCalendarForYear(int year) {
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt("year", year);
+		outState.putInt("firstVisiblePosition",
+				lvCalendar.getFirstVisiblePosition());
+	}
+
+	private void showCalendarForYear(int year, Integer position) {
 		lvCalendar.setAdapter(new CerkovnyyCalendarListAdapter(activity, year));
-		int position = 0;
-		if (year == currentYear) {
-			position = java.util.Calendar.getInstance().get(
-					java.util.Calendar.DAY_OF_YEAR) - 1;
-			lvCalendar.setSelection(position);
-		} else {
-			lvCalendar.setSelection(0);
+
+		if (position == null) {
+			position = (year == currentYear) ? (java.util.Calendar
+					.getInstance().get(java.util.Calendar.DAY_OF_YEAR) - 1) : 0;
 		}
+
 		this.year = year;
+
+		lvCalendar.setSelection(position);
 
 		final int pos = position;
 		lvCalendar.post(new Runnable() {
