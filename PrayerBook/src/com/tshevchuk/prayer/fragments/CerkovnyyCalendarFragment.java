@@ -73,7 +73,8 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		}
 
 		if (savedInstanceState != null) {
-			initPosition = savedInstanceState.getInt("firstVisiblePosition");
+			prevFirstVisibleItem = initPosition = savedInstanceState
+					.getInt("firstVisiblePosition");
 		}
 	}
 
@@ -155,8 +156,12 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt("year", year);
-		outState.putInt("firstVisiblePosition",
-				lvCalendar.getFirstVisiblePosition());
+		if (initPosition == null) {
+			outState.putInt("firstVisiblePosition",
+					lvCalendar.getFirstVisiblePosition());
+		} else {
+			outState.putInt("firstVisiblePosition", initPosition);
+		}
 	}
 
 	private void showCalendarForYear(int year, Integer position) {

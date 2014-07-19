@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -139,6 +140,7 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
+		Log.d("textview", "onDestroyView");
 		firstVisibleCharacterOffset = getFirstVisibleCharacterOffset();
 	}
 
@@ -153,8 +155,14 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putInt("firstVisibleCharOffset",
-				getFirstVisibleCharacterOffset());
+		Log.d("textview", "onSaveInstanceState");
+		if (firstVisibleCharacterOffset == null) {
+			outState.putInt("firstVisibleCharOffset",
+					getFirstVisibleCharacterOffset());
+		} else {
+			outState.putInt("firstVisibleCharOffset",
+					firstVisibleCharacterOffset);
+		}
 	}
 
 	private int getFirstVisibleCharacterOffset() {
