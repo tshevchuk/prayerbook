@@ -254,6 +254,7 @@ containing a value of this type.
         public static final int button1=0x7f060018;
         public static final int content_frame=0x7f060006;
         public static final int drawer_layout=0x7f060005;
+        public static final int fl_content=0x7f060013;
         public static final int hybrid=0x7f060004;
         public static final int left_drawer=0x7f060007;
         public static final int ll_today=0x7f060017;
@@ -279,7 +280,6 @@ containing a value of this type.
         public static final int tv_content=0x7f06000a;
         public static final int tv_name=0x7f06000b;
         public static final int vMonthSeparator=0x7f06000f;
-        public static final int wv_content=0x7f060013;
     }
     public static final class integer {
         public static final int ga_sessionTimeout=0x7f080001;
@@ -298,7 +298,8 @@ containing a value of this type.
         public static final int f_search_item=0x7f030009;
         public static final int f_submenu=0x7f03000a;
         public static final int f_text_view=0x7f03000b;
-        public static final int i_drawer_menu=0x7f03000c;
+        public static final int i_calendar_for_today=0x7f03000c;
+        public static final int i_drawer_menu=0x7f03000d;
     }
     public static final class menu {
         public static final int actionbar=0x7f0d0000;
