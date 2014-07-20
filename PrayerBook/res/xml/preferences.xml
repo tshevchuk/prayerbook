@@ -7,7 +7,7 @@
         android:title="Нічний режим" />
 
     <ListPreference
-        android:defaultValue="18"
+        android:defaultValue="20"
         android:dialogTitle="Розмір шрифта"
         android:entries="@array/TextFontSizes"
         android:entryValues="@array/TextFontSizes"

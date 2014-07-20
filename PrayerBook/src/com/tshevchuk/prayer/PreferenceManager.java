@@ -36,7 +36,7 @@ public class PreferenceManager {
 
 	public int getFontSizeSp() {
 		return Integer.parseInt(sharedPrefs
-				.getString(PREF_TEXT_FONT_SIZE, "18"));
+				.getString(PREF_TEXT_FONT_SIZE, "20"));
 	}
 
 	public int getDefaultMenuItemId() {
