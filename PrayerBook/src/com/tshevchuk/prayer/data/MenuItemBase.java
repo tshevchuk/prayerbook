@@ -7,6 +7,7 @@ public abstract class MenuItemBase implements Serializable {
 
 	private String name;
 	private int id;
+	private int parentItemId;
 
 	public MenuItemBase(int id, String name) {
 		this.name = name;
@@ -16,13 +17,21 @@ public abstract class MenuItemBase implements Serializable {
 	public String getName() {
 		return name;
 	}
-	
-	public int getId(){
+
+	public int getId() {
 		return id;
 	}
 
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public int getParentItemId() {
+		return parentItemId;
+	}
+
+	public void setParentItemId(int parentItemId) {
+		this.parentItemId = parentItemId;
 	}
 }

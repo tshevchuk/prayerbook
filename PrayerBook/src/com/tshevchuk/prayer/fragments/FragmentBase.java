@@ -34,7 +34,9 @@ public class FragmentBase extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().show();
+		HomeActivity activity = (HomeActivity) getActivity();
+		activity.getActionBar().show();
+		activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.setScreenName(getClass().getSimpleName());
 		t.send(new HitBuilders.AppViewBuilder().build());
@@ -52,22 +54,29 @@ public class FragmentBase extends Fragment {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.mi_create_shortcut) {
+		switch (item.getItemId()) {
+		case R.id.mi_create_shortcut:
 			MenuItemBase mi = getMenuItem();
 			createShortcut(mi);
 			((HomeActivity) getActivity()).sendAnalyticsOptionsMenuEvent(
 					item.getTitle(),
 					String.format("#%d %s", mi.getId(), mi.getName()));
 			return true;
+
+		case android.R.id.home:
+			getActivity().getFragmentManager().popBackStack();
+			return true;
+
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	public boolean isSameScreen(Fragment f) {
 		return getClass().equals(f.getClass());
 	}
-	
-	public boolean goBack(){
+
+	public boolean goBack() {
 		return false;
 	}
 
@@ -95,5 +104,9 @@ public class FragmentBase extends Fragment {
 
 		addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
 		app.sendBroadcast(addIntent);
+	}
+
+	protected boolean isNavigationDrawerEnabled() {
+		return false;
 	}
 }

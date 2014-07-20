@@ -71,4 +71,9 @@ public class SubMenuFragment extends FragmentBase {
 	protected MenuItemBase getMenuItem() {
 		return subMenu;
 	}
+	
+	@Override
+	protected boolean isNavigationDrawerEnabled() {
+		return true;
+	}
 }

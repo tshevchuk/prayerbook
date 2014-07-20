@@ -25,6 +25,7 @@ public class MenuItemSubMenu extends MenuItemBase {
 	}
 
 	MenuItemSubMenu addSubItem(MenuItemBase item) {
+		item.setParentItemId(getId());
 		subItems.add(item);
 		return this;
 	}

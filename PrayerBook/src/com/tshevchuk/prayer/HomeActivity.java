@@ -268,7 +268,7 @@ public class HomeActivity extends Activity {
 				.beginTransaction();
 		transaction.replace(R.id.content_frame, fragment);
 		if (curFragment != null)
-			transaction.addToBackStack(null);
+			transaction.addToBackStack(String.valueOf(id));
 		transaction.commit();
 
 		if (TextUtils.isEmpty(title)) {
@@ -298,10 +298,16 @@ public class HomeActivity extends Activity {
 		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
 				Analytics.CAT_SEARCH).setAction(query);
 		t.send(event.build());
-
 	}
 
 	public SearchView getSearchView() {
 		return searchView;
+	}
+
+	public void setNavigationDrawerEnabled(boolean enabled) {
+		drawerToggle.setDrawerIndicatorEnabled(enabled);
+		drawerLayout
+				.setDrawerLockMode(enabled ? DrawerLayout.LOCK_MODE_UNLOCKED
+						: DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 	}
 }

@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.HomeActivity;
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PrayerLoader;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
@@ -183,11 +184,22 @@ public class TextViewFragment extends FragmentBase implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.mi_about_prayer:
-			((HomeActivity) activity).displayFragment(
-					AboutPrayerFragment.getInstance(prayer), 0, null);
-			((HomeActivity) activity).sendAnalyticsOptionsMenuEvent("Опис",
+			activity.displayFragment(AboutPrayerFragment.getInstance(prayer),
+					0, null);
+			activity.sendAnalyticsOptionsMenuEvent("Опис",
 					String.format("#%d %s", prayer.getId(), prayer.getName()));
 			return true;
+
+		case android.R.id.home:
+			int parentId = prayer.getParentItemId();
+			if (parentId > 0) {
+				HomeActivity a = activity;
+				a.getFragmentManager().popBackStackImmediate();
+				a.displayMenuItem(PrayerBookApplication.getInstance()
+						.getCatalog().getMenuItemById(parentId));
+				return true;
+			}
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}

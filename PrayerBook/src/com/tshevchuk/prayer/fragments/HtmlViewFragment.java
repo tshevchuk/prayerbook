@@ -157,7 +157,6 @@ public class HtmlViewFragment extends FragmentBase {
 					getActivity().getActionBar()
 							.setTitle(getPrayer().getName());
 
-
 					if (!TextUtils.isEmpty(anchor)) {
 						StringBuilder sb = new StringBuilder();
 						sb.append(
@@ -250,6 +249,17 @@ public class HtmlViewFragment extends FragmentBase {
 					String.format("#%d %s", getPrayer().getId(), getPrayer()
 							.getName()));
 			return true;
+
+		case android.R.id.home:
+			int parentId = getPrayer().getParentItemId();
+			if (parentId > 0) {
+				HomeActivity a = activity;
+				a.getFragmentManager().popBackStackImmediate();
+				a.displayMenuItem(PrayerBookApplication.getInstance()
+						.getCatalog().getMenuItemById(parentId));
+				return true;
+			}
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}

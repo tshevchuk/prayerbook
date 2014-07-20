@@ -9,6 +9,7 @@ import android.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -34,6 +35,7 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
 		addPreferencesFromResource(R.xml.preferences);
 		Preference aboutApp = (Preference) findPreference(PreferenceManager.PREF_ABOUT_APP);
 		aboutApp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -64,6 +66,7 @@ public class SettingsFragment extends PreferenceFragment implements
 	public void onResume() {
 		super.onResume();
 		activity.getActionBar().setTitle("Налаштування");
+		activity.setNavigationDrawerEnabled(false);
 
 		getPreferenceScreen().getSharedPreferences()
 				.registerOnSharedPreferenceChangeListener(this);
@@ -90,6 +93,15 @@ public class SettingsFragment extends PreferenceFragment implements
 			sendAnalyticsSettingsChanged(key,
 					sharedPreferences.getString(key, ""));
 		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == android.R.id.home) {
+			activity.getFragmentManager().popBackStack();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	public void sendAnalyticsSettingsChanged(CharSequence settingsName,

@@ -132,4 +132,9 @@ public class OftenUsedFragment extends FragmentBase {
 	protected MenuItemBase getMenuItem() {
 		return menuItem;
 	}
+
+	@Override
+	protected boolean isNavigationDrawerEnabled() {
+		return true;
+	}
 }
