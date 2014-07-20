@@ -141,6 +141,22 @@ public class HomeActivity extends Activity {
 	};
 
 	@Override
+	protected void onResume() {
+		super.onResume();
+		if (PrayerBookApplication.startupTimeMeasuringStartTimestamp != null) {
+			long elapsedMls = System.currentTimeMillis()
+					- PrayerBookApplication.startupTimeMeasuringStartTimestamp;
+			PrayerBookApplication
+					.getInstance()
+					.getTracker()
+					.send(new HitBuilders.TimingBuilder()
+							.setCategory("Час запуску програми")
+							.setValue(elapsedMls).build());
+			PrayerBookApplication.startupTimeMeasuringStartTimestamp = null;
+		}
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.actionbar, menu);
 		MenuItem miSearch = menu.findItem(R.id.mi_search);

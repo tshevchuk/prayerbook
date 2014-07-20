@@ -14,6 +14,9 @@ public class PrayerBookApplication extends Application {
 		APP_TRACKER,
 	}
 
+	public static Long startupTimeMeasuringStartTimestamp = System
+			.currentTimeMillis();
+
 	private Catalog catalog;
 
 	private static PrayerBookApplication instance;
@@ -27,7 +30,7 @@ public class PrayerBookApplication extends Application {
 		if (Utils.isDebuggable()) {
 			GoogleAnalytics.getInstance(this).setDryRun(true);
 		}
-		
+
 		catalog = new Catalog();
 	}
 
@@ -43,8 +46,8 @@ public class PrayerBookApplication extends Application {
 		}
 		return trackers.get(TrackerName.APP_TRACKER);
 	}
-	
-	public Catalog getCatalog(){
+
+	public Catalog getCatalog() {
 		return catalog;
 	}
 }
