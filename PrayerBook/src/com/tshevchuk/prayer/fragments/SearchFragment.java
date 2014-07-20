@@ -38,7 +38,7 @@ public class SearchFragment extends FragmentBase {
 		super.onAttach(activity);
 		this.activity = (HomeActivity) activity;
 	}
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,7 +65,7 @@ public class SearchFragment extends FragmentBase {
 
 		return v;
 	}
-	
+
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
@@ -101,7 +101,8 @@ public class SearchFragment extends FragmentBase {
 
 	private List<SearchItem> filter(String searchPhrase,
 			List<SearchItem> filtered, MenuItemBase mi) {
-		String name = mi.getName().toLowerCase(Utils.getUkrainianLocale());
+		String name = mi.getName().toLowerCase(Utils.getUkrainianLocale())
+				.replace('’', '\'');
 		int searchPhraseStartPos = name.indexOf(searchPhrase);
 		if (searchPhraseStartPos != -1) {
 			StringBuilder sb = new StringBuilder(mi.getName());
