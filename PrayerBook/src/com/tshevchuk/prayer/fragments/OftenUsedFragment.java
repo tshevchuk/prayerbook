@@ -25,6 +25,7 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
+import com.tshevchuk.prayer.adapters.OftenUsedListAdapter;
 import com.tshevchuk.prayer.data.CalendarDay;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
@@ -99,7 +100,7 @@ public class OftenUsedFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle(R.string.app_name);
+		activity.getActionBar().setTitle(R.string.app_name);
 
 		int[] recentIds = PreferenceManager.getInstance().getRecentMenuItems();
 		oftenUsedItems = new ArrayList<MenuItemBase>(recentIds.length);
@@ -110,8 +111,7 @@ public class OftenUsedFragment extends FragmentBase {
 				oftenUsedItems.add(mi);
 			}
 		}
-		lvItems.setAdapter(new ArrayAdapter<MenuItemBase>(getActivity(),
-				android.R.layout.simple_list_item_1, oftenUsedItems));
+		lvItems.setAdapter(new OftenUsedListAdapter(activity, oftenUsedItems));
 
 		llToday.setVisibility(View.VISIBLE);
 		CerkovnyyCalendar cal = CerkovnyyCalendar.getInstance();
