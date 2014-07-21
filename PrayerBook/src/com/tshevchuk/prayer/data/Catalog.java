@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.Utils;
 
 public class Catalog {
@@ -2130,5 +2131,40 @@ public class Catalog {
 			for (MenuItemBase sm : ((MenuItemSubMenu) mi).getSubItems())
 				addSources(sources, sm);
 		}
+	}
+
+	public List<SearchItem> filter(String searchPhrase) {
+		Catalog cat = PrayerBookApplication.getInstance().getCatalog();
+
+		List<SearchItem> filtered = new ArrayList<SearchItem>();
+
+		if (TextUtils.isEmpty(searchPhrase)) {
+			return filtered;
+		}
+
+		for (MenuItemBase mi : cat.getTopMenuItems()) {
+			filter(searchPhrase, filtered, mi);
+		}
+		return filtered;
+	}
+
+	private List<SearchItem> filter(String searchPhrase,
+			List<SearchItem> filtered, MenuItemBase mi) {
+		String name = mi.getName().toLowerCase(Utils.getUkrainianLocale())
+				.replace('’', '\'');
+		int searchPhraseStartPos = name.indexOf(searchPhrase);
+		if (searchPhraseStartPos != -1) {
+			StringBuilder sb = new StringBuilder(mi.getName());
+			sb.insert(searchPhraseStartPos + searchPhrase.length(), "</b>");
+			sb.insert(searchPhraseStartPos, "<b>");
+			filtered.add(new SearchItem(mi, sb.toString()));
+		}
+
+		if (mi instanceof MenuItemSubMenu) {
+			for (MenuItemBase si : ((MenuItemSubMenu) mi).getSubItems()) {
+				filter(searchPhrase, filtered, si);
+			}
+		}
+		return filtered;
 	}
 }

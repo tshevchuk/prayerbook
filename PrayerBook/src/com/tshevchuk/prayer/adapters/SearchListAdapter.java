@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.SearchItem;
 
@@ -45,15 +46,26 @@ public class SearchListAdapter extends BaseAdapter {
 			ViewHolder vh = new ViewHolder();
 
 			vh.tvName = (TextView) v.findViewById(R.id.tvName);
+			vh.tvParentName = (TextView) v.findViewById(R.id.tvParentName);
 			v.setTag(vh);
 		}
 		ViewHolder vh = (ViewHolder) v.getTag();
-
-		vh.tvName.setText(Html.fromHtml(items.get(position).getName()));
+		SearchItem si = items.get(position);
+		vh.tvName.setText(Html.fromHtml(si.getName()));
+		if (si.getMenuItem().getParentItemId() > 0) {
+			vh.tvParentName.setVisibility(View.VISIBLE);
+			vh.tvParentName.setText(PrayerBookApplication.getInstance()
+					.getCatalog()
+					.getMenuItemById(si.getMenuItem().getParentItemId())
+					.getName());
+		} else {
+			vh.tvParentName.setVisibility(View.GONE);
+		}
 		return v;
 	}
 
 	private static class ViewHolder {
 		TextView tvName;
+		TextView tvParentName;
 	}
 }

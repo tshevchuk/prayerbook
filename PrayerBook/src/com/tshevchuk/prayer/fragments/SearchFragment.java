@@ -16,6 +16,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.HitBuilders.EventBuilder;
+import com.tshevchuk.prayer.Analytics;
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
@@ -58,8 +62,16 @@ public class SearchFragment extends FragmentBase {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				((HomeActivity) getActivity()).displayMenuItem(items.get(
-						position - 1).getMenuItem());
+				MenuItemBase mi = items.get(position - 1).getMenuItem();
+				((HomeActivity) getActivity()).displayMenuItem(mi);
+
+				Tracker t = PrayerBookApplication.getInstance().getTracker();
+				EventBuilder event = new HitBuilders.EventBuilder()
+						.setCategory(Analytics.CAT_SEARCH)
+						.setAction(
+								"Вибрано елемент на фрагменті результатів пошуку")
+						.setLabel(mi.getId() + " " + mi.getName());
+				t.send(event.build());
 			}
 		});
 
@@ -76,47 +88,12 @@ public class SearchFragment extends FragmentBase {
 		this.searchPhrase = TextUtils.isEmpty(searchPhrase) ? searchPhrase
 				: searchPhrase.toLowerCase(Utils.getUkrainianLocale());
 		if (lvItems != null) {
-			lvItems.setAdapter(new SearchListAdapter(getActivity(),
-					filter(this.searchPhrase)));
+
+			items = PrayerBookApplication.getInstance().getCatalog()
+					.filter(this.searchPhrase);
+			lvItems.setAdapter(new SearchListAdapter(getActivity(), items));
+			tvHeader.setText(String.format("Для «%s» знайдено:", searchPhrase));
 		}
-	}
-
-	private List<SearchItem> filter(String searchPhrase) {
-		Catalog cat = PrayerBookApplication.getInstance().getCatalog();
-
-		tvHeader.setText(String.format("Для «%s» знайдено:", searchPhrase));
-
-		List<SearchItem> filtered = new ArrayList<SearchItem>();
-
-		if (TextUtils.isEmpty(searchPhrase)) {
-			return filtered;
-		}
-
-		for (MenuItemBase mi : cat.getTopMenuItems()) {
-			filter(searchPhrase, filtered, mi);
-		}
-		items = filtered;
-		return filtered;
-	}
-
-	private List<SearchItem> filter(String searchPhrase,
-			List<SearchItem> filtered, MenuItemBase mi) {
-		String name = mi.getName().toLowerCase(Utils.getUkrainianLocale())
-				.replace('’', '\'');
-		int searchPhraseStartPos = name.indexOf(searchPhrase);
-		if (searchPhraseStartPos != -1) {
-			StringBuilder sb = new StringBuilder(mi.getName());
-			sb.insert(searchPhraseStartPos + searchPhrase.length(), "</b>");
-			sb.insert(searchPhraseStartPos, "<b>");
-			filtered.add(new SearchItem(mi, sb.toString()));
-		}
-
-		if (mi instanceof MenuItemSubMenu) {
-			for (MenuItemBase si : ((MenuItemSubMenu) mi).getSubItems()) {
-				filter(searchPhrase, filtered, si);
-			}
-		}
-		return filtered;
 	}
 
 	@Override

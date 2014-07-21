@@ -1,12 +1,17 @@
 package com.tshevchuk.prayer;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.database.MatrixCursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -19,11 +24,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
+import android.widget.SearchView.OnSuggestionListener;
+import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.analytics.HitBuilders.EventBuilder;
+import com.google.android.gms.analytics.Tracker;
 import com.tjeannin.apprate.AppRate;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
@@ -32,6 +39,7 @@ import com.tshevchuk.prayer.data.MenuItemOftenUsed;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 import com.tshevchuk.prayer.data.MenuItemSubMenu;
+import com.tshevchuk.prayer.data.SearchItem;
 import com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.fragments.FragmentBase;
 import com.tshevchuk.prayer.fragments.HtmlViewFragment;
@@ -165,6 +173,13 @@ public class HomeActivity extends Activity {
 			@Override
 			public boolean onQueryTextSubmit(String query) {
 				search(query);
+
+				Tracker t = PrayerBookApplication.getInstance().getTracker();
+				EventBuilder event = new HitBuilders.EventBuilder()
+						.setCategory(Analytics.CAT_SEARCH)
+						.setAction("Підтверджено пошукову фразу")
+						.setLabel(query);
+				t.send(event.build());
 				return true;
 			}
 
@@ -172,10 +187,70 @@ public class HomeActivity extends Activity {
 			public boolean onQueryTextChange(String newText) {
 				if (getFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
 					search(newText);
+					Tracker t = PrayerBookApplication.getInstance()
+							.getTracker();
+					EventBuilder event = new HitBuilders.EventBuilder()
+							.setCategory(Analytics.CAT_SEARCH)
+							.setAction("Пошук на фрагменті пошуку")
+							.setLabel(newText);
+					t.send(event.build());
+				} else {
+					String[] columnNames = { "_id", "text" };
+					MatrixCursor cursor = new MatrixCursor(columnNames);
+					final List<SearchItem> items = PrayerBookApplication
+							.getInstance().getCatalog().filter(newText);
+					CharSequence[] temp = new CharSequence[2];
+					for (SearchItem item : items) {
+						temp[0] = Integer.toString(item.getMenuItem().getId());
+						temp[1] = Html.fromHtml(item.getName());
+						cursor.addRow(temp);
+					}
+					String[] from = { "text" };
+					int[] to = { R.id.tvName };
+					SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+							HomeActivity.this, R.layout.f_search_item, cursor,
+							from, to,
+							CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+					searchView.setSuggestionsAdapter(adapter);
+					searchView
+							.setOnSuggestionListener(new OnSuggestionListener() {
+								@Override
+								public boolean onSuggestionSelect(int position) {
+									return false;
+								}
+
+								@Override
+								public boolean onSuggestionClick(int position) {
+									MenuItemBase mi = items.get(position)
+											.getMenuItem();
+									displayMenuItem(mi);
+
+									Tracker t = PrayerBookApplication
+											.getInstance().getTracker();
+									EventBuilder event = new HitBuilders.EventBuilder()
+											.setCategory(Analytics.CAT_SEARCH)
+											.setAction(
+													"Вибрано випадаючу підказку")
+											.setLabel(
+													mi.getId() + " "
+															+ mi.getName());
+									t.send(event.build());
+
+									return true;
+								}
+							});
+					Tracker t = PrayerBookApplication.getInstance()
+							.getTracker();
+					EventBuilder event = new HitBuilders.EventBuilder()
+							.setCategory(Analytics.CAT_SEARCH)
+							.setAction("Пошук із випадаючим списком підказок")
+							.setLabel(newText);
+					t.send(event.build());
 				}
 				return true;
 			}
 		});
+		searchView.setQueryHint("Введіть текст для пошуку");
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -309,11 +384,6 @@ public class HomeActivity extends Activity {
 			displayFragment(sf, 0, null);
 		}
 		sf.setItemsForSearchPhrase(query);
-
-		Tracker t = PrayerBookApplication.getInstance().getTracker();
-		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
-				Analytics.CAT_SEARCH).setAction(query);
-		t.send(event.build());
 	}
 
 	public SearchView getSearchView() {
