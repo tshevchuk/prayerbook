@@ -108,13 +108,15 @@ android.support.v4.app.BackStackRecord -> android.support.v4.app.p:
     android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> b
     android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> c
     android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String) -> a
+    android.support.v4.app.FragmentTransaction disallowAddToBackStack() -> a
     void bumpBackStackNesting(int) -> a
-    int commit() -> a
-    int commitAllowingStateLoss() -> b
+    int commit() -> b
+    int commitAllowingStateLoss() -> c
     int commitInternal(boolean) -> a
     void run() -> run
     void popFromBackStack(boolean) -> b
-    java.lang.String getName() -> c
+    java.lang.String getName() -> d
+    boolean isEmpty() -> e
 android.support.v4.app.BackStackRecord$Op -> android.support.v4.app.q:
     android.support.v4.app.BackStackRecord$Op next -> a
     android.support.v4.app.BackStackRecord$Op prev -> b
@@ -560,9 +562,11 @@ android.support.v4.app.FragmentTransaction -> android.support.v4.app.ao:
     android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment) -> a
     android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> b
     android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> c
+    boolean isEmpty() -> e
     android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String) -> a
-    int commit() -> a
-    int commitAllowingStateLoss() -> b
+    android.support.v4.app.FragmentTransaction disallowAddToBackStack() -> a
+    int commit() -> b
+    int commitAllowingStateLoss() -> c
 android.support.v4.app.LoaderManager -> android.support.v4.app.ap:
     android.support.v4.content.Loader initLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks) -> a
     boolean hasRunningLoaders() -> a
@@ -2382,9 +2386,13 @@ android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.a
     int clampViewPositionHorizontal(android.view.View,int,int) -> a
     int clampViewPositionVertical(android.view.View,int,int) -> b
 android.support.v7.app.ActionBar -> android.support.v7.a.a:
+    void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener) -> a
+    void setSelectedNavigationItem(int) -> a
     void setTitle(java.lang.CharSequence) -> a
+    void setTitle(int) -> b
     void setDisplayShowHomeEnabled(boolean) -> a
     void setDisplayHomeAsUpEnabled(boolean) -> b
+    void setNavigationMode(int) -> c
     int getDisplayOptions() -> a
     int getHeight() -> b
     void show() -> c
@@ -2393,19 +2401,24 @@ android.support.v7.app.ActionBar -> android.support.v7.a.a:
     void setHomeButtonEnabled(boolean) -> c
     android.content.Context getThemedContext() -> f
     void setHomeAsUpIndicator(android.graphics.drawable.Drawable) -> a
-    void setHomeActionContentDescription(int) -> a
+    void setHomeActionContentDescription(int) -> d
 android.support.v7.app.ActionBar$Callback -> android.support.v7.a.b:
 android.support.v7.app.ActionBar$LayoutParams -> android.support.v7.a.c:
     int gravity -> a
 android.support.v7.app.ActionBar$OnNavigationListener -> android.support.v7.a.d:
     boolean onNavigationItemSelected(int,long) -> a
 android.support.v7.app.ActionBar$Tab -> android.support.v7.a.e:
-    android.graphics.drawable.Drawable getIcon() -> a
-    java.lang.CharSequence getText() -> b
-    android.view.View getCustomView() -> c
-    void select() -> d
-    java.lang.CharSequence getContentDescription() -> e
-android.support.v7.app.ActionBarActivity -> android.support.v7.a.f:
+    int getPosition() -> a
+    android.graphics.drawable.Drawable getIcon() -> b
+    java.lang.CharSequence getText() -> c
+    android.view.View getCustomView() -> d
+    void select() -> e
+    java.lang.CharSequence getContentDescription() -> f
+android.support.v7.app.ActionBar$TabListener -> android.support.v7.a.f:
+    void onTabSelected(android.support.v7.app.ActionBar$Tab,android.support.v4.app.FragmentTransaction) -> a
+    void onTabUnselected(android.support.v7.app.ActionBar$Tab,android.support.v4.app.FragmentTransaction) -> b
+    void onTabReselected(android.support.v7.app.ActionBar$Tab,android.support.v4.app.FragmentTransaction) -> c
+android.support.v7.app.ActionBarActivity -> android.support.v7.a.g:
     android.support.v7.app.ActionBarActivityDelegate mImpl -> n
     android.support.v7.app.ActionBar getSupportActionBar() -> g
     android.view.MenuInflater getMenuInflater() -> getMenuInflater
@@ -2444,7 +2457,7 @@ android.support.v7.app.ActionBarActivity -> android.support.v7.a.f:
     android.support.v4.app.ActionBarDrawerToggle$Delegate getDrawerToggleDelegate() -> a
     void onContentChanged() -> onContentChanged
     void onSupportContentChanged() -> i
-android.support.v7.app.ActionBarActivityDelegate -> android.support.v7.a.g:
+android.support.v7.app.ActionBarActivityDelegate -> android.support.v7.a.h:
     android.support.v7.app.ActionBarActivity mActivity -> a
     android.support.v7.app.ActionBar mActionBar -> d
     android.view.MenuInflater mMenuInflater -> e
@@ -2476,17 +2489,17 @@ android.support.v7.app.ActionBarActivityDelegate -> android.support.v7.a.g:
     void onContentChanged() -> j
     java.lang.String getUiOptionsFromMetadata() -> k
     android.content.Context getActionBarThemedContext() -> l
-android.support.v7.app.ActionBarActivityDelegate$1 -> android.support.v7.a.h:
-android.support.v7.app.ActionBarActivityDelegate$ActionBarDrawableToggleImpl -> android.support.v7.a.i:
+android.support.v7.app.ActionBarActivityDelegate$1 -> android.support.v7.a.i:
+android.support.v7.app.ActionBarActivityDelegate$ActionBarDrawableToggleImpl -> android.support.v7.a.j:
     android.support.v7.app.ActionBarActivityDelegate this$0 -> a
     android.graphics.drawable.Drawable getThemeUpIndicator() -> a
     void setActionBarUpIndicator(android.graphics.drawable.Drawable,int) -> a
     void setActionBarDescription(int) -> a
-android.support.v7.app.ActionBarActivityDelegateApi20 -> android.support.v7.a.j:
+android.support.v7.app.ActionBarActivityDelegateApi20 -> android.support.v7.a.k:
     android.view.Window$Callback createWindowCallbackWrapper(android.view.Window$Callback) -> a
-android.support.v7.app.ActionBarActivityDelegateApi20$WindowCallbackWrapperApi20 -> android.support.v7.a.k:
+android.support.v7.app.ActionBarActivityDelegateApi20$WindowCallbackWrapperApi20 -> android.support.v7.a.l:
     android.support.v7.app.ActionBarActivityDelegateApi20 this$0 -> a
-android.support.v7.app.ActionBarActivityDelegateBase -> android.support.v7.a.l:
+android.support.v7.app.ActionBarActivityDelegateBase -> android.support.v7.a.m:
     int[] ACTION_BAR_DRAWABLE_TOGGLE_ATTRS -> d
     android.support.v7.internal.widget.ActionBarView mActionBarView -> e
     android.support.v7.internal.view.menu.ListMenuPresenter mListMenuPresenter -> f
@@ -2527,12 +2540,12 @@ android.support.v7.app.ActionBarActivityDelegateBase -> android.support.v7.a.l:
     int getHomeAsUpIndicatorAttrId() -> i
     boolean initializePanelMenu() -> o
     boolean preparePanel() -> p
-android.support.v7.app.ActionBarActivityDelegateBase$1 -> android.support.v7.a.m:
+android.support.v7.app.ActionBarActivityDelegateBase$1 -> android.support.v7.a.n:
     android.support.v7.app.ActionBarActivityDelegateBase this$0 -> a
     void run() -> run
-android.support.v7.app.ActionBarActivityDelegateHC -> android.support.v7.a.n:
+android.support.v7.app.ActionBarActivityDelegateHC -> android.support.v7.a.o:
     android.support.v7.app.ActionBar createSupportActionBar() -> a
-android.support.v7.app.ActionBarActivityDelegateICS -> android.support.v7.a.o:
+android.support.v7.app.ActionBarActivityDelegateICS -> android.support.v7.a.p:
     android.view.Menu mMenu -> d
     android.support.v7.app.ActionBar createSupportActionBar() -> a
     void onCreate(android.os.Bundle) -> a
@@ -2556,7 +2569,7 @@ android.support.v7.app.ActionBarActivityDelegateICS -> android.support.v7.a.o:
     boolean onBackPressed() -> g
     int getHomeAsUpIndicatorAttrId() -> i
     android.support.v7.internal.view.ActionModeWrapper createActionModeWrapper(android.content.Context,android.view.ActionMode) -> a
-android.support.v7.app.ActionBarActivityDelegateICS$WindowCallbackWrapper -> android.support.v7.a.p:
+android.support.v7.app.ActionBarActivityDelegateICS$WindowCallbackWrapper -> android.support.v7.a.q:
     android.view.Window$Callback mWrapped -> b
     android.support.v7.app.ActionBarActivityDelegateICS this$0 -> c
     boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
@@ -2580,12 +2593,12 @@ android.support.v7.app.ActionBarActivityDelegateICS$WindowCallbackWrapper -> and
     android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode$Callback) -> onWindowStartingActionMode
     void onActionModeStarted(android.view.ActionMode) -> onActionModeStarted
     void onActionModeFinished(android.view.ActionMode) -> onActionModeFinished
-android.support.v7.app.ActionBarActivityDelegateJB -> android.support.v7.a.q:
+android.support.v7.app.ActionBarActivityDelegateJB -> android.support.v7.a.r:
     android.support.v7.app.ActionBar createSupportActionBar() -> a
     android.support.v7.internal.view.ActionModeWrapper createActionModeWrapper(android.content.Context,android.view.ActionMode) -> a
-android.support.v7.app.ActionBarActivityDelegateJBMR2 -> android.support.v7.a.r:
+android.support.v7.app.ActionBarActivityDelegateJBMR2 -> android.support.v7.a.s:
     android.support.v7.app.ActionBar createSupportActionBar() -> a
-android.support.v7.app.ActionBarImplBase -> android.support.v7.a.s:
+android.support.v7.app.ActionBarImplBase -> android.support.v7.a.t:
     android.content.Context mContext -> b
     android.content.Context mThemedContext -> c
     android.support.v7.app.ActionBarActivity mActivity -> d
@@ -2597,67 +2610,94 @@ android.support.v7.app.ActionBarImplBase -> android.support.v7.a.s:
     android.support.v7.internal.widget.ActionBarContainer mSplitView -> j
     android.support.v7.internal.widget.ScrollingTabContainerView mTabScrollView -> k
     java.util.ArrayList mTabs -> l
-    int mSavedTabPosition -> m
-    boolean mDisplayHomeAsUpSet -> n
-    java.util.ArrayList mMenuVisibilityListeners -> o
-    int mContextDisplayMode -> p
-    boolean mHasEmbeddedTabs -> q
+    android.support.v7.app.ActionBarImplBase$TabImpl mSelectedTab -> m
+    int mSavedTabPosition -> n
+    boolean mDisplayHomeAsUpSet -> o
+    java.util.ArrayList mMenuVisibilityListeners -> p
+    int mContextDisplayMode -> q
+    boolean mHasEmbeddedTabs -> r
     android.os.Handler mHandler -> a
-    int mCurWindowVisibility -> r
-    boolean mHiddenByApp -> s
-    boolean mHiddenBySystem -> t
-    boolean mShowingForMode -> u
-    boolean mNowShowing -> v
-    boolean mShowHideAnimationEnabled -> w
-    android.support.v7.app.ActionBar$Callback mCallback -> x
+    int mCurWindowVisibility -> s
+    boolean mHiddenByApp -> t
+    boolean mHiddenBySystem -> u
+    boolean mShowingForMode -> v
+    boolean mNowShowing -> w
+    boolean mShowHideAnimationEnabled -> x
+    android.support.v7.app.ActionBar$Callback mCallback -> y
     void init(android.support.v7.app.ActionBarActivity) -> a
     void onConfigurationChanged(android.content.res.Configuration) -> a
     void setHasEmbeddedTabs(boolean) -> g
+    void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener) -> a
+    void setSelectedNavigationItem(int) -> a
+    int getSelectedNavigationIndex() -> g
     void setTitle(java.lang.CharSequence) -> a
+    void setTitle(int) -> b
     void setDisplayOptions(int,int) -> a
     void setDisplayShowHomeEnabled(boolean) -> a
     void setDisplayHomeAsUpEnabled(boolean) -> b
     void setHomeButtonEnabled(boolean) -> c
-    int getNavigationMode() -> g
+    int getNavigationMode() -> h
+    void setNavigationMode(int) -> c
     int getDisplayOptions() -> a
+    void selectTab(android.support.v7.app.ActionBar$Tab) -> a
     android.content.Context getThemedContext() -> f
     void setHomeAsUpIndicator(android.graphics.drawable.Drawable) -> a
     int getHeight() -> b
     void show() -> c
-    void showForActionMode() -> h
+    void showForActionMode() -> i
     void hide() -> d
-    void hideForActionMode() -> i
+    void hideForActionMode() -> j
     boolean isShowing() -> e
+    void ensureTabsExist() -> l
     boolean checkShowingFlags(boolean,boolean,boolean) -> a
     void updateVisibility(boolean) -> h
     void setShowHideAnimationEnabled(boolean) -> d
     void doShow(boolean) -> e
     void doHide(boolean) -> f
-    boolean isShowHideAnimationEnabled() -> j
-android.support.v7.app.ActionBarImplHC -> android.support.v7.a.t:
+    boolean isShowHideAnimationEnabled() -> k
+android.support.v7.app.ActionBarImplBase$TabImpl -> android.support.v7.a.u:
+    android.support.v7.app.ActionBar$TabListener mCallback -> b
+    android.graphics.drawable.Drawable mIcon -> c
+    java.lang.CharSequence mText -> d
+    java.lang.CharSequence mContentDesc -> e
+    int mPosition -> f
+    android.view.View mCustomView -> g
+    android.support.v7.app.ActionBarImplBase this$0 -> a
+    android.support.v7.app.ActionBar$TabListener getCallback() -> g
+    android.view.View getCustomView() -> d
+    android.graphics.drawable.Drawable getIcon() -> b
+    int getPosition() -> a
+    java.lang.CharSequence getText() -> c
+    void select() -> e
+    java.lang.CharSequence getContentDescription() -> f
+android.support.v7.app.ActionBarImplHC -> android.support.v7.a.v:
     android.support.v7.internal.widget.NativeActionModeAwareLayout mNativeActionModeAwareLayout -> b
     android.view.ActionMode mCurActionMode -> c
     android.view.ActionMode$Callback onActionModeForChild(android.view.ActionMode$Callback) -> a
     void show() -> c
     void hide() -> d
-    boolean isShowHideAnimationEnabled() -> j
+    boolean isShowHideAnimationEnabled() -> k
     android.view.ActionMode access$002(android.support.v7.app.ActionBarImplHC,android.view.ActionMode) -> a
-android.support.v7.app.ActionBarImplHC$CallbackWrapper -> android.support.v7.a.u:
+android.support.v7.app.ActionBarImplHC$CallbackWrapper -> android.support.v7.a.w:
     android.view.ActionMode$Callback mWrappedCallback -> b
     android.support.v7.app.ActionBarImplHC this$0 -> a
     boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
     boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
     boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
     void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
-android.support.v7.app.ActionBarImplICS -> android.support.v7.a.v:
+android.support.v7.app.ActionBarImplICS -> android.support.v7.a.x:
     android.app.Activity mActivity -> a
     android.support.v7.app.ActionBar$Callback mCallback -> b
     android.app.ActionBar mActionBar -> c
     android.widget.ImageView mHomeActionView -> d
     java.util.ArrayList mAddedMenuVisWrappers -> e
+    void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener) -> a
+    void setSelectedNavigationItem(int) -> a
     void setTitle(java.lang.CharSequence) -> a
+    void setTitle(int) -> b
     void setDisplayShowHomeEnabled(boolean) -> a
     void setDisplayHomeAsUpEnabled(boolean) -> b
+    void setNavigationMode(int) -> c
     int getDisplayOptions() -> a
     android.content.Context getThemedContext() -> f
     void setHomeAsUpIndicator(android.graphics.drawable.Drawable) -> a
@@ -2668,7 +2708,10 @@ android.support.v7.app.ActionBarImplICS -> android.support.v7.a.v:
     void setHomeButtonEnabled(boolean) -> c
     android.widget.ImageView getHomeActionView() -> g
     android.graphics.drawable.Drawable getThemeDefaultUpIndicator() -> h
-android.support.v7.app.ActionBarImplJB -> android.support.v7.a.w:
+android.support.v7.app.ActionBarImplICS$OnNavigationListenerWrapper -> android.support.v7.a.y:
+    android.support.v7.app.ActionBar$OnNavigationListener mWrappedListener -> a
+    boolean onNavigationItemSelected(int,long) -> onNavigationItemSelected
+android.support.v7.app.ActionBarImplJB -> android.support.v7.a.z:
     void setHomeButtonEnabled(boolean) -> c
     boolean isShowing() -> e
     void hide() -> d
@@ -2677,12 +2720,16 @@ android.support.v7.app.ActionBarImplJB -> android.support.v7.a.w:
     void setHomeAsUpIndicator(android.graphics.drawable.Drawable) -> a
     android.content.Context getThemedContext() -> f
     int getDisplayOptions() -> a
+    void setNavigationMode(int) -> c
     void setDisplayHomeAsUpEnabled(boolean) -> b
     void setDisplayShowHomeEnabled(boolean) -> a
+    void setTitle(int) -> b
     void setTitle(java.lang.CharSequence) -> a
-android.support.v7.app.ActionBarImplJBMR2 -> android.support.v7.a.x:
+    void setSelectedNavigationItem(int) -> a
+    void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener) -> a
+android.support.v7.app.ActionBarImplJBMR2 -> android.support.v7.a.aa:
     void setHomeAsUpIndicator(android.graphics.drawable.Drawable) -> a
-    void setHomeActionContentDescription(int) -> a
+    void setHomeActionContentDescription(int) -> d
 android.support.v7.appcompat.R -> android.support.v7.b.a:
 android.support.v7.appcompat.R$anim -> android.support.v7.b.b:
     int abc_fade_in -> abc_fade_in
@@ -12866,21 +12913,17 @@ com.tshevchuk.prayer.HomeActivity -> com.tshevchuk.prayer.HomeActivity:
     android.support.v4.widget.DrawerLayout drawerLayout -> p
     android.widget.ListView drawerList -> q
     android.support.v4.app.ActionBarDrawerToggle drawerToggle -> r
-    android.support.v7.widget.SearchView searchView -> s
     void onCreate(android.os.Bundle) -> onCreate
     void onPostCreate(android.os.Bundle) -> onPostCreate
     void onDestroy() -> onDestroy
     void onResume() -> onResume
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    boolean onSearchRequested() -> onSearchRequested
     boolean onPrepareOptionsMenu(android.view.Menu) -> onPrepareOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void onBackPressed() -> onBackPressed
     void sendAnalyticsOptionsMenuEvent(java.lang.CharSequence,java.lang.String) -> a
     void displayMenuItem(com.tshevchuk.prayer.data.MenuItemBase) -> a
     void displayFragment(android.support.v4.app.Fragment,int,java.lang.CharSequence) -> a
-    void search(java.lang.String) -> b
-    android.support.v7.widget.SearchView getSearchView() -> j
     void setNavigationDrawerEnabled(boolean) -> b
     com.tshevchuk.prayer.data.Catalog access$0(com.tshevchuk.prayer.HomeActivity) -> a
 com.tshevchuk.prayer.HomeActivity$1 -> com.tshevchuk.prayer.a:
@@ -12891,8 +12934,6 @@ com.tshevchuk.prayer.HomeActivity$2 -> com.tshevchuk.prayer.b:
     void onDrawerClosed(android.view.View) -> b
     void onDrawerOpened(android.view.View) -> a
 com.tshevchuk.prayer.HomeActivity$3 -> com.tshevchuk.prayer.c:
-    com.tshevchuk.prayer.HomeActivity this$0 -> a
-com.tshevchuk.prayer.HomeActivity$4 -> com.tshevchuk.prayer.d:
     com.tshevchuk.prayer.HomeActivity this$0 -> a
     com.tshevchuk.prayer.data.MenuItemBase val$mi -> b
     java.lang.Void doInBackground(java.lang.Void[]) -> a
@@ -12906,12 +12947,12 @@ com.tshevchuk.prayer.PrayerBookApplication -> com.tshevchuk.prayer.PrayerBookApp
     com.tshevchuk.prayer.PrayerBookApplication getInstance() -> a
     com.google.android.gms.analytics.Tracker getTracker() -> b
     com.tshevchuk.prayer.data.Catalog getCatalog() -> c
-com.tshevchuk.prayer.PrayerBookApplication$TrackerName -> com.tshevchuk.prayer.e:
+com.tshevchuk.prayer.PrayerBookApplication$TrackerName -> com.tshevchuk.prayer.d:
     com.tshevchuk.prayer.PrayerBookApplication$TrackerName APP_TRACKER -> a
     com.tshevchuk.prayer.PrayerBookApplication$TrackerName[] ENUM$VALUES -> b
     com.tshevchuk.prayer.PrayerBookApplication$TrackerName[] values() -> values
     com.tshevchuk.prayer.PrayerBookApplication$TrackerName valueOf(java.lang.String) -> valueOf
-com.tshevchuk.prayer.PrayerLoader -> com.tshevchuk.prayer.f:
+com.tshevchuk.prayer.PrayerLoader -> com.tshevchuk.prayer.e:
     java.lang.String assetFileName -> n
     boolean isHtml -> o
     java.lang.CharSequence data -> p
@@ -12920,10 +12961,10 @@ com.tshevchuk.prayer.PrayerLoader -> com.tshevchuk.prayer.f:
     void onStartLoading() -> h
     java.lang.Object loadInBackground() -> d
     android.content.Context access$1(com.tshevchuk.prayer.PrayerLoader) -> a
-com.tshevchuk.prayer.PrayerLoader$ImageGetter -> com.tshevchuk.prayer.g:
+com.tshevchuk.prayer.PrayerLoader$ImageGetter -> com.tshevchuk.prayer.f:
     com.tshevchuk.prayer.PrayerLoader this$0 -> a
     android.graphics.drawable.Drawable getDrawable(java.lang.String) -> getDrawable
-com.tshevchuk.prayer.PreferenceManager -> com.tshevchuk.prayer.h:
+com.tshevchuk.prayer.PreferenceManager -> com.tshevchuk.prayer.g:
     com.tshevchuk.prayer.PreferenceManager instance -> a
     android.content.SharedPreferences sharedPrefs -> b
     int[] recentMenuItemsId -> c
@@ -12943,11 +12984,11 @@ com.tshevchuk.prayer.ResponsiveScrollView -> com.tshevchuk.prayer.ResponsiveScro
     com.tshevchuk.prayer.ResponsiveScrollView$OnEndScrollListener getOnEndScrollListener() -> getOnEndScrollListener
     void setOnEndScrollListener(com.tshevchuk.prayer.ResponsiveScrollView$OnEndScrollListener) -> setOnEndScrollListener
     boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
-com.tshevchuk.prayer.ResponsiveScrollView$OnEndScrollListener -> com.tshevchuk.prayer.i:
+com.tshevchuk.prayer.ResponsiveScrollView$OnEndScrollListener -> com.tshevchuk.prayer.h:
     void onEndScroll(boolean,boolean,int) -> a
-com.tshevchuk.prayer.UIUtils -> com.tshevchuk.prayer.j:
+com.tshevchuk.prayer.UIUtils -> com.tshevchuk.prayer.i:
     int dpToPx(int) -> a
-com.tshevchuk.prayer.Utils -> com.tshevchuk.prayer.k:
+com.tshevchuk.prayer.Utils -> com.tshevchuk.prayer.j:
     java.util.Locale ukrainianLocale -> a
     java.lang.String getAssetAsString(java.lang.String) -> a
     boolean isDebuggable() -> a
@@ -12984,17 +13025,6 @@ com.tshevchuk.prayer.adapters.OftenUsedListAdapter -> com.tshevchuk.prayer.a.c:
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     java.lang.Object getItem(int) -> getItem
 com.tshevchuk.prayer.adapters.OftenUsedListAdapter$ViewHolder -> com.tshevchuk.prayer.a.d:
-    android.widget.TextView tvName -> a
-    android.widget.TextView tvParentName -> b
-com.tshevchuk.prayer.adapters.SearchListAdapter -> com.tshevchuk.prayer.a.e:
-    java.util.List items -> a
-    android.view.LayoutInflater inflater -> b
-    int getCount() -> getCount
-    com.tshevchuk.prayer.data.SearchItem getItem(int) -> a
-    long getItemId(int) -> getItemId
-    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    java.lang.Object getItem(int) -> getItem
-com.tshevchuk.prayer.adapters.SearchListAdapter$ViewHolder -> com.tshevchuk.prayer.a.f:
     android.widget.TextView tvName -> a
     android.widget.TextView tvParentName -> b
 com.tshevchuk.prayer.data.CalendarDay -> com.tshevchuk.prayer.b.a:
@@ -13043,8 +13073,6 @@ com.tshevchuk.prayer.data.Catalog -> com.tshevchuk.prayer.b.c:
     com.tshevchuk.prayer.data.MenuItemBase getMenuItemById(int) -> a
     java.util.Set getAllSources() -> b
     void addSources(java.util.Set,com.tshevchuk.prayer.data.MenuItemBase) -> b
-    java.util.List filter(java.lang.String) -> a
-    java.util.List filter(java.lang.String,java.util.List,com.tshevchuk.prayer.data.MenuItemBase) -> a
 com.tshevchuk.prayer.data.CerkovnyyCalendar -> com.tshevchuk.prayer.b.d:
     com.tshevchuk.prayer.data.CerkovnyyCalendar instance -> a
     int totalDaysInSupportedYears -> b
@@ -13111,11 +13139,6 @@ com.tshevchuk.prayer.data.MenuItemSubMenu -> com.tshevchuk.prayer.b.j:
     com.tshevchuk.prayer.data.MenuItemPrayer text(int,java.lang.String,java.lang.String,java.lang.String) -> b
     com.tshevchuk.prayer.data.MenuItemPrayer web(int,java.lang.String,java.lang.String,java.lang.String) -> c
     com.tshevchuk.prayer.data.MenuItemSubMenu subMenu(int,java.lang.String) -> a
-com.tshevchuk.prayer.data.SearchItem -> com.tshevchuk.prayer.b.k:
-    com.tshevchuk.prayer.data.MenuItemBase menuItem -> a
-    java.lang.String name -> b
-    com.tshevchuk.prayer.data.MenuItemBase getMenuItem() -> a
-    java.lang.String getName() -> b
 com.tshevchuk.prayer.fragments.AboutAppFragment -> com.tshevchuk.prayer.c.a:
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> p
@@ -13134,10 +13157,9 @@ com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment -> com.tshevchuk.prayer
     java.lang.String[] formattedYears -> f
     com.tshevchuk.prayer.data.MenuItemCalendar menuItem -> g
     java.lang.Integer initPosition -> h
-    android.app.Activity activity -> i
+    com.tshevchuk.prayer.HomeActivity activity -> i
     android.widget.ListView lvCalendar -> Y
     android.widget.TextView tvMonth -> Z
-    android.app.ActionBar actionBar -> aa
     com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment getInstance(com.tshevchuk.prayer.data.MenuItemCalendar) -> a
     void onAttach(android.app.Activity) -> a
     void onCreate(android.os.Bundle) -> a
@@ -13161,7 +13183,7 @@ com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment$1 -> com.tshevchuk.pray
     void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
 com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment$2 -> com.tshevchuk.prayer.c.e:
     com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment this$0 -> a
-    boolean onNavigationItemSelected(int,long) -> onNavigationItemSelected
+    boolean onNavigationItemSelected(int,long) -> a
 com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment$3 -> com.tshevchuk.prayer.c.f:
     com.tshevchuk.prayer.fragments.CerkovnyyCalendarFragment this$0 -> a
     int val$pos -> b
@@ -13237,23 +13259,7 @@ com.tshevchuk.prayer.fragments.OftenUsedFragment$1 -> com.tshevchuk.prayer.c.m:
 com.tshevchuk.prayer.fragments.OftenUsedFragment$2 -> com.tshevchuk.prayer.c.n:
     com.tshevchuk.prayer.fragments.OftenUsedFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.tshevchuk.prayer.fragments.SearchFragment -> com.tshevchuk.prayer.c.o:
-    java.lang.String searchPhrase -> a
-    java.util.List items -> b
-    android.widget.ListView lvItems -> c
-    android.widget.TextView tvHeader -> d
-    com.tshevchuk.prayer.HomeActivity activity -> e
-    void onAttach(android.app.Activity) -> a
-    void onCreate(android.os.Bundle) -> a
-    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> a
-    void setItemsForSearchPhrase(java.lang.String) -> a
-    void onResume() -> p
-    java.util.List access$0(com.tshevchuk.prayer.fragments.SearchFragment) -> a
-com.tshevchuk.prayer.fragments.SearchFragment$1 -> com.tshevchuk.prayer.c.p:
-    com.tshevchuk.prayer.fragments.SearchFragment this$0 -> a
-    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.tshevchuk.prayer.fragments.SettingsFragment -> com.tshevchuk.prayer.c.q:
+com.tshevchuk.prayer.fragments.SettingsFragment -> com.tshevchuk.prayer.c.o:
     com.tshevchuk.prayer.HomeActivity activity -> a
     void onAttach(android.app.Activity) -> a
     void onCreate(android.os.Bundle) -> a
@@ -13264,10 +13270,10 @@ com.tshevchuk.prayer.fragments.SettingsFragment -> com.tshevchuk.prayer.c.q:
     boolean onOptionsItemSelected(android.view.MenuItem) -> a
     void sendAnalyticsSettingsChanged(java.lang.CharSequence,java.lang.CharSequence) -> a
     com.tshevchuk.prayer.HomeActivity access$0(com.tshevchuk.prayer.fragments.SettingsFragment) -> a
-com.tshevchuk.prayer.fragments.SettingsFragment$1 -> com.tshevchuk.prayer.c.r:
+com.tshevchuk.prayer.fragments.SettingsFragment$1 -> com.tshevchuk.prayer.c.p:
     com.tshevchuk.prayer.fragments.SettingsFragment this$0 -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-com.tshevchuk.prayer.fragments.SubMenuFragment -> com.tshevchuk.prayer.c.s:
+com.tshevchuk.prayer.fragments.SubMenuFragment -> com.tshevchuk.prayer.c.q:
     com.tshevchuk.prayer.data.MenuItemSubMenu subMenu -> a
     com.tshevchuk.prayer.HomeActivity activity -> b
     com.tshevchuk.prayer.fragments.SubMenuFragment getInstance(com.tshevchuk.prayer.data.MenuItemSubMenu) -> a
@@ -13279,10 +13285,10 @@ com.tshevchuk.prayer.fragments.SubMenuFragment -> com.tshevchuk.prayer.c.s:
     com.tshevchuk.prayer.data.MenuItemBase getMenuItem() -> a
     boolean isNavigationDrawerEnabled() -> E
     com.tshevchuk.prayer.data.MenuItemSubMenu access$0(com.tshevchuk.prayer.fragments.SubMenuFragment) -> a
-com.tshevchuk.prayer.fragments.SubMenuFragment$1 -> com.tshevchuk.prayer.c.t:
+com.tshevchuk.prayer.fragments.SubMenuFragment$1 -> com.tshevchuk.prayer.c.r:
     com.tshevchuk.prayer.fragments.SubMenuFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.tshevchuk.prayer.fragments.TextViewFragment -> com.tshevchuk.prayer.c.u:
+com.tshevchuk.prayer.fragments.TextViewFragment -> com.tshevchuk.prayer.c.s:
     com.tshevchuk.prayer.data.MenuItemPrayer prayer -> a
     java.lang.CharSequence htmlContent -> b
     java.lang.Integer firstVisibleCharacterOffset -> c
@@ -13312,12 +13318,12 @@ com.tshevchuk.prayer.fragments.TextViewFragment -> com.tshevchuk.prayer.c.u:
     java.lang.Integer access$3(com.tshevchuk.prayer.fragments.TextViewFragment) -> c
     android.widget.TextView access$4(com.tshevchuk.prayer.fragments.TextViewFragment) -> d
     void access$5(com.tshevchuk.prayer.fragments.TextViewFragment,java.lang.Integer) -> a
-com.tshevchuk.prayer.fragments.TextViewFragment$1 -> com.tshevchuk.prayer.c.v:
+com.tshevchuk.prayer.fragments.TextViewFragment$1 -> com.tshevchuk.prayer.c.t:
     com.tshevchuk.prayer.fragments.TextViewFragment this$0 -> a
     void onEndScroll(boolean,boolean,int) -> a
-com.tshevchuk.prayer.fragments.TextViewFragment$2 -> com.tshevchuk.prayer.c.w:
+com.tshevchuk.prayer.fragments.TextViewFragment$2 -> com.tshevchuk.prayer.c.u:
     com.tshevchuk.prayer.fragments.TextViewFragment this$0 -> a
     boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-com.tshevchuk.prayer.fragments.TextViewFragment$3 -> com.tshevchuk.prayer.c.x:
+com.tshevchuk.prayer.fragments.TextViewFragment$3 -> com.tshevchuk.prayer.c.v:
     com.tshevchuk.prayer.fragments.TextViewFragment this$0 -> a
     void run() -> run

@@ -1893,7 +1893,6 @@ com.tshevchuk.prayer.R$id: int lvItems
 com.tshevchuk.prayer.R$id: int match_parent
 com.tshevchuk.prayer.R$id: int mi_about_prayer
 com.tshevchuk.prayer.R$id: int mi_create_shortcut
-com.tshevchuk.prayer.R$id: int mi_search
 com.tshevchuk.prayer.R$id: int mi_settings
 com.tshevchuk.prayer.R$id: int middle
 com.tshevchuk.prayer.R$id: int monochrome
@@ -1934,7 +1933,6 @@ com.tshevchuk.prayer.R$id: int top_action_bar
 com.tshevchuk.prayer.R$id: int tvDay
 com.tshevchuk.prayer.R$id: int tvDayOldStyle
 com.tshevchuk.prayer.R$id: int tvDescription
-com.tshevchuk.prayer.R$id: int tvHeader
 com.tshevchuk.prayer.R$id: int tvMonth
 com.tshevchuk.prayer.R$id: int tvName
 com.tshevchuk.prayer.R$id: int tvParentName
@@ -1983,9 +1981,6 @@ com.tshevchuk.prayer.R$layout: int f_cerkovnyy_calendar_item
 com.tshevchuk.prayer.R$layout: int f_html_view
 com.tshevchuk.prayer.R$layout: int f_often_used
 com.tshevchuk.prayer.R$layout: int f_often_used_item
-com.tshevchuk.prayer.R$layout: int f_search
-com.tshevchuk.prayer.R$layout: int f_search_header
-com.tshevchuk.prayer.R$layout: int f_search_item
 com.tshevchuk.prayer.R$layout: int f_submenu
 com.tshevchuk.prayer.R$layout: int f_text_view
 com.tshevchuk.prayer.R$layout: int i_calendar_for_today

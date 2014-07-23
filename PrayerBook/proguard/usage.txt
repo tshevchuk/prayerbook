@@ -80,14 +80,12 @@ android.support.v4.app.BackStackRecord:
     492:493:public android.support.v4.app.FragmentTransaction setTransition(int)
     497:498:public android.support.v4.app.FragmentTransaction setTransitionStyle(int)
     512:512:public boolean isAddToBackStackAllowed()
-    516:521:public android.support.v4.app.FragmentTransaction disallowAddToBackStack()
     525:527:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
     531:533:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
     537:539:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
     543:545:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
     779:779:public int getTransition()
     783:783:public int getTransitionStyle()
-    787:787:public boolean isEmpty()
 android.support.v4.app.BundleUtil
 android.support.v4.app.DialogFragment:
     public static final int STYLE_NORMAL
@@ -226,13 +224,11 @@ android.support.v4.app.FragmentTransaction:
     public abstract android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment,java.lang.String)
     public abstract android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
-    public abstract boolean isEmpty()
     public abstract android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
     public abstract android.support.v4.app.FragmentTransaction setCustomAnimations(int,int,int,int)
     public abstract android.support.v4.app.FragmentTransaction setTransition(int)
     public abstract android.support.v4.app.FragmentTransaction setTransitionStyle(int)
     public abstract boolean isAddToBackStackAllowed()
-    public abstract android.support.v4.app.FragmentTransaction disallowAddToBackStack()
     public abstract android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
     public abstract android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
     public abstract android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
@@ -1551,11 +1547,8 @@ android.support.v7.app.ActionBar:
     public abstract void setIcon(android.graphics.drawable.Drawable)
     public abstract void setLogo(int)
     public abstract void setLogo(android.graphics.drawable.Drawable)
-    public abstract void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener)
-    public abstract void setSelectedNavigationItem(int)
     public abstract int getSelectedNavigationIndex()
     public abstract int getNavigationItemCount()
-    public abstract void setTitle(int)
     public abstract void setSubtitle(java.lang.CharSequence)
     public abstract void setSubtitle(int)
     public abstract void setDisplayOptions(int)
@@ -1570,7 +1563,6 @@ android.support.v7.app.ActionBar:
     public abstract java.lang.CharSequence getTitle()
     public abstract java.lang.CharSequence getSubtitle()
     public abstract int getNavigationMode()
-    public abstract void setNavigationMode(int)
     public abstract android.support.v7.app.ActionBar$Tab newTab()
     public abstract void addTab(android.support.v7.app.ActionBar$Tab)
     public abstract void addTab(android.support.v7.app.ActionBar$Tab,boolean)
@@ -1598,7 +1590,6 @@ android.support.v7.app.ActionBar$NavigationMode
 android.support.v7.app.ActionBar$OnMenuVisibilityListener
 android.support.v7.app.ActionBar$Tab:
     public static final int INVALID_POSITION
-    public abstract int getPosition()
     public abstract android.support.v7.app.ActionBar$Tab setIcon(android.graphics.drawable.Drawable)
     public abstract android.support.v7.app.ActionBar$Tab setIcon(int)
     public abstract android.support.v7.app.ActionBar$Tab setText(java.lang.CharSequence)
@@ -1610,7 +1601,6 @@ android.support.v7.app.ActionBar$Tab:
     public abstract android.support.v7.app.ActionBar$Tab setTabListener(android.support.v7.app.ActionBar$TabListener)
     public abstract android.support.v7.app.ActionBar$Tab setContentDescription(int)
     public abstract android.support.v7.app.ActionBar$Tab setContentDescription(java.lang.CharSequence)
-android.support.v7.app.ActionBar$TabListener
 android.support.v7.app.ActionBarActivity:
     164:164:public boolean supportRequestWindowFeature(int)
     195:195:public android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
@@ -1656,7 +1646,6 @@ android.support.v7.app.ActionBarActivityDelegateJB:
 android.support.v7.app.ActionBarImplBase:
     private android.app.Dialog mDialog
     private android.view.View mContentView
-    private android.support.v7.app.ActionBarImplBase$TabImpl mSelectedTab
     android.support.v7.app.ActionBarImplBase$ActionModeImpl mActionMode
     android.support.v7.view.ActionMode mDeferredDestroyActionMode
     android.support.v7.view.ActionMode$Callback mDeferredModeDestroyCallback
@@ -1673,11 +1662,7 @@ android.support.v7.app.ActionBarImplBase:
     204:205:public void setIcon(android.graphics.drawable.Drawable)
     209:210:public void setLogo(int)
     214:215:public void setLogo(android.graphics.drawable.Drawable)
-    219:221:public void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener)
-    225:236:public void setSelectedNavigationItem(int)
-    240:246:public int getSelectedNavigationIndex()
     252:259:public int getNavigationItemCount()
-    270:271:public void setTitle(int)
     275:276:public void setSubtitle(java.lang.CharSequence)
     280:281:public void setSubtitle(int)
     285:289:public void setDisplayOptions(int)
@@ -1690,7 +1675,6 @@ android.support.v7.app.ActionBarImplBase:
     347:347:public android.view.View getCustomView()
     352:352:public java.lang.CharSequence getTitle()
     357:357:public java.lang.CharSequence getSubtitle()
-    367:387:public void setNavigationMode(int)
     396:396:public android.support.v7.app.ActionBar$Tab newTab()
     401:402:public void addTab(android.support.v7.app.ActionBar$Tab)
     406:412:public void addTab(android.support.v7.app.ActionBar$Tab,boolean)
@@ -1699,7 +1683,6 @@ android.support.v7.app.ActionBarImplBase:
     431:432:public void removeTab(android.support.v7.app.ActionBar$Tab)
     436:457:public void removeTabAt(int)
     461:462:public void removeAllTabs()
-    466:493:public void selectTab(android.support.v7.app.ActionBar$Tab)
     497:497:public android.support.v7.app.ActionBar$Tab getSelectedTab()
     502:502:public android.support.v7.app.ActionBar$Tab getTabAt(int)
     507:507:public int getTabCount()
@@ -1708,7 +1691,6 @@ android.support.v7.app.ActionBarImplBase:
     584:585:public void removeOnMenuVisibilityListener(android.support.v7.app.ActionBar$OnMenuVisibilityListener)
     588:607:public android.support.v7.view.ActionMode startActionMode(android.support.v7.view.ActionMode$Callback)
     611:622:void animateToMode(boolean)
-    919:937:private void ensureTabsExist()
     940:954:private void configureTab(android.support.v7.app.ActionBar$Tab,int)
     957:965:private void cleanupTabs()
     54:54:static synthetic android.support.v7.internal.widget.ScrollingTabContainerView access$000(android.support.v7.app.ActionBarImplBase)
@@ -1719,7 +1701,21 @@ android.support.v7.app.ActionBarImplBase:
     54:54:static synthetic android.support.v7.internal.widget.ActionBarContextView access$500(android.support.v7.app.ActionBarImplBase)
     54:54:static synthetic android.support.v7.internal.widget.ActionBarView access$600(android.support.v7.app.ActionBarImplBase)
 android.support.v7.app.ActionBarImplBase$ActionModeImpl
-android.support.v7.app.ActionBarImplBase$TabImpl
+android.support.v7.app.ActionBarImplBase$TabImpl:
+    private java.lang.Object mTag
+    627:634:public ActionBarImplBase$TabImpl(android.support.v7.app.ActionBarImplBase)
+    639:639:public java.lang.Object getTag()
+    644:645:public android.support.v7.app.ActionBar$Tab setTag(java.lang.Object)
+    654:655:public android.support.v7.app.ActionBar$Tab setTabListener(android.support.v7.app.ActionBar$TabListener)
+    665:669:public android.support.v7.app.ActionBar$Tab setCustomView(android.view.View)
+    674:674:public android.support.v7.app.ActionBar$Tab setCustomView(int)
+    689:690:public void setPosition(int)
+    699:703:public android.support.v7.app.ActionBar$Tab setIcon(android.graphics.drawable.Drawable)
+    708:708:public android.support.v7.app.ActionBar$Tab setIcon(int)
+    713:717:public android.support.v7.app.ActionBar$Tab setText(java.lang.CharSequence)
+    722:722:public android.support.v7.app.ActionBar$Tab setText(int)
+    732:732:public android.support.v7.app.ActionBar$Tab setContentDescription(int)
+    737:741:public android.support.v7.app.ActionBar$Tab setContentDescription(java.lang.CharSequence)
 android.support.v7.app.ActionBarImplICS:
     android.support.v4.app.FragmentTransaction mActiveTransaction
     65:74:private android.support.v7.app.ActionBarImplICS$OnMenuVisibilityListenerWrapper findAndRemoveMenuVisWrapper(android.support.v7.app.ActionBar$OnMenuVisibilityListener)
@@ -1730,11 +1726,8 @@ android.support.v7.app.ActionBarImplICS:
     103:104:public void setIcon(android.graphics.drawable.Drawable)
     108:109:public void setLogo(int)
     113:114:public void setLogo(android.graphics.drawable.Drawable)
-    118:120:public void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener)
-    124:125:public void setSelectedNavigationItem(int)
     129:129:public int getSelectedNavigationIndex()
     134:134:public int getNavigationItemCount()
-    144:145:public void setTitle(int)
     149:150:public void setSubtitle(java.lang.CharSequence)
     154:155:public void setSubtitle(int)
     159:160:public void setDisplayOptions(int)
@@ -1749,7 +1742,6 @@ android.support.v7.app.ActionBarImplICS:
     214:214:public java.lang.CharSequence getTitle()
     219:219:public java.lang.CharSequence getSubtitle()
     224:224:public int getNavigationMode()
-    229:230:public void setNavigationMode(int)
     239:242:public android.support.v7.app.ActionBar$Tab newTab()
     247:248:public void addTab(android.support.v7.app.ActionBar$Tab)
     252:253:public void addTab(android.support.v7.app.ActionBar$Tab,boolean)
@@ -1768,7 +1760,6 @@ android.support.v7.app.ActionBarImplICS:
     369:373:android.support.v4.app.FragmentTransaction getActiveTransaction()
     377:381:void commitActiveTransaction()
 android.support.v7.app.ActionBarImplICS$OnMenuVisibilityListenerWrapper
-android.support.v7.app.ActionBarImplICS$OnNavigationListenerWrapper
 android.support.v7.app.ActionBarImplICS$TabWrapper
 android.support.v7.app.ActionBarImplJB:
     20:20:public bridge synthetic void removeOnMenuVisibilityListener(android.support.v7.app.ActionBar$OnMenuVisibilityListener)
@@ -1786,7 +1777,6 @@ android.support.v7.app.ActionBarImplJB:
     20:20:public bridge synthetic void addTab(android.support.v7.app.ActionBar$Tab,boolean)
     20:20:public bridge synthetic void addTab(android.support.v7.app.ActionBar$Tab)
     20:20:public bridge synthetic android.support.v7.app.ActionBar$Tab newTab()
-    20:20:public bridge synthetic void setNavigationMode(int)
     20:20:public bridge synthetic int getNavigationMode()
     20:20:public bridge synthetic java.lang.CharSequence getSubtitle()
     20:20:public bridge synthetic java.lang.CharSequence getTitle()
@@ -1801,11 +1791,8 @@ android.support.v7.app.ActionBarImplJB:
     20:20:public bridge synthetic void setDisplayOptions(int)
     20:20:public bridge synthetic void setSubtitle(int)
     20:20:public bridge synthetic void setSubtitle(java.lang.CharSequence)
-    20:20:public bridge synthetic void setTitle(int)
     20:20:public bridge synthetic int getNavigationItemCount()
     20:20:public bridge synthetic int getSelectedNavigationIndex()
-    20:20:public bridge synthetic void setSelectedNavigationItem(int)
-    20:20:public bridge synthetic void setListNavigationCallbacks(android.widget.SpinnerAdapter,android.support.v7.app.ActionBar$OnNavigationListener)
     20:20:public bridge synthetic void setLogo(android.graphics.drawable.Drawable)
     20:20:public bridge synthetic void setLogo(int)
     20:20:public bridge synthetic void setIcon(android.graphics.drawable.Drawable)
@@ -2142,7 +2129,6 @@ android.support.v7.internal.widget.ProgressBarICS:
     606:607:public final synchronized void incrementSecondaryProgressBy(int)
 android.support.v7.internal.widget.ScrollingTabContainerView:
     private static final java.lang.String TAG
-    63:75:public ScrollingTabContainerView(android.content.Context)
     259:271:public void addTab(android.support.v7.app.ActionBar$Tab,boolean)
     274:286:public void addTab(android.support.v7.app.ActionBar$Tab,int,boolean)
     289:296:public void updateTab(int)
@@ -6177,13 +6163,6 @@ com.tshevchuk.prayer.Analytics
 com.tshevchuk.prayer.BuildConfig
 com.tshevchuk.prayer.HomeActivity:
     public static final java.lang.String PARAM_SCREEN_ID
-    379:379:static synthetic void access$1(com.tshevchuk.prayer.HomeActivity,java.lang.String)
-    61:61:static synthetic android.support.v7.widget.SearchView access$2(com.tshevchuk.prayer.HomeActivity)
-com.tshevchuk.prayer.HomeActivity$3:
-    176:184:public boolean onQueryTextSubmit(java.lang.String)
-    189:252:public boolean onQueryTextChange(java.lang.String)
-    173:173:static synthetic com.tshevchuk.prayer.HomeActivity access$0(com.tshevchuk.prayer.HomeActivity$3)
-com.tshevchuk.prayer.HomeActivity$3$1
 com.tshevchuk.prayer.PrayerLoader:
     public static final java.lang.String PARAM_ASSET_FILE_NAME
     public static final java.lang.String PARAM_IS_HTML
@@ -6240,6 +6219,8 @@ com.tshevchuk.prayer.data.Catalog:
     public static final int ID_FOR_EVERY_OCASION
     public static final int ID_RECENT_SCREENS
     private static final int NEXT_ID_TO_ADD
+    2137:2148:public java.util.List filter(java.lang.String)
+    2153:2168:private java.util.List filter(java.lang.String,java.util.List,com.tshevchuk.prayer.data.MenuItemBase)
 com.tshevchuk.prayer.data.CerkovnyyCalendar:
     private static final int FLAG_RUKHOME_REPLACE
     private static final int FLAG_RUKHOME_REPLACE_RED_DAY
@@ -6257,6 +6238,7 @@ com.tshevchuk.prayer.data.MenuItemPrayer:
 com.tshevchuk.prayer.data.MenuItemSubMenu:
     private static final long serialVersionUID
     19:21:public varargs MenuItemSubMenu(int,java.lang.String,com.tshevchuk.prayer.data.MenuItemBase[])
+com.tshevchuk.prayer.data.SearchItem
 com.tshevchuk.prayer.fragments.HtmlViewFragment:
     private java.lang.Float scrollProgression
 com.tshevchuk.prayer.fragments.TextViewFragment:
