@@ -100,7 +100,7 @@ public class OftenUsedFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle(R.string.app_name);
+		activity.getSupportActionBar().setTitle(R.string.app_name);
 
 		int[] recentIds = PreferenceManager.getInstance().getRecentMenuItems();
 		oftenUsedItems = new ArrayList<MenuItemBase>(recentIds.length);

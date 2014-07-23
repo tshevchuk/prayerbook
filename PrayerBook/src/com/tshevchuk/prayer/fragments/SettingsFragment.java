@@ -55,8 +55,8 @@ public class SettingsFragment extends PreferenceFragment implements
 		View v = super.onCreateView(inflater, container, savedInstanceState);
 		TypedValue tv = new TypedValue();
 		int abHeight = 0;
-		if (activity.getTheme().resolveAttribute(android.R.attr.actionBarSize,
-				tv, true)) {
+		if (activity.getTheme()
+				.resolveAttribute(R.attr.actionBarSize, tv, true)) {
 			abHeight = TypedValue.complexToDimensionPixelSize(tv.data,
 					getResources().getDisplayMetrics());
 		}

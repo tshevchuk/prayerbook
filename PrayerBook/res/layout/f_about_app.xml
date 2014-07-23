@@ -3,7 +3,7 @@
     android:id="@+id/svScroll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" 
-    android:paddingTop="?android:attr/actionBarSize">
+    android:paddingTop="?attr/actionBarSize">
 
     <LinearLayout
         android:layout_width="match_parent"
