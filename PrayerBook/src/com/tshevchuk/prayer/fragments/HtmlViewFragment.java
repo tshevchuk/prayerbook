@@ -7,10 +7,10 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -154,8 +154,8 @@ public class HtmlViewFragment extends FragmentBase {
 						}
 					}
 
-					getActivity().getActionBar()
-							.setTitle(getPrayer().getName());
+					activity.getSupportActionBar().setTitle(
+							getPrayer().getName());
 
 					if (!TextUtils.isEmpty(anchor)) {
 						StringBuilder sb = new StringBuilder();
@@ -176,6 +176,7 @@ public class HtmlViewFragment extends FragmentBase {
 					}
 				}
 
+				@SuppressLint("NewApi")
 				@Override
 				public WebResourceResponse shouldInterceptRequest(WebView view,
 						String url) {
@@ -230,7 +231,7 @@ public class HtmlViewFragment extends FragmentBase {
 	public void onResume() {
 		super.onResume();
 		wvContent.onResume();
-		getActivity().getActionBar().setTitle(getPrayer().getName());
+		activity.getSupportActionBar().setTitle(getPrayer().getName());
 	}
 
 	@Override
@@ -254,7 +255,7 @@ public class HtmlViewFragment extends FragmentBase {
 			int parentId = getPrayer().getParentItemId();
 			if (parentId > 0) {
 				HomeActivity a = activity;
-				a.getFragmentManager().popBackStackImmediate();
+				a.getSupportFragmentManager().popBackStackImmediate();
 				a.displayMenuItem(PrayerBookApplication.getInstance()
 						.getCatalog().getMenuItemById(parentId));
 				return true;

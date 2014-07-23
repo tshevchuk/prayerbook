@@ -1,11 +1,11 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.content.Loader;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -96,7 +96,7 @@ public class TextViewFragment extends FragmentBase implements
 					if (!show && moveContentUp && isFling)
 						hide = true;
 
-					ActionBar ab = activity.getActionBar();
+					ActionBar ab = activity.getSupportActionBar();
 
 					if (show && !ab.isShowing())
 						ab.show();
@@ -114,8 +114,8 @@ public class TextViewFragment extends FragmentBase implements
 								.getChildCount() - 1);
 						if ((svScroll.getHeight() + svScroll.getScrollY()) >= view
 								.getBottom()
-								- activity.getActionBar().getHeight()) {
-							activity.getActionBar().show();
+								- activity.getSupportActionBar().getHeight()) {
+							activity.getSupportActionBar().show();
 						}
 					}
 					return false;
@@ -148,7 +148,7 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle(prayer.getFullName());
+		activity.getSupportActionBar().setTitle(prayer.getFullName());
 		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
 	}
@@ -194,7 +194,7 @@ public class TextViewFragment extends FragmentBase implements
 			int parentId = prayer.getParentItemId();
 			if (parentId > 0) {
 				HomeActivity a = activity;
-				a.getFragmentManager().popBackStackImmediate();
+				a.getSupportFragmentManager().popBackStackImmediate();
 				a.displayMenuItem(PrayerBookApplication.getInstance()
 						.getCatalog().getMenuItemById(parentId));
 				return true;

@@ -1,9 +1,9 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -35,7 +35,7 @@ public class FragmentBase extends Fragment {
 	public void onResume() {
 		super.onResume();
 		HomeActivity activity = (HomeActivity) getActivity();
-		activity.getActionBar().show();
+		activity.getSupportActionBar().show();
 		activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.setScreenName(getClass().getSimpleName());
@@ -64,7 +64,7 @@ public class FragmentBase extends Fragment {
 			return true;
 
 		case android.R.id.home:
-			getActivity().getFragmentManager().popBackStack();
+			getActivity().getSupportFragmentManager().popBackStack();
 			return true;
 
 		default:

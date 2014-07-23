@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="PrayerBook.ThemeDark" parent="android:Theme.Holo">
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="PrayerBook.ThemeDark" parent="Theme.AppCompat">
+        <item name="android:windowActionBarOverlay" tools:targetApi="11">true</item>
+        <item name="android:actionBarStyle" tools:targetApi="11">@style/PrayerBook.ActionBarDark</item>
         <item name="pb_navigationDrawerIconDrawable">@drawable/ic_navigation_drawer_dark</item>
         <item name="pb_nawigationDrawerBackgroundDrawable">#333</item>
         <item name="pb_actionBarSearchIconDrawable">@drawable/ic_actionbar_search_dark</item>
-         <item name="android:actionBarStyle">@style/PrayerBook.ActionBarDark</item>
+
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+        <item name="actionBarStyle">@style/PrayerBook.ActionBarDark</item>
     </style>
 
-    <style name="PrayerBook.ThemeLight" parent="android:Theme.Holo.Light">
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="PrayerBook.ThemeLight" parent="Theme.AppCompat.Light">
+        <item name="android:windowActionBarOverlay" tools:targetApi="11">true</item>
         <item name="pb_navigationDrawerIconDrawable">@drawable/ic_navigation_drawer_light</item>
         <item name="pb_nawigationDrawerBackgroundDrawable">#aaa</item>
         <item name="pb_actionBarSearchIconDrawable">@drawable/ic_actionbar_search_light</item>
+
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
     </style>
 
 </resources>

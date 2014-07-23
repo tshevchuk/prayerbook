@@ -1,11 +1,13 @@
 package com.tshevchuk.prayer.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceFragment;
+import android.support.v4.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -65,7 +67,7 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle("Налаштування");
+		activity.getSupportActionBar().setTitle("Налаштування");
 		activity.setNavigationDrawerEnabled(false);
 
 		getPreferenceScreen().getSharedPreferences()
@@ -79,13 +81,16 @@ public class SettingsFragment extends PreferenceFragment implements
 				.unregisterOnSharedPreferenceChangeListener(this);
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
 		if (key.equals(PreferenceManager.PREF_NIGHT_MODE)) {
 			sendAnalyticsSettingsChanged(key,
 					String.valueOf(sharedPreferences.getBoolean(key, false)));
-			getActivity().recreate();
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+				activity.recreate();
+			}
 		} else if (key.equals(PreferenceManager.PREF_TEXT_FONT_SIZE)) {
 			sendAnalyticsSettingsChanged(key,
 					sharedPreferences.getString(key, ""));
@@ -98,7 +103,7 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
-			activity.getFragmentManager().popBackStack();
+			activity.getSupportFragmentManager().popBackStack();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

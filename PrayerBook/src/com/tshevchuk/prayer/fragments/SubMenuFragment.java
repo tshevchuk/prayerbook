@@ -1,7 +1,8 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.tshevchuk.prayer.data.MenuItemSubMenu;
 
 public class SubMenuFragment extends FragmentBase {
 	private MenuItemSubMenu subMenu;
+	private HomeActivity activity;
 
 	public static SubMenuFragment getInstance(MenuItemSubMenu subMenu) {
 		SubMenuFragment f = new SubMenuFragment();
@@ -24,6 +26,12 @@ public class SubMenuFragment extends FragmentBase {
 		b.putSerializable("subMenu", subMenu);
 		f.setArguments(b);
 		return f;
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.activity = (HomeActivity) activity;
 	}
 
 	@Override
@@ -54,24 +62,26 @@ public class SubMenuFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle(subMenu.getName());
+		activity.getSupportActionBar().setTitle(subMenu.getName());
 	}
 
 	@Override
 	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
-			MenuItemSubMenu s1 = (MenuItemSubMenu) getArguments().getSerializable("subMenu");
-			MenuItemSubMenu s2 = (MenuItemSubMenu) f.getArguments().getSerializable("subMenu");
+			MenuItemSubMenu s1 = (MenuItemSubMenu) getArguments()
+					.getSerializable("subMenu");
+			MenuItemSubMenu s2 = (MenuItemSubMenu) f.getArguments()
+					.getSerializable("subMenu");
 			return s1.getName().equals(s2.getName());
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected MenuItemBase getMenuItem() {
 		return subMenu;
 	}
-	
+
 	@Override
 	protected boolean isNavigationDrawerEnabled() {
 		return true;

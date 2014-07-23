@@ -2,10 +2,10 @@ package com.tshevchuk.prayer.fragments;
 
 import java.util.Calendar;
 
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.OnNavigationListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.Analytics;
+import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.adapters.CerkovnyyCalendarListAdapter;
@@ -35,10 +36,9 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	private MenuItemCalendar menuItem;
 	private Integer initPosition;
 
-	private Activity activity;
+	private HomeActivity activity;
 	private ListView lvCalendar;
 	private TextView tvMonth;
-	private ActionBar actionBar;
 
 	public static CerkovnyyCalendarFragment getInstance(MenuItemCalendar cal) {
 		CerkovnyyCalendarFragment f = new CerkovnyyCalendarFragment();
@@ -51,7 +51,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		this.activity = activity;
+		this.activity = (HomeActivity) activity;
 	}
 
 	@Override
@@ -62,7 +62,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 				java.util.Calendar.YEAR);
 		menuItem = (MenuItemCalendar) getArguments().getSerializable(
 				"menu_item");
-		actionBar = getActivity().getActionBar();
 		formattedYears = new String[years.length];
 		for (int i = 0; i < years.length; ++i) {
 			formattedYears[i] = years[i] + " рік";
@@ -117,11 +116,13 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		actionBar.setTitle("Церковний календар");
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-		actionBar.setListNavigationCallbacks(new ArrayAdapter<String>(activity,
-				android.R.layout.simple_spinner_dropdown_item, formattedYears),
-				new OnNavigationListener() {
+		activity.getSupportActionBar().setTitle("Церковний календар");
+		activity.getSupportActionBar().setNavigationMode(
+				ActionBar.NAVIGATION_MODE_LIST);
+		activity.getSupportActionBar().setListNavigationCallbacks(
+				new ArrayAdapter<String>(activity,
+						android.R.layout.simple_spinner_dropdown_item,
+						formattedYears), new OnNavigationListener() {
 					@Override
 					public boolean onNavigationItemSelected(int itemPosition,
 							long itemId) {
@@ -141,7 +142,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 				});
 		for (int i = 0; i < years.length; ++i) {
 			if (years[i] == year) {
-				actionBar.setSelectedNavigationItem(i);
+				activity.getSupportActionBar().setSelectedNavigationItem(i);
 			}
 		}
 	}
@@ -149,7 +150,8 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	@Override
 	public void onPause() {
 		super.onPause();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		activity.getSupportActionBar().setNavigationMode(
+				ActionBar.NAVIGATION_MODE_STANDARD);
 	}
 
 	@Override

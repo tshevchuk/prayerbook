@@ -2,10 +2,10 @@ package com.tshevchuk.prayer;
 
 import java.io.IOException;
 
-import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.AsyncTaskLoader;
 import android.text.Html;
 import android.text.TextUtils;
 
