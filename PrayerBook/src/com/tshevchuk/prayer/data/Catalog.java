@@ -1110,10 +1110,6 @@ public class Catalog {
 		menu.addSubItem(addSluzhbyPryjditePoklonimsya());
 		menu.addSubItem(addTrebnyk());
 
-		menu.html(467, "Чин утрені", "bohosluzhinnya/utrennya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		menu.html(466, "Чин вечірні", "bohosluzhinnya/vechirnya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		return menu;
 	}
 
