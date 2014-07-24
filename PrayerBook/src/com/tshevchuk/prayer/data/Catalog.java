@@ -39,7 +39,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 893;
+	private static final int NEXT_ID_TO_ADD = 894;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -979,21 +979,7 @@ public class Catalog {
 	private MenuItemSubMenu addBohosluzhinnya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Богослужіння");
 
-		MenuItemSubMenu sm = menu
-				.subMenu(682,
-						"Чин священної і Божественної Літургії святого Івана Золотоустого");
-		sm.html(686, "Молитви перед Літургією",
-				"bohosluzhinnya/liturhiya/molytvy-pered-liturhiyeyu.html",
-				SRC_LITURHIYA_KYRIOS);
-		sm.html(683, "Проскомидія",
-				"bohosluzhinnya/liturhiya/proskomydiya.html",
-				SRC_LITURHIYA_KYRIOS);
-		sm.html(684, "Літургія Слова", "bohosluzhinnya/liturhiya/slova.html",
-				SRC_LITURHIYA_KYRIOS);
-		sm.html(685, "Літургія Жертви",
-				"bohosluzhinnya/liturhiya/zhertvy.html", SRC_LITURHIYA_KYRIOS);
-
-		sm = menu.subMenu(687, "Часослов");
+		MenuItemSubMenu sm = menu.subMenu(687, "Часослов");
 		sm.web(688, "Вечірня", "bohosluzhinnya/chasoslov/vechirnya.html",
 				SRC_MOLYTVOSLOV);
 		sm.web(689, "Мале Повечір’я",
@@ -1109,6 +1095,27 @@ public class Catalog {
 
 		menu.addSubItem(addSluzhbyPryjditePoklonimsya());
 		menu.addSubItem(addTrebnyk());
+
+		sm = menu
+				.subMenu(
+						682,
+						"Священна і Божественна Літургія во святих отця нашого Йоана Золотоустого. Рим 1968 (переклад патріарха Йосифа чи прийдіте поклонімся)");
+		sm.html(686, "Молитви перед Літургією",
+				"bohosluzhinnya/liturhiya/molytvy-pered-liturhiyeyu.html",
+				SRC_LITURHIYA_KYRIOS);
+		sm.html(683, "Проскомидія",
+				"bohosluzhinnya/liturhiya/proskomydiya.html",
+				SRC_LITURHIYA_KYRIOS);
+		sm.html(684, "Літургія Слова", "bohosluzhinnya/liturhiya/slova.html",
+				SRC_LITURHIYA_KYRIOS);
+		sm.html(685, "Літургія Жертви",
+				"bohosluzhinnya/liturhiya/zhertvy.html", SRC_LITURHIYA_KYRIOS);
+
+		menu.html(
+				893,
+				"Священна і Божественна Літургія святого отця нашого Йоана Золотоустого, друге видання, доповнене. Львів: Місіонер 1997. (офіційний переклад)",
+				"bohosluzhinnya/liturhiya.html",
+				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011");
 
 		return menu;
 	}
