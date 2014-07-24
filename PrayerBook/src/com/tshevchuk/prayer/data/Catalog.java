@@ -39,7 +39,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 894;
+	private static final int NEXT_ID_TO_ADD = 895;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -973,6 +973,8 @@ public class Catalog {
 		menu.html(711, "Молитва на чотках",
 				"vervytsya/molytva-na-chotkakh.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		menu.html(894, "Світлі таїнства", "vervytsya/svitli-tajinstva.html",
+				"Молитва - Світлі таїнства http://molytva.at.ua/index/svitli_tajinstva/0-57");
 		return menu;
 	}
 
