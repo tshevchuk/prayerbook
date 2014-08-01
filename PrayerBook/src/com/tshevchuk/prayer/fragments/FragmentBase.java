@@ -13,6 +13,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 
 public class FragmentBase extends Fragment {
@@ -64,7 +65,14 @@ public class FragmentBase extends Fragment {
 			return true;
 
 		case android.R.id.home:
-			getActivity().getFragmentManager().popBackStack();
+			if (getActivity().getFragmentManager().getBackStackEntryCount() == 0) {
+				((HomeActivity) getActivity())
+						.displayMenuItem(PrayerBookApplication.getInstance()
+								.getCatalog()
+								.getMenuItemById(Catalog.ID_RECENT_SCREENS));
+			} else {
+				getActivity().getFragmentManager().popBackStack();
+			}
 			return true;
 
 		default:
