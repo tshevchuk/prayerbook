@@ -39,7 +39,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 908;
+	private static final int NEXT_ID_TO_ADD = 909;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -349,6 +349,9 @@ public class Catalog {
 				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
 		sm.web(509, "Чин благословення і освячення новопоставленого хреста",
 				"trebnyk/blahoslovennya-novopostavlenoho-khresta.html",
+				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
+		sm.web(908, "Чин благословення і освячення ікон",
+				"trebnyk/blahoslovennya-ikon.html",
 				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
 		sm.web(510, "Чин благословення і освячення ікон - Тройці",
 				"trebnyk/blahoslovennya-ikon-trojtsi.html",

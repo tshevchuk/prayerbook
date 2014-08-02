@@ -158,9 +158,10 @@ public class HomeActivity extends Activity {
 					.getInstance()
 					.getTracker()
 					.send(new HitBuilders.TimingBuilder()
+							.setLabel("Час запуску")
 							.setCategory("Час запуску програми")
-							.setVariable("Час запуску")
-							.setValue(elapsedMls).build());
+							.setVariable("Час запуску").setValue(elapsedMls)
+							.build());
 			PrayerBookApplication.startupTimeMeasuringStartTimestamp = null;
 		}
 	}
