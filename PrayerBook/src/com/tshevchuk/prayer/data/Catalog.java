@@ -39,7 +39,7 @@ public class Catalog {
 	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
 
-	private static final int NEXT_ID_TO_ADD = 909;
+	private static final int NEXT_ID_TO_ADD = 910;
 
 	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
 	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
@@ -1165,6 +1165,9 @@ public class Catalog {
 		sm.web(721, "Служба за подорожніх",
 				"bohosluzhinnya/sluzhby/za-podorozhnikh.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+		sm.web(909, "Літургія про мир під час міжусобного протистояння і за примирення і зупинення заколотів та безладів міських СЛУ-ЛЬВ-1929",
+				"bohosluzhinnya/sluzhby/za-myr-i-prymyrennya-pid-chas-protystoyannya.html",
+				"Нотатки Никодима - Літургія про мир під час міжусобного протистояння і за примирення і зупинення заколотів та безладів міських СЛУ-ЛЬВ-1929 http://nykodym.blogspot.com/2014/05/1929.html");
 
 		sm = menu.subMenu(728, "Повсякденна служба");
 		sm.web(722, "Понеділок", "bohosluzhinnya/sluzhby/ponedilok.html",
