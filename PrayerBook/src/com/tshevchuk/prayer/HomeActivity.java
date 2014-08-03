@@ -241,13 +241,16 @@ public class HomeActivity extends Activity {
 									return true;
 								}
 							});
-					Tracker t = PrayerBookApplication.getInstance()
-							.getTracker();
-					EventBuilder event = new HitBuilders.EventBuilder()
-							.setCategory(Analytics.CAT_SEARCH)
-							.setAction("Пошук із випадаючим списком підказок")
-							.setLabel(newText);
-					t.send(event.build());
+					if (!TextUtils.isEmpty(newText)) {
+						Tracker t = PrayerBookApplication.getInstance()
+								.getTracker();
+						EventBuilder event = new HitBuilders.EventBuilder()
+								.setCategory(Analytics.CAT_SEARCH)
+								.setAction(
+										"Пошук із випадаючим списком підказок")
+								.setLabel(newText);
+						t.send(event.build());
+					}
 				}
 				return true;
 			}
