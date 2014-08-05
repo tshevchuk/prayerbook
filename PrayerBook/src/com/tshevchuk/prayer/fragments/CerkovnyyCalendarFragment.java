@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +34,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	private MenuItemCalendar menuItem;
 	private Integer initPosition;
 
-	private Activity activity;
 	private ListView lvCalendar;
 	private TextView tvMonth;
 	private ActionBar actionBar;
@@ -46,12 +44,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		args.putSerializable("menu_item", cal);
 		f.setArguments(args);
 		return f;
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = activity;
 	}
 
 	@Override
@@ -209,7 +201,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	}
 
 	@Override
-	protected MenuItemBase getMenuItem() {
+	public MenuItemBase getMenuItem() {
 		return menuItem;
 	}
 }

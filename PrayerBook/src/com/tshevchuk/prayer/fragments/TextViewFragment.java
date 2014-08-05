@@ -1,16 +1,14 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.Selection;
+import android.text.Spannable;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +16,6 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.tshevchuk.prayer.HomeActivity;
-import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PrayerLoader;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
@@ -30,7 +26,7 @@ import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
-public class TextViewFragment extends FragmentBase implements
+public class TextViewFragment extends TextFragmentBase implements
 		LoaderCallbacks<CharSequence> {
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
 
@@ -39,7 +35,6 @@ public class TextViewFragment extends FragmentBase implements
 	private Integer firstVisibleCharacterOffset = null;
 
 	private TextView tvContent;
-	private HomeActivity activity;
 	private ResponsiveScrollView svScroll;
 
 	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
@@ -51,21 +46,8 @@ public class TextViewFragment extends FragmentBase implements
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = (HomeActivity) activity;
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
-		activity = null;
-	}
-
-	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
 		prayer = (MenuItemPrayer) getArguments().getSerializable("prayer");
 		if (savedInstanceState != null) {
 			firstVisibleCharacterOffset = savedInstanceState
@@ -141,14 +123,12 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		Log.d("textview", "onDestroyView");
 		firstVisibleCharacterOffset = getFirstVisibleCharacterOffset();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle(prayer.getFullName());
 		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
 	}
@@ -156,7 +136,6 @@ public class TextViewFragment extends FragmentBase implements
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		Log.d("textview", "onSaveInstanceState");
 		if (firstVisibleCharacterOffset == null) {
 			outState.putInt("firstVisibleCharOffset",
 					getFirstVisibleCharacterOffset());
@@ -172,36 +151,6 @@ public class TextViewFragment extends FragmentBase implements
 		final int firstVisableCharacterOffset = tvContent.getLayout()
 				.getLineStart(firstVisableLineOffset);
 		return firstVisableCharacterOffset;
-	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.actionbar_textviewfragment, menu);
-		super.onCreateOptionsMenu(menu, inflater);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.mi_about_prayer:
-			activity.displayFragment(AboutPrayerFragment.getInstance(prayer),
-					0, null);
-			activity.sendAnalyticsOptionsMenuEvent("Опис",
-					String.format("#%d %s", prayer.getId(), prayer.getName()));
-			return true;
-
-		case android.R.id.home:
-			int parentId = prayer.getParentItemId();
-			if (parentId > 0) {
-				HomeActivity a = activity;
-				a.getFragmentManager().popBackStackImmediate();
-				a.displayMenuItem(PrayerBookApplication.getInstance()
-						.getCatalog().getMenuItemById(parentId));
-				return true;
-			}
-			break;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -253,7 +202,7 @@ public class TextViewFragment extends FragmentBase implements
 	}
 
 	@Override
-	protected MenuItemBase getMenuItem() {
+	public MenuItemPrayer getMenuItem() {
 		return prayer;
 	}
 }

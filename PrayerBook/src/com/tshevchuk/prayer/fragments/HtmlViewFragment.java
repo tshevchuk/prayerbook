@@ -6,16 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -26,7 +22,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
@@ -34,16 +29,10 @@ import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
-public class HtmlViewFragment extends FragmentBase {
+public class HtmlViewFragment extends TextFragmentBase {
 	private List<MenuItemPrayer> prayers = new ArrayList<MenuItemPrayer>();
-	private Float scrollProgression;
-	private boolean isViewCreated = false;
 
-	private HomeActivity activity;
 	private WebView wvContent;
-
-	public HtmlViewFragment() {
-	}
 
 	public static HtmlViewFragment getInstance(MenuItemPrayer prayer) {
 		HtmlViewFragment f = new HtmlViewFragment();
@@ -54,21 +43,8 @@ public class HtmlViewFragment extends FragmentBase {
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = (HomeActivity) activity;
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
-		activity = null;
-	}
-
-	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
 		setRetainInstance(true);
 		prayers.add((MenuItemPrayer) getArguments().getSerializable("prayer"));
 	};
@@ -154,8 +130,8 @@ public class HtmlViewFragment extends FragmentBase {
 						}
 					}
 
-					getActivity().getActionBar()
-							.setTitle(getPrayer().getName());
+					getActivity().getActionBar().setTitle(
+							getMenuItem().getName());
 
 					if (!TextUtils.isEmpty(anchor)) {
 						StringBuilder sb = new StringBuilder();
@@ -204,18 +180,16 @@ public class HtmlViewFragment extends FragmentBase {
 			});
 
 			activity.setProgressBarIndeterminateVisibility(true);
-			loadPrayer(getPrayer());
+			loadPrayer(getMenuItem());
 		}
 		flContent.addView(wvContent);
 
-		isViewCreated = true;
 		return v;
 	}
 
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		isViewCreated = false;
 
 		((ViewGroup) wvContent.getParent()).removeView(wvContent);
 	}
@@ -230,38 +204,6 @@ public class HtmlViewFragment extends FragmentBase {
 	public void onResume() {
 		super.onResume();
 		wvContent.onResume();
-		getActivity().getActionBar().setTitle(getPrayer().getName());
-	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.actionbar_textviewfragment, menu);
-		super.onCreateOptionsMenu(menu, inflater);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.mi_about_prayer:
-			((HomeActivity) activity).displayFragment(
-					AboutPrayerFragment.getInstance(getPrayer()), 0, null);
-			((HomeActivity) activity).sendAnalyticsOptionsMenuEvent("Опис",
-					String.format("#%d %s", getPrayer().getId(), getPrayer()
-							.getName()));
-			return true;
-
-		case android.R.id.home:
-			int parentId = getPrayer().getParentItemId();
-			if (parentId > 0) {
-				HomeActivity a = activity;
-				a.getFragmentManager().popBackStackImmediate();
-				a.displayMenuItem(PrayerBookApplication.getInstance()
-						.getCatalog().getMenuItemById(parentId));
-				return true;
-			}
-			break;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -279,7 +221,7 @@ public class HtmlViewFragment extends FragmentBase {
 	@Override
 	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
-			MenuItemPrayer p1 = getPrayer();
+			MenuItemPrayer p1 = getMenuItem();
 			if (p1 == null) {
 				p1 = (MenuItemPrayer) getArguments().getSerializable("prayer");
 			}
@@ -290,7 +232,8 @@ public class HtmlViewFragment extends FragmentBase {
 		return false;
 	}
 
-	private MenuItemPrayer getPrayer() {
+	@Override
+	public MenuItemPrayer getMenuItem() {
 		return prayers.get(prayers.size() - 1);
 	}
 }

@@ -1,13 +1,23 @@
 package com.tshevchuk.prayer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.database.MatrixCursor;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
@@ -291,6 +301,9 @@ public class HomeActivity extends Activity {
 			displayFragment(new SettingsFragment(), 0, item.getTitle());
 			sendAnalyticsOptionsMenuEvent(item.getTitle(), null);
 			return true;
+		case R.id.mi_report_mistake:
+			reportError();
+			return true;
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -400,5 +413,81 @@ public class HomeActivity extends Activity {
 		drawerLayout
 				.setDrawerLockMode(enabled ? DrawerLayout.LOCK_MODE_UNLOCKED
 						: DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+	}
+
+	private void reportError() {
+		String path = Environment.getExternalStorageDirectory().toString()
+				+ "/" + "prayerbook_error_image.png";
+
+		Bitmap bitmap = null;
+		View v1 = getWindow().getDecorView().findViewById(android.R.id.content);
+
+		boolean willNotCache = v1.willNotCacheDrawing();
+		v1.setWillNotCacheDrawing(false);
+
+		int color = v1.getDrawingCacheBackgroundColor();
+		v1.setDrawingCacheBackgroundColor(PreferenceManager.getInstance()
+				.isNightModeEnabled() ? Color.BLACK : Color.WHITE);
+
+		if (color != 0) {
+			v1.destroyDrawingCache();
+		}
+		v1.buildDrawingCache();
+		Bitmap cacheBitmap = v1.getDrawingCache();
+		if (cacheBitmap != null) {
+			bitmap = Bitmap.createBitmap(cacheBitmap);
+		}
+
+		v1.destroyDrawingCache();
+		v1.setWillNotCacheDrawing(willNotCache);
+		v1.setDrawingCacheBackgroundColor(color);
+
+		if (bitmap != null) {
+			OutputStream fout = null;
+			File imageFile = new File(path);
+
+			try {
+				fout = new FileOutputStream(imageFile);
+				bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fout);
+				fout.flush();
+				fout.close();
+			} catch (FileNotFoundException e) {
+				bitmap = null;
+				e.printStackTrace();
+			} catch (IOException e) {
+				bitmap = null;
+				e.printStackTrace();
+			}
+		}
+
+		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+		emailIntent.setType("message/rfc822");
+		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+				new String[] { "prayerbook.android@gmail.com" });
+		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+				"Молитовник: Повідомлення про помилку");
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("Опишіть коротко помилку:\n\n\n\n");
+		sb.append("----------------------------");
+		sb.append("\nПрограма: ").append(Utils.getApplicationNameAndVersion());
+		sb.append("\nЗаголовок: ").append(getActionBar().getTitle());
+		Fragment f = getFragmentManager().findFragmentById(R.id.content_frame);
+		sb.append("\nФрагмент: ").append(f.getClass().getName());
+		if (f instanceof FragmentBase) {
+			MenuItemBase mi = ((FragmentBase) f).getMenuItem();
+			if (mi != null) {
+				sb.append("\nЕлемент меню: ").append(mi.getId()).append(" ")
+						.append(mi.getName());
+			}
+		}
+
+		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
+		if (bitmap != null) {
+			emailIntent.putExtra(Intent.EXTRA_STREAM,
+					Uri.fromFile(new File(path)));
+		}
+		startActivity(Intent.createChooser(emailIntent,
+				"Відправити повідомлення про помилку..."));
 	}
 }

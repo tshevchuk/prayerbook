@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -38,7 +37,6 @@ public class OftenUsedFragment extends FragmentBase {
 	private ListView lvItems;
 	private TextView tvDay;
 	private TextView tvDescription;
-	private HomeActivity activity;
 	private LinearLayout llToday;
 
 	public static OftenUsedFragment getInstance(MenuItemOftenUsed menuItem) {
@@ -47,12 +45,6 @@ public class OftenUsedFragment extends FragmentBase {
 		b.putSerializable("menuItem", menuItem);
 		f.setArguments(b);
 		return f;
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = (HomeActivity) activity;
 	}
 
 	@Override
@@ -129,7 +121,7 @@ public class OftenUsedFragment extends FragmentBase {
 	}
 
 	@Override
-	protected MenuItemBase getMenuItem() {
+	public MenuItemBase getMenuItem() {
 		return menuItem;
 	}
 

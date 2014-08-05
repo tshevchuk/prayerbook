@@ -1,9 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -17,17 +15,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.analytics.HitBuilders.EventBuilder;
+import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.Analytics;
 import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.adapters.SearchListAdapter;
-import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
-import com.tshevchuk.prayer.data.MenuItemSubMenu;
 import com.tshevchuk.prayer.data.SearchItem;
 
 public class SearchFragment extends FragmentBase {
@@ -35,13 +31,6 @@ public class SearchFragment extends FragmentBase {
 	private List<SearchItem> items;
 	private ListView lvItems;
 	private TextView tvHeader;
-	private HomeActivity activity;
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = (HomeActivity) activity;
-	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -10,7 +10,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.tshevchuk.prayer.HomeActivity;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemSubMenu;
@@ -37,14 +36,13 @@ public class SubMenuFragment extends FragmentBase {
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_submenu, container, false);
 		ListView lvItems = (ListView) v.findViewById(R.id.lvItems);
-		lvItems.setAdapter(new ArrayAdapter<MenuItemBase>(getActivity(),
+		lvItems.setAdapter(new ArrayAdapter<MenuItemBase>(activity,
 				android.R.layout.simple_list_item_1, subMenu.getSubItems()));
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				((HomeActivity) getActivity()).displayMenuItem(subMenu
-						.getSubItems().get(position));
+				activity.displayMenuItem(subMenu.getSubItems().get(position));
 			}
 		});
 
@@ -54,24 +52,26 @@ public class SubMenuFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle(subMenu.getName());
+		activity.getActionBar().setTitle(subMenu.getName());
 	}
 
 	@Override
 	public boolean isSameScreen(Fragment f) {
 		if (getClass().equals(f.getClass())) {
-			MenuItemSubMenu s1 = (MenuItemSubMenu) getArguments().getSerializable("subMenu");
-			MenuItemSubMenu s2 = (MenuItemSubMenu) f.getArguments().getSerializable("subMenu");
+			MenuItemSubMenu s1 = (MenuItemSubMenu) getArguments()
+					.getSerializable("subMenu");
+			MenuItemSubMenu s2 = (MenuItemSubMenu) f.getArguments()
+					.getSerializable("subMenu");
 			return s1.getName().equals(s2.getName());
 		}
 		return false;
 	}
-	
+
 	@Override
-	protected MenuItemBase getMenuItem() {
+	public MenuItemBase getMenuItem() {
 		return subMenu;
 	}
-	
+
 	@Override
 	protected boolean isNavigationDrawerEnabled() {
 		return true;

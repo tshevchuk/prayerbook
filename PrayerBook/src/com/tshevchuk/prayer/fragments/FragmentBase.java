@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,19 @@ import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 
 public class FragmentBase extends Fragment {
+	protected HomeActivity activity;
+
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.activity = (HomeActivity) activity;
+	}
+
+	@Override
+	public void onDetach() {
+		super.onDetach();
+		activity = null;
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -88,7 +102,7 @@ public class FragmentBase extends Fragment {
 		return false;
 	}
 
-	protected MenuItemBase getMenuItem() {
+	public MenuItemBase getMenuItem() {
 		return null;
 	}
 

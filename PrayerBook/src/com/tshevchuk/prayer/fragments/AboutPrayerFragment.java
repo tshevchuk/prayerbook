@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 
 public class AboutPrayerFragment extends FragmentBase {
@@ -40,6 +41,11 @@ public class AboutPrayerFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle("Опис");
+		activity.getActionBar().setTitle("Опис");
+	}
+
+	@Override
+	public MenuItemBase getMenuItem() {
+		return prayer;
 	}
 }

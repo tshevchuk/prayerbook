@@ -33,6 +33,12 @@ public class SettingsFragment extends PreferenceFragment implements
 	}
 
 	@Override
+	public void onDetach() {
+		super.onDetach();
+		activity = null;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);

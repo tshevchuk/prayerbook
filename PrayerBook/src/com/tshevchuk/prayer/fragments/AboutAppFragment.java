@@ -46,6 +46,6 @@ public class AboutAppFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getActionBar().setTitle("Про Молитовник");
+		activity.getActionBar().setTitle("Про Молитовник");
 	}
 }
