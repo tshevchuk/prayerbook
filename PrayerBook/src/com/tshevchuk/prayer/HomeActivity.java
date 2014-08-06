@@ -303,6 +303,7 @@ public class HomeActivity extends Activity {
 			return true;
 		case R.id.mi_report_mistake:
 			reportError();
+			sendAnalyticsOptionsMenuEvent(item.getTitle(), null);
 			return true;
 		}
 
@@ -417,7 +418,8 @@ public class HomeActivity extends Activity {
 
 	private void reportError() {
 		String path = Environment.getExternalStorageDirectory().toString()
-				+ "/" + "prayerbook_error_image.png";
+				+ "/" + "prayerbook_error_image_" + System.currentTimeMillis()
+				+ ".png";
 
 		Bitmap bitmap = null;
 		View v1 = getWindow().getDecorView().findViewById(android.R.id.content);
