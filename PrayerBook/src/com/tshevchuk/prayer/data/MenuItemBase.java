@@ -8,6 +8,7 @@ public abstract class MenuItemBase implements Serializable {
 	private String name;
 	private int id;
 	private int parentItemId;
+	private boolean isOfficialUGCCText;
 
 	public MenuItemBase(int id, String name) {
 		this.name = name;
@@ -33,5 +34,14 @@ public abstract class MenuItemBase implements Serializable {
 
 	public void setParentItemId(int parentItemId) {
 		this.parentItemId = parentItemId;
+	}
+
+	public boolean isOfficialUGCCText() {
+		return isOfficialUGCCText;
+	}
+
+	public MenuItemBase setOfficialUGCCText(boolean isOfficialUGCCText) {
+		this.isOfficialUGCCText = isOfficialUGCCText;
+		return this;
 	}
 }

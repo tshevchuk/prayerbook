@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.PrayerBookApplication;
@@ -46,12 +47,16 @@ public class OftenUsedListAdapter extends BaseAdapter {
 
 			vh.tvName = (TextView) v.findViewById(R.id.tvName);
 			vh.tvParentName = (TextView) v.findViewById(R.id.tvParentName);
+			vh.ivOfficialUgcc = (ImageView) v
+					.findViewById(R.id.iv_official_ugcc);
 			v.setTag(vh);
 		}
 
 		ViewHolder vh = (ViewHolder) v.getTag();
 		MenuItemBase mi = items.get(position);
 		vh.tvName.setText(mi.getName());
+		vh.ivOfficialUgcc.setVisibility(mi.isOfficialUGCCText() ? View.VISIBLE
+				: View.INVISIBLE);
 		if (mi.getParentItemId() > 0) {
 			vh.tvParentName.setText(PrayerBookApplication.getInstance()
 					.getCatalog().getMenuItemById(mi.getParentItemId())
@@ -66,5 +71,6 @@ public class OftenUsedListAdapter extends BaseAdapter {
 	private static class ViewHolder {
 		TextView tvName;
 		TextView tvParentName;
+		ImageView ivOfficialUgcc;
 	}
 }

@@ -26,6 +26,7 @@ public class MenuItemSubMenu extends MenuItemBase {
 
 	MenuItemSubMenu addSubItem(MenuItemBase item) {
 		item.setParentItemId(getId());
+		item.setOfficialUGCCText(isOfficialUGCCText());
 		subItems.add(item);
 		return this;
 	}
@@ -52,5 +53,10 @@ public class MenuItemSubMenu extends MenuItemBase {
 		MenuItemSubMenu sm = new MenuItemSubMenu(id, name);
 		addSubItem(sm);
 		return sm;
+	}
+	
+	@Override
+	public MenuItemSubMenu setOfficialUGCCText(boolean isOfficialUGCCText) {
+		return (MenuItemSubMenu) super.setOfficialUGCCText(isOfficialUGCCText);
 	}
 }

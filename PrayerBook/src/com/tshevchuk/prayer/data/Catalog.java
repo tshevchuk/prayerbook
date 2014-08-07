@@ -48,7 +48,8 @@ public class Catalog {
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
 		menu.addSubItem(new MenuItemOftenUsed(400));
 		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
-				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012);
+				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012)
+				.setOfficialUGCCText(true);
 		menu.addSubItem(addMolytvyRizniPotreby());
 		menu.addSubItem(addMolytvyNaKozhenDen());
 		menu.addSubItem(addMolytvyRizni());
@@ -109,24 +110,25 @@ public class Catalog {
 				SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA);
 
 		menu.html(710, "Ісусова молитва", "molytvy/isusova.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(2, "Ранішні молитви", "molytvy/molytvy-ranishni.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(700, "Ранішні молитви (1)",
 				"molytvy/molytvy-ranishni-1.html", SRC_MOLYTVY_KYRIOS);
 		menu.html(3, "Вечірні молитви", "molytvy/molytvy-vechirni.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(701, "Вечірні молитви (1)",
 				"molytvy/molytvy-vechirni-1.html", SRC_MOLYTVY_KYRIOS);
 		menu.text(594, "Молитва Іларіона, митрополита Київського",
-				"molytvy/ilariona.html", SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				"molytvy/ilariona.html", SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA)
+				.setOfficialUGCCText(true);
 
 		return menu;
 	}
 
 	private MenuItemSubMenu addMolytvyMytropolytaAndreya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(582,
-				"Молитви митрополита Андрея");
+				"Молитви митрополита Андрея").setOfficialUGCCText(true);
 		menu.text(583, "Приречення вірної служби Ісусові Христові",
 				"molytvy/mytropolyta-andreya/sluzhby-isusovi.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -165,7 +167,8 @@ public class Catalog {
 
 	private MenuItemSubMenu addMolytvyNaProslavuUkrSluhBozhykh() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(576,
-				"Молитви на прославу українських слуг Божих");
+				"Молитви на прославу українських слуг Божих")
+				.setOfficialUGCCText(true);
 		menu.text(577, "Молитва за прославу митрополита Андрея Шептицького",
 				"molytvy/na-proslavu-ukr-sluh-bozhykh/a-sheptytskoho.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -185,7 +188,8 @@ public class Catalog {
 	}
 
 	private MenuItemSubMenu addMolytvyDoSvyatykh() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(566, "Молитви до святих");
+		MenuItemSubMenu menu = new MenuItemSubMenu(566, "Молитви до святих")
+				.setOfficialUGCCText(true);
 		menu.text(567, "Молитва до святого Володимира",
 				"molytvy-do-svyatykh/volodymyra.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -217,7 +221,8 @@ public class Catalog {
 	private MenuItemSubMenu addTrebnyk() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(468, "Требник");
 
-		MenuItemSubMenu book = menu.subMenu(906, "Требник Львів 2001");
+		MenuItemSubMenu book = menu.subMenu(906, "Требник Львів 2001")
+				.setOfficialUGCCText(true);
 		MenuItemSubMenu sm = book.subMenu(895,
 				"Таїнства хрещення і миропомазання");
 		sm.web(469, "Молитви у перший день, коли жінка породила дитину",
@@ -386,7 +391,8 @@ public class Catalog {
 				"trebnyk/moleben-na-sv-paskhu.html",
 				SRC_TREBNYK_2001_LITURHIJNI_PEREKLADY);
 
-		book = menu.subMenu(907, "Требник Львів 2012");
+		book = menu.subMenu(907, "Требник Львів 2012")
+				.setOfficialUGCCText(true);
 		sm = book.subMenu(903, "Моління за осіб");
 		sm.web(520, "Скорочений чин Єлеопомазання",
 				"trebnyk/skorochenyj-chyn-yeleopomazannya.html",
@@ -638,54 +644,54 @@ public class Catalog {
 		MenuItemSubMenu sm = menu.subMenu(8, "Молитва прослави");
 		sm.text(9, "Пісня подяки св. Амвросія, єпископа Медіолянського",
 				"pisni/proslavy/podyaky-amvrosiya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 
 		sm = menu.subMenu(10, "Молитви за нарід");
 		sm.text(11, "Боже великий, єдиний",
 				"pisni/za-narid/bozhe-velykyj-jedynyj.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(12, "Боже, вислухай благання",
 				"pisni/za-narid/bozhe-vyslukhaj-blahannya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(13, "Боже великий, Творче всесвіту",
 				"pisni/za-narid/bozhe-tvorche-vsesvitu.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 
 		sm = menu.subMenu(14, "Коляди");
 		sm.text(15, "Бог предвічний", "pisni/kolyady/boh-predvichynyj.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(16, "Бог ся рождає", "pisni/kolyady/boh-sya-rozhdaye.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(17, "В Вифлеємі днесь Марія",
 				"pisni/kolyady/v-vyflejemi-dnes-mariya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(18, "В Вифлеємі новина",
 				"pisni/kolyady/v-vyfleyemi-novyna.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(19, "Во Вифлеємі нині новина",
 				"pisni/kolyady/vo-vyfleyemi-nyni-novyna.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(20, "Возвеселімся всі разом нині",
 				"pisni/kolyady/vozveselimsya-vsi-razom-nyni.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(21, "Вселенная, веселися",
 				"pisni/kolyady/vselennaya-veselysya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(22, "Дивная новина", "pisni/kolyady/dyvnaya-novyna.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(23, "На небі зірка ясна засяла",
 				"pisni/kolyady/na-nebi-zirka-yasna-zasyala.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(24, "Небо і земля", "pisni/kolyady/nebo-i-zemlya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(25, "Нова радість стала",
 				"pisni/kolyady/nova-radist-stala.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(26, "Нова радість стала (1)",
 				"pisni/kolyady/nova-radist-stala-1.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(27, "По всьому світу", "pisni/kolyady/po-vsjomu-svitu.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.html(632, "Ірод-цар за Христом ганявся",
 				"pisni/kolyady/irod-tsar-za-khrystom-hanyavsya.html",
 				SRC_PISNI_KYRIOS);
@@ -794,21 +800,21 @@ public class Catalog {
 		sm = menu.subMenu(28, "Великопосні пісні");
 		sm.text(29, "Люди мої, люди",
 				"pisni/velykoposni/lyudy-moyi-lyudy.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(30, "На Вавилонських ріках",
 				"pisni/velykoposni/na-vavylonskykh-rikakh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(31, "Під хрест Твій стаю",
 				"pisni/velykoposni/pid-khrest-tvij-stayu.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(32, "Поклоняюся, мій Христе",
 				"pisni/velykoposni/poklonyayusya-mij-khryste.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(33, "Страдальна Мати", "pisni/velykoposni/stradalna-maty.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(34, "Хрест на плечі накладають",
 				"pisni/velykoposni/khrest-na-plechi-nakladayut.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(620, "Ісус перед стражданням",
 				"pisni/velykoposni/isus-pered-strazhdannyam.html",
 				SRC_PISNI_KYRIOS);
@@ -835,29 +841,29 @@ public class Catalog {
 
 		sm = menu.subMenu(35, "Воскресні пісні");
 		sm.text(36, "Сей день", "pisni/voskresni/sej-den.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(37, "Согласно заспіваймо",
 				"pisni/voskresni/sohlasno-zaspivajmo.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(38, "Христос воскрес! Радість з неба",
 				"pisni/voskresni/khrystos-voskres.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 
 		sm = menu.subMenu(39, "Пісні до Христа");
 		sm.text(40, "Витай між нами", "pisni/khrysta/vytaj-mizh-namy.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(41, "Вірую, Господи", "pisni/khrysta/viruyu-hospody.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(42, "Ісуса в святих тайнах",
 				"pisni/khrysta/isusa-v-svyatykh-tajnakh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(43, "О, Ісусе, Ти з лю6ови",
 				"pisni/khrysta/o-isuse-ty-z-lyubovy.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(44, "Пливи світами", "pisni/khrysta/plyvy-svitamy.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(45, "Тіло Христове", "pisni/khrysta/tilo-khrystove.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(604,
 				"На чудовій Україні",
 				"pisni/khrysta/na-chudovij-ukrayini.html",
@@ -884,56 +890,56 @@ public class Catalog {
 
 		sm = menu.subMenu(46, "Пісня до Святого Духа");
 		sm.text(47, "Царю небесний", "pisni/dukha/tsaryu-nebesnyj.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 
 		sm = menu.subMenu(48, "Пісні до Богородиці");
 		sm.text(49, "Богородице Діво",
 				"pisni/bohorodytsi/bohorodytse-divo.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(50, "Вихваляйте доли, гори",
 				"pisni/bohorodytsi/vykhvalyajte-doly-hory.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(51, "Ген до неба", "pisni/bohorodytsi/hen-do-neba.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(52, "Достойно єсть", "pisni/bohorodytsi/dostojno-yest.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(53, "Коли втомлений", "pisni/bohorodytsi/koly-vtomlenyj.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(54, "Лугами піснь", "pisni/bohorodytsi/luhamy-pisen.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(55, "Маріє, Діво благословенна",
 				"pisni/bohorodytsi/mariye-divo-blahoslovenna.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(56, "Маріє Діво, Царице мая",
 				"pisni/bohorodytsi/mariye-divo-tsarytse-maya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(57, "Нехай звенить", "pisni/bohorodytsi/nekhaj-dzvenyt.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(58, "О, Богородице Діво, Маріє",
 				"pisni/bohorodytsi/o-bohorodytse-divo-mariye.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(59, "О, всепітая Мати",
 				"pisni/bohorodytsi/o-vsepitaya-maty.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(60, "О, Маріє, Мати Божа",
 				"pisni/bohorodytsi/o-mariye-maty-bozha.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(61, "О, Мати Божа, о, райський цвіте",
 				"pisni/bohorodytsi/o-maty-bozha-o-rajskyj-tsvite.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(62, "О, Пречиста", "pisni/bohorodytsi/o-prechysta.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(63, "Пренебесна, пречудесна",
 				"pisni/bohorodytsi/prenebesna-prechudesna.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(64, "Пречистая Діво, Мати",
 				"pisni/bohorodytsi/prechysta-divo-maty.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(65, "Просимо тя, Діво",
 				"pisni/bohorodytsi/prosymo-tya-divo.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(66, "Там, де в небі", "pisni/bohorodytsi/tam-de-v-nebi.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(614, "Маріє, Діво Пресвята",
 				"pisni/bohorodytsi/mariye-divo-presvyata.html",
 				SRC_PISNI_KYRIOS);
@@ -954,27 +960,27 @@ public class Catalog {
 		sm = menu.subMenu(67, "Пісні до святих");
 		sm.text(68, "Святий Великий Володимире",
 				"pisni/svyatykh/svyatyj-velykyj-volodymyre.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(69, "О, свята Ольго", "pisni/svyatykh/o-svyata-olho.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(70, "Пісню слави", "pisni/svyatykh/pisnyu-slavy.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(71, "Владико, отче", "pisni/svyatykh/vladyko-otche.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(72, "О, хто, хто Миколая любить",
 				"pisni/svyatykh/o-khto-khto-mykolaya-lyubyt.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 
 		sm = menu.subMenu(73, "Похоронні пісні");
 		sm.text(74, "В темну могилу", "pisni/pokhoronni/v-temnu-mohylu.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(75, "Кругом життя", "pisni/pokhoronni/kruhom-zhyttya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(76, "Прощай, душе", "pisni/pokhoronni/proschaj-dushe.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(77, "Со святими упокой",
 				"pisni/pokhoronni/so-svyatymy-upokoj.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(630, "Моліться всі", "pisni/pokhoronni/molitsya-vsi.html",
 				SRC_PISNI_KYRIOS);
 		sm.text(631, "О, Боже Великий, з високого неба",
@@ -991,10 +997,10 @@ public class Catalog {
 				SRC_VERVYTSYA_MOLYTVA);
 		menu.html(81, "Молитва на Вервиці",
 				"vervytsya/molytva-na-vervytsi.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(711, "Молитва на чотках",
 				"vervytsya/molytva-na-chotkakh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(894, "Світлі таїнства", "vervytsya/svitli-tajinstva.html",
 				"Молитва - Світлі таїнства http://molytva.at.ua/index/svitli_tajinstva/0-57");
 		return menu;
@@ -1003,7 +1009,8 @@ public class Catalog {
 	private MenuItemSubMenu addBohosluzhinnya() {
 		MenuItemSubMenu menu = new MenuItemSubMenu(82, "Богослужіння");
 
-		MenuItemSubMenu sm = menu.subMenu(687, "Часослов");
+		MenuItemSubMenu sm = menu.subMenu(687, "Часослов").setOfficialUGCCText(
+				true);
 		sm.web(688, "Вечірня", "bohosluzhinnya/chasoslov/vechirnya.html",
 				SRC_MOLYTVOSLOV);
 		sm.web(689, "Мале Повечір’я",
@@ -1123,7 +1130,8 @@ public class Catalog {
 		sm = menu
 				.subMenu(
 						682,
-						"Священна і Божественна Літургія во святих отця нашого Йоана Золотоустого. Рим 1968 (переклад патріарха Йосифа чи прийдіте поклонімся)");
+						"Священна і Божественна Літургія во святих отця нашого Йоана Золотоустого. Рим 1968 (переклад патріарха Йосифа чи прийдіте поклонімся)")
+				.setOfficialUGCCText(true);
 		sm.html(686, "Молитви перед Літургією",
 				"bohosluzhinnya/liturhiya/molytvy-pered-liturhiyeyu.html",
 				SRC_LITURHIYA_KYRIOS);
@@ -1139,7 +1147,8 @@ public class Catalog {
 				893,
 				"Священна і Божественна Літургія святого отця нашого Йоана Золотоустого, друге видання, доповнене. Львів: Місіонер 1997. (офіційний переклад)",
 				"bohosluzhinnya/liturhiya.html",
-				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011");
+				"Молитовник для української родини. Релігійне видавництво \"Ріки води живої\". Львів-2011")
+				.setOfficialUGCCText(true);
 
 		return menu;
 	}
@@ -1150,26 +1159,27 @@ public class Catalog {
 		MenuItemSubMenu sm = menu.subMenu(715, "Служби на різні потреби");
 		sm.web(716, "Служба за померлих",
 				"bohosluzhinnya/sluzhby/za-pomerlykh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.web(717, "Служба на всяке прошення",
 				"bohosluzhinnya/sluzhby/na-vsyake-proshennya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.web(718, "Служба подяки", "bohosluzhinnya/sluzhby/podyaky.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.web(719, "Служба про поміч Святого Духа",
 				"bohosluzhinnya/sluzhby/pro-pomich-sv-dukha.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.web(720, "Служба за недужих",
 				"bohosluzhinnya/sluzhby/za-neduzhykh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.web(721, "Служба за подорожніх",
 				"bohosluzhinnya/sluzhby/za-podorozhnikh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
-		sm.web(909, "Літургія про мир під час міжусобного протистояння і за примирення і зупинення заколотів та безладів міських СЛУ-ЛЬВ-1929",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
+		sm.web(909,
+				"Літургія про мир під час міжусобного протистояння і за примирення і зупинення заколотів та безладів міських СЛУ-ЛЬВ-1929",
 				"bohosluzhinnya/sluzhby/za-myr-i-prymyrennya-pid-chas-protystoyannya.html",
 				"Нотатки Никодима - Літургія про мир під час міжусобного протистояння і за примирення і зупинення заколотів та безладів міських СЛУ-ЛЬВ-1929 http://nykodym.blogspot.com/2014/05/1929.html");
 
-		sm = menu.subMenu(728, "Повсякденна служба");
+		sm = menu.subMenu(728, "Повсякденна служба").setOfficialUGCCText(true);
 		sm.web(722, "Понеділок", "bohosluzhinnya/sluzhby/ponedilok.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		sm.web(723, "Вівторок", "bohosluzhinnya/sluzhby/vivtorok.html",
@@ -1183,7 +1193,8 @@ public class Catalog {
 		sm.web(727, "Субота", "bohosluzhinnya/sluzhby/subota.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 
-		sm = menu.subMenu(729, "Загальні служби святим");
+		sm = menu.subMenu(729, "Загальні служби святим").setOfficialUGCCText(
+				true);
 		sm.web(730, "Служба Пресвятій Богородиці",
 				"bohosluzhinnya/sluzhby/zahalni/presv-bohorodytsi.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -1238,7 +1249,8 @@ public class Catalog {
 				"bohosluzhinnya/sluzhby/zahalni/bezsrebrenykam-i-chudotvortsyam.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 
-		sm = menu.subMenu(746, "Служби на рухомі свята");
+		sm = menu.subMenu(746, "Служби на рухомі свята").setOfficialUGCCText(
+				true);
 		sm.web(747, "Свята і велика неділя Пасхи",
 				"bohosluzhinnya/sluzhby/rukhomi/nedilya-paskhy.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -1379,7 +1391,8 @@ public class Catalog {
 				"bohosluzhinnya/sluzhby/rukhomi/svyata-velyka-subota.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 
-		sm = menu.subMenu(790, "Служби празників і святим");
+		sm = menu.subMenu(790, "Служби празників і святим")
+				.setOfficialUGCCText(true);
 		sm.web(791,
 				"1 вересня, Начало Нового церковного року, Собор Пресвятої Богородиці, Преподобного Симеона Стовпника",
 				"bohosluzhinnya/sluzhby/nerukhomi/1-veresnya.html",
@@ -1719,13 +1732,14 @@ public class Catalog {
 
 		menu.web(891, "Воскресна служба восьми гласів",
 				"bohosluzhinnya/sluzhby/voskresna-sluzhba-8-hlasiv.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 
 		return menu;
 	}
 
 	private MenuItemSubMenu addMolytvyNaKozhenDen() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(85, "Молитви на кожен день");
+		MenuItemSubMenu menu = new MenuItemSubMenu(85, "Молитви на кожен день")
+				.setOfficialUGCCText(true);
 		menu.html(86, "Молитва ранішнього намірення",
 				"na-kozhen-den/ranizhnoho-namirennya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
@@ -1919,19 +1933,19 @@ public class Catalog {
 		menu.html(159, "Деякі додаткові зауваги",
 				"pro-spovid/dodatkovi-zauvahy.html", SRC_PRO_SPOVID);
 		menu.html(160, "Сповідь", "pro-spovid/spovid.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(161, "Молитви в часі сповіді",
 				"pro-spovid/molytvy-v-chasi-spovidi.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(162, "Молитви перед святим причастям",
 				"pro-spovid/molytvy-pered-prychastyam.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(163, "Молитви по святім причастю",
 				"pro-spovid/molytvy-pislya-prychastya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(712, "Молитовне правило до Святого Причастя",
 				"pro-spovid/molytovne-pravylo.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		return menu;
 	}
 
@@ -1980,10 +1994,10 @@ public class Catalog {
 		sm = menu.subMenu(672, "Молитви батьків і дітей");
 		sm.html(184, "Молитва батьків за дітей",
 				"rizni-potreby/batky-dity/batkiv-za-ditey.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.html(185, "Молитва дітей за батьків",
 				"rizni-potreby/batky-dity/ditey-za-batkiv.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		sm.text(674, "Молитва матері за дітей",
 				"rizni-potreby/batky-dity/materi-za-ditej.html",
 				SRC_MOLYTVY_KYRIOS);
@@ -2012,63 +2026,63 @@ public class Catalog {
 				SRC_MOLYTVY_KYRIOS);
 
 		menu.html(4, "Молитви при трапезі", "molytvy-pry-trapezi.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(175, "Молитва подяки", "rizni-potreby/podyaky.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(176, "Молитва на всяке прошення",
 				"rizni-potreby/vsyake-proshennya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(177, "Молитва до Пресвятої Богородиці",
 				"rizni-potreby/do-presv-bohorod.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(178, "Молитва у терпінні", "rizni-potreby/u-terpinni.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(179, "Молитва за недужих", "rizni-potreby/za-neduzhykh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(180, "Молитва на всяку неміч",
 				"rizni-potreby/na-vsyaku-nemich.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(181, "Молитва при вмираючих",
 				"rizni-potreby/pry-vmyrayuchykh.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(182, "Молитва у годині смерти",
 				"rizni-potreby/u-hodyni-smerti.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.text(434, "Молитва за померлих",
 				"rizni-potreby/za-pomerlykh.html",
 				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(183, "Молитва християнської родини",
 				"rizni-potreby/khryst-rodyny.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.text(186, "Молитва за чоловіка (дружину)",
 				"rizni-potreby/za-cholovika-druzhynu.html",
 				"МОЛИТВА - Родинні молитви http://molytva.at.ua/index/rodinni_molitvi/0-151");
 		menu.html(187, "Молитва учня (учениці)", "rizni-potreby/uchnya.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.text(433, "Молитва за вибір стану",
 				"rizni-potreby/vybir-stanu.html",
 				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
 		menu.html(188, "Молитва за перемогу над спокусами",
 				"rizni-potreby/peremoha-nad-spokusamy.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(189, "Молитва про духа покори",
 				"rizni-potreby/dukha-pokory.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(190, "Молитва в день іменин",
 				"rizni-potreby/v-den-imenyn.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(191, "Молитва за того, хто хоче іти в путь",
 				"rizni-potreby/ity-v-put.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(192, "Молитва на благословення дому",
 				"rizni-potreby/blahoslovennya-domu.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(193, "Молитва на освячення всякої речі",
 				"rizni-potreby/osvyach-rechi.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.html(194, "Молитви за з’єднання всіх християн",
 				"rizni-potreby/zyednannya-khrystyyan.html",
-				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
 		menu.text(436, "Молитва за український народ",
 				"rizni-potreby/za-ukr-narod.html",
 				SRC_MOLYTOVNYK_VIJSKOVOZLUZHBOVTSYA);
