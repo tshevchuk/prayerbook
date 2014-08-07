@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="PrayerBook.ActionBarDark" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#111</item>
+    </style>
+
+</resources>
