@@ -23,6 +23,7 @@ public class AboutAppFragment extends FragmentBase {
 		((TextView) v.findViewById(R.id.tv_app_name)).setText(Utils
 				.getApplicationNameAndVersion());
 		StringBuilder sb = new StringBuilder();
+		sb.append("Коротка довідка: https://code.google.com/p/prayerbook/wiki/PrayerBookHelp\n\n");
 		sb.append("Автор: Тарас Шевчук taras.shevchuk@gmail.com\n\n");
 		
 		sb.append("Подяки:\nІван Дутка - за поради і зауваження, надані деякі тексти;\n");
