@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.adapters.SubMenuListAdapter;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemSubMenu;
 
@@ -36,8 +37,7 @@ public class SubMenuFragment extends FragmentBase {
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_submenu, container, false);
 		ListView lvItems = (ListView) v.findViewById(R.id.lvItems);
-		lvItems.setAdapter(new ArrayAdapter<MenuItemBase>(activity,
-				android.R.layout.simple_list_item_1, subMenu.getSubItems()));
+		lvItems.setAdapter(new SubMenuListAdapter(activity, subMenu.getSubItems()));
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,

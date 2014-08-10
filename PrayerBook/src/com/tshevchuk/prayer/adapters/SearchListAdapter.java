@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.PrayerBookApplication;
@@ -47,11 +48,16 @@ public class SearchListAdapter extends BaseAdapter {
 
 			vh.tvName = (TextView) v.findViewById(R.id.tvName);
 			vh.tvParentName = (TextView) v.findViewById(R.id.tvParentName);
+			vh.ivOfficialStamp = (ImageView) v
+					.findViewById(R.id.iv_official_stamp);
 			v.setTag(vh);
 		}
 		ViewHolder vh = (ViewHolder) v.getTag();
 		SearchItem si = items.get(position);
 		vh.tvName.setText(Html.fromHtml(si.getName()));
+		vh.ivOfficialStamp
+				.setVisibility(si.getMenuItem().isOfficialUGCCText() ? View.VISIBLE
+						: View.INVISIBLE);
 		if (si.getMenuItem().getParentItemId() > 0) {
 			vh.tvParentName.setVisibility(View.VISIBLE);
 			vh.tvParentName.setText(PrayerBookApplication.getInstance()
@@ -67,5 +73,6 @@ public class SearchListAdapter extends BaseAdapter {
 	private static class ViewHolder {
 		TextView tvName;
 		TextView tvParentName;
+		ImageView ivOfficialStamp;
 	}
 }

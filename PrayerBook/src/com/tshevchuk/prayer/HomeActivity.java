@@ -30,7 +30,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
@@ -42,6 +41,7 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.HitBuilders.EventBuilder;
 import com.google.android.gms.analytics.Tracker;
 import com.tjeannin.apprate.AppRate;
+import com.tshevchuk.prayer.adapters.SubMenuListAdapter;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
@@ -87,10 +87,8 @@ public class HomeActivity extends Activity {
 
 		catalog = PrayerBookApplication.getInstance().getCatalog();
 
-		drawerList
-				.setAdapter(new ArrayAdapter<MenuItemBase>(this,
-						android.R.layout.simple_list_item_1, catalog
-								.getTopMenuItems()));
+		drawerList.setAdapter(new SubMenuListAdapter(this, catalog
+				.getTopMenuItems()));
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,

@@ -34,7 +34,11 @@ public class AboutPrayerFragment extends FragmentBase {
 		View v = inflater.inflate(R.layout.f_about_prayer, container, false);
 		((TextView) v.findViewById(R.id.tv_name)).setText(prayer.getFullName());
 		TextView tvAbout = (TextView) v.findViewById(R.id.tv_about);
-		tvAbout.setText(Html.fromHtml(prayer.getAbout()));
+		String about = prayer.getAbout();
+		if (prayer.isOfficialUGCCText()) {
+			about += "<br><br>Цей текст/молитва належить до офіційних текстів УГКЦ";
+		}
+		tvAbout.setText(Html.fromHtml(about));
 		return v;
 	}
 
