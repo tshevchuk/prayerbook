@@ -1,0 +1,222 @@
+<catalog>
+
+    <submenu
+        id="3"
+        name="1. Молімося кожного дня" >
+        <html
+            id="4"
+            name="1 Зміст Розділи та Підрозділи (щоб орієнтуватися про обєм роботи)"
+            file="1.-Molimosya-kozhnogo-dnya/1-Zmist-Rozdili-ta-Pidrozdili-shchob-oriyentuvatisya-pro-obyem-roboti.html" />
+        <html
+            id="5"
+            name="2 Щоденні молитви"
+            file="1.-Molimosya-kozhnogo-dnya/2-SHCHodenni-molitvi.html" />
+        <html
+            id="6"
+            name="3 Катихізис Католицької Церкви"
+            file="1.-Molimosya-kozhnogo-dnya/3-Katikhizis-Katolitskoi-TSerkvi.html" />
+        <html
+            id="7"
+            name="4 Ранкові молитви"
+            file="1.-Molimosya-kozhnogo-dnya/4-Rankovi-molitvi.html" />
+        <html
+            id="8"
+            name="5 Молитви протягом дня"
+            file="1.-Molimosya-kozhnogo-dnya/5-Molitvi-protyagom-dnya.html" />
+        <html
+            id="9"
+            name="6 Вечірні молитви"
+            file="1.-Molimosya-kozhnogo-dnya/6-Vechirni-molitvi.html" />
+        <html
+            id="10"
+            name="7 Молитва сім&apos;ї"
+            file="1.-Molimosya-kozhnogo-dnya/7-Molitva-simi.html" />
+        <html
+            id="11"
+            name="8 Молитва псалмами"
+            file="1.-Molimosya-kozhnogo-dnya/8-Molitva-psalmami.html" />
+        <html
+            id="12"
+            name="9 Роздуми Lectio divina"
+            file="1.-Molimosya-kozhnogo-dnya/9-Rozdumi-Lectio-divina.html" />
+    </submenu>
+    <submenu
+        id="14"
+        name="2 Таїнства" >
+        <html
+            id="15"
+            name="2 Таїнства Христа і Церкви"
+            file="2-Tainstva/2-Tainstva-KHrista-i-TSerkvi.html" />
+        <html
+            id="16"
+            name="2.1 Таїнство Хрещення"
+            file="2-Tainstva/2.1-Tainstvo-KHreshchennya.html" />
+        <html
+            id="17"
+            name="2.2  Таїнство Миропомазання (Конфірмації)"
+            file="2-Tainstva/2.2--Tainstvo-Miropomazannya-Konfirmatsii.html" />
+        <html
+            id="18"
+            name="2.3.1.  Молитви перед Євхаристією"
+            file="2-Tainstva/2.3.1.--Molitvi-pered-YEvkharistiyeyu.html" />
+        <html
+            id="19"
+            name="2.3.2.1.1 Понеділок"
+            file="2-Tainstva/2.3.2.1.1-Ponedilok.html" />
+        <html
+            id="20"
+            name="2.3.2.1.2 Вівторок"
+            file="2-Tainstva/2.3.2.1.2-Vivtorok.html" />
+        <html
+            id="21"
+            name="2.3.2.1.3 Середа"
+            file="2-Tainstva/2.3.2.1.3-Sereda.html" />
+        <html
+            id="22"
+            name="2.3.2.1.4 Четвер"
+            file="2-Tainstva/2.3.2.1.4-CHetver.html" />
+        <html
+            id="23"
+            name="2.3.2.1.5 П’ятниця"
+            file="2-Tainstva/2.3.2.1.5-Pyatnitsya.html" />
+        <html
+            id="24"
+            name="2.3.2.1.6 Субота"
+            file="2-Tainstva/2.3.2.1.6-Subota.html" />
+        <html
+            id="25"
+            name="2.3.2.1.7 Неділя"
+            file="2-Tainstva/2.3.2.1.7-Nedilya.html" />
+        <html
+            id="26"
+            name="2.3.2.1 Сім відвідин Пресвятої Євхаристії"
+            file="2-Tainstva/2.3.2.1-Sim-vidvidin-Presvyatoi-YEvkharistii.html" />
+        <html
+            id="27"
+            name="2.3.2.  Молитви після Євхаристії"
+            file="2-Tainstva/2.3.2.--Molitvi-pislya-YEvkharistii.html" />
+        <html
+            id="28"
+            name="2.3.3 «Tе Deum» (подячний гімн св. Амвросія)"
+            file="2-Tainstva/2.3.3-Te-Deum-podyachnij-gimn-sv.-Amvrosiya.html" />
+        <html
+            id="29"
+            name="2.3.4.1 Вступні обряди"
+            file="2-Tainstva/2.3.4.1-Vstupni-obryadi.html" />
+        <html
+            id="30"
+            name="2.3.4.2 Літургія Слова"
+            file="2-Tainstva/2.3.4.2-Liturgiya-Slova.html" />
+        <html
+            id="31"
+            name="2.3.4.3 Євхаристійна Літургія"
+            file="2-Tainstva/2.3.4.3-YEvkharistijna-Liturgiya.html" />
+        <html
+            id="32"
+            name="2.3.4.4 Обряд закінчення"
+            file="2-Tainstva/2.3.4.4-Obryad-zakinchennya.html" />
+        <html
+            id="33"
+            name="2.3.4 Свята Літургія римського обряду"
+            file="2-Tainstva/2.3.4-Svyata-Liturgiya-rimskogo-obryadu.html" />
+        <html
+            id="34"
+            name="2.3 Таїнство Євхаристії"
+            file="2-Tainstva/2.3-Tainstvo-YEvkharistii.html" />
+        <html
+            id="35"
+            name="2.4 Таїнство Покаяння і Примирення"
+            file="2-Tainstva/2.4-Tainstvo-Pokayannya-i-Primirennya.html" />
+        <html
+            id="36"
+            name="2.4.1.1 Вступні запитання"
+            file="2-Tainstva/2.4.1.1-Vstupni-zapitannya.html" />
+        <html
+            id="37"
+            name="2.4.1.2 Гріхи проти Бога"
+            file="2-Tainstva/2.4.1.2-Grikhi-proti-Boga.html" />
+        <html
+            id="38"
+            name="2.4.1.3 Гріхи проти ближнього"
+            file="2-Tainstva/2.4.1.3-Grikhi-proti-blizhnogo.html" />
+        <html
+            id="39"
+            name="2.4.1.4 Гріхи проти себе"
+            file="2-Tainstva/2.4.1.4-Grikhi-proti-sebe.html" />
+        <html
+            id="40"
+            name="2.4.1.5 Гріхи проти подружнього життя"
+            file="2-Tainstva/2.4.1.5-Grikhi-proti-podruzhnogo-zhittya.html" />
+        <html
+            id="41"
+            name="2.4.1.6 Молитва після іспиту совісті"
+            file="2-Tainstva/2.4.1.6-Molitva-pislya-ispitu-sovisti.html" />
+        <html
+            id="42"
+            name="2.4.1 Іспит совісті для дорослих"
+            file="2-Tainstva/2.4.1-Ispit-sovisti-dlya-doroslikh.html" />
+
+        <submenu
+            id="43"
+            name="2.4.3" >
+            <html
+                id="44"
+                name="5 кроків доброї сповіді"
+                file="2-Tainstva/2.4.3/5-krokiv-dobroi-spovidi.html" />
+            <html
+                id="45"
+                name="7 головних гріхів"
+                file="2-Tainstva/2.4.3/7-golovnikh-grikhiv.html" />
+            <html
+                id="46"
+                name="Гріхи, про які майже ніколи не почуєш у сповідальниці (ІІ)"
+                file="2-Tainstva/2.4.3/Grikhi-pro-yaki-majzhe-nikoli-ne-pochuyesh-u-spovidalnitsi-II.html" />
+            <html
+                id="47"
+                name="Гріхи, про які ми мовчимо"
+                file="2-Tainstva/2.4.3/Grikhi-pro-yaki-mi-movchimo.html" />
+            <html
+                id="48"
+                name="Іспит совісті для священика"
+                file="2-Tainstva/2.4.3/Ispit-sovisti-dlya-svyashchenika.html" />
+            <html
+                id="49"
+                name="Кого стосується припис щорічної сповіді"
+                file="2-Tainstva/2.4.3/Kogo-stosuyetsya-pripis-shchorichnoi-spovidi.html" />
+            <html
+                id="50"
+                name="Про гріхи, які майже ніколи не почуєш у сповідальниці (І)"
+                file="2-Tainstva/2.4.3/Pro-grikhi-yaki-majzhe-nikoli-ne-pochuyesh-u-spovidalnitsi-I.html" />
+            <html
+                id="51"
+                name="Священик чи психолог"
+                file="2-Tainstva/2.4.3/Svyashchenik-chi-psikholog.html" />
+            <html
+                id="52"
+                name="Сповідатися під час недільної Літургії шкідливо"
+                file="2-Tainstva/2.4.3/Spovidatisya-pid-chas-nedilnoi-Liturgii-shkidlivo.html" />
+            <html
+                id="53"
+                name="Таїнство сповіді (примирення)"
+                file="2-Tainstva/2.4.3/Tainstvo-spovidi-primirennya.html" />
+            <html
+                id="54"
+                name="Чи існують такі гріхи, які не можуть відпускати усі священики під час сповіді"
+                file="2-Tainstva/2.4.3/CHi-isnuyut-taki-grikhi-yaki-ne-mozhut-vidpuskati-usi-svyashcheniki-pid-chas-spovidi.html" />
+            <html
+                id="55"
+                name="Як відрізнити смертний гріх від повсякденного"
+                file="2-Tainstva/2.4.3/YAk-vidrizniti-smertnij-grikh-vid-povsyakdennogo.html" />
+        </submenu>
+
+        <html
+            id="56"
+            name="2.5 Таїнство Єлеопомазання"
+            file="2-Tainstva/2.5-Tainstvo-YEleopomazannya.html" />
+        <html
+            id="57"
+            name="2.5.1 Молитва перед Єлеопомазанням"
+            file="2-Tainstva/2.5.1-Molitva-pered-YEleopomazannyam.html" />
+    </submenu>
+
+</catalog>
