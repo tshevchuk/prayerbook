@@ -3,11 +3,12 @@
     <submenu
         id="3"
         name="1. Молімося кожного дня" >
-        <html
+<!--         <html
             id="4"
             name="1 Зміст Розділи та Підрозділи (щоб орієнтуватися про обєм роботи)"
             file="1.-Molimosya-kozhnogo-dnya/1-Zmist-Rozdili-ta-Pidrozdili-shchob-oriyentuvatisya-pro-obyem-roboti.html" />
-        <html
+ -->
+       <html
             id="5"
             name="2 Щоденні молитви"
             file="1.-Molimosya-kozhnogo-dnya/2-SHCHodenni-molitvi.html" />

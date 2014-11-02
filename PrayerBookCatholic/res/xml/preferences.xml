@@ -13,7 +13,7 @@
         android:entryValues="@array/TextFontSizes"
         android:key="pref_textFontSize"
         android:title="Розмір шрифта" />
-
+<!-- 
     <ListPreference
         android:defaultValue="2"
         android:dialogTitle="Відкривати при старті програми"
@@ -21,7 +21,7 @@
         android:entryValues="@array/DefaultScreensIds"
         android:key="pref_defaultScreens"
         android:title="Відкривати при старті програми" />
-
+ -->
     <Preference
         android:key="pref_aboutApp"
         android:title="Про програму" />

@@ -468,7 +468,7 @@ public class HomeActivity extends Activity {
 		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
 				new String[] { "prayerbook.android@gmail.com" });
 		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
-				"Молитовник: Повідомлення про помилку");
+				"Католицький Молитовник: Повідомлення про помилку");
 
 		StringBuilder sb = new StringBuilder();
 		sb.append("Опишіть коротко помилку:\n\n\n\n");

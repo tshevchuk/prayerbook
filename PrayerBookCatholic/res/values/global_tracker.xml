@@ -5,7 +5,7 @@
 
     <bool name="ga_autoActivityTracking">true</bool>
 
-    <string name="ga_trackingId">UA-50190925-1</string>
+    <string name="ga_trackingId">UA-56324828-1</string>
 
     <bool name="ga_reportUncaughtExceptions">true</bool>
 
