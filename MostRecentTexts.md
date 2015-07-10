@@ -1,0 +1,1 @@
+[Найпопулярніші тексти програми за період 24 червня - 24 липня 2014 року](https://docs.google.com/spreadsheet/ccc?key=0AvrZIJGWcoyIdElqTUxBbHB2d0Z5ZU12U3dXODlTNmc&usp=sharing)
