@@ -1,9 +1,5 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +10,10 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class AboutAppFragment extends FragmentBase {
 
 	@Override
@@ -23,18 +23,18 @@ public class AboutAppFragment extends FragmentBase {
 		((TextView) v.findViewById(R.id.tv_app_name)).setText(Utils
 				.getApplicationNameAndVersion());
 		StringBuilder sb = new StringBuilder();
-		sb.append("Коротка довідка: https://code.google.com/p/prayerbook/wiki/PrayerBookHelp\n\n");
+		sb.append("Коротка довідка: https://github.com/tshevchuk/prayerbook/wiki/Довідка-програми-Молитовник \n\n");
 		sb.append("Автор: Тарас Шевчук taras.shevchuk@gmail.com\n\n");
 		
 		sb.append("Подяки:\nІван Дутка - за поради і зауваження, надані деякі тексти;\n");
 		sb.append("Степан Сус - за поширення програми в Facebook\n\n");
-		
-		sb.append("Історія змін: https://code.google.com/p/prayerbook/wiki/ReleaseNotes\n\n");
-		
-		sb.append("Допомогти проекту можна наступними способами: https://code.google.com/p/prayerbook/wiki/HowToContribute\n\n");
+
+		sb.append("Історія змін: https://github.com/tshevchuk/prayerbook/wiki/Історія-змін \n\n");
+
+		sb.append("Допомогти проекту можна наступними способами: https://github.com/tshevchuk/prayerbook/wiki/Як-допомогти-проекту%3F \n\n");
 		
 		sb.append("Джерела текстів:\n");
-		List<String> srcs = new ArrayList<String>(PrayerBookApplication
+		List<String> srcs = new ArrayList<>(PrayerBookApplication
 				.getInstance().getCatalog().getAllSources());
 		Collections.sort(srcs);
 		for (String src : srcs) {
