@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.tshevchuk.prayer.R;
@@ -30,7 +29,7 @@ public class SubMenuFragment extends FragmentBase {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		subMenu = (MenuItemSubMenu) getArguments().getSerializable("subMenu");
-	};
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

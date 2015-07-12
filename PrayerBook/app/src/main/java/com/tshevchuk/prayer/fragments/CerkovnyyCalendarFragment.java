@@ -1,7 +1,5 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.util.Calendar;
-
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.os.Bundle;
@@ -24,12 +22,14 @@ import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemCalendar;
 
+import java.util.Calendar;
+
 public class CerkovnyyCalendarFragment extends FragmentBase {
+	private final CerkovnyyCalendar calendar = CerkovnyyCalendar.getInstance();
+	private final int[] years = calendar.getYears();
 	private int year;
 	private int currentYear;
-	private CerkovnyyCalendar calendar = CerkovnyyCalendar.getInstance();
 	private int prevFirstVisibleItem;
-	private int[] years = calendar.getYears();
 	private String[] formattedYears;
 	private MenuItemCalendar menuItem;
 	private Integer initPosition;
@@ -71,12 +71,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-
-	}
-
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_cerkovnyy_calendar, container,
@@ -111,7 +105,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		super.onResume();
 		actionBar.setTitle("Церковний календар");
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-		actionBar.setListNavigationCallbacks(new ArrayAdapter<String>(activity,
+		actionBar.setListNavigationCallbacks(new ArrayAdapter<>(activity,
 				android.R.layout.simple_spinner_dropdown_item, formattedYears),
 				new OnNavigationListener() {
 					@Override

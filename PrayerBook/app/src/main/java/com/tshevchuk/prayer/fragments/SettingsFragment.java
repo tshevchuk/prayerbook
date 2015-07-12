@@ -43,7 +43,7 @@ public class SettingsFragment extends PreferenceFragment implements
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 		addPreferencesFromResource(R.xml.preferences);
-		Preference aboutApp = (Preference) findPreference(PreferenceManager.PREF_ABOUT_APP);
+		Preference aboutApp = findPreference(PreferenceManager.PREF_ABOUT_APP);
 		aboutApp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 			@Override
 			public boolean onPreferenceClick(Preference arg0) {
@@ -88,16 +88,20 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
-		if (key.equals(PreferenceManager.PREF_NIGHT_MODE)) {
-			sendAnalyticsSettingsChanged(key,
-					String.valueOf(sharedPreferences.getBoolean(key, false)));
-			getActivity().recreate();
-		} else if (key.equals(PreferenceManager.PREF_TEXT_FONT_SIZE)) {
-			sendAnalyticsSettingsChanged(key,
-					sharedPreferences.getString(key, ""));
-		} else if (key.equals(PreferenceManager.PREF_DEFAULT_SCREENS)) {
-			sendAnalyticsSettingsChanged(key,
-					sharedPreferences.getString(key, ""));
+		switch (key) {
+			case PreferenceManager.PREF_NIGHT_MODE:
+				sendAnalyticsSettingsChanged(key,
+						String.valueOf(sharedPreferences.getBoolean(key, false)));
+				getActivity().recreate();
+				break;
+			case PreferenceManager.PREF_TEXT_FONT_SIZE:
+				sendAnalyticsSettingsChanged(key,
+						sharedPreferences.getString(key, ""));
+				break;
+			case PreferenceManager.PREF_DEFAULT_SCREENS:
+				sendAnalyticsSettingsChanged(key,
+						sharedPreferences.getString(key, ""));
+				break;
 		}
 	}
 
@@ -110,8 +114,8 @@ public class SettingsFragment extends PreferenceFragment implements
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void sendAnalyticsSettingsChanged(CharSequence settingsName,
-			CharSequence value) {
+	private void sendAnalyticsSettingsChanged(CharSequence settingsName,
+											  CharSequence value) {
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
 				Analytics.CAT_SETTINGS_CHANGED).setAction(

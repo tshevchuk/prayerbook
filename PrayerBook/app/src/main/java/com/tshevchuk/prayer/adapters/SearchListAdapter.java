@@ -1,7 +1,5 @@
 package com.tshevchuk.prayer.adapters;
 
-import java.util.List;
-
 import android.content.Context;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -15,9 +13,11 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.SearchItem;
 
+import java.util.List;
+
 public class SearchListAdapter extends BaseAdapter {
-	private List<SearchItem> items;
-	private LayoutInflater inflater;
+	private final List<SearchItem> items;
+	private final LayoutInflater inflater;
 
 	public SearchListAdapter(Context context, List<SearchItem> items) {
 		this.items = items;

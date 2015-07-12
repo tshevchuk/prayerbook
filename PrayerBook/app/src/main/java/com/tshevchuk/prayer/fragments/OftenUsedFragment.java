@@ -1,10 +1,5 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import android.os.Bundle;
 import android.text.Html;
 import android.util.TypedValue;
@@ -30,6 +25,11 @@ import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemOftenUsed;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class OftenUsedFragment extends FragmentBase {
 	private MenuItemOftenUsed menuItem;
@@ -75,7 +75,7 @@ public class OftenUsedFragment extends FragmentBase {
 		});
 		lvItems.addHeaderView(calendarToday);
 
-		lvItems.setAdapter(new ArrayAdapter<MenuItemBase>(getActivity(),
+		lvItems.setAdapter(new ArrayAdapter<>(getActivity(),
 				android.R.layout.simple_list_item_1, new MenuItemBase[0]));
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -95,7 +95,7 @@ public class OftenUsedFragment extends FragmentBase {
 		activity.getActionBar().setTitle(R.string.app_name);
 
 		int[] recentIds = PreferenceManager.getInstance().getRecentMenuItems();
-		oftenUsedItems = new ArrayList<MenuItemBase>(recentIds.length);
+		oftenUsedItems = new ArrayList<>(recentIds.length);
 		Catalog cat = PrayerBookApplication.getInstance().getCatalog();
 		for (int id : recentIds) {
 			MenuItemBase mi = cat.getMenuItemById(id);

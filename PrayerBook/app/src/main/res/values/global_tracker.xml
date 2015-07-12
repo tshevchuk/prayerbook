@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <integer name="ga_sessionTimeout">300</integer>
+    <integer name="ga_sessionTimeout" tools:ignore="UnusedResources">300</integer>
 
-    <bool name="ga_autoActivityTracking">true</bool>
+    <bool name="ga_autoActivityTracking" tools:ignore="UnusedResources">true</bool>
 
     <string name="ga_trackingId">UA-50190925-1</string>
 
-    <bool name="ga_reportUncaughtExceptions">true</bool>
+    <bool name="ga_reportUncaughtExceptions" tools:ignore="UnusedResources">true</bool>
 
 </resources>

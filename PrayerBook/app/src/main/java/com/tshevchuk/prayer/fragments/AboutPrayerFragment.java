@@ -26,7 +26,7 @@ public class AboutPrayerFragment extends FragmentBase {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		prayer = (MenuItemPrayer) getArguments().getSerializable("prayer");
-	};
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

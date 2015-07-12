@@ -8,16 +8,13 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
-
     <application
         android:name=".PrayerBookApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/PrayerBook.ThemeLight" >
+        android:supportsRtl="false"
+        android:theme="@style/PrayerBook.ThemeLight">
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name" >

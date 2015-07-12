@@ -1,18 +1,22 @@
 package com.tshevchuk.prayer.data;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.Utils;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class Catalog {
+	public static final int ID_CALENDAR = 5;
+	public static final int ID_FOR_EVERY_DAY = 85;
+	public static final int ID_FOR_EVERY_OCASION = 164;
+	public static final int ID_RECENT_SCREENS = 400;
 	private static final String SRC_BIBLIA = "Біблія, переклад Івана Хоменка";
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
 	private static final String SRC_MOLYTVOSLOV = "Молитвослов. Видавництво ОО. Василіян, Рим-Торонто, 1990.";
@@ -32,21 +36,15 @@ public class Catalog {
 	private static final String SRC_MOLYTVY_KYRIOS = "Християнський портал Кіріос - Молитви http://kyrios.org.ua/spirituality/prayer.html";
 	private static final String SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA = "Християнський портал Кіріос - Молитви до Пресвятої Богородиці на кожен день тижня (преп. Ніла Сорського) http://kyrios.org.ua/spirituality/prayer/816-molitvi-do-presvjatoyi-bogoroditsi-na-kozhen-den-tizhnja-prep-nila-sorskogo.html";
 	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
-
-	public static final int ID_SCHODENNI_MOLYTVY = 1;
-	public static final int ID_CALENDAR = 5;
-	public static final int ID_FOR_EVERY_DAY = 85;
-	public static final int ID_FOR_EVERY_OCASION = 164;
-	public static final int ID_RECENT_SCREENS = 400;
-
+	private static final int ID_SCHODENNI_MOLYTVY = 1;
 	private static final int NEXT_ID_TO_ADD = 910;
 
-	private List<MenuItemBase> topMenu = new ArrayList<MenuItemBase>();
-	private SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<MenuItemBase>();
+	private final List<MenuItemBase> topMenu;
+	private final SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<>();
 
 	{
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
-		menu.addSubItem(new MenuItemOftenUsed(400));
+		menu.addSubItem(new MenuItemOftenUsed());
 		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
 				"molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012)
 				.setOfficialUGCCText(true);
@@ -54,7 +52,7 @@ public class Catalog {
 		menu.addSubItem(addMolytvyNaKozhenDen());
 		menu.addSubItem(addMolytvyRizni());
 
-		menu.addSubItem(new MenuItemCalendar(ID_CALENDAR));
+		menu.addSubItem(new MenuItemCalendar());
 
 		MenuItemSubMenu psalmy = new MenuItemSubMenu(6, "Псалми");
 		addPsaloms(psalmy);
@@ -1738,7 +1736,7 @@ public class Catalog {
 	}
 
 	private MenuItemSubMenu addMolytvyNaKozhenDen() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(85, "Молитви на кожен день")
+		MenuItemSubMenu menu = new MenuItemSubMenu(ID_FOR_EVERY_DAY, "Молитви на кожен день")
 				.setOfficialUGCCText(true);
 		menu.html(86, "Молитва ранішнього намірення",
 				"na-kozhen-den/ranizhnoho-namirennya.html",
@@ -1950,7 +1948,7 @@ public class Catalog {
 	}
 
 	private MenuItemSubMenu addMolytvyRizniPotreby() {
-		MenuItemSubMenu menu = new MenuItemSubMenu(164,
+		MenuItemSubMenu menu = new MenuItemSubMenu(ID_FOR_EVERY_OCASION,
 				"Молитви на різні потреби");
 
 		MenuItemSubMenu sm = menu.subMenu(165, "Молитви для вагітних");
@@ -2108,7 +2106,7 @@ public class Catalog {
 
 	private void verifyUniqueId() {
 		if (Utils.isDebuggable()) {
-			Set<Integer> usedIds = new TreeSet<Integer>();
+			Set<Integer> usedIds = new TreeSet<>();
 			for (MenuItemBase mi : topMenu) {
 				verifyUniqueId(usedIds, mi);
 			}
@@ -2159,7 +2157,7 @@ public class Catalog {
 	}
 
 	public Set<String> getAllSources() {
-		Set<String> sources = new HashSet<String>();
+		Set<String> sources = new HashSet<>();
 		for (MenuItemBase mi : topMenu)
 			addSources(sources, mi);
 		return sources;
@@ -2180,7 +2178,7 @@ public class Catalog {
 	public List<SearchItem> filter(String searchPhrase) {
 		Catalog cat = PrayerBookApplication.getInstance().getCatalog();
 
-		List<SearchItem> filtered = new ArrayList<SearchItem>();
+		List<SearchItem> filtered = new ArrayList<>();
 
 		if (TextUtils.isEmpty(searchPhrase)) {
 			return filtered;
@@ -2192,8 +2190,8 @@ public class Catalog {
 		return filtered;
 	}
 
-	private List<SearchItem> filter(String searchPhrase,
-			List<SearchItem> filtered, MenuItemBase mi) {
+	private void filter(String searchPhrase,
+						List<SearchItem> filtered, MenuItemBase mi) {
 		String name = mi.getName().toLowerCase(Utils.getUkrainianLocale())
 				.replace('’', '\'');
 		int searchPhraseStartPos = name.indexOf(searchPhrase);
@@ -2209,6 +2207,5 @@ public class Catalog {
 				filter(searchPhrase, filtered, si);
 			}
 		}
-		return filtered;
 	}
 }

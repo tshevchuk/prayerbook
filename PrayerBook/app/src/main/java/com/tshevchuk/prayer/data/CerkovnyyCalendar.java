@@ -1,17 +1,17 @@
 package com.tshevchuk.prayer.data;
 
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+
+import com.tshevchuk.prayer.data.CalendarDay.PistType;
+
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-
-import com.tshevchuk.prayer.data.CalendarDay.PistType;
 
 public class CerkovnyyCalendar {
 	private static final int FLAG_RUKHOME_REPLACE = 20000;
@@ -20,19 +20,10 @@ public class CerkovnyyCalendar {
 
 	private static CerkovnyyCalendar instance;
 
-	private int totalDaysInSupportedYears = 0;
-
-	private Set<Integer> svyataNerukhomi = new HashSet<Integer>(50);
-	private SparseArray<String> svyataRukhomi = new SparseArray<String>(50);
-	private SparseIntArray dataVelykodnya = new SparseIntArray(50);
-	private SparseArray<String> dni = new SparseArray<String>(400);
-
-	public static synchronized CerkovnyyCalendar getInstance() {
-		if (instance == null) {
-			instance = new CerkovnyyCalendar();
-		}
-		return instance;
-	}
+	private final Set<Integer> svyataNerukhomi = new HashSet<>(50);
+	private final SparseArray<String> svyataRukhomi = new SparseArray<>(50);
+	private final SparseIntArray dataVelykodnya = new SparseIntArray(50);
+	private final SparseArray<String> dni = new SparseArray<>(400);
 
 	private CerkovnyyCalendar() {
 		initVelykdenDate();
@@ -54,6 +45,13 @@ public class CerkovnyyCalendar {
 		svyataNerukhomi.addAll(Arrays.asList(914, 921, 927, 1014, 1121, 1204,
 				1219, 1222, 101, 107, 108, 109, 114, 119, 212, 215, 407, 506,
 				516, 521, 522, 707, 712, 806, 807, 819, 828, 911));
+	}
+
+	public static synchronized CerkovnyyCalendar getInstance() {
+		if (instance == null) {
+			instance = new CerkovnyyCalendar();
+		}
+		return instance;
 	}
 
 	public CalendarDay getCalendarDay(Date day) {
@@ -578,7 +576,7 @@ public class CerkovnyyCalendar {
 		svyataRukhomi.put(-2 + FLAG_RUKHOME_REPLACE_RED_DAY,
 				"<r><b>ВЕЛ. П'ЯТНИЦЯ</b>; <i>Плащаниця</i></r>");
 		svyataRukhomi.put(-1 + FLAG_RUKHOME_REPLACE, "ВЕЛ. СУБОТА");
-		svyataRukhomi.put(0 + FLAG_RUKHOME_REPLACE_RED_DAY,
+		svyataRukhomi.put(FLAG_RUKHOME_REPLACE_RED_DAY,
 				"<b><r>⊕ ВОСКРЕСІННЯ ХРИСТОВЕ</r></b>");
 		svyataRukhomi.put(1, "<b><r>СВ. ПОНЕДІЛОК</r></b>");
 		svyataRukhomi.put(2, "<b><r>СВ. ВІВТОРОК</r></b>");

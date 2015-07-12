@@ -1,23 +1,22 @@
 package com.tshevchuk.prayer;
 
-import java.io.IOException;
-
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.TextUtils;
+
+import java.io.IOException;
 
 public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 	public static final String PARAM_ASSET_FILE_NAME = "asset_file_name";
 	public static final String PARAM_IS_HTML = "is_html";
 
-	private String assetFileName;
-	private boolean isHtml;
-	private CharSequence data;
+    private final String assetFileName;
+    private final boolean isHtml;
 
-	private Context context;
+    private final Context context;
 
 	public PrayerLoader(Context context, Bundle args) {
 		super(context);
@@ -34,8 +33,8 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		CharSequence parsedHtml = null;
-		if (isHtml) {
+        CharSequence parsedHtml;
+        if (isHtml) {
 			parsedHtml = Html.fromHtml(html, new ImageGetter(), null);
 		} else {
 			parsedHtml = html;
@@ -46,11 +45,8 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 	@Override
 	protected void onStartLoading() {
 		super.onStartLoading();
-		if (TextUtils.isEmpty(data))
-			forceLoad();
-		else
-			deliverResult(data);
-	}
+        forceLoad();
+    }
 
 	private class ImageGetter implements android.text.Html.ImageGetter {
 
@@ -71,8 +67,14 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 				// prevent a crash if the resource still can't be found
 				return null;
 			} else {
-				Drawable d = context.getResources().getDrawable(id);
-				d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                Drawable d;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    d = context.getDrawable(id);
+                } else {
+                    //noinspection deprecation
+                    d = context.getResources().getDrawable(id);
+                }
+                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 				return d;
 			}
 		}

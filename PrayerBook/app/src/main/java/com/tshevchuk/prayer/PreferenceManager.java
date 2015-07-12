@@ -1,22 +1,21 @@
 package com.tshevchuk.prayer;
 
-import com.tshevchuk.prayer.data.Catalog;
-
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import com.tshevchuk.prayer.data.Catalog;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
 	public static final String PREF_NIGHT_MODE = "pref_nightMode";
-	public static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	public static final String PREF_ABOUT_APP = "pref_aboutApp";
 	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
-
+	private static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
-	private static PreferenceManager instance = new PreferenceManager();
+	private static final PreferenceManager instance = new PreferenceManager();
 
-	private SharedPreferences sharedPrefs;
+	private final SharedPreferences sharedPrefs;
 	private int[] recentMenuItemsId;
 	private float[] recentMenuItemsShowCount;
 
@@ -48,7 +47,7 @@ public class PreferenceManager {
 		if (recentMenuItemsId == null) {
 			String def = "1|1|164|1|5|1|85|1|2|1|3|1|6|1|82|1|78|1|176|1|7|1|94|1|401|1|175|1|86|1|147|1|184|1|81|1|80|1|186|1";
 			String s = sharedPrefs.getString(PREF_RECENT_MENU_ITEMS, def);
-			String[] items = TextUtils.split(s, "\\|");
+			String[] items = TextUtils.split(s != null ? s : "", "\\|");
 			int[] ids = new int[items.length / 2];
 			float[] showCount = new float[ids.length];
 			for (int i = 0; i < ids.length; i++) {

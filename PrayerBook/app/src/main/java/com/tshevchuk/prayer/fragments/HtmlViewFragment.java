@@ -1,10 +1,5 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.res.AssetManager;
@@ -29,8 +24,13 @@ import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 public class HtmlViewFragment extends TextFragmentBase {
-	private List<MenuItemPrayer> prayers = new ArrayList<MenuItemPrayer>();
+	private final List<MenuItemPrayer> prayers = new ArrayList<>();
 
 	private WebView wvContent;
 
@@ -47,7 +47,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 		prayers.add((MenuItemPrayer) getArguments().getSerializable("prayer"));
-	};
+	}
 
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
@@ -134,21 +134,12 @@ public class HtmlViewFragment extends TextFragmentBase {
 							getMenuItem().getName());
 
 					if (!TextUtils.isEmpty(anchor)) {
-						StringBuilder sb = new StringBuilder();
-						sb.append(
-								"javascript:function prayerbook_scrollToElement(id) {")
-								.append("var elem = document.getElementById(id);")
-								.append("var x = 0; var y = 0;")
-								.append("while (elem != null) {")
-								// .append("  x += elem.offsetLeft;")
-								.append("  y += elem.offsetTop;")
-								.append("  elem = elem.offsetParent;  }")
-								.append("window.scrollTo(x, y);  };")
-								.append(" console.log ( '#someButton was clicked' );")
-								.append("prayerbook_scrollToElement('")
-								.append(anchor).append("');");
-
-						view.loadUrl(sb.toString());
+						view.loadUrl("javascript:function prayerbook_scrollToElement(id) {"
+								+ "var elem = document.getElementById(id);" + "var x = 0; var y = 0;"
+								+ "while (elem != null) {" + "  y += elem.offsetTop;"
+								+ "  elem = elem.offsetParent;  }" + "window.scrollTo(x, y);  };"
+								+ " console.log ( '#someButton was clicked' );"
+								+ "prayerbook_scrollToElement('" + anchor + "');");
 					}
 				}
 
@@ -172,7 +163,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 							Uri uri = Uri.parse(url);
 							return assets.open(uri.getPath(),
 									AssetManager.ACCESS_STREAMING);
-						} catch (IOException e) {
+						} catch (IOException ignored) {
 						}
 					}
 					return null;

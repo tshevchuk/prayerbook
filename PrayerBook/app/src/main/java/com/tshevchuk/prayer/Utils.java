@@ -1,15 +1,15 @@
 package com.tshevchuk.prayer;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Locale;
 
 public class Utils {
 	private static Locale ukrainianLocale;
@@ -18,6 +18,7 @@ public class Utils {
 		InputStream input = PrayerBookApplication.getInstance().getAssets()
 				.open(fileName);
 		java.util.Scanner s = new java.util.Scanner(input);
+		//noinspection TryFinallyCanBeTryWithResources
 		try {
 			s.useDelimiter("\\A");
 			return s.hasNext() ? s.next() : "";
@@ -46,7 +47,7 @@ public class Utils {
 		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
-	public static final String getApplicationNameAndVersion() {
+	public static String getApplicationNameAndVersion() {
 		Context context = PrayerBookApplication.getInstance();
 		PackageManager packageManager = context.getPackageManager();
 		ApplicationInfo applicationInfo;
@@ -58,7 +59,7 @@ public class Utils {
 		} catch (final NameNotFoundException e) {
 			applicationInfo = null;
 		}
-		return (String) (applicationInfo != null ? packageManager
-				.getApplicationLabel(applicationInfo) + " " + ver : "(unknown)");
+		return applicationInfo != null ? packageManager
+				.getApplicationLabel(applicationInfo) + " " + ver : "(unknown)";
 	}
 }

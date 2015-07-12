@@ -3,14 +3,13 @@ package com.tshevchuk.prayer.data;
 import java.io.Serializable;
 
 public abstract class MenuItemBase implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	private String name;
-	private int id;
+	private final String name;
+	private final int id;
 	private int parentItemId;
 	private boolean isOfficialUGCCText;
 
-	public MenuItemBase(int id, String name) {
+	MenuItemBase(int id, String name) {
 		this.name = name;
 		this.id = id;
 	}
@@ -32,7 +31,7 @@ public abstract class MenuItemBase implements Serializable {
 		return parentItemId;
 	}
 
-	public void setParentItemId(int parentItemId) {
+	void setParentItemId(int parentItemId) {
 		this.parentItemId = parentItemId;
 	}
 

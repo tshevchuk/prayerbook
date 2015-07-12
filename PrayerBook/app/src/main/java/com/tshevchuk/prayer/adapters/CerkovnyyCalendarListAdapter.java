@@ -1,10 +1,5 @@
 package com.tshevchuk.prayer.adapters;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-
 import android.content.Context;
 import android.text.Html;
 import android.util.TypedValue;
@@ -20,21 +15,25 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.CalendarDay;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 	public final static String MONTHES[] = { "Січень", "Лютий", "Березень",
 			"Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень",
 			"Жовтень", "Листопад", "Грудень" };
 
-	private CerkovnyyCalendar cerkovnyyCalendar = CerkovnyyCalendar
+	private final CerkovnyyCalendar cerkovnyyCalendar = CerkovnyyCalendar
 			.getInstance();
-	private Calendar calendar;
-	private int year;
+	private final Calendar calendar;
+	private final int year;
+	private final int currentYear;
+	private final int currentDayOfYear;
+	private final LayoutInflater inflater;
+	private final SimpleDateFormat dayDateFormat;
+	private final SimpleDateFormat dayOldStyleFormat;
 	private int daysCount;
-	private int currentYear;
-	private int currentDayOfYear;
-	private LayoutInflater inflater;
-	private SimpleDateFormat dayDateFormat;
-	private SimpleDateFormat dayOldStyleFormat;
 
 	public CerkovnyyCalendarListAdapter(Context context, int year) {
 		inflater = (LayoutInflater) context

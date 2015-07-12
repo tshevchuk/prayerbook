@@ -1,29 +1,23 @@
 package com.tshevchuk.prayer.data;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
-public class MenuItemSubMenu extends MenuItemBase {
-	private static final long serialVersionUID = 1L;
+import java.util.ArrayList;
+import java.util.List;
 
-	private List<MenuItemBase> subItems = new ArrayList<MenuItemBase>();
+public class MenuItemSubMenu extends MenuItemBase {
+
+	private List<MenuItemBase> subItems = new ArrayList<>();
 
 	public MenuItemSubMenu(int id, String name) {
 		super(id, name);
-	}
-
-	public MenuItemSubMenu(int id, String name, MenuItemBase... subItems) {
-		this(id, name);
-		this.subItems = Arrays.asList(subItems);
 	}
 
 	public List<MenuItemBase> getSubItems() {
 		return subItems;
 	}
 
+	@SuppressWarnings("UnusedReturnValue")
 	MenuItemSubMenu addSubItem(MenuItemBase item) {
 		item.setParentItemId(getId());
 		item.setOfficialUGCCText(isOfficialUGCCText());

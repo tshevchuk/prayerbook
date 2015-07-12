@@ -1,12 +1,5 @@
 package com.tshevchuk.prayer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -58,6 +51,12 @@ import com.tshevchuk.prayer.fragments.SearchFragment;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
 import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
 
 public class HomeActivity extends Activity {
 	public final static String PARAM_SCREEN_ID = "screen_id";
@@ -125,7 +124,7 @@ public class HomeActivity extends Activity {
 		if (savedInstanceState == null) {
 			MenuItemBase mi = catalog.getMenuItemById(PreferenceManager
 					.getInstance().getDefaultMenuItemId());
-			int id = 0;
+			int id;
 			if (getIntent() != null) {
 				id = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);
 				if (id != 0) {
@@ -154,7 +153,7 @@ public class HomeActivity extends Activity {
 				.dispatchLocalHits();
 		super.onDestroy();
 
-	};
+	}
 
 	@Override
 	protected void onResume() {
@@ -392,7 +391,7 @@ public class HomeActivity extends Activity {
 	}
 
 	private void search(String query) {
-		SearchFragment sf = null;
+		SearchFragment sf;
 		Fragment f = getFragmentManager().findFragmentById(R.id.content_frame);
 		if (f instanceof SearchFragment) {
 			sf = (SearchFragment) f;
@@ -443,7 +442,7 @@ public class HomeActivity extends Activity {
 		v1.setDrawingCacheBackgroundColor(color);
 
 		if (bitmap != null) {
-			OutputStream fout = null;
+			OutputStream fout;
 			File imageFile = new File(path);
 
 			try {
@@ -451,9 +450,6 @@ public class HomeActivity extends Activity {
 				bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fout);
 				fout.flush();
 				fout.close();
-			} catch (FileNotFoundException e) {
-				bitmap = null;
-				e.printStackTrace();
 			} catch (IOException e) {
 				bitmap = null;
 				e.printStackTrace();

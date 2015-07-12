@@ -1,7 +1,5 @@
 package com.tshevchuk.prayer.adapters;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +12,11 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.MenuItemBase;
 
+import java.util.List;
+
 public class OftenUsedListAdapter extends BaseAdapter {
-	private List<MenuItemBase> items;
-	private LayoutInflater inflater;
+	private final List<MenuItemBase> items;
+	private final LayoutInflater inflater;
 
 	public OftenUsedListAdapter(Context context, List<MenuItemBase> items) {
 		this.items = items;

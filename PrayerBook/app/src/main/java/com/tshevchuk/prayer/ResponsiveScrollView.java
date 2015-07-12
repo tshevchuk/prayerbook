@@ -6,14 +6,9 @@ import android.view.MotionEvent;
 import android.widget.ScrollView;
 
 public class ResponsiveScrollView extends ScrollView {
-	public interface OnEndScrollListener {
-		public void onEndScroll(boolean moveContentUp, boolean isFling, int dy);
-	}
-
 	private boolean isFling;
 	private int startScrollingY;
 	private OnEndScrollListener mOnEndScrollListener;
-
 	public ResponsiveScrollView(Context context) {
 		this(context, null, 0);
 	}
@@ -46,19 +41,19 @@ public class ResponsiveScrollView extends ScrollView {
 		}
 	}
 
-	public OnEndScrollListener getOnEndScrollListener() {
-		return mOnEndScrollListener;
-	}
-
 	public void setOnEndScrollListener(OnEndScrollListener mOnEndScrollListener) {
 		this.mOnEndScrollListener = mOnEndScrollListener;
 	}
-	
+
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
 		if(ev.getActionMasked() == MotionEvent.ACTION_DOWN){
 			startScrollingY = getScrollY();
 		}
 		return super.onTouchEvent(ev);
+	}
+
+	public interface OnEndScrollListener {
+		void onEndScroll(boolean moveContentUp, boolean isFling, int dy);
 	}
 }

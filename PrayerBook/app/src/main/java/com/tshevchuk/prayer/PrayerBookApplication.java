@@ -1,26 +1,24 @@
 package com.tshevchuk.prayer;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.data.Catalog;
 
-public class PrayerBookApplication extends Application {
-	public enum TrackerName {
-		APP_TRACKER,
-	}
+import java.util.HashMap;
+import java.util.Map;
 
+public class PrayerBookApplication extends Application {
 	public static Long startupTimeMeasuringStartTimestamp = System
 			.currentTimeMillis();
-
+	private static PrayerBookApplication instance;
+	private final Map<TrackerName, Tracker> trackers = new HashMap<>();
 	private Catalog catalog;
 
-	private static PrayerBookApplication instance;
-	private Map<TrackerName, Tracker> trackers = new HashMap<TrackerName, Tracker>();
+	public static PrayerBookApplication getInstance() {
+		return instance;
+	}
 
 	@Override
 	public void onCreate() {
@@ -34,10 +32,6 @@ public class PrayerBookApplication extends Application {
 		catalog = new Catalog();
 	}
 
-	public static PrayerBookApplication getInstance() {
-		return instance;
-	}
-
 	public synchronized Tracker getTracker() {
 		if (!trackers.containsKey(TrackerName.APP_TRACKER)) {
 			GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
@@ -49,5 +43,9 @@ public class PrayerBookApplication extends Application {
 
 	public Catalog getCatalog() {
 		return catalog;
+	}
+
+	public enum TrackerName {
+		APP_TRACKER,
 	}
 }

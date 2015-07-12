@@ -5,11 +5,8 @@ import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.os.Bundle;
-import android.text.Selection;
-import android.text.Spannable;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -22,7 +19,6 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.ResponsiveScrollView;
 import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
 import com.tshevchuk.prayer.UIUtils;
-import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
@@ -53,7 +49,7 @@ public class TextViewFragment extends TextFragmentBase implements
 			firstVisibleCharacterOffset = savedInstanceState
 					.getInt("firstVisibleCharOffset");
 		}
-	};
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -146,11 +142,10 @@ public class TextViewFragment extends TextFragmentBase implements
 	}
 
 	private int getFirstVisibleCharacterOffset() {
-		final int firstVisableLineOffset = tvContent.getLayout()
+		final int firstVisibleLineOffset = tvContent.getLayout()
 				.getLineForVertical(svScroll.getScrollY());
-		final int firstVisableCharacterOffset = tvContent.getLayout()
-				.getLineStart(firstVisableLineOffset);
-		return firstVisableCharacterOffset;
+		return tvContent.getLayout()
+				.getLineStart(firstVisibleLineOffset);
 	}
 
 	@Override

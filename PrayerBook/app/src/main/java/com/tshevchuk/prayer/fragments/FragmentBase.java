@@ -128,7 +128,7 @@ public class FragmentBase extends Fragment {
 		app.sendBroadcast(addIntent);
 	}
 
-	protected boolean isNavigationDrawerEnabled() {
+	boolean isNavigationDrawerEnabled() {
 		return false;
 	}
 }
