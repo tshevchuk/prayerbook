@@ -10,6 +10,7 @@ public class PreferenceManager {
 	public static final String PREF_NIGHT_MODE = "pref_nightMode";
 	public static final String PREF_ABOUT_APP = "pref_aboutApp";
 	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
+	public static final String PREF_SHOW_OFFICIAL_UGCC = "pref_showOfficialUGCC";
 	private static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
@@ -31,6 +32,10 @@ public class PreferenceManager {
 
 	public boolean isNightModeEnabled() {
 		return sharedPrefs.getBoolean(PREF_NIGHT_MODE, false);
+	}
+
+	public boolean isShowOfficialUgccEnabled() {
+		return sharedPrefs.getBoolean(PREF_SHOW_OFFICIAL_UGCC, false);
 	}
 
 	public int getFontSizeSp() {

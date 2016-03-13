@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.PrayerBookApplication;
+import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.SearchItem;
 
@@ -55,9 +56,10 @@ public class SearchListAdapter extends BaseAdapter {
 		ViewHolder vh = (ViewHolder) v.getTag();
 		SearchItem si = items.get(position);
 		vh.tvName.setText(Html.fromHtml(si.getName()));
-		vh.ivOfficialStamp
-				.setVisibility(si.getMenuItem().isOfficialUGCCText() ? View.VISIBLE
-						: View.INVISIBLE);
+		int showUGCCVisibility = si.getMenuItem().isOfficialUGCCText()
+				&& PreferenceManager.getInstance().isShowOfficialUgccEnabled()
+				? View.VISIBLE : View.INVISIBLE;
+		vh.ivOfficialStamp.setVisibility(showUGCCVisibility);
 		if (si.getMenuItem().getParentItemId() > 0) {
 			vh.tvParentName.setVisibility(View.VISIBLE);
 			vh.tvParentName.setText(PrayerBookApplication.getInstance()

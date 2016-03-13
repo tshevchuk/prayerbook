@@ -22,6 +22,11 @@
         android:key="pref_defaultScreens"
         android:title="Відкривати при старті програми" />
 
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_showOfficialUGCC"
+        android:title="Відображати офіційні тексти УГКЦ" />
+
     <Preference
         android:key="pref_aboutApp"
         android:title="Про програму" />

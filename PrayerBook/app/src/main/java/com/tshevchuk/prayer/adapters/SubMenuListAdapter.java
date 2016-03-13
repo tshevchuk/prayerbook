@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.MenuItemBase;
 
@@ -53,8 +54,10 @@ public class SubMenuListAdapter extends BaseAdapter {
 		ViewHolder vh = (ViewHolder) v.getTag();
 		MenuItemBase mi = items.get(position);
 		vh.tvName.setText(mi.getName());
-		vh.ivOfficialStamp.setVisibility(mi.isOfficialUGCCText() ? View.VISIBLE
-				: View.INVISIBLE);
+		int showUGCCVisibility = mi.isOfficialUGCCText()
+				&& PreferenceManager.getInstance().isShowOfficialUgccEnabled()
+				? View.VISIBLE : View.INVISIBLE;
+		vh.ivOfficialStamp.setVisibility(showUGCCVisibility);
 		return v;
 	}
 

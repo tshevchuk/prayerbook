@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.PrayerBookApplication;
+import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.MenuItemBase;
 
@@ -55,8 +56,10 @@ public class OftenUsedListAdapter extends BaseAdapter {
 		ViewHolder vh = (ViewHolder) v.getTag();
 		MenuItemBase mi = items.get(position);
 		vh.tvName.setText(mi.getName());
-		vh.ivOfficialUgcc.setVisibility(mi.isOfficialUGCCText() ? View.VISIBLE
-				: View.INVISIBLE);
+		int showUGCCVisibility = mi.isOfficialUGCCText()
+				&& PreferenceManager.getInstance().isShowOfficialUgccEnabled()
+				? View.VISIBLE : View.INVISIBLE;
+		vh.ivOfficialUgcc.setVisibility(showUGCCVisibility);
 		if (mi.getParentItemId() > 0) {
 			vh.tvParentName.setText(PrayerBookApplication.getInstance()
 					.getCatalog().getMenuItemById(mi.getParentItemId())

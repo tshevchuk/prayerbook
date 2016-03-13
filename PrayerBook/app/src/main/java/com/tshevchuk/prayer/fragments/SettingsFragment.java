@@ -94,6 +94,11 @@ public class SettingsFragment extends PreferenceFragment implements
 						String.valueOf(sharedPreferences.getBoolean(key, false)));
 				getActivity().recreate();
 				break;
+			case PreferenceManager.PREF_SHOW_OFFICIAL_UGCC:
+				sendAnalyticsSettingsChanged(key,
+						String.valueOf(sharedPreferences.getBoolean(key, false)));
+				getActivity().recreate();
+				break;
 			case PreferenceManager.PREF_TEXT_FONT_SIZE:
 				sendAnalyticsSettingsChanged(key,
 						sharedPreferences.getString(key, ""));
