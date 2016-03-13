@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,5 +63,17 @@ public class Utils {
 		}
 		return applicationInfo != null ? packageManager
 				.getApplicationLabel(applicationInfo) + " " + ver : "(unknown)";
+	}
+
+	public static String getDeviceInfo() {
+		DisplayMetrics metrics = new DisplayMetrics();
+		((WindowManager) PrayerBookApplication.getInstance().getSystemService(Context.WINDOW_SERVICE))
+				.getDefaultDisplay().getMetrics(metrics);
+
+		return "OS Version: " + System.getProperty("os.version") + "(" + android.os.Build.VERSION.INCREMENTAL + ")"
+				+ "\nOS API Level: " + android.os.Build.VERSION.SDK_INT
+				+ "\nDevice: " + android.os.Build.DEVICE
+				+ "\nModel (and Product): " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")"
+				+ "\nScreen size: " + metrics.widthPixels + "x" + metrics.heightPixels + " (" + metrics.densityDpi + ")";
 	}
 }

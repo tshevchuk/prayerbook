@@ -7,11 +7,10 @@ import android.content.Intent;
 import android.database.MatrixCursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.content.FileProvider;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
@@ -413,9 +412,10 @@ public class HomeActivity extends Activity {
 	}
 
 	private void reportError() {
-		String path = Environment.getExternalStorageDirectory().toString()
-				+ "/" + "prayerbook_error_image_" + System.currentTimeMillis()
-				+ ".png";
+		File dir = new File(getCacheDir(), "error_report_screenshots");
+		dir.mkdirs();
+		File imageFile = new File(dir
+				, "prayerbook_error_image_" + System.currentTimeMillis() + ".png");
 
 		Bitmap bitmap = null;
 		View v1 = getWindow().getDecorView().findViewById(android.R.id.content);
@@ -442,8 +442,6 @@ public class HomeActivity extends Activity {
 
 		if (bitmap != null) {
 			OutputStream fout;
-			File imageFile = new File(path);
-
 			try {
 				fout = new FileOutputStream(imageFile);
 				bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fout);
@@ -458,7 +456,7 @@ public class HomeActivity extends Activity {
 		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 		emailIntent.setType("message/rfc822");
 		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
-				new String[] { "prayerbook.android@gmail.com" });
+				new String[]{"taras.shevchuk@gmail.com"});
 		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
 				"Молитовник: Повідомлення про помилку");
 
@@ -476,11 +474,13 @@ public class HomeActivity extends Activity {
 						.append(mi.getName());
 			}
 		}
+		sb.append("\n").append(Utils.getDeviceInfo());
 
 		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
 		if (bitmap != null) {
 			emailIntent.putExtra(Intent.EXTRA_STREAM,
-					Uri.fromFile(new File(path)));
+					FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile)
+			);
 		}
 		startActivity(Intent.createChooser(emailIntent,
 				"Відправити повідомлення про помилку..."));
