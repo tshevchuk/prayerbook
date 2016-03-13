@@ -33,7 +33,6 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.HitBuilders.EventBuilder;
 import com.google.android.gms.analytics.Tracker;
-import com.tjeannin.apprate.AppRate;
 import com.tshevchuk.prayer.adapters.SubMenuListAdapter;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
@@ -51,6 +50,8 @@ import com.tshevchuk.prayer.fragments.SearchFragment;
 import com.tshevchuk.prayer.fragments.SettingsFragment;
 import com.tshevchuk.prayer.fragments.SubMenuFragment;
 import com.tshevchuk.prayer.fragments.TextViewFragment;
+
+import org.codechimp.apprater.AppRater;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -134,9 +135,7 @@ public class HomeActivity extends Activity {
 			displayMenuItem(mi);
 
 			if (Utils.isNetworkAvailable()) {
-				new AppRate(this).setShowIfAppHasCrashed(false)
-						.setMinDaysUntilPrompt(5).setMinLaunchesUntilPrompt(3)
-						.init();
+				AppRater.app_launched(this);
 			}
 		}
 	}
