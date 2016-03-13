@@ -37,7 +37,7 @@ public class Catalog {
 	private static final String SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA = "Християнський портал Кіріос - Молитви до Пресвятої Богородиці на кожен день тижня (преп. Ніла Сорського) http://kyrios.org.ua/spirituality/prayer/816-molitvi-do-presvjatoyi-bogoroditsi-na-kozhen-den-tizhnja-prep-nila-sorskogo.html";
 	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
 	private static final int ID_SCHODENNI_MOLYTVY = 1;
-	private static final int NEXT_ID_TO_ADD = 910;
+	private static final int NEXT_ID_TO_ADD = 911;
 
 	private final List<MenuItemBase> topMenu;
 	private final SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<>();
@@ -1121,6 +1121,11 @@ public class Catalog {
 				SRC_MOLEBNI_KYRIOS);
 		sm.html(462, "Молебень за недужих",
 				"bohosluzhinnya/molebni/neduzhykh.html", SRC_MOLEBNI_KYRIOS);
+		sm.html(910, "Молебний чин з нагоди відкриття Ювілейного року Божого милосердя",
+				"bohosluzhinnya/molebni/yuvilejnyj-rik-bozhoho-myloserdya.html",
+				"Офіційний інформаційний ресурс Української Греко-Католицької Церкви " +
+						"http://news.ugcc.ua/documents/molebniy_chin_z_nagodi_v%D1%96dkrittya_yuv%D1%96leynogo_roku_bozhogo_miloserdya_75477.html")
+				.setOfficialUGCCText(true);
 
 		menu.addSubItem(addSluzhbyPryjditePoklonimsya());
 		menu.addSubItem(addTrebnyk());
