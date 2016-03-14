@@ -23,7 +23,7 @@ public abstract class TextFragmentBase extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle(getMenuItem().getFullName());
+		activity.getSupportActionBar().setTitle(getMenuItem().getName());
 	}
 
 	@Override

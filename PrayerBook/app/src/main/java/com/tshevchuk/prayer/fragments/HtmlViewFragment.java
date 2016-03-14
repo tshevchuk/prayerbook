@@ -1,16 +1,17 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -130,7 +131,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 						}
 					}
 
-					getActivity().getActionBar().setTitle(
+					activity.getSupportActionBar().setTitle(
 							getMenuItem().getName());
 
 					if (!TextUtils.isEmpty(anchor)) {
@@ -143,6 +144,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 					}
 				}
 
+				@SuppressWarnings("deprecation")
 				@Override
 				public WebResourceResponse shouldInterceptRequest(WebView view,
 						String url) {
@@ -151,6 +153,15 @@ public class HtmlViewFragment extends TextFragmentBase {
 						return new WebResourceResponse(null, null, stream);
 					}
 					return super.shouldInterceptRequest(view, url);
+				}
+
+				@Override
+				public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+					InputStream stream = inputStreamForAndroidResource(request.getUrl().toString());
+					if (stream != null) {
+						return new WebResourceResponse(null, null, stream);
+					}
+					return super.shouldInterceptRequest(view, request);
 				}
 
 				private InputStream inputStreamForAndroidResource(String url) {

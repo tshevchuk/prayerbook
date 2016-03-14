@@ -4,8 +4,6 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 
-import com.tshevchuk.prayer.data.CalendarDay.PistType;
-
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -55,7 +53,6 @@ public class CerkovnyyCalendar {
 	}
 
 	public CalendarDay getCalendarDay(Date day) {
-		PistType pistType = PistType.Normal;
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(day);
 
@@ -101,7 +98,7 @@ public class CerkovnyyCalendar {
 		}
 		description = description.replaceAll("<r>", "<font color=\"red\">")
 				.replaceAll("</r>", "</font>");
-		CalendarDay cd = new CalendarDay(day, dateJulian, pistType,
+		CalendarDay cd = new CalendarDay(day, dateJulian,
 				description, isDateRed);
 		return fixes(cd);
 	}
@@ -132,7 +129,7 @@ public class CerkovnyyCalendar {
 
 		if (newDescr != null) {
 			day = new CalendarDay(day.getDay(), day.getDayJulian(),
-					day.getPistType(), newDescr, day.isDateRed());
+					newDescr, day.isDateRed());
 		}
 		return day;
 	}

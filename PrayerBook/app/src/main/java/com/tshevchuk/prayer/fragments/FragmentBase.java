@@ -1,10 +1,10 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.Activity;
-import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,12 +18,12 @@ import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.MenuItemBase;
 
 public class FragmentBase extends Fragment {
-	protected HomeActivity activity;
+	HomeActivity activity;
 
 	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = (HomeActivity) activity;
+	public void onAttach(Context context) {
+		super.onAttach(context);
+		this.activity = (HomeActivity) getActivity();
 	}
 
 	@Override
@@ -50,11 +50,11 @@ public class FragmentBase extends Fragment {
 	public void onResume() {
 		super.onResume();
 		HomeActivity activity = (HomeActivity) getActivity();
-		activity.getActionBar().show();
+		activity.getSupportActionBar().show();
 		activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.setScreenName(getClass().getSimpleName());
-		t.send(new HitBuilders.AppViewBuilder().build());
+		t.send(new HitBuilders.ScreenViewBuilder().build());
 	}
 
 	@Override

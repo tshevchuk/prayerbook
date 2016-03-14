@@ -1,18 +1,20 @@
 package com.tshevchuk.prayer;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.MatrixCursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -58,7 +60,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 	public final static String PARAM_SCREEN_ID = "screen_id";
 
 	private Catalog catalog;
@@ -83,6 +85,9 @@ public class HomeActivity extends Activity {
 
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+		setSupportActionBar(toolbar);
 
 		catalog = PrayerBookApplication.getInstance().getCatalog();
 
@@ -96,16 +101,16 @@ public class HomeActivity extends Activity {
 			}
 		});
 
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setDisplayShowHomeEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		getSupportActionBar().setHomeButtonEnabled(true);
 
 		TypedValue typedValue = new TypedValue();
 		getTheme().resolveAttribute(R.attr.pb_navigationDrawerIconDrawable,
 				typedValue, true);
 
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-				typedValue.resourceId, R.string.app_name, R.string.app_name) {
+				toolbar, R.string.app_name, R.string.app_name) {
 			public void onDrawerClosed(View view) {
 				// getActionBar().setTitle(mTitle);
 				// calling onPrepareOptionsMenu() to show action bar icons
@@ -116,10 +121,10 @@ public class HomeActivity extends Activity {
 				// getActionBar().setTitle(mDrawerTitle);
 				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
-				getActionBar().show();
+				getSupportActionBar().show();
 			}
 		};
-		drawerLayout.setDrawerListener(drawerToggle);
+		drawerLayout.addDrawerListener(drawerToggle);
 
 		if (savedInstanceState == null) {
 			MenuItemBase mi = catalog.getMenuItemById(PreferenceManager
@@ -175,7 +180,7 @@ public class HomeActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.actionbar, menu);
 		MenuItem miSearch = menu.findItem(R.id.mi_search);
-		searchView = (SearchView) miSearch.getActionView();
+		searchView = (SearchView) MenuItemCompat.getActionView(miSearch);
 		searchView.setOnQueryTextListener(new OnQueryTextListener() {
 			@Override
 			public boolean onQueryTextSubmit(String query) {
@@ -192,7 +197,7 @@ public class HomeActivity extends Activity {
 
 			@Override
 			public boolean onQueryTextChange(String newText) {
-				if (getFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
+				if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
 					search(newText);
 					Tracker t = PrayerBookApplication.getInstance()
 							.getTracker();
@@ -278,7 +283,7 @@ public class HomeActivity extends Activity {
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		Fragment curFragment = getFragmentManager().findFragmentById(
+		Fragment curFragment = getSupportFragmentManager().findFragmentById(
 				R.id.content_frame);
 		menu.findItem(R.id.mi_settings).setVisible(
 				!(curFragment instanceof SettingsFragment));
@@ -307,7 +312,7 @@ public class HomeActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		Fragment curFragment = getFragmentManager().findFragmentById(
+		Fragment curFragment = getSupportFragmentManager().findFragmentById(
 				R.id.content_frame);
 		if (curFragment != null && curFragment instanceof FragmentBase
 				&& ((FragmentBase) curFragment).goBack()) {
@@ -360,16 +365,16 @@ public class HomeActivity extends Activity {
 
 	public void displayFragment(Fragment fragment, int id, CharSequence title) {
 		drawerLayout.closeDrawer(drawerList);
-		getActionBar().show();
+		getSupportActionBar().show();
 
-		Fragment curFragment = getFragmentManager().findFragmentById(
+		Fragment curFragment = getSupportFragmentManager().findFragmentById(
 				R.id.content_frame);
 		if (curFragment != null && curFragment instanceof FragmentBase
 				&& ((FragmentBase) curFragment).isSameScreen(fragment)) {
 			return;
 		}
 
-		FragmentTransaction transaction = getFragmentManager()
+		FragmentTransaction transaction = getSupportFragmentManager()
 				.beginTransaction();
 		transaction.replace(R.id.content_frame, fragment);
 		if (curFragment != null)
@@ -390,7 +395,7 @@ public class HomeActivity extends Activity {
 
 	private void search(String query) {
 		SearchFragment sf;
-		Fragment f = getFragmentManager().findFragmentById(R.id.content_frame);
+		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
 		if (f instanceof SearchFragment) {
 			sf = (SearchFragment) f;
 		} else {
@@ -464,8 +469,8 @@ public class HomeActivity extends Activity {
 		sb.append("Опишіть коротко помилку:\n\n\n\n");
 		sb.append("----------------------------");
 		sb.append("\nПрограма: ").append(Utils.getApplicationNameAndVersion());
-		sb.append("\nЗаголовок: ").append(getActionBar().getTitle());
-		Fragment f = getFragmentManager().findFragmentById(R.id.content_frame);
+		sb.append("\nЗаголовок: ").append(getSupportActionBar().getTitle());
+		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
 		sb.append("\nФрагмент: ").append(f.getClass().getName());
 		if (f instanceof FragmentBase) {
 			MenuItemBase mi = ((FragmentBase) f).getMenuItem();

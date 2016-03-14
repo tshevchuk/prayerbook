@@ -3,4 +3,11 @@
 
     <string name="app_name">Молитовник</string>
 
+    <string name="menu_items__create_shortcut_on_launcher">Створити ярлик на панелі запуску</string>
+    <string name="menu_items__description">Опис</string>
+    <string name="menu_items__report_about_issue">Повідомити про помилку</string>
+    <string name="menu_items__preferences">Налаштування</string>
+    <string name="menu_items__search">Пошук</string>
+
+    <string name="calendar__today">Сьогодні</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.content.Loader;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBar;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,7 +23,7 @@ import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
 public class TextViewFragment extends TextFragmentBase implements
-		LoaderCallbacks<CharSequence> {
+		LoaderManager.LoaderCallbacks<CharSequence> {
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
 
 	private MenuItemPrayer prayer;
@@ -74,7 +74,7 @@ public class TextViewFragment extends TextFragmentBase implements
 					if (!show && moveContentUp && isFling)
 						hide = true;
 
-					ActionBar ab = activity.getActionBar();
+					ActionBar ab = activity.getSupportActionBar();
 
 					if (show && !ab.isShowing())
 						ab.show();
@@ -92,8 +92,8 @@ public class TextViewFragment extends TextFragmentBase implements
 								.getChildCount() - 1);
 						if ((svScroll.getHeight() + svScroll.getScrollY()) >= view
 								.getBottom()
-								- activity.getActionBar().getHeight()) {
-							activity.getActionBar().show();
+								- activity.getSupportActionBar().getHeight()) {
+							activity.getSupportActionBar().show();
 						}
 					}
 					return false;

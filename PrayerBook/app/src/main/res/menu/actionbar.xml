@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/mi_report_mistake"
         android:menuCategory="secondary"
-        android:showAsAction="never"
-        android:title="Повідомити про помилку"/>
+        android:title="@string/menu_items__report_about_issue"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/mi_settings"
         android:menuCategory="secondary"
-        android:showAsAction="never"
-        android:title="Налаштування"/>
+        android:title="@string/menu_items__preferences"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/mi_search"
-        android:actionViewClass="android.widget.SearchView"
         android:icon="?pb_actionBarSearchIconDrawable"
-        android:showAsAction="ifRoom"
-        android:title="Пошук"/>
+        android:title="@string/menu_items__search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom"/>
 
 </menu>

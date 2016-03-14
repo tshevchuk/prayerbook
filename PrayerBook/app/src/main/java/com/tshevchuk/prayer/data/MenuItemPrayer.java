@@ -1,11 +1,8 @@
 package com.tshevchuk.prayer.data;
 
-import android.text.TextUtils;
-
 public class MenuItemPrayer extends MenuItemBase {
 	private final String fileName;
 	private String source;
-	private String fullName;
 	private Type type = Type.HtmlInTextView;
 	private String htmlLinkAnchor;
 	public MenuItemPrayer(int id, String name, String fileName) {
@@ -29,13 +26,6 @@ public class MenuItemPrayer extends MenuItemBase {
 	public MenuItemPrayer setSource(String source) {
 		this.source = source;
 		return this;
-	}
-
-	public String getFullName() {
-		if (TextUtils.isEmpty(fullName)) {
-			return getName();
-		}
-		return fullName;
 	}
 
 	public Type getType() {

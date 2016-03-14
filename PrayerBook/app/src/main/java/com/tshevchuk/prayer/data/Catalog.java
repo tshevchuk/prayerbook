@@ -14,9 +14,9 @@ import java.util.TreeSet;
 
 public class Catalog {
 	public static final int ID_CALENDAR = 5;
-	public static final int ID_FOR_EVERY_DAY = 85;
-	public static final int ID_FOR_EVERY_OCASION = 164;
 	public static final int ID_RECENT_SCREENS = 400;
+	private static final int ID_FOR_EVERY_DAY = 85;
+	private static final int ID_FOR_EVERY_OCASION = 164;
 	private static final String SRC_BIBLIA = "Біблія, переклад Івана Хоменка";
 	private static final String SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA = "Молитовник «Прийдіте поклонімся»";
 	private static final String SRC_MOLYTVOSLOV = "Молитвослов. Видавництво ОО. Василіян, Рим-Торонто, 1990.";

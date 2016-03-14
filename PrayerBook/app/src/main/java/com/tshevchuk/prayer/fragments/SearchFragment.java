@@ -1,7 +1,5 @@
 package com.tshevchuk.prayer.fragments;
 
-import java.util.List;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -25,6 +23,8 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.adapters.SearchListAdapter;
 import com.tshevchuk.prayer.data.MenuItemBase;
 import com.tshevchuk.prayer.data.SearchItem;
+
+import java.util.List;
 
 public class SearchFragment extends FragmentBase {
 	private String searchPhrase;
@@ -88,6 +88,6 @@ public class SearchFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle("Пошук");
+		activity.getSupportActionBar().setTitle("Пошук");
 	}
 }

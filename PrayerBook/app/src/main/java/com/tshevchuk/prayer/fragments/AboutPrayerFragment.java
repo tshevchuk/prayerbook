@@ -32,7 +32,7 @@ public class AboutPrayerFragment extends FragmentBase {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_about_prayer, container, false);
-		((TextView) v.findViewById(R.id.tv_name)).setText(prayer.getFullName());
+		((TextView) v.findViewById(R.id.tv_name)).setText(prayer.getName());
 		TextView tvAbout = (TextView) v.findViewById(R.id.tv_about);
 		String about = prayer.getAbout();
 		if (prayer.isOfficialUGCCText()) {
@@ -45,7 +45,7 @@ public class AboutPrayerFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle("Опис");
+		activity.getSupportActionBar().setTitle("Опис");
 	}
 
 	@Override
