@@ -12,11 +12,13 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,7 +64,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 	public final static String PARAM_SCREEN_ID = "screen_id";
-
+	private static final String TAG = HomeActivity.class.getName();
 	private Catalog catalog;
 
 	private DrawerLayout drawerLayout;
@@ -101,9 +103,12 @@ public class HomeActivity extends AppCompatActivity {
 			}
 		});
 
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setDisplayShowHomeEnabled(true);
-		getSupportActionBar().setHomeButtonEnabled(true);
+		ActionBar actionBar = getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setDisplayHomeAsUpEnabled(true);
+			actionBar.setDisplayShowHomeEnabled(true);
+			actionBar.setHomeButtonEnabled(true);
+		}
 
 		TypedValue typedValue = new TypedValue();
 		getTheme().resolveAttribute(R.attr.pb_navigationDrawerIconDrawable,
@@ -121,7 +126,10 @@ public class HomeActivity extends AppCompatActivity {
 				// getActionBar().setTitle(mDrawerTitle);
 				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
-				getSupportActionBar().show();
+				ActionBar actionBar1 = getSupportActionBar();
+				if (actionBar1 != null) {
+					actionBar1.show();
+				}
 			}
 		};
 		drawerLayout.addDrawerListener(drawerToggle);
@@ -365,7 +373,10 @@ public class HomeActivity extends AppCompatActivity {
 
 	public void displayFragment(Fragment fragment, int id, CharSequence title) {
 		drawerLayout.closeDrawer(drawerList);
-		getSupportActionBar().show();
+		ActionBar actionBar = getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.show();
+		}
 
 		Fragment curFragment = getSupportFragmentManager().findFragmentById(
 				R.id.content_frame);
@@ -418,7 +429,12 @@ public class HomeActivity extends AppCompatActivity {
 
 	private void reportError() {
 		File dir = new File(getCacheDir(), "error_report_screenshots");
-		dir.mkdirs();
+		if (!dir.exists()) {
+			if (!dir.mkdirs()) {
+				Log.d(TAG, "Can't create directory");
+				return;
+			}
+		}
 		File imageFile = new File(dir
 				, "prayerbook_error_image_" + System.currentTimeMillis() + ".png");
 
@@ -469,7 +485,10 @@ public class HomeActivity extends AppCompatActivity {
 		sb.append("Опишіть коротко помилку:\n\n\n\n");
 		sb.append("----------------------------");
 		sb.append("\nПрограма: ").append(Utils.getApplicationNameAndVersion());
-		sb.append("\nЗаголовок: ").append(getSupportActionBar().getTitle());
+		ActionBar actionBar = getSupportActionBar();
+		if (actionBar != null) {
+			sb.append("\nЗаголовок: ").append(actionBar.getTitle());
+		}
 		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
 		sb.append("\nФрагмент: ").append(f.getClass().getName());
 		if (f instanceof FragmentBase) {

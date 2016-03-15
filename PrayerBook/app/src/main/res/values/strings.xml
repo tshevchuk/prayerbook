@@ -10,4 +10,6 @@
     <string name="menu_items__search">Пошук</string>
 
     <string name="calendar__today">Сьогодні</string>
+
+    <string name="about__about_prayerbook">Про Молитовник</string>
 </resources>

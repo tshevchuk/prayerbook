@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -50,7 +51,10 @@ public class FragmentBase extends Fragment {
 	public void onResume() {
 		super.onResume();
 		HomeActivity activity = (HomeActivity) getActivity();
-		activity.getSupportActionBar().show();
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.show();
+		}
 		activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
 		Tracker t = PrayerBookApplication.getInstance().getTracker();
 		t.setScreenName(getClass().getSimpleName());

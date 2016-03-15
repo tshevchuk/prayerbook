@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -88,6 +89,9 @@ public class SearchFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getSupportActionBar().setTitle("Пошук");
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle("Пошук");
+		}
 	}
 }

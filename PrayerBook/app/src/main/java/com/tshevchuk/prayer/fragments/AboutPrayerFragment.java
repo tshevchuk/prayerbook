@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,10 @@ public class AboutPrayerFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getSupportActionBar().setTitle("Опис");
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle("Опис");
+		}
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +24,10 @@ public abstract class TextFragmentBase extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getSupportActionBar().setTitle(getMenuItem().getName());
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle(getMenuItem().getName());
+		}
 	}
 
 	@Override

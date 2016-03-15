@@ -74,7 +74,9 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
                     //noinspection deprecation
                     d = context.getResources().getDrawable(id);
                 }
-                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+				if (d != null) {
+					d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+				}
 				return d;
 			}
 		}

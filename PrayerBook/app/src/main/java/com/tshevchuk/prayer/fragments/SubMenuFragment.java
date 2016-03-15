@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,10 @@ public class SubMenuFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getSupportActionBar().setTitle(subMenu.getName());
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle(subMenu.getName());
+		}
 	}
 
 	@Override
@@ -61,7 +65,7 @@ public class SubMenuFragment extends FragmentBase {
 					.getSerializable("subMenu");
 			MenuItemSubMenu s2 = (MenuItemSubMenu) f.getArguments()
 					.getSerializable("subMenu");
-			return s1.getName().equals(s2.getName());
+			return s1 != null && s2 != null && s1.getName().equals(s2.getName());
 		}
 		return false;
 	}

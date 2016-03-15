@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.text.TextUtils;
@@ -27,7 +28,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 	private HomeActivity activity;
 
 	@Override
-	public void onAttach(Context context) { 
+	public void onAttach(Context context) {
 		super.onAttach(context);
 		this.activity = (HomeActivity) getActivity();
 	}
@@ -64,14 +65,19 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 			abHeight = TypedValue.complexToDimensionPixelSize(tv.data,
 					getResources().getDisplayMetrics());
 		}
-		v.setPadding(0, abHeight, 0, 0);
+		if (v != null) {
+			v.setPadding(0, abHeight, 0, 0);
+		}
 		return v;
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getSupportActionBar().setTitle("Налаштування");
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle("Налаштування");
+		}
 		activity.setNavigationDrawerEnabled(false);
 
 		getPreferenceScreen().getSharedPreferences()

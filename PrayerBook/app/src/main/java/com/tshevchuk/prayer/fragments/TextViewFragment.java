@@ -75,11 +75,12 @@ public class TextViewFragment extends TextFragmentBase implements
 						hide = true;
 
 					ActionBar ab = activity.getSupportActionBar();
-
-					if (show && !ab.isShowing())
-						ab.show();
-					else if (hide && ab.isShowing())
-						ab.hide();
+					if (ab != null) {
+						if (show && !ab.isShowing())
+							ab.show();
+						else if (hide && ab.isShowing())
+							ab.hide();
+					}
 				}
 			});
 
@@ -90,10 +91,11 @@ public class TextViewFragment extends TextFragmentBase implements
 						// is bottom
 						View view = svScroll.getChildAt(svScroll
 								.getChildCount() - 1);
-						if ((svScroll.getHeight() + svScroll.getScrollY()) >= view
-								.getBottom()
-								- activity.getSupportActionBar().getHeight()) {
-							activity.getSupportActionBar().show();
+						ActionBar actionBar = activity.getSupportActionBar();
+						if (actionBar != null
+								&& (svScroll.getHeight() + svScroll.getScrollY())
+								>= view.getBottom() - actionBar.getHeight()) {
+							actionBar.show();
 						}
 					}
 					return false;
@@ -155,7 +157,7 @@ public class TextViewFragment extends TextFragmentBase implements
 					.getSerializable("prayer");
 			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments()
 					.getSerializable("prayer");
-			return p1.getId() == p2.getId();
+			return p1 != null && p2 != null && p1.getId() == p2.getId();
 		}
 		return false;
 	}
