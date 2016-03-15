@@ -132,6 +132,12 @@ public class HomeActivity extends AppCompatActivity {
 				}
 			}
 		};
+		drawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 		drawerLayout.addDrawerListener(drawerToggle);
 
 		if (savedInstanceState == null) {
