@@ -1,11 +1,12 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -22,14 +23,14 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
 
-public class SettingsFragment extends PreferenceFragment implements
+public class SettingsFragment extends PreferenceFragmentCompat implements
 		OnSharedPreferenceChangeListener {
 	private HomeActivity activity;
 
 	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = (HomeActivity) activity;
+	public void onAttach(Context context) {
+		super.onAttach(context);
+		this.activity = (HomeActivity) getActivity();
 	}
 
 	@Override
@@ -39,8 +40,7 @@ public class SettingsFragment extends PreferenceFragment implements
 	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreatePreferences(Bundle bundle, String s) {
 		setHasOptionsMenu(true);
 		addPreferencesFromResource(R.xml.preferences);
 		Preference aboutApp = findPreference(PreferenceManager.PREF_ABOUT_APP);
@@ -51,6 +51,7 @@ public class SettingsFragment extends PreferenceFragment implements
 				return true;
 			}
 		});
+
 	}
 
 	@Override
@@ -64,14 +65,19 @@ public class SettingsFragment extends PreferenceFragment implements
 			abHeight = TypedValue.complexToDimensionPixelSize(tv.data,
 					getResources().getDisplayMetrics());
 		}
-		v.setPadding(0, abHeight, 0, 0);
+		if (v != null) {
+			v.setPadding(0, abHeight, 0, 0);
+		}
 		return v;
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle("Налаштування");
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle("Налаштування");
+		}
 		activity.setNavigationDrawerEnabled(false);
 
 		getPreferenceScreen().getSharedPreferences()

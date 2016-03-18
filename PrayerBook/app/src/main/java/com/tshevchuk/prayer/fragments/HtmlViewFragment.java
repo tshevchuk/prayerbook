@@ -1,16 +1,19 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.res.AssetManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -130,8 +133,10 @@ public class HtmlViewFragment extends TextFragmentBase {
 						}
 					}
 
-					getActivity().getActionBar().setTitle(
-							getMenuItem().getName());
+					ActionBar actionBar = activity.getSupportActionBar();
+					if (actionBar != null) {
+						actionBar.setTitle(getMenuItem().getName());
+					}
 
 					if (!TextUtils.isEmpty(anchor)) {
 						view.loadUrl("javascript:function prayerbook_scrollToElement(id) {"
@@ -143,6 +148,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 					}
 				}
 
+				@SuppressWarnings("deprecation")
 				@Override
 				public WebResourceResponse shouldInterceptRequest(WebView view,
 						String url) {
@@ -151,6 +157,17 @@ public class HtmlViewFragment extends TextFragmentBase {
 						return new WebResourceResponse(null, null, stream);
 					}
 					return super.shouldInterceptRequest(view, url);
+				}
+
+				@Override
+				public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+						InputStream stream = inputStreamForAndroidResource(request.getUrl().toString());
+						if (stream != null) {
+							return new WebResourceResponse(null, null, stream);
+						}
+					}
+					return super.shouldInterceptRequest(view, request);
 				}
 
 				private InputStream inputStreamForAndroidResource(String url) {
@@ -218,7 +235,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 			}
 			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments()
 					.getSerializable("prayer");
-			return p1.getId() == p2.getId();
+			return p1 != null && p2 != null && p1.getId() == p2.getId();
 		}
 		return false;
 	}

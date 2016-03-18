@@ -15,7 +15,7 @@
         android:id="@+id/tvDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Сьогодні"
+        android:text="@string/calendar__today"
         android:textStyle="italic" />
 
     <TextView

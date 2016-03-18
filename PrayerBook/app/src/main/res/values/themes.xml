@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="PrayerBook.ThemeDark" parent="android:Theme.Holo">
+    <style name="PrayerBook.ThemeDark" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="pb_navigationDrawerIconDrawable">@drawable/ic_navigation_drawer_dark</item>
-        <item name="pb_nawigationDrawerBackgroundDrawable">#333</item>
+        <item name="pb_navigationDrawerBackgroundDrawable">#333</item>
         <item name="pb_actionBarSearchIconDrawable">@drawable/ic_actionbar_search_dark</item>
-         <item name="android:actionBarStyle">@style/PrayerBook.ActionBarDark</item>
+        <item name="android:actionBarStyle">@style/PrayerBook.ActionBarDark</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
-    <style name="PrayerBook.ThemeLight" parent="android:Theme.Holo.Light">
+    <style name="PrayerBook.ThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="pb_navigationDrawerIconDrawable">@drawable/ic_navigation_drawer_light</item>
-        <item name="pb_nawigationDrawerBackgroundDrawable">#aaa</item>
+        <item name="pb_navigationDrawerBackgroundDrawable">#aaa</item>
         <item name="pb_actionBarSearchIconDrawable">@drawable/ic_actionbar_search_light</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
 </resources>

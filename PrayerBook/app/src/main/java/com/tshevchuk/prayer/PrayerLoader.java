@@ -1,10 +1,10 @@
 package com.tshevchuk.prayer;
 
-import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.AsyncTaskLoader;
 import android.text.Html;
 
 import java.io.IOException;
@@ -74,7 +74,9 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
                     //noinspection deprecation
                     d = context.getResources().getDrawable(id);
                 }
-                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+				if (d != null) {
+					d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+				}
 				return d;
 			}
 		}

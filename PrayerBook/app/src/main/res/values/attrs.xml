@@ -2,7 +2,7 @@
 <resources>
 
     <attr name="pb_navigationDrawerIconDrawable" format="reference"/>
-    <attr name="pb_nawigationDrawerBackgroundDrawable" format="reference|color"/>
+    <attr name="pb_navigationDrawerBackgroundDrawable" format="reference|color"/>
     <attr name="pb_actionBarSearchIconDrawable" format="reference"/>
     
 </resources>

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MenuItemSubMenu extends MenuItemBase {
 
-	private List<MenuItemBase> subItems = new ArrayList<>();
+	private final List<MenuItemBase> subItems = new ArrayList<>();
 
 	public MenuItemSubMenu(int id, String name) {
 		super(id, name);

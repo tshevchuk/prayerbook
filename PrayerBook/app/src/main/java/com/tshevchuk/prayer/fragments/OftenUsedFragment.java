@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -92,7 +93,10 @@ public class OftenUsedFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		activity.getActionBar().setTitle(R.string.app_name);
+		ActionBar actionBar = activity.getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setTitle(R.string.app_name);
+		}
 
 		int[] recentIds = PreferenceManager.getInstance().getRecentMenuItems();
 		oftenUsedItems = new ArrayList<>(recentIds.length);

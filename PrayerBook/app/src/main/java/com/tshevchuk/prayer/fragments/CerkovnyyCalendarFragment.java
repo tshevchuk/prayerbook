@@ -1,8 +1,7 @@
 package com.tshevchuk.prayer.fragments;
 
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +53,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 				java.util.Calendar.YEAR);
 		menuItem = (MenuItemCalendar) getArguments().getSerializable(
 				"menu_item");
-		actionBar = getActivity().getActionBar();
+		actionBar = activity.getSupportActionBar();
 		formattedYears = new String[years.length];
 		for (int i = 0; i < years.length; ++i) {
 			formattedYears[i] = years[i] + " рік";
@@ -107,7 +106,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 		actionBar.setListNavigationCallbacks(new ArrayAdapter<>(activity,
 				android.R.layout.simple_spinner_dropdown_item, formattedYears),
-				new OnNavigationListener() {
+				new ActionBar.OnNavigationListener() {
 					@Override
 					public boolean onNavigationItemSelected(int itemPosition,
 							long itemId) {
