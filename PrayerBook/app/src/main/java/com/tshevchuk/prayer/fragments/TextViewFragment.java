@@ -4,21 +4,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.support.v7.app.ActionBar;
+import android.support.v4.widget.NestedScrollView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.PrayerLoader;
 import com.tshevchuk.prayer.PreferenceManager;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.ResponsiveScrollView;
-import com.tshevchuk.prayer.ResponsiveScrollView.OnEndScrollListener;
-import com.tshevchuk.prayer.UIUtils;
 import com.tshevchuk.prayer.data.MenuItemPrayer;
 import com.tshevchuk.prayer.data.MenuItemPrayer.Type;
 
@@ -31,7 +26,7 @@ public class TextViewFragment extends TextFragmentBase implements
 	private Integer firstVisibleCharacterOffset = null;
 
 	private TextView tvContent;
-	private ResponsiveScrollView svScroll;
+	private NestedScrollView svScroll;
 
 	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
 		TextViewFragment f = new TextViewFragment();
@@ -57,51 +52,7 @@ public class TextViewFragment extends TextFragmentBase implements
 		View v = inflater.inflate(R.layout.f_text_view, container, false);
 
 		tvContent = (TextView) v.findViewById(R.id.tv_content);
-		svScroll = (ResponsiveScrollView) v.findViewById(R.id.svScroll);
-
-		if (!getResources().getBoolean(R.bool.has_sw480)) {
-			svScroll.setOnEndScrollListener(new OnEndScrollListener() {
-				@Override
-				public void onEndScroll(boolean moveContentUp, boolean isFling,
-						int dy) {
-					boolean show = false;
-					boolean hide = false;
-
-					if (svScroll.getScrollY() < UIUtils.dpToPx(80))
-						show = true;
-					if (!moveContentUp && dy < -UIUtils.dpToPx(30))
-						show = true;
-					if (!show && moveContentUp && isFling)
-						hide = true;
-
-					ActionBar ab = activity.getSupportActionBar();
-					if (ab != null) {
-						if (show && !ab.isShowing())
-							ab.show();
-						else if (hide && ab.isShowing())
-							ab.hide();
-					}
-				}
-			});
-
-			svScroll.setOnTouchListener(new OnTouchListener() {
-				@Override
-				public boolean onTouch(View v, MotionEvent event) {
-					if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-						// is bottom
-						View view = svScroll.getChildAt(svScroll
-								.getChildCount() - 1);
-						ActionBar actionBar = activity.getSupportActionBar();
-						if (actionBar != null
-								&& (svScroll.getHeight() + svScroll.getScrollY())
-								>= view.getBottom() - actionBar.getHeight()) {
-							actionBar.show();
-						}
-					}
-					return false;
-				}
-			});
-		}
+		svScroll = (NestedScrollView) v.findViewById(R.id.svScroll);
 
 		activity.setProgressBarIndeterminateVisibility(true);
 		if (htmlContent == null) {
