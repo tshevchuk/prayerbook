@@ -3,8 +3,14 @@ package com.tshevchuk.prayer.data;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
-import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.Utils;
+import com.tshevchuk.prayer.domain.model.MenuItemBase;
+import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
+import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
+import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
+import com.tshevchuk.prayer.domain.model.SearchItem;
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 
 import java.util.ArrayList;
 import java.util.HashSet;

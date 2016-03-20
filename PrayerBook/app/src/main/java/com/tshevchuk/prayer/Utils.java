@@ -9,6 +9,8 @@ import android.net.NetworkInfo;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
