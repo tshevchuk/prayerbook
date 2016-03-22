@@ -10,16 +10,24 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.activities.HomeActivity;
 
+import javax.inject.Inject;
+
 public class FragmentBase extends Fragment {
 	HomeActivity activity;
+	@Inject
+	Catalog catalog;
+	@Inject
+	AnalyticsManager analyticsManager;
+	@Inject
+	PreferenceManager preferenceManager;
 
 	@Override
 	public void onAttach(Context context) {
@@ -36,6 +44,9 @@ public class FragmentBase extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
 
 		new Handler().post(new Runnable() {
 			@Override
@@ -56,9 +67,7 @@ public class FragmentBase extends Fragment {
 			actionBar.show();
 		}
 		activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
-		Tracker t = PrayerBookApplication.getInstance().getTracker();
-		t.setScreenName(getClass().getSimpleName());
-		t.send(new HitBuilders.ScreenViewBuilder().build());
+		analyticsManager.sendScreenEvent(getClass().getSimpleName());
 	}
 
 	@Override
@@ -85,9 +94,7 @@ public class FragmentBase extends Fragment {
 		case android.R.id.home:
 			if (getActivity().getFragmentManager().getBackStackEntryCount() == 0) {
 				((HomeActivity) getActivity())
-						.displayMenuItem(PrayerBookApplication.getInstance()
-								.getCatalog()
-								.getMenuItemById(Catalog.ID_RECENT_SCREENS));
+						.displayMenuItem(catalog.getMenuItemById(Catalog.ID_RECENT_SCREENS));
 			} else {
 				getActivity().getFragmentManager().popBackStack();
 			}
@@ -116,8 +123,8 @@ public class FragmentBase extends Fragment {
 	}
 
 	private void createShortcut(MenuItemBase mi) {
-		PrayerBookApplication app = PrayerBookApplication.getInstance();
-		Intent shortcutIntent = new Intent(app, HomeActivity.class);
+		Intent shortcutIntent = new Intent(activity.getApplicationContext(),
+				HomeActivity.class);
 		shortcutIntent.putExtra(HomeActivity.PARAM_SCREEN_ID, mi.getId());
 		shortcutIntent.setAction(Intent.ACTION_MAIN);
 
@@ -125,11 +132,11 @@ public class FragmentBase extends Fragment {
 		addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
 		addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, mi.getName());
 		addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
-				Intent.ShortcutIconResource.fromContext(app,
+				Intent.ShortcutIconResource.fromContext(activity.getApplicationContext(),
 						R.mipmap.ic_launcher));
 
 		addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-		app.sendBroadcast(addIntent);
+		activity.sendBroadcast(addIntent);
 	}
 
 	boolean isNavigationDrawerEnabled() {

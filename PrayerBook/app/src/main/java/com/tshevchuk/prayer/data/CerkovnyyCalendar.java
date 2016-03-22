@@ -1,8 +1,10 @@
-package com.tshevchuk.prayer.domain.model;
+package com.tshevchuk.prayer.data;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
+
+import com.tshevchuk.prayer.domain.model.CalendarDay;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -16,14 +18,12 @@ public class CerkovnyyCalendar {
 	private static final int FLAG_RUKHOME_REPLACE_RED_DAY = 30000;
 	private static final int FLAG_RUKHOME_RED_DAY = 40000;
 
-	private static CerkovnyyCalendar instance;
-
 	private final Set<Integer> svyataNerukhomi = new HashSet<>(50);
 	private final SparseArray<String> svyataRukhomi = new SparseArray<>(50);
 	private final SparseIntArray dataVelykodnya = new SparseIntArray(50);
 	private final SparseArray<String> dni = new SparseArray<>(400);
 
-	private CerkovnyyCalendar() {
+	public CerkovnyyCalendar() {
 		initVelykdenDate();
 		initRukhomiSvyata();
 
@@ -43,13 +43,6 @@ public class CerkovnyyCalendar {
 		svyataNerukhomi.addAll(Arrays.asList(914, 921, 927, 1014, 1121, 1204,
 				1219, 1222, 101, 107, 108, 109, 114, 119, 212, 215, 407, 506,
 				516, 521, 522, 707, 712, 806, 807, 819, 828, 911));
-	}
-
-	public static synchronized CerkovnyyCalendar getInstance() {
-		if (instance == null) {
-			instance = new CerkovnyyCalendar();
-		}
-		return instance;
 	}
 
 	public CalendarDay getCalendarDay(Date day) {

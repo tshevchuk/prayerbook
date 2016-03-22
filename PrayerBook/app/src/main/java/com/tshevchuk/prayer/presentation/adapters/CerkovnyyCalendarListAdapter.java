@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
+import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
-import com.tshevchuk.prayer.domain.model.CerkovnyyCalendar;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,9 +24,9 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 			"Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень",
 			"Жовтень", "Листопад", "Грудень" };
 
-	private final CerkovnyyCalendar cerkovnyyCalendar = CerkovnyyCalendar
-			.getInstance();
+	private final CerkovnyyCalendar cerkovnyyCalendar;
 	private final Calendar calendar;
+	private final PreferenceManager preferenceManager;
 	private final int year;
 	private final int currentYear;
 	private final int currentDayOfYear;
@@ -35,7 +35,11 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 	private final SimpleDateFormat dayOldStyleFormat;
 	private int daysCount;
 
-	public CerkovnyyCalendarListAdapter(Context context, int year) {
+	public CerkovnyyCalendarListAdapter(Context context,
+										CerkovnyyCalendar cerkovnyyCalendar,
+										PreferenceManager preferenceManager, int year) {
+		this.cerkovnyyCalendar = cerkovnyyCalendar;
+		this.preferenceManager = preferenceManager;
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		dayDateFormat = new SimpleDateFormat("d EE", Utils.getUkrainianLocale());
@@ -81,9 +85,9 @@ public class CerkovnyyCalendarListAdapter extends BaseAdapter {
 			vh.vMonthSeparator = v.findViewById(R.id.vMonthSeparator);
 
 			vh.tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP,
-					PreferenceManager.getInstance().getFontSizeSp());
-			vh.tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, PreferenceManager
-					.getInstance().getFontSizeSp());
+					preferenceManager.getFontSizeSp());
+			vh.tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP,
+					preferenceManager.getFontSizeSp());
 			v.setTag(vh);
 		}
 		ViewHolder vh = (ViewHolder) v.getTag();

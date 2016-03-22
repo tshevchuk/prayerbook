@@ -18,9 +18,8 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
-import com.tshevchuk.prayer.domain.model.CerkovnyyCalendar;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
@@ -34,7 +33,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class OftenUsedFragment extends FragmentBase {
+	@Inject
+	CerkovnyyCalendar cerkovnyyCalendar;
 	private MenuItemOftenUsed menuItem;
 	private List<MenuItemBase> oftenUsedItems;
 	private ListView lvItems;
@@ -53,6 +56,8 @@ public class OftenUsedFragment extends FragmentBase {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
 		menuItem = Parcels.unwrap(getArguments().getParcelable(
 				"menuItem"));
 	}
@@ -72,8 +77,7 @@ public class OftenUsedFragment extends FragmentBase {
 		llToday.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				activity.displayMenuItem(PrayerBookApplication.getInstance()
-						.getCatalog().getMenuItemById(Catalog.ID_CALENDAR));
+				activity.displayMenuItem(catalog.getMenuItemById(Catalog.ID_CALENDAR));
 			}
 		});
 		lvItems.addHeaderView(calendarToday);
@@ -100,27 +104,25 @@ public class OftenUsedFragment extends FragmentBase {
 			actionBar.setTitle(R.string.app_name);
 		}
 
-		int[] recentIds = PreferenceManager.getInstance().getRecentMenuItems();
+		int[] recentIds = preferenceManager.getRecentMenuItems();
 		oftenUsedItems = new ArrayList<>(recentIds.length);
-		Catalog cat = PrayerBookApplication.getInstance().getCatalog();
 		for (int id : recentIds) {
-			MenuItemBase mi = cat.getMenuItemById(id);
+			MenuItemBase mi = catalog.getMenuItemById(id);
 			if (mi != null) {
 				oftenUsedItems.add(mi);
 			}
 		}
-		lvItems.setAdapter(new OftenUsedListAdapter(activity, oftenUsedItems));
+		lvItems.setAdapter(new OftenUsedListAdapter(activity, oftenUsedItems, catalog, preferenceManager));
 
 		llToday.setVisibility(View.VISIBLE);
-		CerkovnyyCalendar cal = CerkovnyyCalendar.getInstance();
-		CalendarDay day = cal.getCalendarDay(new Date());
+		CalendarDay day = cerkovnyyCalendar.getCalendarDay(new Date());
 		String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
 				.format(day.getDay());
 		if (day.isDateRed()) {
 			d = "<font color=\"red\">" + d + "</font>";
 		}
 		tvDay.setText(Html.fromHtml(d));
-		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
+		int fontSizeSp = preferenceManager.getFontSizeSp();
 		tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
 		tvDescription.setText(Html.fromHtml(day.getDescription().toString()));
 		tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);

@@ -21,11 +21,9 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 
 import org.parceler.Parcels;
 
@@ -59,8 +57,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		WebSettings settings = wvContent.getSettings();
-		settings.setDefaultFontSize(PreferenceManager.getInstance()
-				.getFontSizeSp());
+		settings.setDefaultFontSize(preferenceManager.getFontSizeSp());
 	}
 
 	private void loadPrayer(MenuItemPrayer p) {
@@ -98,8 +95,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 					if (url.startsWith("prayerbook://")) {
 						String params[] = url.substring(13).split("#");
 						int id = Integer.valueOf(params[0]);
-						MenuItemBase mi = PrayerBookApplication.getInstance()
-								.getCatalog().getMenuItemById(id);
+						MenuItemBase mi = catalog.getMenuItemById(id);
 						if (mi instanceof MenuItemPrayer) {
 							if (params.length == 2
 									&& !TextUtils.isEmpty(params[1])) {

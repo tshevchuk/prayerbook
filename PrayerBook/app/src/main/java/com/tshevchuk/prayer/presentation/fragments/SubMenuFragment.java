@@ -39,7 +39,7 @@ public class SubMenuFragment extends FragmentBase {
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_submenu, container, false);
 		ListView lvItems = (ListView) v.findViewById(R.id.lvItems);
-		lvItems.setAdapter(new SubMenuListAdapter(activity, subMenu.getSubItems()));
+		lvItems.setAdapter(new SubMenuListAdapter(activity, subMenu.getSubItems(), preferenceManager));
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,

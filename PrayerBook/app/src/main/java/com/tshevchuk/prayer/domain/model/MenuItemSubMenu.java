@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.domain.model;
 
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
+import com.tshevchuk.prayer.domain.model.parcels.MenuItemBaseListParcelConverter;
 
 import org.parceler.Parcel;
 import org.parceler.ParcelPropertyConverter;
@@ -11,7 +12,7 @@ import java.util.List;
 @Parcel
 public class MenuItemSubMenu extends MenuItemBase {
 	@ParcelPropertyConverter(MenuItemBaseListParcelConverter.class)
-	final List<MenuItemBase> subItems = new ArrayList<>();
+	List<MenuItemBase> subItems = new ArrayList<>();
 
 	public MenuItemSubMenu(int id, String name) {
 		super(id, name);

@@ -13,15 +13,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.HitBuilders.EventBuilder;
-import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.domain.Analytics;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.SearchItem;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.activities.HomeActivity;
 import com.tshevchuk.prayer.presentation.adapters.SearchListAdapter;
 
@@ -54,14 +50,9 @@ public class SearchFragment extends FragmentBase {
 					int position, long id) {
 				MenuItemBase mi = items.get(position - 1).getMenuItem();
 				((HomeActivity) getActivity()).displayMenuItem(mi);
-
-				Tracker t = PrayerBookApplication.getInstance().getTracker();
-				EventBuilder event = new HitBuilders.EventBuilder()
-						.setCategory(Analytics.CAT_SEARCH)
-						.setAction(
-								"Вибрано елемент на фрагменті результатів пошуку")
-						.setLabel(mi.getId() + " " + mi.getName());
-				t.send(event.build());
+				analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+						"Вибрано елемент на фрагменті результатів пошуку",
+						mi.getId() + " " + mi.getName());
 			}
 		});
 
@@ -79,9 +70,8 @@ public class SearchFragment extends FragmentBase {
 				: searchPhrase.toLowerCase(Utils.getUkrainianLocale());
 		if (lvItems != null) {
 
-			items = PrayerBookApplication.getInstance().getCatalog()
-					.filter(this.searchPhrase);
-			lvItems.setAdapter(new SearchListAdapter(getActivity(), items));
+			items = catalog.filter(this.searchPhrase);
+			lvItems.setAdapter(new SearchListAdapter(getActivity(), items, catalog, preferenceManager));
 			tvHeader.setText(String.format("Для «%s» знайдено:", searchPhrase));
 		}
 	}

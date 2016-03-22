@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.data;
 
+import android.app.Application;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
@@ -10,7 +11,6 @@ import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
 import com.tshevchuk.prayer.domain.model.SearchItem;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,6 +18,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class Catalog {
 	public static final int ID_CALENDAR = 5;
 	public static final int ID_RECENT_SCREENS = 400;
@@ -44,9 +48,9 @@ public class Catalog {
 	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
 	private static final int ID_SCHODENNI_MOLYTVY = 1;
 	private static final int NEXT_ID_TO_ADD = 911;
-
 	private final List<MenuItemBase> topMenu;
 	private final SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<>();
+	private Application application;
 
 	{
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
@@ -74,7 +78,11 @@ public class Catalog {
 		menu.addSubItem(addPisni());
 
 		topMenu = menu.getSubItems();
+	}
 
+	@Inject
+	public Catalog(Application application) {
+		this.application = application;
 		verifyUniqueId();
 	}
 
@@ -2116,7 +2124,7 @@ public class Catalog {
 	}
 
 	private void verifyUniqueId() {
-		if (Utils.isDebuggable()) {
+		if (Utils.isDebuggable(application)) {
 			Set<Integer> usedIds = new TreeSet<>();
 			for (MenuItemBase mi : topMenu) {
 				verifyUniqueId(usedIds, mi);
@@ -2187,15 +2195,13 @@ public class Catalog {
 	}
 
 	public List<SearchItem> filter(String searchPhrase) {
-		Catalog cat = PrayerBookApplication.getInstance().getCatalog();
-
 		List<SearchItem> filtered = new ArrayList<>();
 
 		if (TextUtils.isEmpty(searchPhrase)) {
 			return filtered;
 		}
 
-		for (MenuItemBase mi : cat.getTopMenuItems()) {
+		for (MenuItemBase mi : getTopMenuItems()) {
 			filter(searchPhrase, filtered, mi);
 		}
 		return filtered;

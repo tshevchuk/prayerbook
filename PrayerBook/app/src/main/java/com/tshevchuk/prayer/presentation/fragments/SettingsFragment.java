@@ -7,24 +7,22 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
-import android.text.TextUtils;
-import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.HitBuilders.EventBuilder;
-import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.domain.Analytics;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.activities.HomeActivity;
 
+import javax.inject.Inject;
+
 public class SettingsFragment extends PreferenceFragmentCompat implements
 		OnSharedPreferenceChangeListener {
+	@Inject
+	AnalyticsManager analyticsManager;
+
 	private HomeActivity activity;
 
 	@Override
@@ -40,6 +38,13 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
+	}
+
+	@Override
 	public void onCreatePreferences(Bundle bundle, String s) {
 		setHasOptionsMenu(true);
 		addPreferencesFromResource(R.xml.preferences);
@@ -52,23 +57,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 			}
 		});
 
-	}
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View v = super.onCreateView(inflater, container, savedInstanceState);
-		TypedValue tv = new TypedValue();
-		int abHeight = 0;
-		if (activity.getTheme().resolveAttribute(android.R.attr.actionBarSize,
-				tv, true)) {
-			abHeight = TypedValue.complexToDimensionPixelSize(tv.data,
-					getResources().getDisplayMetrics());
-		}
-		if (v != null) {
-			v.setPadding(0, abHeight, 0, 0);
-		}
-		return v;
 	}
 
 	@Override
@@ -125,15 +113,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void sendAnalyticsSettingsChanged(CharSequence settingsName,
-											  CharSequence value) {
-		Tracker t = PrayerBookApplication.getInstance().getTracker();
-		EventBuilder event = new HitBuilders.EventBuilder().setCategory(
-				Analytics.CAT_SETTINGS_CHANGED).setAction(
-				settingsName.toString());
-		if (!TextUtils.isEmpty(value)) {
-			event.setLabel(value.toString());
-		}
-		t.send(event.build());
+	private void sendAnalyticsSettingsChanged(String settingsName, String value) {
+		analyticsManager.sendActionEvent(Analytics.CAT_SETTINGS_CHANGED,
+				settingsName, value);
 	}
 }

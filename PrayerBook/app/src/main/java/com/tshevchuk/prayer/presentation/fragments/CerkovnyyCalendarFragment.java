@@ -11,11 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.Analytics;
-import com.tshevchuk.prayer.domain.model.CerkovnyyCalendar;
+import com.tshevchuk.prayer.data.CerkovnyyCalendar;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
@@ -25,9 +23,12 @@ import org.parceler.Parcels;
 
 import java.util.Calendar;
 
+import javax.inject.Inject;
+
 public class CerkovnyyCalendarFragment extends FragmentBase {
-	private final CerkovnyyCalendar calendar = CerkovnyyCalendar.getInstance();
-	private final int[] years = calendar.getYears();
+	@Inject
+	CerkovnyyCalendar cerkovnyyCalendar;
+	private int[] years;
 	private int year;
 	private int currentYear;
 	private int prevFirstVisibleItem;
@@ -50,6 +51,11 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
+
+		years = cerkovnyyCalendar.getYears();
 
 		year = currentYear = java.util.Calendar.getInstance().get(
 				java.util.Calendar.YEAR);
@@ -114,14 +120,8 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 							long itemId) {
 						if (years[itemPosition] != year) {
 							showCalendarForYear(years[itemPosition], null);
-							Tracker t = PrayerBookApplication.getInstance()
-									.getTracker();
-							t.send(new HitBuilders.EventBuilder()
-									.setCategory(
-											Analytics.CAT_CERKOVNYY_CALENDAR)
-									.setAction("Вибрано рік")
-									.setLabel(formattedYears[itemPosition])
-									.build());
+							analyticsManager.sendActionEvent(Analytics.CAT_CERKOVNYY_CALENDAR,
+									"Вибрано рік", formattedYears[itemPosition]);
 						}
 						return true;
 					}
@@ -152,7 +152,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 	}
 
 	private void showCalendarForYear(int year, Integer position) {
-		lvCalendar.setAdapter(new CerkovnyyCalendarListAdapter(activity, year));
+		lvCalendar.setAdapter(new CerkovnyyCalendarListAdapter(activity, cerkovnyyCalendar, preferenceManager, year));
 
 		if (position == null) {
 			position = (year == currentYear) ? (java.util.Calendar

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +21,7 @@ public class AboutAppFragment extends FragmentBase {
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.f_about_app, container, false);
 		((TextView) v.findViewById(R.id.tv_app_name)).setText(Utils
-				.getApplicationNameAndVersion());
+				.getApplicationNameAndVersion(getActivity().getApplicationContext()));
 		StringBuilder sb = new StringBuilder();
 		sb.append("Коротка довідка: https://github.com/tshevchuk/prayerbook/wiki/Довідка-програми-Молитовник \n\n");
 		sb.append("Автор: Тарас Шевчук taras.shevchuk@gmail.com\n\n");
@@ -35,8 +34,7 @@ public class AboutAppFragment extends FragmentBase {
 		sb.append("Допомогти проекту можна наступними способами: https://github.com/tshevchuk/prayerbook/wiki/Як-допомогти-проекту%3F \n\n");
 		
 		sb.append("Джерела текстів:\n");
-		List<String> srcs = new ArrayList<>(PrayerBookApplication
-				.getInstance().getCatalog().getAllSources());
+		List<String> srcs = new ArrayList<>(catalog.getAllSources());
 		Collections.sort(srcs);
 		for (String src : srcs) {
 			sb.append(" • ").append(src).append("\n");

@@ -8,7 +8,6 @@ import android.view.MenuItem;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.activities.HomeActivity;
 
 public abstract class TextFragmentBase extends FragmentBase {
@@ -51,8 +50,7 @@ public abstract class TextFragmentBase extends FragmentBase {
 			if (parentId > 0) {
 				HomeActivity a = activity;
 				a.getFragmentManager().popBackStackImmediate();
-				a.displayMenuItem(PrayerBookApplication.getInstance()
-						.getCatalog().getMenuItemById(parentId));
+				a.displayMenuItem(catalog.getMenuItemById(parentId));
 				return true;
 			}
 			break;

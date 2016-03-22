@@ -33,14 +33,12 @@ import android.widget.SearchView.OnSuggestionListener;
 import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.HitBuilders.EventBuilder;
-import com.google.android.gms.analytics.Tracker;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.domain.Analytics;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
@@ -67,10 +65,17 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class HomeActivity extends AppCompatActivity {
 	public final static String PARAM_SCREEN_ID = "screen_id";
 	private static final String TAG = HomeActivity.class.getName();
-	private Catalog catalog;
+	@Inject
+	Catalog catalog;
+	@Inject
+	PreferenceManager preferenceManager;
+	@Inject
+	AnalyticsManager analyticsManager;
 
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -81,8 +86,9 @@ public class HomeActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
-		PreferenceManager pm = PreferenceManager.getInstance();
-		setTheme(pm.isNightModeEnabled() ? R.style.PrayerBook_ThemeDark
+		((PrayerBookApplication) getApplication()).getViewComponent().inject(this);
+
+		setTheme(preferenceManager.isNightModeEnabled() ? R.style.PrayerBook_ThemeDark
 				: R.style.PrayerBook_ThemeLight);
 
 		super.onCreate(savedInstanceState);
@@ -96,10 +102,8 @@ public class HomeActivity extends AppCompatActivity {
 
 		setSupportActionBar(toolbar);
 
-		catalog = PrayerBookApplication.getInstance().getCatalog();
-
 		drawerList.setAdapter(new SubMenuListAdapter(this, catalog
-				.getTopMenuItems()));
+				.getTopMenuItems(), preferenceManager));
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -146,8 +150,7 @@ public class HomeActivity extends AppCompatActivity {
 		drawerLayout.addDrawerListener(drawerToggle);
 
 		if (savedInstanceState == null) {
-			MenuItemBase mi = catalog.getMenuItemById(PreferenceManager
-					.getInstance().getDefaultMenuItemId());
+			MenuItemBase mi = catalog.getMenuItemById(preferenceManager.getDefaultMenuItemId());
 			int id;
 			if (getIntent() != null) {
 				id = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);
@@ -157,7 +160,7 @@ public class HomeActivity extends AppCompatActivity {
 			}
 			displayMenuItem(mi);
 
-			if (Utils.isNetworkAvailable()) {
+			if (Utils.isNetworkAvailable(getApplicationContext())) {
 				AppRater.app_launched(this);
 			}
 		}
@@ -171,7 +174,7 @@ public class HomeActivity extends AppCompatActivity {
 
 	@Override
 	protected void onDestroy() {
-		GoogleAnalytics.getInstance(PrayerBookApplication.getInstance())
+		GoogleAnalytics.getInstance(getApplicationContext())
 				.dispatchLocalHits();
 		super.onDestroy();
 
@@ -183,14 +186,8 @@ public class HomeActivity extends AppCompatActivity {
 		if (PrayerBookApplication.startupTimeMeasuringStartTimestamp != null) {
 			long elapsedMls = System.currentTimeMillis()
 					- PrayerBookApplication.startupTimeMeasuringStartTimestamp;
-			PrayerBookApplication
-					.getInstance()
-					.getTracker()
-					.send(new HitBuilders.TimingBuilder()
-							.setLabel("Час запуску")
-							.setCategory("Час запуску програми")
-							.setVariable("Час запуску").setValue(elapsedMls)
-							.build());
+			analyticsManager.sendTimingEvent("Час запуску програми", "Час запуску",
+					"Час запуску", elapsedMls);
 			PrayerBookApplication.startupTimeMeasuringStartTimestamp = null;
 		}
 	}
@@ -204,13 +201,8 @@ public class HomeActivity extends AppCompatActivity {
 			@Override
 			public boolean onQueryTextSubmit(String query) {
 				search(query);
-
-				Tracker t = PrayerBookApplication.getInstance().getTracker();
-				EventBuilder event = new HitBuilders.EventBuilder()
-						.setCategory(Analytics.CAT_SEARCH)
-						.setAction("Підтверджено пошукову фразу")
-						.setLabel(query);
-				t.send(event.build());
+				analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+						"Підтверджено пошукову фразу", query);
 				return true;
 			}
 
@@ -218,18 +210,12 @@ public class HomeActivity extends AppCompatActivity {
 			public boolean onQueryTextChange(String newText) {
 				if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
 					search(newText);
-					Tracker t = PrayerBookApplication.getInstance()
-							.getTracker();
-					EventBuilder event = new HitBuilders.EventBuilder()
-							.setCategory(Analytics.CAT_SEARCH)
-							.setAction("Пошук на фрагменті пошуку")
-							.setLabel(newText);
-					t.send(event.build());
+					analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+							"Пошук на фрагменті пошуку", newText);
 				} else {
 					String[] columnNames = { "_id", "text" };
 					MatrixCursor cursor = new MatrixCursor(columnNames);
-					final List<SearchItem> items = PrayerBookApplication
-							.getInstance().getCatalog().filter(newText);
+					final List<SearchItem> items = catalog.filter(newText);
 					CharSequence[] temp = new CharSequence[2];
 					for (SearchItem item : items) {
 						temp[0] = Integer.toString(item.getMenuItem().getId());
@@ -256,29 +242,16 @@ public class HomeActivity extends AppCompatActivity {
 											.getMenuItem();
 									displayMenuItem(mi);
 
-									Tracker t = PrayerBookApplication
-											.getInstance().getTracker();
-									EventBuilder event = new HitBuilders.EventBuilder()
-											.setCategory(Analytics.CAT_SEARCH)
-											.setAction(
-													"Вибрано випадаючу підказку")
-											.setLabel(
-													mi.getId() + " "
-															+ mi.getName());
-									t.send(event.build());
+									analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+											"Вибрано випадаючу підказку", mi.getId() + " " + mi.getName()
+									);
 
 									return true;
 								}
 							});
 					if (!TextUtils.isEmpty(newText)) {
-						Tracker t = PrayerBookApplication.getInstance()
-								.getTracker();
-						EventBuilder event = new HitBuilders.EventBuilder()
-								.setCategory(Analytics.CAT_SEARCH)
-								.setAction(
-										"Пошук із випадаючим списком підказок")
-								.setLabel(newText);
-						t.send(event.build());
+						analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+								"Пошук із випадаючим списком підказок", newText);
 					}
 				}
 				return true;
@@ -342,14 +315,8 @@ public class HomeActivity extends AppCompatActivity {
 
 	public void sendAnalyticsOptionsMenuEvent(CharSequence menuItemName,
 			String param) {
-		Tracker t = PrayerBookApplication.getInstance().getTracker();
-		HitBuilders.EventBuilder eb = new HitBuilders.EventBuilder();
-		eb.setCategory(Analytics.CAT_OPTIONS_MENU).setAction(
-				menuItemName.toString());
-		if (!TextUtils.isEmpty(param)) {
-			eb.setLabel(param);
-		}
-		t.send(eb.build());
+		analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, menuItemName.toString(),
+				param);
 	}
 
 	public void displayMenuItem(final MenuItemBase mi) {
@@ -374,8 +341,7 @@ public class HomeActivity extends AppCompatActivity {
 			@Override
 			protected Void doInBackground(Void... params) {
 				if (!(mi instanceof MenuItemOftenUsed)) {
-					PreferenceManager.getInstance().markMenuItemAsOpened(
-							mi.getId());
+					preferenceManager.markMenuItemAsOpened(mi.getId());
 				}
 				return null;
 			}
@@ -407,12 +373,7 @@ public class HomeActivity extends AppCompatActivity {
 			title = fragment.getClass().getSimpleName();
 		}
 
-		PrayerBookApplication
-				.getInstance()
-				.getTracker()
-				.send(new HitBuilders.EventBuilder()
-						.setCategory("Fragment Opened")
-						.setAction(id + " " + title).build());
+		analyticsManager.sendActionEvent("Fragment Opened", id + " " + title);
 	}
 
 	private void search(String query) {
@@ -456,7 +417,7 @@ public class HomeActivity extends AppCompatActivity {
 		v1.setWillNotCacheDrawing(false);
 
 		int color = v1.getDrawingCacheBackgroundColor();
-		v1.setDrawingCacheBackgroundColor(PreferenceManager.getInstance()
+		v1.setDrawingCacheBackgroundColor(preferenceManager
 				.isNightModeEnabled() ? Color.BLACK : Color.WHITE);
 
 		if (color != 0) {
@@ -495,7 +456,7 @@ public class HomeActivity extends AppCompatActivity {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Опишіть коротко помилку:\n\n\n\n");
 		sb.append("----------------------------");
-		sb.append("\nПрограма: ").append(Utils.getApplicationNameAndVersion());
+		sb.append("\nПрограма: ").append(Utils.getApplicationNameAndVersion(getApplicationContext()));
 		ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			sb.append("\nЗаголовок: ").append(actionBar.getTitle());
@@ -509,7 +470,7 @@ public class HomeActivity extends AppCompatActivity {
 						.append(mi.getName());
 			}
 		}
-		sb.append("\n").append(Utils.getDeviceInfo());
+		sb.append("\n").append(Utils.getDeviceInfo(getApplicationContext()));
 
 		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
 		if (bitmap != null) {

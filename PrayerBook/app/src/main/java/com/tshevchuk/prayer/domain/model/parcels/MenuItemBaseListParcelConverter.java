@@ -1,7 +1,9 @@
-package com.tshevchuk.prayer.domain.model;
+package com.tshevchuk.prayer.domain.model.parcels;
 
 import android.content.ClipData;
 import android.os.Parcel;
+
+import com.tshevchuk.prayer.domain.model.MenuItemBase;
 
 import org.parceler.ParcelConverter;
 import org.parceler.Parcels;

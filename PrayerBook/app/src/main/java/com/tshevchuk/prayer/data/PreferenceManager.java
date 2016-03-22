@@ -1,9 +1,8 @@
 package com.tshevchuk.prayer.data;
 
+import android.app.Application;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
@@ -14,20 +13,13 @@ public class PreferenceManager {
 	private static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
-	private static final PreferenceManager instance = new PreferenceManager();
-
 	private final SharedPreferences sharedPrefs;
 	private int[] recentMenuItemsId;
 	private float[] recentMenuItemsShowCount;
 
-	private PreferenceManager() {
+	public PreferenceManager(Application application) {
 		sharedPrefs = android.preference.PreferenceManager
-				.getDefaultSharedPreferences(PrayerBookApplication
-						.getInstance());
-	}
-
-	public static PreferenceManager getInstance() {
-		return instance;
+				.getDefaultSharedPreferences(application);
 	}
 
 	public boolean isNightModeEnabled() {

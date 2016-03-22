@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.PrayerLoader;
-import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
 
@@ -80,7 +79,7 @@ public class TextViewFragment extends TextFragmentBase implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		int fontSizeSp = PreferenceManager.getInstance().getFontSizeSp();
+		int fontSizeSp = preferenceManager.getFontSizeSp();
 		tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
 	}
 

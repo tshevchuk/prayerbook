@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.domain;
+package com.tshevchuk.prayer.domain.analytics;
 
 public class Analytics {
 	public static final String CAT_OPTIONS_MENU = "Option Menu";

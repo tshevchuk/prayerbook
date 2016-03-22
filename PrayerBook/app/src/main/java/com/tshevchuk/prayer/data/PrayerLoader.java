@@ -31,7 +31,7 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 	public CharSequence loadInBackground() {
 		String html = "";
 		try {
-			html = Utils.getAssetAsString(assetFileName);
+			html = Utils.getAssetAsString(context.getApplicationContext(), assetFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

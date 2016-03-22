@@ -17,9 +17,11 @@ import java.util.List;
 public class SubMenuListAdapter extends BaseAdapter {
 	private final List<MenuItemBase> items;
 	private final LayoutInflater inflater;
+	private final PreferenceManager preferenceManager;
 
-	public SubMenuListAdapter(Context context, List<MenuItemBase> items) {
+	public SubMenuListAdapter(Context context, List<MenuItemBase> items, PreferenceManager preferenceManager) {
 		this.items = items;
+		this.preferenceManager = preferenceManager;
 		inflater = LayoutInflater.from(context);
 	}
 
@@ -55,7 +57,7 @@ public class SubMenuListAdapter extends BaseAdapter {
 		MenuItemBase mi = items.get(position);
 		vh.tvName.setText(mi.getName());
 		int showUGCCVisibility = mi.isOfficialUGCCText()
-				&& PreferenceManager.getInstance().isShowOfficialUgccEnabled()
+				&& preferenceManager.isShowOfficialUgccEnabled()
 				? View.VISIBLE : View.INVISIBLE;
 		vh.ivOfficialStamp.setVisibility(showUGCCVisibility);
 		return v;

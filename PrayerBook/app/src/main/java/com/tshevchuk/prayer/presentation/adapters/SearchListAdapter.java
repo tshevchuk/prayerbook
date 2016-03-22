@@ -10,18 +10,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.model.SearchItem;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 
 import java.util.List;
 
 public class SearchListAdapter extends BaseAdapter {
 	private final List<SearchItem> items;
 	private final LayoutInflater inflater;
+	private final PreferenceManager preferenceManager;
+	private Catalog catalog;
 
-	public SearchListAdapter(Context context, List<SearchItem> items) {
+	public SearchListAdapter(Context context, List<SearchItem> items, Catalog catalog,
+							 PreferenceManager preferenceManager) {
 		this.items = items;
+		this.catalog = catalog;
+		this.preferenceManager = preferenceManager;
 		inflater = LayoutInflater.from(context);
 	}
 
@@ -57,13 +62,12 @@ public class SearchListAdapter extends BaseAdapter {
 		SearchItem si = items.get(position);
 		vh.tvName.setText(Html.fromHtml(si.getName()));
 		int showUGCCVisibility = si.getMenuItem().isOfficialUGCCText()
-				&& PreferenceManager.getInstance().isShowOfficialUgccEnabled()
+				&& preferenceManager.isShowOfficialUgccEnabled()
 				? View.VISIBLE : View.INVISIBLE;
 		vh.ivOfficialStamp.setVisibility(showUGCCVisibility);
 		if (si.getMenuItem().getParentItemId() > 0) {
 			vh.tvParentName.setVisibility(View.VISIBLE);
-			vh.tvParentName.setText(PrayerBookApplication.getInstance()
-					.getCatalog()
+			vh.tvParentName.setText(catalog
 					.getMenuItemById(si.getMenuItem().getParentItemId())
 					.getName());
 		} else {
