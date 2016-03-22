@@ -3,5 +3,5 @@ package com.tshevchuk.prayer.presentation.presenters;
 /**
  * Created by taras on 18.03.16.
  */
-public class AboutAppPresenter {
+public class AboutAppPresenter extends BasePresenter {
 }
