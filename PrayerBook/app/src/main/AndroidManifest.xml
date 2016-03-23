@@ -16,7 +16,7 @@
         android:supportsRtl="false"
         android:theme="@style/PrayerBook.ThemeLight">
         <activity
-            android:name=".presentation.activities.HomeActivity"
+            android:name=".presentation.home.HomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
