@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.tshevchuk.prayer.di.AppModule;
 import com.tshevchuk.prayer.di.DaggerViewComponent;
+import com.tshevchuk.prayer.di.PresenterModule;
 import com.tshevchuk.prayer.di.ViewComponent;
 import com.tshevchuk.prayer.di.ViewModule;
 
@@ -20,6 +21,7 @@ public class PrayerBookApplication extends Application {
 		viewComponent = DaggerViewComponent.builder()
 				.appModule(new AppModule(this))
 				.viewModule(new ViewModule())
+				.presenterModule(new PresenterModule())
 				.build();
 	}
 

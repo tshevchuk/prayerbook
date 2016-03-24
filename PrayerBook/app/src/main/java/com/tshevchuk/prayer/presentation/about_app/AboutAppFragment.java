@@ -9,16 +9,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import javax.inject.Inject;
 
-public class AboutAppFragment extends FragmentBase implements AboutAppPresenter.AboutView {
-
+public class AboutAppFragment extends FragmentBase implements AboutView {
     @Inject
-    private AboutAppPresenter presenter;
+    AboutAppPresenter presenter;
+    private TextView tvAppName;
+    private TextView tvContent;
+    private ActionBar actionBar;
 
 
     @Override
@@ -31,17 +32,15 @@ public class AboutAppFragment extends FragmentBase implements AboutAppPresenter.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.f_about_app, container, false);
-        ((TextView) v.findViewById(R.id.tv_app_name)).setText(Utils
-                .getApplicationNameAndVersion(getActivity().getApplicationContext()));
-
-        ((TextView) v.findViewById(R.id.tv_content)).setText(sb);
-        return v;
+        return inflater.inflate(R.layout.f_about_app, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        actionBar = activity.getSupportActionBar();
+        tvAppName = (TextView) view.findViewById(R.id.tv_app_name);
+        tvContent = (TextView) view.findViewById(R.id.tv_content);
         presenter.attachView(this);
     }
 
@@ -56,9 +55,22 @@ public class AboutAppFragment extends FragmentBase implements AboutAppPresenter.
     @Override
     public void onResume() {
         super.onResume();
-        ActionBar actionBar = activity.getSupportActionBar();
+    }
+
+    @Override
+    public void setTextSources(String textSources) {
+        tvContent.setText(getString(R.string.about_app__info, textSources));
+    }
+
+    @Override
+    public void setAppNameAndVersion(String appNameAndVersion) {
+        tvAppName.setText(appNameAndVersion);
+    }
+
+    @Override
+    public void setScreenTitle() {
         if (actionBar != null) {
-            actionBar.setTitle(R.string.about__about_prayerbook);
+            actionBar.setTitle(R.string.about_app__about_prayerbook);
         }
     }
 }

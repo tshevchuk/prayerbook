@@ -15,6 +15,11 @@ import java.util.Locale;
 
 public class Utils {
 	private static Locale ukrainianLocale;
+	final Context context;
+
+	public Utils(Context context) {
+		this.context = context;
+	}
 
 	public static String getAssetAsString(Context context, String fileName) throws IOException {
 		InputStream input = context.getAssets().open(fileName);
@@ -47,7 +52,19 @@ public class Utils {
 		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
-	public static String getApplicationNameAndVersion(Context context) {
+	public static String getDeviceInfo(Context context) {
+		DisplayMetrics metrics = new DisplayMetrics();
+		((WindowManager) context.getSystemService(Context.WINDOW_SERVICE))
+				.getDefaultDisplay().getMetrics(metrics);
+
+		return "OS Version: " + System.getProperty("os.version") + "(" + android.os.Build.VERSION.INCREMENTAL + ")"
+				+ "\nOS API Level: " + android.os.Build.VERSION.SDK_INT
+				+ "\nDevice: " + android.os.Build.DEVICE
+				+ "\nModel (and Product): " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")"
+				+ "\nScreen size: " + metrics.widthPixels + "x" + metrics.heightPixels + " (" + metrics.densityDpi + ")";
+	}
+
+	public String getApplicationNameAndVersion() {
 		PackageManager packageManager = context.getPackageManager();
 		ApplicationInfo applicationInfo;
 		String pkgNm = context.getPackageName();
@@ -60,17 +77,5 @@ public class Utils {
 		}
 		return applicationInfo != null ? packageManager
 				.getApplicationLabel(applicationInfo) + " " + ver : "(unknown)";
-	}
-
-	public static String getDeviceInfo(Context context) {
-		DisplayMetrics metrics = new DisplayMetrics();
-		((WindowManager) context.getSystemService(Context.WINDOW_SERVICE))
-				.getDefaultDisplay().getMetrics(metrics);
-
-		return "OS Version: " + System.getProperty("os.version") + "(" + android.os.Build.VERSION.INCREMENTAL + ")"
-				+ "\nOS API Level: " + android.os.Build.VERSION.SDK_INT
-				+ "\nDevice: " + android.os.Build.DEVICE
-				+ "\nModel (and Product): " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")"
-				+ "\nScreen size: " + metrics.widthPixels + "x" + metrics.heightPixels + " (" + metrics.densityDpi + ")";
 	}
 }

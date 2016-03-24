@@ -20,14 +20,14 @@ import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import javax.inject.Inject;
 
-public abstract class FragmentBase extends Fragment implements BasePresenter.BaseView {
-    HomeActivity activity;
+public abstract class FragmentBase extends Fragment implements BaseView {
+    protected HomeActivity activity;
     @Inject
-    Catalog catalog;
+    protected Catalog catalog;
     @Inject
-    AnalyticsManager analyticsManager;
+    protected AnalyticsManager analyticsManager;
     @Inject
-    PreferenceManager preferenceManager;
+    protected PreferenceManager preferenceManager;
 
     @Override
     public void onAttach(Context context) {
@@ -139,7 +139,7 @@ public abstract class FragmentBase extends Fragment implements BasePresenter.Bas
         activity.sendBroadcast(addIntent);
     }
 
-    boolean isNavigationDrawerEnabled() {
+    protected boolean isNavigationDrawerEnabled() {
         return false;
     }
 }

@@ -3,7 +3,7 @@ package com.tshevchuk.prayer.presentation.base;
 /**
  * Created by taras on 22.03.16.
  */
-public abstract class BasePresenter<T extends BasePresenter.BaseView> {
+public abstract class BasePresenter<T extends BaseView> {
 
     private T mvpView;
 
@@ -25,10 +25,6 @@ public abstract class BasePresenter<T extends BasePresenter.BaseView> {
 
     public void checkViewAttached() {
         if (!isViewAttached()) throw new MvpViewNotAttachedException();
-    }
-
-    public interface BaseView {
-
     }
 
     public static class MvpViewNotAttachedException extends RuntimeException {

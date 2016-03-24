@@ -11,5 +11,19 @@
 
     <string name="calendar__today">Сьогодні</string>
 
-    <string name="about__about_prayerbook">Про Молитовник</string>
+    <string name="about_app__about_prayerbook">Про Молитовник</string>
+    <string name="about_app__info">Коротка довідка: https://github.com/tshevchuk/prayerbook/wiki/Довідка-програми-Молитовник
+        \n\nАвтор: Тарас Шевчук taras.shevchuk@gmail.com
+        \n
+        \nПодяки:
+        \nІван Дутка - за поради і зауваження, надані деякі тексти;
+        \nСтепан Сус - за поширення програми в Facebook
+        \n
+        \nІсторія змін: https://github.com/tshevchuk/prayerbook/wiki/Історія-змін
+        \n
+        \nДопомогти проекту можна наступними способами: https://github.com/tshevchuk/prayerbook/wiki/Як-допомогти-проекту%%3F
+        \n
+        \nДжерела текстів:
+        \n%s
+    </string>
 </resources>

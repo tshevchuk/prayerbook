@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.di;
 
 import android.app.Application;
 
+import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
@@ -40,5 +41,11 @@ public class ViewModule {
     @Singleton
     CerkovnyyCalendar getCerkovnyyCalendar() {
         return new CerkovnyyCalendar();
+    }
+
+    @Provides
+    @Singleton
+    Utils getUtils(Application application) {
+        return new Utils(application.getApplicationContext());
     }
 }

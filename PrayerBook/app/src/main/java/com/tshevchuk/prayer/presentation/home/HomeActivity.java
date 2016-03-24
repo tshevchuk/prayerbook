@@ -76,6 +76,8 @@ public class HomeActivity extends AppCompatActivity {
 	PreferenceManager preferenceManager;
 	@Inject
 	AnalyticsManager analyticsManager;
+	@Inject
+	Utils utils;
 
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -456,7 +458,7 @@ public class HomeActivity extends AppCompatActivity {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Опишіть коротко помилку:\n\n\n\n");
 		sb.append("----------------------------");
-		sb.append("\nПрограма: ").append(Utils.getApplicationNameAndVersion(getApplicationContext()));
+		sb.append("\nПрограма: ").append(utils.getApplicationNameAndVersion());
 		ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			sb.append("\nЗаголовок: ").append(actionBar.getTitle());
