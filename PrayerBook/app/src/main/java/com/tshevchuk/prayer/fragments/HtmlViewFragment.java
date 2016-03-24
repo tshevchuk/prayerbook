@@ -47,9 +47,10 @@ public class HtmlViewFragment extends TextFragmentBase {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		prayers.add((MenuItemPrayer) getArguments().getSerializable("prayer"));
+
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-		prayers.add((MenuItemPrayer) getArguments().getSerializable("prayer"));
 	}
 
 	@SuppressLint("SetJavaScriptEnabled")

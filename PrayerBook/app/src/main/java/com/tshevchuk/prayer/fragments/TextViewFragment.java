@@ -38,12 +38,13 @@ public class TextViewFragment extends TextFragmentBase implements
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		prayer = (MenuItemPrayer) getArguments().getSerializable("prayer");
 		if (savedInstanceState != null) {
 			firstVisibleCharacterOffset = savedInstanceState
 					.getInt("firstVisibleCharOffset");
 		}
+
+		super.onCreate(savedInstanceState);
 	}
 
 	@Override
