@@ -1,7 +1,6 @@
 package com.tshevchuk.prayer.presentation.often_used;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -23,6 +22,7 @@ import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
@@ -38,6 +38,8 @@ import javax.inject.Inject;
 public class OftenUsedFragment extends FragmentBase {
 	@Inject
 	CerkovnyyCalendar cerkovnyyCalendar;
+	@Inject
+	OftenUsedPresenter presenter;
 	private MenuItemOftenUsed menuItem;
 	private List<MenuItemBase> oftenUsedItems;
 	private ListView lvItems;
@@ -51,6 +53,21 @@ public class OftenUsedFragment extends FragmentBase {
 		b.putParcelable("menuItem", Parcels.wrap(menuItem));
 		f.setArguments(b);
 		return f;
+	}
+
+	@Override
+	protected String getScreenTitle() {
+		return getString(R.string.app_name);
+	}
+
+	@Override
+	protected BasePresenter getPresenter() {
+		return presenter;
+	}
+
+	@Override
+	protected boolean isNavigationDrawerEnabled() {
+		return true;
 	}
 
 	@Override
@@ -99,10 +116,6 @@ public class OftenUsedFragment extends FragmentBase {
 	@Override
 	public void onResume() {
 		super.onResume();
-		ActionBar actionBar = activity.getSupportActionBar();
-		if (actionBar != null) {
-			actionBar.setTitle(R.string.app_name);
-		}
 
 		int[] recentIds = preferenceManager.getRecentMenuItems();
 		oftenUsedItems = new ArrayList<>(recentIds.length);
@@ -131,10 +144,5 @@ public class OftenUsedFragment extends FragmentBase {
 	@Override
 	public MenuItemBase getMenuItem() {
 		return menuItem;
-	}
-
-	@Override
-	protected boolean isNavigationDrawerEnabled() {
-		return true;
 	}
 }

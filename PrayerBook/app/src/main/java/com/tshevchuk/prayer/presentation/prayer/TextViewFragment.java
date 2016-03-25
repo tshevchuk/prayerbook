@@ -15,17 +15,21 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.PrayerLoader;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
 import org.parceler.Parcels;
+
+import javax.inject.Inject;
 
 public class TextViewFragment extends TextFragmentBase implements
 		LoaderManager.LoaderCallbacks<CharSequence> {
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
-
+	@Inject
+	TextViewPresenter presenter;
 	private MenuItemPrayer prayer;
 	private CharSequence htmlContent;
 	private Integer firstVisibleCharacterOffset = null;
-
 	private TextView tvContent;
 	private NestedScrollView svScroll;
 
@@ -38,6 +42,11 @@ public class TextViewFragment extends TextFragmentBase implements
 	}
 
 	@Override
+	protected BasePresenter getPresenter() {
+		return presenter;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		prayer = Parcels.unwrap(getArguments().getParcelable("prayer"));
@@ -45,6 +54,8 @@ public class TextViewFragment extends TextFragmentBase implements
 			firstVisibleCharacterOffset = savedInstanceState
 					.getInt("firstVisibleCharOffset");
 		}
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
 	}
 
 	@Override

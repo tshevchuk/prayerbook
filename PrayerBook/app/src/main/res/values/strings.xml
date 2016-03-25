@@ -26,4 +26,11 @@
         \nДжерела текстів:
         \n%s
     </string>
+
+    <string name="about_prayer__description">Опис</string>
+    <string name="about_prayer__this_is_official_text_ugcc">Цей текст/молитва належить до офіційних текстів УГКЦ</string>
+
+    <string name="cerk_calendar__cerk_calendar">Церковний календар</string>
+
+    <string name="search__search">Пошук</string>
 </resources>

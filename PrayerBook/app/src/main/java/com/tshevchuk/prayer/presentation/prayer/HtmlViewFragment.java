@@ -24,6 +24,8 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
 import org.parceler.Parcels;
 
@@ -32,9 +34,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class HtmlViewFragment extends TextFragmentBase {
 	private final List<MenuItemPrayer> prayers = new ArrayList<>();
-
+	@Inject
+	HtmlViewPresenter presenter;
 	private WebView wvContent;
 
 	public static HtmlViewFragment getInstance(MenuItemPrayer prayer) {
@@ -46,9 +51,16 @@ public class HtmlViewFragment extends TextFragmentBase {
 	}
 
 	@Override
+	protected BasePresenter getPresenter() {
+		return presenter;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
 		prayers.add((MenuItemPrayer) Parcels.unwrap(getArguments().getParcelable("prayer")));
 	}
 

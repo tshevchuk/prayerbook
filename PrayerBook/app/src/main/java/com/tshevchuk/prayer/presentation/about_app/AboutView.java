@@ -9,6 +9,4 @@ public interface AboutView extends BaseView {
     void setTextSources(String textSources);
 
     void setAppNameAndVersion(String appNameAndVersion);
-
-    void setScreenTitle();
 }

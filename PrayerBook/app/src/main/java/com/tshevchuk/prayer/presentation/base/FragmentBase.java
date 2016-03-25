@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
@@ -28,6 +30,10 @@ public abstract class FragmentBase extends Fragment implements BaseView {
     protected AnalyticsManager analyticsManager;
     @Inject
     protected PreferenceManager preferenceManager;
+
+    protected abstract String getScreenTitle();
+
+    protected abstract BasePresenter getPresenter();
 
     @Override
     public void onAttach(Context context) {
@@ -65,9 +71,27 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         ActionBar actionBar = activity.getSupportActionBar();
         if (actionBar != null) {
             actionBar.show();
+            String screenTitle = getScreenTitle();
+            if (!TextUtils.isEmpty(screenTitle)) {
+                actionBar.setTitle(getScreenTitle());
+            }
         }
         activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
         analyticsManager.sendScreenEvent(getClass().getSimpleName());
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //noinspection unchecked
+        getPresenter().attachView(this);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        getPresenter().detachView();
     }
 
     @Override

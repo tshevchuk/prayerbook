@@ -2,7 +2,6 @@ package com.tshevchuk.prayer.presentation.sub_menu;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +12,17 @@ import android.widget.ListView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import org.parceler.Parcels;
 
+import javax.inject.Inject;
+
 public class SubMenuFragment extends FragmentBase {
+	@Inject
+	SubMenuPresenter presenter;
 	private MenuItemSubMenu subMenu;
 
 	public static SubMenuFragment getInstance(MenuItemSubMenu subMenu) {
@@ -29,9 +34,21 @@ public class SubMenuFragment extends FragmentBase {
 	}
 
 	@Override
+	protected String getScreenTitle() {
+		return subMenu.getName();
+	}
+
+	@Override
+	protected BasePresenter getPresenter() {
+		return presenter;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		subMenu = Parcels.unwrap(getArguments().getParcelable("subMenu"));
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
 	}
 
 	@Override
@@ -43,21 +60,12 @@ public class SubMenuFragment extends FragmentBase {
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+									int position, long id) {
 				activity.displayMenuItem(subMenu.getSubItems().get(position));
 			}
 		});
 
 		return v;
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		ActionBar actionBar = activity.getSupportActionBar();
-		if (actionBar != null) {
-			actionBar.setTitle(subMenu.getName());
-		}
 	}
 
 	@Override

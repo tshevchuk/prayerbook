@@ -34,7 +34,6 @@ public class AboutAppPresenter extends BasePresenter<AboutView> {
             sb.append(" • ").append(src).append("\n");
         }
         getMvpView().setTextSources(sb.toString());
-        getMvpView().setScreenTitle();
         getMvpView().setAppNameAndVersion(utils.getApplicationNameAndVersion());
     }
 }

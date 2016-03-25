@@ -17,6 +17,7 @@ import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import org.parceler.Parcels;
@@ -28,6 +29,8 @@ import javax.inject.Inject;
 public class CerkovnyyCalendarFragment extends FragmentBase {
     @Inject
     CerkovnyyCalendar cerkovnyyCalendar;
+    @Inject
+    CerkovnyyCalendarPresenter presenter;
     private int[] years;
     private int year;
     private int currentYear;
@@ -46,6 +49,16 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
         args.putParcelable("menu_item", Parcels.wrap(cal));
         f.setArguments(args);
         return f;
+    }
+
+    @Override
+    protected String getScreenTitle() {
+        return getString(R.string.cerk_calendar__cerk_calendar);
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return presenter;
     }
 
     @Override
@@ -110,7 +123,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
     @Override
     public void onResume() {
         super.onResume();
-        actionBar.setTitle("Церковний календар");
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         actionBar.setListNavigationCallbacks(new ArrayAdapter<>(activity,
                         android.R.layout.simple_spinner_dropdown_item, formattedYears),

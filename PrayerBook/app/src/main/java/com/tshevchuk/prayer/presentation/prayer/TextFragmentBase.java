@@ -17,6 +17,11 @@ public abstract class TextFragmentBase extends FragmentBase {
 	public abstract MenuItemPrayer getMenuItem();
 
 	@Override
+	protected String getScreenTitle() {
+		return getMenuItem().getName();
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);

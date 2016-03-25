@@ -1,7 +1,6 @@
 package com.tshevchuk.prayer.presentation.search;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,21 +17,39 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.SearchItem;
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class SearchFragment extends FragmentBase {
+	@Inject
+	SearchPresenter presenter;
 	private String searchPhrase;
 	private List<SearchItem> items;
 	private ListView lvItems;
 	private TextView tvHeader;
 
 	@Override
+	protected String getScreenTitle() {
+		return getString(R.string.search__search);
+	}
+
+	@Override
+	protected BasePresenter getPresenter() {
+		return presenter;
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
+		((PrayerBookApplication) getActivity().getApplication())
+				.getViewComponent().inject(this);
 	}
 
 	@Override
@@ -47,7 +64,7 @@ public class SearchFragment extends FragmentBase {
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+									int position, long id) {
 				MenuItemBase mi = items.get(position - 1).getMenuItem();
 				((HomeActivity) getActivity()).displayMenuItem(mi);
 				analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
@@ -73,15 +90,6 @@ public class SearchFragment extends FragmentBase {
 			items = catalog.filter(this.searchPhrase);
 			lvItems.setAdapter(new SearchListAdapter(getActivity(), items, catalog, preferenceManager));
 			tvHeader.setText(String.format("Для «%s» знайдено:", searchPhrase));
-		}
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		ActionBar actionBar = activity.getSupportActionBar();
-		if (actionBar != null) {
-			actionBar.setTitle("Пошук");
 		}
 	}
 }

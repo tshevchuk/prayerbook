@@ -1,7 +1,6 @@
 package com.tshevchuk.prayer.presentation.about_prayer;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +10,20 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
+import com.tshevchuk.prayer.presentation.PrayerBookApplication;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import org.parceler.Parcels;
 
-public class AboutPrayerFragment extends FragmentBase {
+import javax.inject.Inject;
+
+public class AboutPrayerFragment extends FragmentBase implements AboutPrayerView {
+    @Inject
+    AboutPrayerPresenter presenter;
     private MenuItemPrayer prayer;
+    private TextView tvAbout;
+    private TextView tvName;
 
     public static AboutPrayerFragment getInstance(MenuItemPrayer prayer) {
         AboutPrayerFragment f = new AboutPrayerFragment();
@@ -27,32 +34,43 @@ public class AboutPrayerFragment extends FragmentBase {
     }
 
     @Override
+    protected String getScreenTitle() {
+        return getString(R.string.about_prayer__description);
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return presenter;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         prayer = Parcels.unwrap(getArguments().getParcelable("prayer"));
+
+        ((PrayerBookApplication) getActivity().getApplication())
+                .getViewComponent().inject(this);
+        presenter.setMenuItemPrayer(prayer);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.f_about_prayer, container, false);
-        ((TextView) v.findViewById(R.id.tv_name)).setText(prayer.getName());
-        TextView tvAbout = (TextView) v.findViewById(R.id.tv_about);
-        String about = prayer.getAbout();
-        if (prayer.isOfficialUGCCText()) {
-            about += "<br><br>Цей текст/молитва належить до офіційних текстів УГКЦ";
-        }
-        tvAbout.setText(Html.fromHtml(about));
-        return v;
+        View view = inflater.inflate(R.layout.f_about_prayer, container, false);
+        tvName = (TextView) view.findViewById(R.id.tv_name);
+        tvAbout = (TextView) view.findViewById(R.id.tv_about);
+        return view;
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        ActionBar actionBar = activity.getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle("Опис");
-        }
+    public void setPrayerName(String name) {
+        tvName.setText(prayer.getName());
+    }
+
+    @Override
+    public void setAboutHtml(String about) {
+        tvAbout.setText(Html.fromHtml(about));
     }
 
     @Override
