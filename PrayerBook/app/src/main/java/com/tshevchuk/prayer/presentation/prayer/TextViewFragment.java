@@ -1,7 +1,6 @@
 package com.tshevchuk.prayer.presentation.prayer;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.NestedScrollView;
@@ -114,15 +113,9 @@ public class TextViewFragment extends TextFragmentBase implements
 	}
 
 	@Override
-	public boolean isSameScreen(Fragment f) {
-		if (getClass().equals(f.getClass())) {
-			MenuItemPrayer p1 = (MenuItemPrayer) getArguments()
-					.getSerializable("prayer");
-			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments()
-					.getSerializable("prayer");
-			return p1 != null && p2 != null && p1.getId() == p2.getId();
-		}
-		return false;
+	public boolean hasContentWithSameId(int itemId) {
+		MenuItemPrayer p1 = Parcels.unwrap(getArguments().getParcelable("prayer"));
+		return p1 != null && p1.getId() == itemId;
 	}
 
 	@Override

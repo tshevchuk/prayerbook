@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.MatrixCursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -37,24 +36,15 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
-import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
-import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
-import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
 import com.tshevchuk.prayer.domain.model.SearchItem;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
-import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
-import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
-import com.tshevchuk.prayer.presentation.prayer.HtmlViewFragment;
-import com.tshevchuk.prayer.presentation.prayer.TextViewFragment;
 import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
-import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuListAdapter;
 
 import org.codechimp.apprater.AppRater;
@@ -78,6 +68,8 @@ public class HomeActivity extends AppCompatActivity {
 	AnalyticsManager analyticsManager;
 	@Inject
 	Utils utils;
+	@Inject
+	DataManager dataManager;
 
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -104,13 +96,13 @@ public class HomeActivity extends AppCompatActivity {
 
 		setSupportActionBar(toolbar);
 
-		drawerList.setAdapter(new SubMenuListAdapter(this, catalog
-				.getTopMenuItems(), preferenceManager));
+		drawerList.setAdapter(new SubMenuListAdapter(this, dataManager.getTopMenuListItems()));
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				displayMenuItem(catalog.getTopMenuItems().get(position));
+				//todo: add update of recently used
 			}
 		});
 
@@ -161,6 +153,7 @@ public class HomeActivity extends AppCompatActivity {
 				}
 			}
 			displayMenuItem(mi);
+			//todo: add update of recently used
 
 			if (Utils.isNetworkAvailable(getApplicationContext())) {
 				AppRater.app_launched(this);
@@ -243,6 +236,7 @@ public class HomeActivity extends AppCompatActivity {
 									MenuItemBase mi = items.get(position)
 											.getMenuItem();
 									displayMenuItem(mi);
+									//todo: add update of recently used
 
 									analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
 											"Вибрано випадаючу підказку", mi.getId() + " " + mi.getName()
@@ -321,35 +315,6 @@ public class HomeActivity extends AppCompatActivity {
 				param);
 	}
 
-	public void displayMenuItem(final MenuItemBase mi) {
-		FragmentBase f = null;
-		if (mi instanceof MenuItemPrayer) {
-			if (((MenuItemPrayer) mi).getType() == Type.HtmlInWebView) {
-				f = HtmlViewFragment.getInstance((MenuItemPrayer) mi);
-			} else {
-				f = TextViewFragment.getInstance(((MenuItemPrayer) mi));
-			}
-		} else if (mi instanceof MenuItemSubMenu) {
-			f = SubMenuFragment.getInstance((MenuItemSubMenu) mi);
-		} else if (mi instanceof MenuItemCalendar) {
-			f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar) mi);
-		} else if (mi instanceof MenuItemOftenUsed) {
-			f = OftenUsedFragment.getInstance((MenuItemOftenUsed) mi);
-		}
-
-		displayFragment(f, mi.getId(), mi.getName());
-
-		new AsyncTask<Void, Void, Void>() {
-			@Override
-			protected Void doInBackground(Void... params) {
-				if (!(mi instanceof MenuItemOftenUsed)) {
-					preferenceManager.markMenuItemAsOpened(mi.getId());
-				}
-				return null;
-			}
-		}.execute();
-	}
-
 	public void displayFragment(Fragment fragment, int id, CharSequence title) {
 		drawerLayout.closeDrawer(drawerList);
 		ActionBar actionBar = getSupportActionBar();
@@ -359,8 +324,10 @@ public class HomeActivity extends AppCompatActivity {
 
 		Fragment curFragment = getSupportFragmentManager().findFragmentById(
 				R.id.content_frame);
-		if (curFragment != null && curFragment instanceof FragmentBase
-				&& ((FragmentBase) curFragment).isSameScreen(fragment)) {
+		if (curFragment != null
+				&& fragment.getClass().equals(curFragment.getClass())
+				&& curFragment instanceof FragmentBase
+				&& ((FragmentBase) curFragment).hasContentWithSameId(id)) {
 			return;
 		}
 

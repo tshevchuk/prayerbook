@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppPresenter;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerPresenter;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarPresenter;
@@ -42,8 +43,8 @@ public class PresenterModule {
     }
 
     @Provides
-    SubMenuPresenter getSubMenuPresenter(){
-        return new SubMenuPresenter();
+    SubMenuPresenter getSubMenuPresenter(DataManager dataManager, Navigator navigator) {
+        return new SubMenuPresenter(dataManager, navigator);
     }
 
     @Provides

@@ -15,6 +15,13 @@ public abstract class MenuItemBase {
 		this.id = id;
 	}
 
+	public MenuItemBase(MenuItemBase item) {
+		name = item.name;
+		id = item.id;
+		parentItemId = item.parentItemId;
+		isOfficialUGCCText = item.isOfficialUGCCText;
+	}
+
 	public String getName() {
 		return name;
 	}

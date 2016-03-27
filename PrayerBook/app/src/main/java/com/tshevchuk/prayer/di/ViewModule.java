@@ -6,8 +6,10 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.data.TextsRepository;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.AnalyticsManagerImpl;
+import com.tshevchuk.prayer.presentation.Navigator;
 
 import javax.inject.Singleton;
 
@@ -47,5 +49,17 @@ public class ViewModule {
     @Singleton
     Utils getUtils(Application application) {
         return new Utils(application.getApplicationContext());
+    }
+
+    @Provides
+    @Singleton
+    TextsRepository getTextsRepository(Catalog catalog) {
+        return new TextsRepository(catalog);
+    }
+
+    @Provides
+    @Singleton
+    Navigator getNavigator() {
+        return new Navigator();
     }
 }

@@ -5,7 +5,6 @@ import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -121,6 +120,7 @@ public class HtmlViewFragment extends TextFragmentBase {
 							loadPrayer((MenuItemPrayer) mi);
 						} else {
 							activity.displayMenuItem(mi);
+							//todo: add update of recently used
 						}
 						return false;
 					}
@@ -237,17 +237,12 @@ public class HtmlViewFragment extends TextFragmentBase {
 	}
 
 	@Override
-	public boolean isSameScreen(Fragment f) {
-		if (getClass().equals(f.getClass())) {
-			MenuItemPrayer p1 = getMenuItem();
-			if (p1 == null) {
-				p1 = (MenuItemPrayer) getArguments().getSerializable("prayer");
-			}
-			MenuItemPrayer p2 = (MenuItemPrayer) f.getArguments()
-					.getSerializable("prayer");
-			return p1 != null && p2 != null && p1.getId() == p2.getId();
+	public boolean hasContentWithSameId(int itemId) {
+		MenuItemPrayer p1 = getMenuItem();
+		if (p1 == null) {
+			p1 = Parcels.unwrap(getArguments().getParcelable("prayer"));
 		}
-		return false;
+		return p1 != null && p1.getId() == itemId;
 	}
 
 	@Override

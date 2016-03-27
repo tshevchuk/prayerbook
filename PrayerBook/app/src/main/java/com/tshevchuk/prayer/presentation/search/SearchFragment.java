@@ -67,6 +67,7 @@ public class SearchFragment extends FragmentBase {
 									int position, long id) {
 				MenuItemBase mi = items.get(position - 1).getMenuItem();
 				((HomeActivity) getActivity()).displayMenuItem(mi);
+				//todo: add update of recently used
 				analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
 						"Вибрано елемент на фрагменті результатів пошуку",
 						mi.getId() + " " + mi.getName());

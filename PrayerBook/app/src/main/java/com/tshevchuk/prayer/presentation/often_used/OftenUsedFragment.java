@@ -95,6 +95,7 @@ public class OftenUsedFragment extends FragmentBase {
 			@Override
 			public void onClick(View v) {
 				activity.displayMenuItem(catalog.getMenuItemById(Catalog.ID_CALENDAR));
+				//todo: add update of recently used
 			}
 		});
 		lvItems.addHeaderView(calendarToday);
@@ -107,6 +108,7 @@ public class OftenUsedFragment extends FragmentBase {
 					int position, long id) {
 				((HomeActivity) getActivity()).displayMenuItem(oftenUsedItems
 						.get(position - 1));
+				//todo: add update of recently used
 			}
 		});
 

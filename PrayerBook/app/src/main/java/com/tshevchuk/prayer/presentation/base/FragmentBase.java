@@ -129,8 +129,8 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
-    public boolean isSameScreen(Fragment f) {
-        return getClass().equals(f.getClass());
+    public boolean hasContentWithSameId(int itemId) {
+        return false;
     }
 
     public boolean goBack() {

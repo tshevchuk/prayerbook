@@ -58,6 +58,7 @@ public abstract class TextFragmentBase extends FragmentBase {
 				HomeActivity a = activity;
 				a.getFragmentManager().popBackStackImmediate();
 				a.displayMenuItem(catalog.getMenuItemById(parentId));
+				//todo: add update of recently used
 				return true;
 			}
 			break;
