@@ -9,7 +9,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,12 +18,14 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
+import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -35,11 +36,12 @@ public class OftenUsedFragment extends FragmentBase {
 	CerkovnyyCalendar cerkovnyyCalendar;
 	@Inject
 	OftenUsedPresenter presenter;
-	private List<MenuItemBase> oftenUsedItems;
+	private List<MenuItemOftenUsed> oftenUsedItems;
 	private ListView lvItems;
 	private TextView tvDay;
 	private TextView tvDescription;
 	private LinearLayout llToday;
+	private OftenUsedListAdapter adapter;
 
 	public static OftenUsedFragment getInstance() {
 		return new OftenUsedFragment();
@@ -77,27 +79,22 @@ public class OftenUsedFragment extends FragmentBase {
 				lvItems, false);
 		llToday = (LinearLayout) calendarToday.findViewById(R.id.ll_today);
 		tvDay = (TextView) calendarToday.findViewById(R.id.tvDay);
-		tvDescription = (TextView) calendarToday
-				.findViewById(R.id.tvDescription);
+		tvDescription = (TextView) calendarToday.findViewById(R.id.tvDescription);
 		llToday.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//todo: implement
-				//activity.displayMenuItem(catalog.getMenuItemById(Catalog.ID_CALENDAR));
-				//todo: add update of recently used
+				presenter.onCalendarClick();
 			}
 		});
 		lvItems.addHeaderView(calendarToday);
 
-		lvItems.setAdapter(new ArrayAdapter<>(getActivity(),
-				android.R.layout.simple_list_item_1, new MenuItemBase[0]));
+		adapter = new OftenUsedListAdapter(getActivity(), Arrays.<MenuItemOftenUsed>asList());
+		lvItems.setAdapter(adapter);
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				//todo: implement
-				//((HomeActivity) getActivity()).displayMenuItem(oftenUsedItems.get(position - 1));
-				//todo: add update of recently used
+				presenter.onItemClick(adapter.getItem(position));
 			}
 		});
 
@@ -113,10 +110,12 @@ public class OftenUsedFragment extends FragmentBase {
 		for (int id : recentIds) {
 			MenuItemBase mi = catalog.getMenuItemById(id);
 			if (mi != null) {
-				oftenUsedItems.add(mi);
+				//TODO: fix it
+				//oftenUsedItems.add(mi);
 			}
 		}
-		lvItems.setAdapter(new OftenUsedListAdapter(activity, oftenUsedItems, catalog, preferenceManager));
+		adapter = new OftenUsedListAdapter(activity, oftenUsedItems);
+		lvItems.setAdapter(adapter);
 
 		llToday.setVisibility(View.VISIBLE);
 		CalendarDay day = cerkovnyyCalendar.getCalendarDay(new Date());

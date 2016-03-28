@@ -33,8 +33,8 @@ public class PresenterModule {
     }
 
     @Provides
-    OftenUsedPresenter getOftenUsedPresenter(){
-        return new OftenUsedPresenter();
+    OftenUsedPresenter getOftenUsedPresenter(Navigator navigator, DataManager dataManager) {
+        return new OftenUsedPresenter(navigator, dataManager);
     }
 
     @Provides

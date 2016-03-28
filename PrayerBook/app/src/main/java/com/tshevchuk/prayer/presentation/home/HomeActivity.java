@@ -43,9 +43,9 @@ import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.SearchItem;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
+import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
 import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
-import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuListAdapter;
 
 import org.codechimp.apprater.AppRater;
@@ -159,8 +159,8 @@ public class HomeActivity extends AppCompatActivity {
 			//todo: add update of recently used
 
 			//todo: remove this line
-//			displayFragment(OftenUsedFragment.getInstance(), Catalog.ID_RECENT_SCREENS, "recent");
-			displayFragment(SubMenuFragment.getInstance(7, "pisni"), 7, "pisni");
+			displayFragment(OftenUsedFragment.getInstance(), Catalog.ID_RECENT_SCREENS, "recent");
+//			displayFragment(SubMenuFragment.getInstance(7, "pisni"), 7, "pisni");
 
 			if (Utils.isNetworkAvailable(getApplicationContext())) {
 				AppRater.app_launched(this);
