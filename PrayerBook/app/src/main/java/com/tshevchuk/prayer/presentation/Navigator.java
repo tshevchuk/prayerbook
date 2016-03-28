@@ -1,9 +1,5 @@
 package com.tshevchuk.prayer.presentation;
 
-import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
-import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.BaseView;
@@ -22,24 +18,22 @@ public class Navigator {
     public void showMenuItem(BasePresenter<? extends BaseView> presenter, MenuListItem item) {
         FragmentBase fragmentBase = (FragmentBase) presenter.getMvpView();
         HomeActivity activity = (HomeActivity) fragmentBase.getActivity();
-        activity.displayMenuItem(itemId, name);
 
         FragmentBase f = null;
-        if (mi instanceof MenuItemPrayer) {
-            if (((MenuItemPrayer) mi).getType() == MenuItemPrayer.Type.HtmlInWebView) {
-                f = HtmlViewFragment.getInstance((MenuItemPrayer) mi);
-            } else {
-                f = TextViewFragment.getInstance(((MenuItemPrayer) mi));
-            }
-        } else if (mi instanceof MenuItemSubMenu) {
-            f = SubMenuFragment.getInstance(mi.getId(), mi.getName());
-        } else if (mi instanceof MenuItemCalendar) {
-            f = CerkovnyyCalendarFragment.getInstance((MenuItemCalendar) mi);
-        } else if (mi instanceof MenuItemOftenUsed) {
-            f = OftenUsedFragment.getInstance((MenuItemOftenUsed) mi);
+
+        if (item.getMenuItemType() == MenuListItem.MenuItemType.WebView) {
+            f = HtmlViewFragment.getInstance();
+        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.TextView) {
+            f = TextViewFragment.getInstance();
+        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.SubMenu) {
+            f = SubMenuFragment.getInstance(item.getId(), item.getName());
+        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.Calendar) {
+            f = CerkovnyyCalendarFragment.getInstance();
+        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.OftenUsed) {
+            f = OftenUsedFragment.getInstance();
         }
 
-        displayFragment(f, mi.getId(), mi.getName());
+        activity.displayFragment(f, item.getId(), item.getName());
 
     }
 }

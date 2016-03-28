@@ -16,17 +16,12 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
-import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
-import com.tshevchuk.prayer.presentation.home.HomeActivity;
-
-import org.parceler.Parcels;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,19 +35,14 @@ public class OftenUsedFragment extends FragmentBase {
 	CerkovnyyCalendar cerkovnyyCalendar;
 	@Inject
 	OftenUsedPresenter presenter;
-	private MenuItemOftenUsed menuItem;
 	private List<MenuItemBase> oftenUsedItems;
 	private ListView lvItems;
 	private TextView tvDay;
 	private TextView tvDescription;
 	private LinearLayout llToday;
 
-	public static OftenUsedFragment getInstance(MenuItemOftenUsed menuItem) {
-		OftenUsedFragment f = new OftenUsedFragment();
-		Bundle b = new Bundle();
-		b.putParcelable("menuItem", Parcels.wrap(menuItem));
-		f.setArguments(b);
-		return f;
+	public static OftenUsedFragment getInstance() {
+		return new OftenUsedFragment();
 	}
 
 	@Override
@@ -75,8 +65,6 @@ public class OftenUsedFragment extends FragmentBase {
 		super.onCreate(savedInstanceState);
 		((PrayerBookApplication) getActivity().getApplication())
 				.getViewComponent().inject(this);
-		menuItem = Parcels.unwrap(getArguments().getParcelable(
-				"menuItem"));
 	}
 
 	@Override
@@ -94,7 +82,8 @@ public class OftenUsedFragment extends FragmentBase {
 		llToday.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				activity.displayMenuItem(catalog.getMenuItemById(Catalog.ID_CALENDAR));
+				//todo: implement
+				//activity.displayMenuItem(catalog.getMenuItemById(Catalog.ID_CALENDAR));
 				//todo: add update of recently used
 			}
 		});
@@ -106,8 +95,8 @@ public class OftenUsedFragment extends FragmentBase {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				((HomeActivity) getActivity()).displayMenuItem(oftenUsedItems
-						.get(position - 1));
+				//todo: implement
+				//((HomeActivity) getActivity()).displayMenuItem(oftenUsedItems.get(position - 1));
 				//todo: add update of recently used
 			}
 		});
@@ -145,6 +134,7 @@ public class OftenUsedFragment extends FragmentBase {
 
 	@Override
 	public MenuItemBase getMenuItem() {
-		return menuItem;
+		//todo: handle menu item
+		return null;
 	}
 }

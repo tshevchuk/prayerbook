@@ -117,8 +117,8 @@ public abstract class FragmentBase extends Fragment implements BaseView {
 
             case android.R.id.home:
                 if (getActivity().getFragmentManager().getBackStackEntryCount() == 0) {
-                    ((HomeActivity) getActivity())
-                            .displayMenuItem(catalog.getMenuItemById(Catalog.ID_RECENT_SCREENS));
+                    //todo: implement
+                    //((HomeActivity) getActivity()).displayMenuItem(catalog.getMenuItemById(Catalog.ID_RECENT_SCREENS));
                 } else {
                     getActivity().getFragmentManager().popBackStack();
                 }

@@ -57,7 +57,8 @@ public abstract class TextFragmentBase extends FragmentBase {
 			if (parentId > 0) {
 				HomeActivity a = activity;
 				a.getFragmentManager().popBackStackImmediate();
-				a.displayMenuItem(catalog.getMenuItemById(parentId));
+				//todo: implement
+				//a.displayMenuItem(catalog.getMenuItemById(parentId));
 				//todo: add update of recently used
 				return true;
 			}

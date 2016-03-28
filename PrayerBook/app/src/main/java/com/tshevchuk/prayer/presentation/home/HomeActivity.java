@@ -45,6 +45,7 @@ import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
+import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuListAdapter;
 
 import org.codechimp.apprater.AppRater;
@@ -101,7 +102,8 @@ public class HomeActivity extends AppCompatActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				displayMenuItem(catalog.getTopMenuItems().get(position));
+				//todo: implement
+				//displayMenuItem(catalog.getTopMenuItems().get(position));
 				//todo: add update of recently used
 			}
 		});
@@ -152,8 +154,13 @@ public class HomeActivity extends AppCompatActivity {
 					mi = catalog.getMenuItemById(id);
 				}
 			}
-			displayMenuItem(mi);
+			//todo: implement
+			//displayMenuItem(mi);
 			//todo: add update of recently used
+
+			//todo: remove this line
+//			displayFragment(OftenUsedFragment.getInstance(), Catalog.ID_RECENT_SCREENS, "recent");
+			displayFragment(SubMenuFragment.getInstance(7, "pisni"), 7, "pisni");
 
 			if (Utils.isNetworkAvailable(getApplicationContext())) {
 				AppRater.app_launched(this);
@@ -235,7 +242,8 @@ public class HomeActivity extends AppCompatActivity {
 								public boolean onSuggestionClick(int position) {
 									MenuItemBase mi = items.get(position)
 											.getMenuItem();
-									displayMenuItem(mi);
+									//todo: implement
+									//displayMenuItem(mi);
 									//todo: add update of recently used
 
 									analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,

@@ -20,7 +20,6 @@ import com.tshevchuk.prayer.domain.model.SearchItem;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
-import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import java.util.List;
 
@@ -66,7 +65,8 @@ public class SearchFragment extends FragmentBase {
 			public void onItemClick(AdapterView<?> parent, View view,
 									int position, long id) {
 				MenuItemBase mi = items.get(position - 1).getMenuItem();
-				((HomeActivity) getActivity()).displayMenuItem(mi);
+				//todo: implement
+				//((HomeActivity) getActivity()).displayMenuItem(mi);
 				//todo: add update of recently used
 				analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
 						"Вибрано елемент на фрагменті результатів пошуку",

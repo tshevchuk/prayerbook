@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.PrayerLoader;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
@@ -26,18 +25,13 @@ public class TextViewFragment extends TextFragmentBase implements
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
 	@Inject
 	TextViewPresenter presenter;
-	private MenuItemPrayer prayer;
 	private CharSequence htmlContent;
 	private Integer firstVisibleCharacterOffset = null;
 	private TextView tvContent;
 	private NestedScrollView svScroll;
 
-	public static TextViewFragment getInstance(MenuItemPrayer prayer) {
-		TextViewFragment f = new TextViewFragment();
-		Bundle b = new Bundle();
-		b.putParcelable("prayer", Parcels.wrap(prayer));
-		f.setArguments(b);
-		return f;
+	public static TextViewFragment getInstance() {
+		return new TextViewFragment();
 	}
 
 	@Override
@@ -48,7 +42,6 @@ public class TextViewFragment extends TextFragmentBase implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		prayer = Parcels.unwrap(getArguments().getParcelable("prayer"));
 		if (savedInstanceState != null) {
 			firstVisibleCharacterOffset = savedInstanceState
 					.getInt("firstVisibleCharOffset");
@@ -68,11 +61,12 @@ public class TextViewFragment extends TextFragmentBase implements
 		activity.setProgressBarIndeterminateVisibility(true);
 		if (htmlContent == null) {
 			Bundle params = new Bundle();
-			params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
-					prayer.getFileName());
-			params.putBoolean(PrayerLoader.PARAM_IS_HTML,
-					prayer.getType() == Type.HtmlInTextView);
-			getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
+			//TODO: implement
+//			params.putString(PrayerLoader.PARAM_ASSET_FILE_NAME,
+//					listItem.getFileName());
+//			params.putBoolean(PrayerLoader.PARAM_IS_HTML,
+//					listItem.getType() == Type.HtmlInTextView);
+//			getLoaderManager().initLoader(LOADER_ID_LOAD_PRAYER, params, this);
 		} else {
 			updateHtmlContent();
 		}
@@ -114,7 +108,7 @@ public class TextViewFragment extends TextFragmentBase implements
 
 	@Override
 	public boolean hasContentWithSameId(int itemId) {
-		MenuItemPrayer p1 = Parcels.unwrap(getArguments().getParcelable("prayer"));
+		MenuItemPrayer p1 = Parcels.unwrap(getArguments().getParcelable("listItem"));
 		return p1 != null && p1.getId() == itemId;
 	}
 
@@ -156,6 +150,7 @@ public class TextViewFragment extends TextFragmentBase implements
 
 	@Override
 	public MenuItemPrayer getMenuItem() {
-		return prayer;
+		//todo: implement
+		return null;
 	}
 }

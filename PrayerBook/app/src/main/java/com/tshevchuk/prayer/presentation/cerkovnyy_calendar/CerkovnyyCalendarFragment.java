@@ -15,12 +15,9 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
-import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
-
-import org.parceler.Parcels;
 
 import java.util.Calendar;
 
@@ -36,19 +33,14 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
     private int currentYear;
     private int prevFirstVisibleItem;
     private String[] formattedYears;
-    private MenuItemCalendar menuItem;
     private Integer initPosition;
 
     private ListView lvCalendar;
     private TextView tvMonth;
     private ActionBar actionBar;
 
-    public static CerkovnyyCalendarFragment getInstance(MenuItemCalendar cal) {
-        CerkovnyyCalendarFragment f = new CerkovnyyCalendarFragment();
-        Bundle args = new Bundle();
-        args.putParcelable("menu_item", Parcels.wrap(cal));
-        f.setArguments(args);
-        return f;
+    public static CerkovnyyCalendarFragment getInstance() {
+        return new CerkovnyyCalendarFragment();
     }
 
     @Override
@@ -70,10 +62,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 
         years = cerkovnyyCalendar.getYears();
 
-        year = currentYear = java.util.Calendar.getInstance().get(
-                java.util.Calendar.YEAR);
-        menuItem = Parcels.unwrap(getArguments().getParcelable(
-                "menu_item"));
+        year = currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
         actionBar = activity.getSupportActionBar();
         formattedYears = new String[years.length];
         for (int i = 0; i < years.length; ++i) {
@@ -85,16 +74,13 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
         }
 
         if (savedInstanceState != null) {
-            prevFirstVisibleItem = initPosition = savedInstanceState
-                    .getInt("firstVisiblePosition");
+            prevFirstVisibleItem = initPosition = savedInstanceState.getInt("firstVisiblePosition");
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.f_cerkovnyy_calendar, container,
-                false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.f_cerkovnyy_calendar, container, false);
         lvCalendar = (ListView) v.findViewById(R.id.lvCalendar);
         tvMonth = (TextView) v.findViewById(R.id.tvMonth);
 
@@ -156,8 +142,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
         super.onSaveInstanceState(outState);
         outState.putInt("year", year);
         if (initPosition == null) {
-            outState.putInt("firstVisiblePosition",
-                    lvCalendar.getFirstVisiblePosition());
+            outState.putInt("firstVisiblePosition", lvCalendar.getFirstVisiblePosition());
         } else {
             outState.putInt("firstVisiblePosition", initPosition);
         }
@@ -209,6 +194,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
 
     @Override
     public MenuItemBase getMenuItem() {
-        return menuItem;
+        // TODO: implement
+        return null;
     }
 }

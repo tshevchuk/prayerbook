@@ -41,10 +41,11 @@ public class HtmlViewFragment extends TextFragmentBase {
 	HtmlViewPresenter presenter;
 	private WebView wvContent;
 
-	public static HtmlViewFragment getInstance(MenuItemPrayer prayer) {
+	public static HtmlViewFragment getInstance() {
 		HtmlViewFragment f = new HtmlViewFragment();
 		Bundle b = new Bundle();
-		b.putParcelable("prayer", Parcels.wrap(prayer));
+		//TODO: implement
+//		b.putParcelable("prayer", Parcels.wrap(prayer));
 		f.setArguments(b);
 		return f;
 	}
@@ -119,7 +120,8 @@ public class HtmlViewFragment extends TextFragmentBase {
 							prayers.add((MenuItemPrayer) mi);
 							loadPrayer((MenuItemPrayer) mi);
 						} else {
-							activity.displayMenuItem(mi);
+							//todo: implement
+							//activity.displayMenuItem(mi);
 							//todo: add update of recently used
 						}
 						return false;
