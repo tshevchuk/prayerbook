@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
@@ -25,13 +24,10 @@ import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.inject.Inject;
 
 public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
-    @Inject
-    CerkovnyyCalendar cerkovnyyCalendar;
     @Inject
     OftenUsedPresenter presenter;
     private ListView lvItems;
@@ -70,8 +66,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         View v = inflater.inflate(R.layout.f_often_used, container, false);
         lvItems = (ListView) v.findViewById(R.id.lvItems);
 
-        View calendarToday = inflater.inflate(R.layout.i_calendar_for_today,
-                lvItems, false);
+        View calendarToday = inflater.inflate(R.layout.i_calendar_for_today, lvItems, false);
         llToday = (LinearLayout) calendarToday.findViewById(R.id.ll_today);
         tvDay = (TextView) calendarToday.findViewById(R.id.tvDay);
         tvDescription = (TextView) calendarToday.findViewById(R.id.tvDescription);
@@ -83,26 +78,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
         lvItems.addHeaderView(calendarToday);
 
-
         return v;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        llToday.setVisibility(View.VISIBLE);
-        CalendarDay day = cerkovnyyCalendar.getCalendarDay(new Date());
-        String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
-                .format(day.getDay());
-        if (day.isDateRed()) {
-            d = "<font color=\"red\">" + d + "</font>";
-        }
-        tvDay.setText(Html.fromHtml(d));
-        int fontSizeSp = preferenceManager.getFontSizeSp();
-        tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-        tvDescription.setText(Html.fromHtml(day.getDescription().toString()));
-        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
     }
 
     @Override
@@ -118,8 +94,22 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                presenter.onItemClick(menuListItems.get(position));
+                presenter.onItemClick(menuListItems.get(position - 1));
             }
         });
+    }
+
+    @Override
+    public void setCalendarDay(CalendarDay day, int fontSizeSp) {
+        llToday.setVisibility(View.VISIBLE);
+        String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
+                .format(day.getDay());
+        if (day.isDateRed()) {
+            d = "<font color=\"red\">" + d + "</font>";
+        }
+        tvDay.setText(Html.fromHtml(d));
+        tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+        tvDescription.setText(Html.fromHtml(day.getDescription().toString()));
+        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
     }
 }

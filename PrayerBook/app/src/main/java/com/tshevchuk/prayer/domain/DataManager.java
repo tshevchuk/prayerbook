@@ -1,11 +1,15 @@
 package com.tshevchuk.prayer.domain;
 
 import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.data.TextsRepository;
+import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -18,12 +22,15 @@ public class DataManager {
     private final Catalog catalog;
     private final PreferenceManager preferenceManager;
     private final TextsRepository textsRepository;
+    private final CerkovnyyCalendar cerkovnyyCalendar;
 
     @Inject
-    public DataManager(Catalog catalog, PreferenceManager preferenceManager, TextsRepository textsRepository) {
+    public DataManager(Catalog catalog, PreferenceManager preferenceManager,
+                       TextsRepository textsRepository, CerkovnyyCalendar cerkovnyyCalendar) {
         this.catalog = catalog;
         this.preferenceManager = preferenceManager;
         this.textsRepository = textsRepository;
+        this.cerkovnyyCalendar = cerkovnyyCalendar;
     }
 
     public Set<String> getAllPrayersReferences() {
@@ -38,7 +45,7 @@ public class DataManager {
         return textsRepository.getTopMenuListItems();
     }
 
-    public List<MenuListItemOftenUsed> getOftenUsedMenuItems() {
+    public ArrayList<MenuListItemOftenUsed> getOftenUsedMenuItems() {
         return textsRepository.getOftenUsedMenuItems();
     }
 
@@ -51,5 +58,13 @@ public class DataManager {
             return;
         }
         preferenceManager.markMenuItemAsOpened(id);
+    }
+
+    public CalendarDay getCalendarDay(Date date) {
+        return cerkovnyyCalendar.getCalendarDay(date);
+    }
+
+    public int getTextFontSizeSp() {
+        return preferenceManager.getFontSizeSp();
     }
 }

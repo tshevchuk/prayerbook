@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
+import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
@@ -45,9 +46,9 @@ public class TextsRepository {
         return items;
     }
 
-    public List<MenuListItemOftenUsed> getOftenUsedMenuItems() {
+    public ArrayList<MenuListItemOftenUsed> getOftenUsedMenuItems() {
         int[] recentIds = preferenceManager.getRecentMenuItems();
-        List<MenuListItemOftenUsed> oftenUsedItems = new ArrayList<>(recentIds.length);
+        ArrayList<MenuListItemOftenUsed> oftenUsedItems = new ArrayList<>(recentIds.length);
 
         for (int id : recentIds) {
             MenuItemBase mi = catalog.getMenuItemById(id);
@@ -73,7 +74,7 @@ public class TextsRepository {
         MenuListItemType type = null;
         if (item instanceof MenuItemCalendar) {
             type = MenuListItemType.Calendar;
-        } else if (item instanceof MenuListItemOftenUsed) {
+        } else if (item instanceof MenuItemOftenUsed) {
             type = MenuListItemType.OftenUsed;
         } else if (item instanceof MenuItemSubMenu) {
             type = MenuListItemType.SubMenu;

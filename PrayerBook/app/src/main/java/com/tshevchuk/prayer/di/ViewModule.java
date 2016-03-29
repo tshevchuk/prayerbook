@@ -53,7 +53,7 @@ public class ViewModule {
 
     @Provides
     @Singleton
-    TextsRepository getTextsRepository(Catalog catalog) {
+    TextsRepository getTextsRepository(Catalog catalog, PreferenceManager preferenceManager) {
         return new TextsRepository(catalog, preferenceManager);
     }
 

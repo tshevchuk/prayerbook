@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation.often_used;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 
 import java.util.List;
@@ -53,20 +53,15 @@ public class OftenUsedListAdapter extends BaseAdapter {
 		}
 
 		ViewHolder vh = (ViewHolder) v.getTag();
-		MenuItemBase mi = items.get(position);
+		MenuListItemOftenUsed mi = items.get(position);
 		vh.tvName.setText(mi.getName());
-		//TODO: fix it
-//		int showUGCCVisibility = mi.isOfficialUGCCText()
-//				&& preferenceManager.isShowOfficialUgccEnabled()
-//				? View.VISIBLE : View.INVISIBLE;
-//		vh.ivOfficialUgcc.setVisibility(showUGCCVisibility);
-//		if (mi.getParentItemId() > 0) {
-//			vh.tvParentName.setText(catalog.getMenuItemById(mi.getParentItemId())
-//					.getName());
-//			vh.tvParentName.setVisibility(View.VISIBLE);
-//		} else {
-//			vh.tvParentName.setVisibility(View.GONE);
-//		}
+		vh.ivOfficialUgcc.setVisibility(mi.isOfficialUGCCText() ? View.VISIBLE : View.INVISIBLE);
+		if (TextUtils.isEmpty(mi.getParentName())) {
+			vh.tvParentName.setVisibility(View.GONE);
+		} else {
+			vh.tvParentName.setText(mi.getName());
+			vh.tvParentName.setVisibility(View.VISIBLE);
+		}
 		return v;
 	}
 

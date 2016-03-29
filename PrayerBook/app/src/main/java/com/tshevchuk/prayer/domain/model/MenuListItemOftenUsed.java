@@ -4,20 +4,14 @@ package com.tshevchuk.prayer.domain.model;
 import org.parceler.Parcel;
 
 @Parcel
-public class MenuListItemOftenUsed extends MenuItemBase {
-	private MenuListItemType menuListItemType;
-	private String parentName;
+public class MenuListItemOftenUsed extends MenuListItem {
+	String parentName;
+
+	public MenuListItemOftenUsed() {
+	}
 
 	public MenuListItemOftenUsed(MenuItemBase item) {
 		super(item);
-	}
-
-	public MenuListItemType getMenuListItemType() {
-		return menuListItemType;
-	}
-
-	public void setMenuListItemType(MenuListItemType menuListItemType) {
-		this.menuListItemType = menuListItemType;
 	}
 
 	public String getParentName() {

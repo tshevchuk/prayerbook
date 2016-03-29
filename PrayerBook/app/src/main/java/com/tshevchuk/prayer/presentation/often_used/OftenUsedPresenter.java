@@ -2,11 +2,13 @@ package com.tshevchuk.prayer.presentation.often_used;
 
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -28,6 +30,7 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
         super.attachView(mvpView);
 
         loadMenuItems();
+        loadCalendarDay();
     }
 
     public void onCalendarClick() {
@@ -36,13 +39,12 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
     }
 
     public void onItemClick(MenuListItemOftenUsed item) {
-        //todo: implement
-        //((HomeActivity) getActivity()).displayMenuItem(oftenUsedItems.get(position - 1));
-        //todo: add update of recently used
+        navigator.showMenuItem(this, item);
+        dataManager.updateRecentlyUsedBecauseItemOpened(item.getId());
     }
 
     private void loadMenuItems() {
-        List<MenuListItemOftenUsed> menuListItems = dataManager.getOftenUsedMenuItems();
+        ArrayList<MenuListItemOftenUsed> menuListItems = dataManager.getOftenUsedMenuItems();
         boolean showOfficialUGCC = dataManager.isShowOfficialUGCC();
         if (!showOfficialUGCC) {
             for (MenuListItemOftenUsed item : menuListItems) {
@@ -50,5 +52,11 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
             }
         }
         getMvpView().setMenuItems(menuListItems);
+    }
+
+    private void loadCalendarDay() {
+        CalendarDay day = dataManager.getCalendarDay(new Date());
+        int fontSizeSp = dataManager.getTextFontSizeSp();
+        getMvpView().setCalendarDay(day, fontSizeSp);
     }
 }
