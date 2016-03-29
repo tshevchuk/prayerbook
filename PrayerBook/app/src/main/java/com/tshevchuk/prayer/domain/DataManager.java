@@ -4,6 +4,7 @@ import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.data.TextsRepository;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
+import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 
 import java.util.List;
 import java.util.Set;
@@ -35,6 +36,10 @@ public class DataManager {
 
     public List<MenuListItem> getTopMenuListItems() {
         return textsRepository.getTopMenuListItems();
+    }
+
+    public List<MenuListItemOftenUsed> getOftenUsedMenuItems() {
+        return textsRepository.getOftenUsedMenuItems();
     }
 
     public boolean isShowOfficialUGCC() {

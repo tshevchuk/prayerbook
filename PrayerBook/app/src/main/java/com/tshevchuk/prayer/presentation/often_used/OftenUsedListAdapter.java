@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
-import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 
 import java.util.List;
 
 public class OftenUsedListAdapter extends BaseAdapter {
-	private final List<MenuItemOftenUsed> items;
+	private final List<MenuListItemOftenUsed> items;
 	private final LayoutInflater inflater;
 
-	public OftenUsedListAdapter(Context context, List<MenuItemOftenUsed> items) {
+	public OftenUsedListAdapter(Context context, List<MenuListItemOftenUsed> items) {
 		this.items = items;
 		inflater = LayoutInflater.from(context);
 	}
@@ -29,7 +29,7 @@ public class OftenUsedListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public MenuItemOftenUsed getItem(int position) {
+	public MenuListItemOftenUsed getItem(int position) {
 		return items.get(position);
 	}
 

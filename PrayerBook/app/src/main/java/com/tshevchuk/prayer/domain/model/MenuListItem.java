@@ -8,7 +8,7 @@ import org.parceler.Parcel;
 @Parcel
 public class MenuListItem extends MenuItemBase {
 
-    private MenuItemType menuItemType;
+    private MenuListItemType menuListItemType;
 
     public MenuListItem() {
     }
@@ -17,13 +17,11 @@ public class MenuListItem extends MenuItemBase {
         super(item);
     }
 
-    public MenuItemType getMenuItemType() {
-        return menuItemType;
+    public MenuListItemType getMenuListItemType() {
+        return menuListItemType;
     }
 
-    public void setMenuItemType(MenuItemType menuItemType) {
-        this.menuItemType = menuItemType;
+    public void setMenuListItemType(MenuListItemType menuListItemType) {
+        this.menuListItemType = menuListItemType;
     }
-
-    public enum MenuItemType {TextView, WebView, Calendar, SubMenu, OftenUsed}
 }

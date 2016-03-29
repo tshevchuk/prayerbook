@@ -7,9 +7,9 @@ import android.util.SparseArray;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
-import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
+import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.SearchItem;
 
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class Catalog {
 
 	{
 		MenuItemSubMenu menu = new MenuItemSubMenu(0, "top");
-		menu.addSubItem(new MenuItemOftenUsed());
+		menu.addSubItem(new MenuListItemOftenUsed());
 		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
 				"texts/molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012)
 				.setOfficialUGCCText(true);

@@ -3,6 +3,7 @@ package com.tshevchuk.prayer.presentation;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
+import com.tshevchuk.prayer.domain.model.MenuListItemType;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.BaseView;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
@@ -23,15 +24,15 @@ public class Navigator {
 
         FragmentBase f = null;
 
-        if (item.getMenuItemType() == MenuListItem.MenuItemType.WebView) {
+        if (item.getMenuListItemType() == MenuListItemType.WebView) {
             f = HtmlViewFragment.getInstance();
-        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.TextView) {
+        } else if (item.getMenuListItemType() == MenuListItemType.TextView) {
             f = TextViewFragment.getInstance();
-        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.SubMenu) {
+        } else if (item.getMenuListItemType() == MenuListItemType.SubMenu) {
             f = SubMenuFragment.getInstance(item.getId(), item.getName());
-        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.Calendar) {
+        } else if (item.getMenuListItemType() == MenuListItemType.Calendar) {
             f = CerkovnyyCalendarFragment.getInstance();
-        } else if (item.getMenuItemType() == MenuListItem.MenuItemType.OftenUsed) {
+        } else if (item.getMenuListItemType() == MenuListItemType.OftenUsed) {
             f = OftenUsedFragment.getInstance();
         }
 
