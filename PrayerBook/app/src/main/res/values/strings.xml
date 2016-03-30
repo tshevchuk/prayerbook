@@ -33,4 +33,5 @@
     <string name="cerk_calendar__cerk_calendar">Церковний календар</string>
 
     <string name="search__search">Пошук</string>
+    <string name="search__found_for_x">Для «%s» знайдено:</string>
 </resources>

@@ -10,7 +10,7 @@ import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
-import com.tshevchuk.prayer.domain.model.SearchItem;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -2194,8 +2194,8 @@ public class Catalog {
 		}
 	}
 
-	public List<SearchItem> filter(String searchPhrase) {
-		List<SearchItem> filtered = new ArrayList<>();
+	public ArrayList<MenuListItemSearch> filter(String searchPhrase) {
+		ArrayList<MenuListItemSearch> filtered = new ArrayList<>();
 
 		if (TextUtils.isEmpty(searchPhrase)) {
 			return filtered;
@@ -2208,7 +2208,7 @@ public class Catalog {
 	}
 
 	private void filter(String searchPhrase,
-						List<SearchItem> filtered, MenuItemBase mi) {
+						List<MenuListItemSearch> filtered, MenuItemBase mi) {
 		String name = mi.getName().toLowerCase(Utils.getUkrainianLocale())
 				.replace('’', '\'');
 		int searchPhraseStartPos = name.indexOf(searchPhrase);
@@ -2216,7 +2216,7 @@ public class Catalog {
 			StringBuilder sb = new StringBuilder(mi.getName());
 			sb.insert(searchPhraseStartPos + searchPhrase.length(), "</b>");
 			sb.insert(searchPhraseStartPos, "<b>");
-			filtered.add(new SearchItem(mi, sb.toString()));
+			filtered.add(new MenuListItemSearch(mi, sb.toString()));
 		}
 
 		if (mi instanceof MenuItemSubMenu) {

@@ -40,7 +40,7 @@ import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
-import com.tshevchuk.prayer.domain.model.SearchItem;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
@@ -217,11 +217,11 @@ public class HomeActivity extends AppCompatActivity {
 				} else {
 					String[] columnNames = { "_id", "text" };
 					MatrixCursor cursor = new MatrixCursor(columnNames);
-					final List<SearchItem> items = catalog.filter(newText);
+					final List<MenuListItemSearch> items = catalog.filter(newText);
 					CharSequence[] temp = new CharSequence[2];
-					for (SearchItem item : items) {
-						temp[0] = Integer.toString(item.getMenuItem().getId());
-						temp[1] = Html.fromHtml(item.getName());
+					for (MenuListItemSearch item : items) {
+						temp[0] = Integer.toString(item.getId());
+						temp[1] = Html.fromHtml(item.getDisplayName());
 						cursor.addRow(temp);
 					}
 					String[] from = { "text" };
@@ -240,8 +240,7 @@ public class HomeActivity extends AppCompatActivity {
 
 								@Override
 								public boolean onSuggestionClick(int position) {
-									MenuItemBase mi = items.get(position)
-											.getMenuItem();
+									MenuItemBase mi = items.get(position);
 									//todo: implement
 									//displayMenuItem(mi);
 									//todo: add update of recently used
@@ -358,11 +357,12 @@ public class HomeActivity extends AppCompatActivity {
 		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
 		if (f instanceof SearchFragment) {
 			sf = (SearchFragment) f;
+			//todo: implement search update while SearchFragment is opened
+			//sf.setItemsForSearchPhrase(query);
 		} else {
-			sf = new SearchFragment();
+			sf = SearchFragment.newInstance(query);
 			displayFragment(sf, 0, null);
 		}
-		sf.setItemsForSearchPhrase(query);
 	}
 
 	public SearchView getSearchView() {

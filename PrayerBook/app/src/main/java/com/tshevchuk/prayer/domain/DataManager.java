@@ -7,6 +7,7 @@ import com.tshevchuk.prayer.data.TextsRepository;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,5 +67,9 @@ public class DataManager {
 
     public int getTextFontSizeSp() {
         return preferenceManager.getFontSizeSp();
+    }
+
+    public ArrayList<MenuListItemSearch> searchMenuItems(String searchPhrase) {
+        return textsRepository.searchMenuItems(searchPhrase);
     }
 }

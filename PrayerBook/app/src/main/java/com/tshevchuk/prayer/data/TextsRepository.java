@@ -9,6 +9,7 @@ import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuItemSubMenu;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.domain.model.MenuListItemType;
 
 import java.util.ArrayList;
@@ -83,5 +84,18 @@ public class TextsRepository {
                     ? MenuListItemType.WebView : MenuListItemType.TextView;
         }
         return type;
+    }
+
+    public ArrayList<MenuListItemSearch> searchMenuItems(String searchPhrase) {
+        ArrayList<MenuListItemSearch> items = catalog.filter(searchPhrase);
+        for (int i = items.size() - 1; i >= 0; i--) {
+            MenuListItemSearch item = items.get(i);
+            item.setMenuListItemType(getMenuListItemType(catalog.getMenuItemById(item.getId())));
+            int parentItemId = item.getParentItemId();
+            if (parentItemId != 0) {
+                item.setParentName(catalog.getMenuItemById(parentItemId).getName());
+            }
+        }
+        return items;
     }
 }

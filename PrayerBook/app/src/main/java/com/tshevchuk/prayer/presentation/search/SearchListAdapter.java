@@ -10,23 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.domain.model.SearchItem;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 
 import java.util.List;
 
 public class SearchListAdapter extends BaseAdapter {
-	private final List<SearchItem> items;
+	private final List<MenuListItemSearch> items;
 	private final LayoutInflater inflater;
-	private final PreferenceManager preferenceManager;
-	private Catalog catalog;
 
-	public SearchListAdapter(Context context, List<SearchItem> items, Catalog catalog,
-							 PreferenceManager preferenceManager) {
+	public SearchListAdapter(Context context, List<MenuListItemSearch> items) {
 		this.items = items;
-		this.catalog = catalog;
-		this.preferenceManager = preferenceManager;
 		inflater = LayoutInflater.from(context);
 	}
 
@@ -36,7 +29,7 @@ public class SearchListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public SearchItem getItem(int position) {
+	public MenuListItemSearch getItem(int position) {
 		return items.get(position);
 	}
 
@@ -59,17 +52,12 @@ public class SearchListAdapter extends BaseAdapter {
 			v.setTag(vh);
 		}
 		ViewHolder vh = (ViewHolder) v.getTag();
-		SearchItem si = items.get(position);
-		vh.tvName.setText(Html.fromHtml(si.getName()));
-		int showUGCCVisibility = si.getMenuItem().isOfficialUGCCText()
-				&& preferenceManager.isShowOfficialUgccEnabled()
-				? View.VISIBLE : View.INVISIBLE;
-		vh.ivOfficialStamp.setVisibility(showUGCCVisibility);
-		if (si.getMenuItem().getParentItemId() > 0) {
+		MenuListItemSearch si = items.get(position);
+		vh.tvName.setText(Html.fromHtml(si.getDisplayName()));
+		vh.ivOfficialStamp.setVisibility(si.isOfficialUGCCText() ? View.VISIBLE : View.INVISIBLE);
+		if (si.getParentItemId() > 0) {
 			vh.tvParentName.setVisibility(View.VISIBLE);
-			vh.tvParentName.setText(catalog
-					.getMenuItemById(si.getMenuItem().getParentItemId())
-					.getName());
+			vh.tvParentName.setText(si.getParentName());
 		} else {
 			vh.tvParentName.setVisibility(View.GONE);
 		}

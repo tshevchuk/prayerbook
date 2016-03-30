@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppPresenter;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerPresenter;
@@ -28,7 +29,7 @@ public class PresenterModule {
     }
 
     @Provides
-    AboutPrayerPresenter getAboutPrayerPresenter(Application application){
+    AboutPrayerPresenter getAboutPrayerPresenter(Application application) {
         return new AboutPrayerPresenter(application);
     }
 
@@ -38,7 +39,7 @@ public class PresenterModule {
     }
 
     @Provides
-    CerkovnyyCalendarPresenter getCerkovnyyCalendarPresenter(){
+    CerkovnyyCalendarPresenter getCerkovnyyCalendarPresenter() {
         return new CerkovnyyCalendarPresenter();
     }
 
@@ -48,17 +49,18 @@ public class PresenterModule {
     }
 
     @Provides
-    HtmlViewPresenter getHtmlViewPresenter(){
+    HtmlViewPresenter getHtmlViewPresenter() {
         return new HtmlViewPresenter();
     }
 
     @Provides
-    TextViewPresenter getTextViewPresenter(){
+    TextViewPresenter getTextViewPresenter() {
         return new TextViewPresenter();
     }
 
     @Provides
-    SearchPresenter getSearchPresenter(){
-        return new SearchPresenter();
+    SearchPresenter getSearchPresenter(Navigator navigator, DataManager dataManager,
+                                       AnalyticsManager analyticsManager) {
+        return new SearchPresenter(navigator, dataManager, analyticsManager);
     }
 }
