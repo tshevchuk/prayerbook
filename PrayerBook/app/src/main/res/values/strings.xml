@@ -34,4 +34,6 @@
 
     <string name="search__search">Пошук</string>
     <string name="search__found_for_x">Для «%s» знайдено:</string>
+
+    <string name="settings__settings">Налаштування</string>
 </resources>

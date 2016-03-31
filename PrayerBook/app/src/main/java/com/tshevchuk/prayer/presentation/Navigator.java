@@ -4,6 +4,7 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemType;
+import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.BaseView;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
@@ -19,8 +20,7 @@ import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
  */
 public class Navigator {
     public void showMenuItem(BasePresenter<? extends BaseView> presenter, MenuListItem item) {
-        FragmentBase fragmentBase = (FragmentBase) presenter.getMvpView();
-        HomeActivity activity = (HomeActivity) fragmentBase.getActivity();
+        HomeActivity activity = getHomeActivity(presenter);
 
         FragmentBase f = null;
 
@@ -41,10 +41,18 @@ public class Navigator {
     }
 
     public void showCalendar(BasePresenter<? extends BaseView> presenter) {
-        FragmentBase fragmentBase = (FragmentBase) presenter.getMvpView();
-        HomeActivity activity = (HomeActivity) fragmentBase.getActivity();
+        HomeActivity activity = getHomeActivity(presenter);
         FragmentBase f = CerkovnyyCalendarFragment.getInstance();
         activity.displayFragment(f, Catalog.ID_CALENDAR,
                 activity.getString(R.string.cerk_calendar__cerk_calendar));
+    }
+
+    private HomeActivity getHomeActivity(BasePresenter<? extends BaseView> presenter) {
+        FragmentBase fragmentBase = (FragmentBase) presenter.getMvpView();
+        return (HomeActivity) fragmentBase.getActivity();
+    }
+
+    public void openAboutApp(BasePresenter<? extends BaseView> presenter) {
+        getHomeActivity(presenter).displayFragment(new AboutAppFragment(), 0, null);
     }
 }

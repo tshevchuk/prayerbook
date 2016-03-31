@@ -13,6 +13,7 @@ import com.tshevchuk.prayer.presentation.often_used.OftenUsedPresenter;
 import com.tshevchuk.prayer.presentation.prayer.HtmlViewPresenter;
 import com.tshevchuk.prayer.presentation.prayer.TextViewPresenter;
 import com.tshevchuk.prayer.presentation.search.SearchPresenter;
+import com.tshevchuk.prayer.presentation.settings.SettingsPresenter;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuPresenter;
 
 import dagger.Module;
@@ -24,43 +25,48 @@ import dagger.Provides;
 @Module
 public class PresenterModule {
     @Provides
-    AboutAppPresenter getAboutAppPresenter(DataManager dataManager, Utils utils) {
+    AboutAppPresenter provideAboutAppPresenter(DataManager dataManager, Utils utils) {
         return new AboutAppPresenter(dataManager, utils);
     }
 
     @Provides
-    AboutPrayerPresenter getAboutPrayerPresenter(Application application) {
+    AboutPrayerPresenter provideAboutPrayerPresenter(Application application) {
         return new AboutPrayerPresenter(application);
     }
 
     @Provides
-    OftenUsedPresenter getOftenUsedPresenter(Navigator navigator, DataManager dataManager) {
+    OftenUsedPresenter provideOftenUsedPresenter(Navigator navigator, DataManager dataManager) {
         return new OftenUsedPresenter(navigator, dataManager);
     }
 
     @Provides
-    CerkovnyyCalendarPresenter getCerkovnyyCalendarPresenter() {
+    CerkovnyyCalendarPresenter provideCerkovnyyCalendarPresenter() {
         return new CerkovnyyCalendarPresenter();
     }
 
     @Provides
-    SubMenuPresenter getSubMenuPresenter(DataManager dataManager, Navigator navigator) {
+    SubMenuPresenter provideSubMenuPresenter(DataManager dataManager, Navigator navigator) {
         return new SubMenuPresenter(dataManager, navigator);
     }
 
     @Provides
-    HtmlViewPresenter getHtmlViewPresenter() {
+    HtmlViewPresenter provideHtmlViewPresenter() {
         return new HtmlViewPresenter();
     }
 
     @Provides
-    TextViewPresenter getTextViewPresenter() {
+    TextViewPresenter provideTextViewPresenter() {
         return new TextViewPresenter();
     }
 
     @Provides
-    SearchPresenter getSearchPresenter(Navigator navigator, DataManager dataManager,
+    SearchPresenter provideSearchPresenter(Navigator navigator, DataManager dataManager,
                                        AnalyticsManager analyticsManager) {
         return new SearchPresenter(navigator, dataManager, analyticsManager);
+    }
+
+    @Provides
+    SettingsPresenter provideSettingsPresenter(AnalyticsManager analyticsManager, Navigator navigator) {
+        return new SettingsPresenter(analyticsManager, navigator);
     }
 }
