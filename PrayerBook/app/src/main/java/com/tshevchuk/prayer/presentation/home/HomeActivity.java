@@ -357,8 +357,7 @@ public class HomeActivity extends AppCompatActivity {
 		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
 		if (f instanceof SearchFragment) {
 			sf = (SearchFragment) f;
-			//todo: implement search update while SearchFragment is opened
-			//sf.setItemsForSearchPhrase(query);
+			sf.onSearchPhraseChange(query);
 		} else {
 			sf = SearchFragment.newInstance(query);
 			displayFragment(sf, 0, null);

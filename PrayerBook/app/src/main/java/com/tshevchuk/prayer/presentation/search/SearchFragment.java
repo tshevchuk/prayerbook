@@ -75,7 +75,9 @@ public class SearchFragment extends FragmentBase implements SearchView {
         activity.getSearchView().setIconified(false);
     }
 
-    //todo: implement updating search results while user changes text on SearchFragment
+    public void onSearchPhraseChange(String searchPhrase) {
+        presenter.setSearchPhrase(searchPhrase);
+    }
 
     @Override
     public void setSearchResults(String searchPhrase, final ArrayList<MenuListItemSearch> items) {
