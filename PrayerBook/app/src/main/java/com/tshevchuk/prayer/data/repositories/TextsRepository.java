@@ -1,7 +1,9 @@
-package com.tshevchuk.prayer.data;
+package com.tshevchuk.prayer.data.repositories;
 
 import android.support.annotation.Nullable;
 
+import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;

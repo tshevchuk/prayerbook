@@ -1,9 +1,9 @@
 package com.tshevchuk.prayer.domain;
 
 import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.data.TextsRepository;
+import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
+import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
@@ -23,15 +23,16 @@ public class DataManager {
     private final Catalog catalog;
     private final PreferenceManager preferenceManager;
     private final TextsRepository textsRepository;
-    private final CerkovnyyCalendar cerkovnyyCalendar;
+    private final CerkovnyyCalendarRepository cerkovnyyCalendarRepository;
 
     @Inject
     public DataManager(Catalog catalog, PreferenceManager preferenceManager,
-                       TextsRepository textsRepository, CerkovnyyCalendar cerkovnyyCalendar) {
+                       TextsRepository textsRepository,
+                       CerkovnyyCalendarRepository cerkovnyyCalendarRepository) {
         this.catalog = catalog;
         this.preferenceManager = preferenceManager;
         this.textsRepository = textsRepository;
-        this.cerkovnyyCalendar = cerkovnyyCalendar;
+        this.cerkovnyyCalendarRepository = cerkovnyyCalendarRepository;
     }
 
     public Set<String> getAllPrayersReferences() {
@@ -62,7 +63,7 @@ public class DataManager {
     }
 
     public CalendarDay getCalendarDay(Date date) {
-        return cerkovnyyCalendar.getCalendarDay(date);
+        return cerkovnyyCalendarRepository.getCalendarDay(date);
     }
 
     public int getTextFontSizeSp() {
@@ -71,5 +72,9 @@ public class DataManager {
 
     public ArrayList<MenuListItemSearch> searchMenuItems(String searchPhrase) {
         return textsRepository.searchMenuItems(searchPhrase);
+    }
+
+    public int[] getYears() {
+        return cerkovnyyCalendarRepository.getYears();
     }
 }

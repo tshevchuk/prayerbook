@@ -40,8 +40,9 @@ public class PresenterModule {
     }
 
     @Provides
-    CerkovnyyCalendarPresenter provideCerkovnyyCalendarPresenter() {
-        return new CerkovnyyCalendarPresenter();
+    CerkovnyyCalendarPresenter provideCerkovnyyCalendarPresenter(AnalyticsManager analyticsManager,
+                                                                 DataManager dataManager) {
+        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager);
     }
 
     @Provides

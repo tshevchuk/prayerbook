@@ -10,6 +10,23 @@
     <string name="menu_items__search">Пошук</string>
 
     <string name="calendar__today">Сьогодні</string>
+    <string-array name="calendar__monthes">
+        <item>Січень</item>
+        <item>Лютий</item>
+        <item>Березень</item>
+        <item>Квітень</item>
+        <item>Травень</item>
+        <item>Червень</item>
+        <item>Липень</item>
+        <item>Серпень</item>
+        <item>Вересень</item>
+        <item>Жовтень</item>
+        <item>Листопад</item>
+        <item>Грудень</item>
+    </string-array>
+    <string name="calendar__month_of_x_year">%1$s %2$s-го року</string>
+    <string name="calendar__x_year">%s рік</string>
+
 
     <string name="about_app__about_prayerbook">Про Молитовник</string>
     <string name="about_app__info">Коротка довідка: https://github.com/tshevchuk/prayerbook/wiki/Довідка-програми-Молитовник
@@ -36,4 +53,5 @@
     <string name="search__found_for_x">Для «%s» знайдено:</string>
 
     <string name="settings__settings">Налаштування</string>
+
 </resources>

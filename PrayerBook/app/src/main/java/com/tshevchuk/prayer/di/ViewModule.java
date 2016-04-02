@@ -6,7 +6,8 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.data.TextsRepository;
+import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
+import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.AnalyticsManagerImpl;
 import com.tshevchuk.prayer.presentation.Navigator;
@@ -23,43 +24,51 @@ import dagger.Provides;
 public class ViewModule {
     @Provides
     @Singleton
-    Catalog getCatalog(Application application) {
+    Catalog provideCatalog(Application application) {
         return new Catalog(application);
     }
 
     @Provides
     @Singleton
-    PreferenceManager getPreferenceManager(Application application) {
+    PreferenceManager providePreferenceManager(Application application) {
         return new PreferenceManager(application);
     }
 
     @Provides
     @Singleton
-    AnalyticsManager getAnalyticsManager(Application application) {
+    AnalyticsManager provideAnalyticsManager(Application application) {
         return new AnalyticsManagerImpl(application);
     }
 
     @Provides
     @Singleton
-    CerkovnyyCalendar getCerkovnyyCalendar() {
+    CerkovnyyCalendar provideCerkovnyyCalendar() {
         return new CerkovnyyCalendar();
     }
 
     @Provides
     @Singleton
-    Utils getUtils(Application application) {
+    Utils provideUtils(Application application) {
         return new Utils(application.getApplicationContext());
     }
 
     @Provides
     @Singleton
-    TextsRepository getTextsRepository(Catalog catalog, PreferenceManager preferenceManager) {
+    TextsRepository provideTextsRepository(Catalog catalog, PreferenceManager preferenceManager) {
         return new TextsRepository(catalog, preferenceManager);
     }
 
     @Provides
     @Singleton
-    Navigator getNavigator() {
+    CerkovnyyCalendarRepository provideCalendarRepository(CerkovnyyCalendar cerkovnyyCalendar) {
+        return new CerkovnyyCalendarRepository(cerkovnyyCalendar);
+    }
+
+    @Provides
+    @Singleton
+    Navigator provideNavigator() {
         return new Navigator();
     }
+
+
 }

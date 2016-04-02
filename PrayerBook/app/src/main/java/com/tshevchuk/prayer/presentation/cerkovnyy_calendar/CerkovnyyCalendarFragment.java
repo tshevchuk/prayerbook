@@ -2,42 +2,43 @@ package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.data.CerkovnyyCalendar;
-import com.tshevchuk.prayer.domain.analytics.Analytics;
+import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
+import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
-import java.util.Calendar;
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-public class CerkovnyyCalendarFragment extends FragmentBase {
-    @Inject
-    CerkovnyyCalendar cerkovnyyCalendar;
+public class CerkovnyyCalendarFragment extends FragmentBase implements CerkovnyyCalendarView {
     @Inject
     CerkovnyyCalendarPresenter presenter;
-    private int[] years;
-    private int year;
-    private int currentYear;
     private int prevFirstVisibleItem;
-    private String[] formattedYears;
     private Integer initPosition;
 
     private ListView lvCalendar;
     private TextView tvMonth;
-    private ActionBar actionBar;
+    private int[] years;
+    private int selectedYear;
+    private View oldActionBarCustomView;
 
     public static CerkovnyyCalendarFragment getInstance() {
         return new CerkovnyyCalendarFragment();
@@ -57,23 +58,10 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((PrayerBookApplication) getActivity().getApplication())
-                .getViewComponent().inject(this);
-
-        years = cerkovnyyCalendar.getYears();
-
-        year = currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
-        actionBar = activity.getSupportActionBar();
-        formattedYears = new String[years.length];
-        for (int i = 0; i < years.length; ++i) {
-            formattedYears[i] = years[i] + " рік";
-        }
+        ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
 
         if (savedInstanceState != null) {
-            year = savedInstanceState.getInt("year");
-        }
-
-        if (savedInstanceState != null) {
+            presenter.instanceState = Parcels.unwrap(savedInstanceState.getParcelable("instanceState"));
             prevFirstVisibleItem = initPosition = savedInstanceState.getInt("firstVisiblePosition");
         }
     }
@@ -92,55 +80,35 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,
                                  int visibleItemCount, int totalItemCount) {
-                updateMonth(firstVisibleItem, false);
+                onVisibleDaysChanged(firstVisibleItem, false);
             }
         });
-        showCalendarForYear(year, initPosition);
 
         return v;
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        initPosition = lvCalendar.getFirstVisiblePosition();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        actionBar.setListNavigationCallbacks(new ArrayAdapter<>(activity,
-                        android.R.layout.simple_spinner_dropdown_item, formattedYears),
-                new ActionBar.OnNavigationListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(int itemPosition,
-                                                            long itemId) {
-                        if (years[itemPosition] != year) {
-                            showCalendarForYear(years[itemPosition], null);
-                            analyticsManager.sendActionEvent(Analytics.CAT_CERKOVNYY_CALENDAR,
-                                    "Вибрано рік", formattedYears[itemPosition]);
-                        }
-                        return true;
-                    }
-                });
-        for (int i = 0; i < years.length; ++i) {
-            if (years[i] == year) {
-                actionBar.setSelectedNavigationItem(i);
-            }
-        }
+
+        addYearsSpinnerToActionBar();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+
+        HomeActivity activity = (HomeActivity) getActivity();
+        ActionBar actionBar = activity.getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setCustomView(oldActionBarCustomView);
+        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("year", year);
+        outState.putParcelable("instanceState", Parcels.wrap(presenter.instanceState));
         if (initPosition == null) {
             outState.putInt("firstVisiblePosition", lvCalendar.getFirstVisiblePosition());
         } else {
@@ -148,46 +116,84 @@ public class CerkovnyyCalendarFragment extends FragmentBase {
         }
     }
 
-    private void showCalendarForYear(int year, Integer position) {
-        lvCalendar.setAdapter(new CerkovnyyCalendarListAdapter(activity, cerkovnyyCalendar, preferenceManager, year));
-
-        if (position == null) {
-            position = (year == currentYear) ? (java.util.Calendar
-                    .getInstance().get(java.util.Calendar.DAY_OF_YEAR) - 1) : 0;
+    private void addYearsSpinnerToActionBar() {
+        HomeActivity activity = (HomeActivity) getActivity();
+        ActionBar actionBar = activity.getSupportActionBar();
+        if (actionBar == null) {
+            return;
         }
 
-        this.year = year;
+        String[] formattedYears = new String[years.length];
+        int curYearPosition = 0;
+        for (int i = years.length - 1; i >= 0; --i) {
+            formattedYears[i] = getString(R.string.calendar__x_year, years[i]);
+            if (years[i] == selectedYear) {
+                curYearPosition = i;
+            }
+        }
 
-        lvCalendar.setSelection(position);
-
-        final int pos = position;
-        lvCalendar.post(new Runnable() {
+        Spinner spinner = new AppCompatSpinner(actionBar.getThemedContext());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(actionBar.getThemedContext(),
+                android.R.layout.simple_spinner_dropdown_item, formattedYears);
+        spinner.setAdapter(adapter);
+        spinner.setSelection(curYearPosition);
+        actionBar.setDisplayShowCustomEnabled(true);
+        oldActionBarCustomView = actionBar.getCustomView();
+        actionBar.setCustomView(spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void run() {
-                updateMonth(pos, true);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                presenter.onYearSelected(years[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
 
-    private void updateMonth(int firstVisibleItem, boolean force) {
-        if (prevFirstVisibleItem != firstVisibleItem || force) {
-            java.util.Calendar cal1 = java.util.Calendar.getInstance();
-            cal1.set(java.util.Calendar.YEAR, year);
-            cal1.set(java.util.Calendar.DAY_OF_YEAR, firstVisibleItem + 1);
-            java.util.Calendar cal2 = java.util.Calendar.getInstance();
-            cal2.set(java.util.Calendar.YEAR, year);
-            cal2.set(java.util.Calendar.DAY_OF_YEAR,
-                    lvCalendar.getLastVisiblePosition() + 1);
-            StringBuilder sb = new StringBuilder();
-            sb.append(CerkovnyyCalendarListAdapter.MONTHES[cal1
-                    .get(java.util.Calendar.MONTH)]);
-            if (cal2.get(Calendar.MONTH) != cal1.get(Calendar.MONTH)) {
-                sb.append('-').append(
-                        CerkovnyyCalendarListAdapter.MONTHES[cal2
-                                .get(java.util.Calendar.MONTH)]);
+    @Override
+    public void showCalendarForYear(int year, ArrayList<CalendarDay> calendarDays,
+                                    int positionOfToday, int fontSizeSp) {
+        lvCalendar.setAdapter(new CerkovnyyCalendarListAdapter(activity, calendarDays,
+                positionOfToday, fontSizeSp));
+
+        if (initPosition != null) {
+            lvCalendar.setSelection(initPosition);
+            initPosition = null;
+        } else {
+            lvCalendar.setSelection(positionOfToday);
+        }
+
+        final int pos = positionOfToday;
+        lvCalendar.post(new Runnable() {
+            @Override
+            public void run() {
+                onVisibleDaysChanged(pos, true);
             }
-            sb.append(' ').append(year).append(" року");
-            tvMonth.setText(sb);
+        });
+    }
+
+    @Override
+    public void setCurrentMonths(int monthFrom, int monthTo, int year) {
+        StringBuilder sb = new StringBuilder();
+        final String[] months = getResources().getStringArray(R.array.calendar__monthes);
+        sb.append(months[monthFrom]);
+        if (monthFrom != monthTo) {
+            sb.append('-').append(months[monthTo]);
+        }
+        tvMonth.setText(getString(R.string.calendar__month_of_x_year, sb, year));
+    }
+
+    @Override
+    public void setYears(int[] years, int currentYear) {
+        this.years = years;
+        this.selectedYear = currentYear;
+    }
+
+    private void onVisibleDaysChanged(int firstVisibleItem, boolean force) {
+        if (prevFirstVisibleItem != firstVisibleItem || force) {
+            presenter.onVisibleDaysChanged(firstVisibleItem, lvCalendar.getLastVisiblePosition());
             prevFirstVisibleItem = firstVisibleItem;
         }
     }
