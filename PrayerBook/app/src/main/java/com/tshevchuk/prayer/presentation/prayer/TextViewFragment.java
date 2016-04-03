@@ -21,7 +21,7 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 public class TextViewFragment extends TextFragmentBase implements
-		LoaderManager.LoaderCallbacks<CharSequence> {
+		LoaderManager.LoaderCallbacks<CharSequence>, TextViewView {
 	private final static int LOADER_ID_LOAD_PRAYER = 1;
 	@Inject
 	TextViewPresenter presenter;
@@ -29,9 +29,14 @@ public class TextViewFragment extends TextFragmentBase implements
 	private Integer firstVisibleCharacterOffset = null;
 	private TextView tvContent;
 	private NestedScrollView svScroll;
+	private MenuItemPrayer prayer;
 
-	public static TextViewFragment getInstance() {
-		return new TextViewFragment();
+	public static TextViewFragment getInstance(int id) {
+		TextViewFragment f = new TextViewFragment();
+		Bundle args = new Bundle();
+		args.putInt("id", id);
+		f.setArguments(args);
+		return f;
 	}
 
 	@Override
@@ -43,11 +48,10 @@ public class TextViewFragment extends TextFragmentBase implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (savedInstanceState != null) {
-			firstVisibleCharacterOffset = savedInstanceState
-					.getInt("firstVisibleCharOffset");
+			firstVisibleCharacterOffset = savedInstanceState.getInt("firstVisibleCharOffset");
 		}
-		((PrayerBookApplication) getActivity().getApplication())
-				.getViewComponent().inject(this);
+		((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
+		presenter.setId(getArguments().getInt("id"));
 	}
 
 	@Override
@@ -91,19 +95,16 @@ public class TextViewFragment extends TextFragmentBase implements
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		if (firstVisibleCharacterOffset == null) {
-			outState.putInt("firstVisibleCharOffset",
-					getFirstVisibleCharacterOffset());
+			outState.putInt("firstVisibleCharOffset", getFirstVisibleCharacterOffset());
 		} else {
-			outState.putInt("firstVisibleCharOffset",
-					firstVisibleCharacterOffset);
+			outState.putInt("firstVisibleCharOffset", firstVisibleCharacterOffset);
 		}
 	}
 
 	private int getFirstVisibleCharacterOffset() {
 		final int firstVisibleLineOffset = tvContent.getLayout()
 				.getLineForVertical(svScroll.getScrollY());
-		return tvContent.getLayout()
-				.getLineStart(firstVisibleLineOffset);
+		return tvContent.getLayout().getLineStart(firstVisibleLineOffset);
 	}
 
 	@Override
@@ -150,7 +151,11 @@ public class TextViewFragment extends TextFragmentBase implements
 
 	@Override
 	public MenuItemPrayer getMenuItem() {
-		//todo: implement
-		return null;
+		return prayer;
+	}
+
+	@Override
+	public void setMenuItem(MenuItemPrayer prayer) {
+		this.prayer = prayer;
 	}
 }

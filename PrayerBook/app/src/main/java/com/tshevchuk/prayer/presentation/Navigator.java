@@ -2,9 +2,11 @@ package com.tshevchuk.prayer.presentation;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemType;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
+import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerFragment;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.BaseView;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
@@ -20,14 +22,12 @@ import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
  */
 public class Navigator {
     public void showMenuItem(BasePresenter<? extends BaseView> presenter, MenuListItem item) {
-        HomeActivity activity = getHomeActivity(presenter);
-
         FragmentBase f = null;
 
         if (item.getMenuListItemType() == MenuListItemType.WebView) {
             f = HtmlViewFragment.getInstance();
         } else if (item.getMenuListItemType() == MenuListItemType.TextView) {
-            f = TextViewFragment.getInstance();
+            f = TextViewFragment.getInstance(item.getId());
         } else if (item.getMenuListItemType() == MenuListItemType.SubMenu) {
             f = SubMenuFragment.getInstance(item.getId(), item.getName());
         } else if (item.getMenuListItemType() == MenuListItemType.Calendar) {
@@ -36,8 +36,7 @@ public class Navigator {
             f = OftenUsedFragment.getInstance();
         }
 
-        activity.displayFragment(f, item.getId(), item.getName());
-
+        getHomeActivity(presenter).displayFragment(f, item.getId(), item.getName());
     }
 
     public void showCalendar(BasePresenter<? extends BaseView> presenter) {
@@ -54,5 +53,17 @@ public class Navigator {
 
     public void openAboutApp(BasePresenter<? extends BaseView> presenter) {
         getHomeActivity(presenter).displayFragment(new AboutAppFragment(), 0, null);
+    }
+
+    public void showAboutPrayer(BasePresenter<? extends BaseView> presenter, MenuItemPrayer prayer) {
+        getHomeActivity(presenter).displayFragment(AboutPrayerFragment.getInstance(prayer), 0, null);
+    }
+
+    public void close(BasePresenter<? extends BaseView> presenter) {
+        getHomeActivity(presenter).getFragmentManager().popBackStackImmediate();
+    }
+
+    public void showSubMenu(BasePresenter<? extends BaseView> presenter, int id, String name) {
+        getHomeActivity(presenter).displayFragment(SubMenuFragment.getInstance(id, name), id, name);
     }
 }

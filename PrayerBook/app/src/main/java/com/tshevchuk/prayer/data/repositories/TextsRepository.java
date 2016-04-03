@@ -100,4 +100,8 @@ public class TextsRepository {
         }
         return items;
     }
+
+    public MenuItemBase getMenuItem(int id) {
+        return catalog.getMenuItemById(id);
+    }
 }
