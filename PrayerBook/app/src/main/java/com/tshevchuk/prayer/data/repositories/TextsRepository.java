@@ -104,4 +104,8 @@ public class TextsRepository {
     public MenuItemBase getMenuItem(int id) {
         return catalog.getMenuItemById(id);
     }
+
+    public String loadText(MenuItemBase item) {
+        return null;
+    }
 }
