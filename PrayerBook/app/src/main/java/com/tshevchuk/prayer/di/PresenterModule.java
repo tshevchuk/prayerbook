@@ -58,7 +58,7 @@ public class PresenterModule {
     @Provides
     TextViewPresenter provideTextViewPresenter(AnalyticsManager analyticsManager,
                                                Navigator navigator, DataManager dataManager) {
-        return new TextViewPresenter(analyticsManager, navigator, dataManager);
+        return new TextViewPresenter(analyticsManager, navigator, dataManager, asyncTaskManager);
     }
 
     @Provides

@@ -22,10 +22,10 @@ public class HtmlParserImpl implements HtmlParser {
     }
 
     @Override
-    public Pair<CharSequence, Long> parseHtml(String htmlToParse) {
+    public Pair<CharSequence, Integer> parseHtml(String htmlToParse) {
         ImageGetter imageGetter = new ImageGetter();
         CharSequence parsedHtml = Html.fromHtml(htmlToParse, imageGetter, null);
-        long totalSize = imageGetter.totalSize + htmlToParse.length() * 2;
+        int totalSize = (int) (imageGetter.totalSize + htmlToParse.length() * 2);
         return new Pair<>(parsedHtml, totalSize);
     }
 

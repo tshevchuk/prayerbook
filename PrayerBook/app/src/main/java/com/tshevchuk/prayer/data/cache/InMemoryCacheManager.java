@@ -6,7 +6,7 @@ package com.tshevchuk.prayer.data.cache;
 public interface InMemoryCacheManager {
     void putCharSequence(String key, CharSequence text);
 
-    void putCharSequence(String key, CharSequence value, long size);
+    void putCharSequence(String key, CharSequence value, int size);
 
     CharSequence getCharSequence(String key);
 }

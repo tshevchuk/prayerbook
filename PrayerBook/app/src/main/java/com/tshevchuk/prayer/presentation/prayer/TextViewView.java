@@ -8,4 +8,10 @@ import com.tshevchuk.prayer.presentation.base.BaseView;
  */
 public interface TextViewView extends BaseView {
     void setMenuItem(MenuItemPrayer prayer);
+
+    void showProgress();
+
+    void setPrayerText(CharSequence param);
+
+    void hideProgress();
 }

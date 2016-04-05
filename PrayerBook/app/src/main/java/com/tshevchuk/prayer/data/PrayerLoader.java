@@ -4,10 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.content.AsyncTaskLoader;
 
-import com.tshevchuk.prayer.Utils;
-
-import java.io.IOException;
-
 public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 	public static final String PARAM_ASSET_FILE_NAME = "asset_file_name";
 	public static final String PARAM_IS_HTML = "is_html";
@@ -26,18 +22,7 @@ public class PrayerLoader extends AsyncTaskLoader<CharSequence> {
 
 	@Override
 	public CharSequence loadInBackground() {
-		String html = "";
-		try {
-			html = Utils.getAssetAsString(context.getApplicationContext(), assetFileName);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        CharSequence parsedHtml;
-        if (isHtml) {
 
-		} else {
-			parsedHtml = html;
-		}
 		return parsedHtml;
 	}
 

@@ -6,6 +6,7 @@ import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
 import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
+import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
@@ -81,5 +82,9 @@ public class DataManager {
 
     public MenuItemBase getMenuItem(int id) {
         return textsRepository.getMenuItem(id);
+    }
+
+    public CharSequence loadText(MenuItemPrayer item) {
+        return textsRepository.loadText(item);
     }
 }

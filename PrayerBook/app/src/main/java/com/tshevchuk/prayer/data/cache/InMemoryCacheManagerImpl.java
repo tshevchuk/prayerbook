@@ -8,28 +8,35 @@ import android.util.LruCache;
 public class InMemoryCacheManagerImpl implements InMemoryCacheManager {
     private final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
     private final int cacheSize = maxMemory / 8;
-    private final LruCache<String, CharSequence> cache = new LruCache<String, String>(cacheSize) {
+    private final LruCache<String, CacheValueWithSize> cache = new LruCache<String, CacheValueWithSize>(cacheSize) {
         @Override
-        protected int sizeOf(String key, CharSequence value) {
-            return key.length() * 2 + value.length() * 2;
+        protected int sizeOf(String key, CacheValueWithSize value) {
+            return key.length() * 2 + value.size;
         }
     };
 
     @Override
     public void putCharSequence(String key, CharSequence text) {
-        cache.put(key, text);
+        cache.put(key, new CacheValueWithSize(text, text.length() * 2));
     }
 
     @Override
-    public void putCharSequence(String key, CharSequence value, long size) {
-        cache.put(key, value, size);
-
+    public void putCharSequence(String key, CharSequence value, int size) {
+        cache.put(key, new CacheValueWithSize(value, size));
     }
 
     @Override
     public CharSequence getCharSequence(String key) {
-        return cache.get(key);
+        return cache.get(key).value;
     }
 
+    private static class CacheValueWithSize {
+        private int size;
+        private CharSequence value;
 
+        public CacheValueWithSize(CharSequence value, int size) {
+            this.size = size;
+            this.value = value;
+        }
+    }
 }

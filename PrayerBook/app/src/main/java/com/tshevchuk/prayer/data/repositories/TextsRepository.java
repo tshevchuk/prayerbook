@@ -1,9 +1,14 @@
 package com.tshevchuk.prayer.data.repositories;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.util.Pair;
 
+import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.data.cache.InMemoryCacheManager;
+import com.tshevchuk.prayer.data.html_parser.HtmlParser;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemCalendar;
 import com.tshevchuk.prayer.domain.model.MenuItemOftenUsed;
@@ -14,6 +19,7 @@ import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.domain.model.MenuListItemType;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +29,17 @@ import java.util.List;
 public class TextsRepository {
     public final Catalog catalog;
     private final PreferenceManager preferenceManager;
+    private final Context context;
+    private final InMemoryCacheManager inMemoryCacheManager;
+    private final HtmlParser htmlParser;
 
-    public TextsRepository(Catalog catalog, PreferenceManager preferenceManager) {
+    public TextsRepository(Catalog catalog, PreferenceManager preferenceManager, Context context,
+                           InMemoryCacheManager inMemoryCacheManager, HtmlParser htmlParser) {
         this.catalog = catalog;
         this.preferenceManager = preferenceManager;
+        this.context = context;
+        this.inMemoryCacheManager = inMemoryCacheManager;
+        this.htmlParser = htmlParser;
     }
 
     public List<MenuListItem> getMenuListItems(int id) {
@@ -105,7 +118,26 @@ public class TextsRepository {
         return catalog.getMenuItemById(id);
     }
 
-    public String loadText(MenuItemBase item) {
-        return null;
+    public CharSequence loadText(MenuItemPrayer item) {
+        CharSequence prayer = inMemoryCacheManager.getCharSequence(item.getFileName());
+
+        if (prayer != null) {
+            return prayer;
+        }
+
+        String rawText = "";
+        try {
+            rawText = Utils.getAssetAsString(context.getApplicationContext(), item.getFileName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (item.getType() == MenuItemPrayer.Type.HtmlInTextView) {
+            Pair<CharSequence, Integer> pair = htmlParser.parseHtml(rawText);
+            inMemoryCacheManager.putCharSequence(item.getFileName(), pair.first, pair.second);
+            return pair.first;
+        } else {
+            inMemoryCacheManager.putCharSequence(item.getFileName(), rawText);
+            return rawText;
+        }
     }
 }
