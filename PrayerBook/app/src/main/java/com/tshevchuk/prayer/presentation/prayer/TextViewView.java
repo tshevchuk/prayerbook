@@ -14,4 +14,6 @@ public interface TextViewView extends BaseView {
     void setPrayerText(CharSequence param);
 
     void hideProgress();
+
+    void showError(String msg);
 }

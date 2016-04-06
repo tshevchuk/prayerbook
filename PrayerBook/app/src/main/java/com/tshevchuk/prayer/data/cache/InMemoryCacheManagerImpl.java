@@ -27,7 +27,11 @@ public class InMemoryCacheManagerImpl implements InMemoryCacheManager {
 
     @Override
     public CharSequence getCharSequence(String key) {
-        return cache.get(key).value;
+        CacheValueWithSize valueWithSize = cache.get(key);
+        if (valueWithSize == null) {
+            return null;
+        }
+        return valueWithSize.value;
     }
 
     private static class CacheValueWithSize {

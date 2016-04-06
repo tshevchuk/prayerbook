@@ -1,27 +1,33 @@
 package com.tshevchuk.prayer.presentation;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
 
 /**
  * Created by taras on 05.04.16.
  */
 public class AsyncTaskManagerImpl implements AsyncTaskManager {
+    private static final String TAG = AsyncTaskManagerImpl.class.getName();
     private ArrayList<AsyncTask<Void, Void, Object>> tasks = new ArrayList<>();
 
     @Override
-    public <T> void executeTask(final Callable<T> backgroundTask, PostExecuteTask<T> postExecuteTask) {
-        final WeakReference<PostExecuteTask<T>> postExecuteTaskRef = new WeakReference<>(postExecuteTask);
+    public <T> void executeTask(BackgroundTask<T> backgroundTask) {
+        final WeakReference<BackgroundTask<T>> backgroundTaskRef = new WeakReference<>(backgroundTask);
 
         AsyncTask<Void, Void, Object> task = new AsyncTask<Void, Void, Object>() {
             @Override
             protected Object doInBackground(Void... params) {
+                BackgroundTask<T> task = backgroundTaskRef.get();
+                if (task == null) {
+                    return null;
+                }
                 try {
-                    return backgroundTask.call();
+                    return task.doInBackground();
                 } catch (Exception e) {
+                    Log.e(TAG, "doInBackground error", e);
                     return e;
                 }
             }
@@ -30,7 +36,7 @@ public class AsyncTaskManagerImpl implements AsyncTaskManager {
             protected void onPostExecute(Object res) {
                 tasks.remove(this);
 
-                PostExecuteTask<T> task = postExecuteTaskRef.get();
+                BackgroundTask<T> task = backgroundTaskRef.get();
                 if (task == null) {
                     return;
                 }
@@ -39,7 +45,7 @@ public class AsyncTaskManagerImpl implements AsyncTaskManager {
                     task.onError((Throwable) res);
                 } else {
                     //noinspection unchecked
-                    task.call((T) res);
+                    task.postExecute((T) res);
                 }
             }
         };

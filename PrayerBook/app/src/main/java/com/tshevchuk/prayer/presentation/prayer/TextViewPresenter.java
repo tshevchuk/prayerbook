@@ -6,8 +6,6 @@ import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.Navigator;
 
-import java.util.concurrent.Callable;
-
 /**
  * Created by taras on 18.03.16.
  */
@@ -41,21 +39,22 @@ public class TextViewPresenter extends TextBasePresenter<TextViewView> {
 
     private void loadPrayer() {
         getMvpView().showProgress();
-        asyncTaskManager.executeTask(new Callable<CharSequence>() {
+        asyncTaskManager.executeTask(new AsyncTaskManager.BackgroundTask<CharSequence>() {
             @Override
-            public CharSequence call() throws Exception {
+            public CharSequence doInBackground() {
                 return dataManager.loadText(menuItemPrayer);
             }
-        }, new AsyncTaskManager.PostExecuteTask<CharSequence>() {
+
             @Override
-            public void call(CharSequence param) {
-                getMvpView().setPrayerText(param);
+            public void postExecute(CharSequence result) {
+                getMvpView().setPrayerText(result);
                 getMvpView().hideProgress();
             }
 
             @Override
             public void onError(Throwable tr) {
                 getMvpView().hideProgress();
+                getMvpView().showError(tr.getLocalizedMessage());
             }
         });
     }
