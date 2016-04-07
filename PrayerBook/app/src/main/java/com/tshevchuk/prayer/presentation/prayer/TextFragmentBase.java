@@ -6,18 +6,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 public abstract class TextFragmentBase extends FragmentBase {
-	@Override
-	public abstract MenuItemPrayer getMenuItem();
-
-	@Override
-	protected String getScreenTitle() {
-		return getMenuItem().getName();
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

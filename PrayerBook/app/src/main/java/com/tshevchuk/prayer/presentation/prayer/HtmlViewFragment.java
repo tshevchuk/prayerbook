@@ -26,229 +26,222 @@ import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
-import org.parceler.Parcels;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
-public class HtmlViewFragment extends TextFragmentBase {
-	private final List<MenuItemPrayer> prayers = new ArrayList<>();
-	@Inject
-	HtmlViewPresenter presenter;
-	private WebView wvContent;
+public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
+    @Inject
+    HtmlViewPresenter presenter;
+    private String screenTitle;
+    private WebView wvContent;
 
-	public static HtmlViewFragment getInstance() {
-		HtmlViewFragment f = new HtmlViewFragment();
-		Bundle b = new Bundle();
-		//TODO: implement
-//		b.putParcelable("prayer", Parcels.wrap(prayer));
-		f.setArguments(b);
-		return f;
-	}
 
-	@Override
-	protected BasePresenter getPresenter() {
-		return presenter;
-	}
+    public static HtmlViewFragment getInstance(int id) {
+        HtmlViewFragment f = new HtmlViewFragment();
+        Bundle b = new Bundle();
+        b.putInt("id", id);
+        f.setArguments(b);
+        return f;
+    }
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setRetainInstance(true);
-		((PrayerBookApplication) getActivity().getApplication())
-				.getViewComponent().inject(this);
-		prayers.add((MenuItemPrayer) Parcels.unwrap(getArguments().getParcelable("prayer")));
-	}
+    @Override
+    protected String getScreenTitle() {
+        return screenTitle;
+    }
 
-	@SuppressLint("SetJavaScriptEnabled")
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		WebSettings settings = wvContent.getSettings();
-		settings.setDefaultFontSize(preferenceManager.getFontSizeSp());
-	}
+    @Override
+    public void setScreenTitle(String name) {
+        screenTitle = name;
+        if (isResumed()) {
+            ActionBar actionBar = activity.getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setTitle(screenTitle);
+            }
+        }
+    }
 
-	private void loadPrayer(MenuItemPrayer p) {
-		String url = "file:///android_asset/" + p.getFileName();
-		if (!TextUtils.isEmpty(p.getHtmlLinkAnchor())) {
-			url += "#" + p.getHtmlLinkAnchor();
-		}
-		wvContent.loadUrl(url);
-	}
+    @Override
+    protected BasePresenter getPresenter() {
+        return presenter;
+    }
 
-	@SuppressLint("SetJavaScriptEnabled")
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.f_html_view, container, false);
-		FrameLayout flContent = (FrameLayout) v.findViewById(R.id.fl_content);
-		if (wvContent == null) {
-			wvContent = new WebView(activity);
-			wvContent.setLayoutParams(new FrameLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-			WebSettings settings = wvContent.getSettings();
-			settings.setJavaScriptEnabled(true);
-			settings.setDefaultTextEncodingName("utf-8");
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
+        int id = getArguments().getInt("id");
+        presenter.setArgPrayerId(id);
+    }
 
-			wvContent.setWebChromeClient(new WebChromeClient() {
-				@Override
-				public void onProgressChanged(WebView view, int newProgress) {
-					activity.setProgressBarIndeterminateVisibility(newProgress < 100);
-				}
-			});
+    @SuppressLint("SetJavaScriptEnabled")
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.f_html_view, container, false);
+        FrameLayout flContent = (FrameLayout) v.findViewById(R.id.fl_content);
+        if (wvContent == null) {
+            wvContent = new WebView(activity);
+            wvContent.setLayoutParams(new FrameLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+            WebSettings settings = wvContent.getSettings();
+            settings.setJavaScriptEnabled(true);
+            settings.setDefaultTextEncodingName("utf-8");
 
-			wvContent.setWebViewClient(new WebViewClient() {
-				@Override
-				public boolean shouldOverrideUrlLoading(WebView view, String url) {
-					if (url.startsWith("prayerbook://")) {
-						String params[] = url.substring(13).split("#");
-						int id = Integer.valueOf(params[0]);
-						MenuItemBase mi = catalog.getMenuItemById(id);
-						if (mi instanceof MenuItemPrayer) {
-							if (params.length == 2
-									&& !TextUtils.isEmpty(params[1])) {
-								((MenuItemPrayer) mi)
-										.setHtmlLinkAnchor(params[1]);
-							}
-						}
-						if (mi instanceof MenuItemPrayer
-								&& ((MenuItemPrayer) mi).getType() == Type.HtmlInWebView) {
-							prayers.add((MenuItemPrayer) mi);
-							loadPrayer((MenuItemPrayer) mi);
-						} else {
-							//todo: implement
-							//activity.displayMenuItem(mi);
-							//todo: add update of recently used
-						}
-						return false;
-					}
-					return super.shouldOverrideUrlLoading(view, url);
-				}
+            wvContent.setWebChromeClient(new WebChromeClient() {
+                @Override
+                public void onProgressChanged(WebView view, int newProgress) {
+                    //todo: move to presenter
+                    activity.setProgressBarIndeterminateVisibility(newProgress < 100);
+                }
+            });
 
-				public void onPageFinished(WebView view, String url) {
-					String anchor = null;
-					if (url.startsWith("file:///android_asset/")) {
-						anchor = Uri.parse(url).getEncodedFragment();
-					}
-					for (int i = prayers.size() - 1; i >= 0; --i) {
-						MenuItemPrayer p = prayers.get(i);
-						String u = "file:///android_asset/" + p.getFileName();
-						if (url.equals(u) || url.startsWith(u + "#")) {
-							while (prayers.size() > i + 1) {
-								prayers.remove(prayers.size() - 1);
-							}
-							break;
-						}
-					}
+            wvContent.setWebViewClient(new PrayerWebViewClient());
+            //todo: move to presenter
+            activity.setProgressBarIndeterminateVisibility(true);
+            presenter.onWebViewCreated();
+        }
+        flContent.addView(wvContent);
 
-					ActionBar actionBar = activity.getSupportActionBar();
-					if (actionBar != null) {
-						actionBar.setTitle(getMenuItem().getName());
-					}
+        return v;
+    }
 
-					if (!TextUtils.isEmpty(anchor)) {
-						view.loadUrl("javascript:function prayerbook_scrollToElement(id) {"
-								+ "var elem = document.getElementById(id);" + "var x = 0; var y = 0;"
-								+ "while (elem != null) {" + "  y += elem.offsetTop;"
-								+ "  elem = elem.offsetParent;  }" + "window.scrollTo(x, y);  };"
-								+ " console.log ( '#someButton was clicked' );"
-								+ "prayerbook_scrollToElement('" + anchor + "');");
-					}
-				}
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
-				@SuppressWarnings("deprecation")
-				@Override
-				public WebResourceResponse shouldInterceptRequest(WebView view,
-						String url) {
-					InputStream stream = inputStreamForAndroidResource(url);
-					if (stream != null) {
-						return new WebResourceResponse(null, null, stream);
-					}
-					return super.shouldInterceptRequest(view, url);
-				}
+        ((ViewGroup) wvContent.getParent()).removeView(wvContent);
+    }
 
-				@Override
-				public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-						InputStream stream = inputStreamForAndroidResource(request.getUrl().toString());
-						if (stream != null) {
-							return new WebResourceResponse(null, null, stream);
-						}
-					}
-					return super.shouldInterceptRequest(view, request);
-				}
+    @Override
+    public void onPause() {
+        super.onPause();
+        wvContent.onPause();
+    }
 
-				private InputStream inputStreamForAndroidResource(String url) {
-					final String ANDROID_ASSET = "file:///android_asset/";
+    @Override
+    public void onResume() {
+        super.onResume();
+        wvContent.onResume();
+    }
 
-					if (url.startsWith(ANDROID_ASSET)) {
-						url = url.replaceFirst(ANDROID_ASSET, "");
-						try {
-							AssetManager assets = activity.getAssets();
-							Uri uri = Uri.parse(url);
-							return assets.open(uri.getPath(),
-									AssetManager.ACCESS_STREAMING);
-						} catch (IOException ignored) {
-						}
-					}
-					return null;
-				}
-			});
+    @Override
+    public boolean goBack() {
+        if (wvContent.canGoBack()) {
+            presenter.onGoBack();
+            wvContent.goBack();
+            return true;
+        }
+        return false;
+    }
 
-			activity.setProgressBarIndeterminateVisibility(true);
-			loadPrayer(getMenuItem());
-		}
-		flContent.addView(wvContent);
+    @Override
+    public void setFontSizeSp(int textFontSizeSp) {
+        WebSettings settings = wvContent.getSettings();
+        settings.setDefaultFontSize(textFontSizeSp);
+    }
 
-		return v;
-	}
+    @Override
+    public void loadUrl(String url) {
+        wvContent.loadUrl(url);
+    }
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
+    private static class PrayerWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            if (url.startsWith("prayerbook://")) {
+                String params[] = url.substring(13).split("#");
+                int id = Integer.valueOf(params[0]);
+                MenuItemBase mi = catalog.getMenuItemById(id);
+                if (mi instanceof MenuItemPrayer) {
+                    if (params.length == 2
+                            && !TextUtils.isEmpty(params[1])) {
+                        ((MenuItemPrayer) mi)
+                                .setHtmlLinkAnchor(params[1]);
+                    }
+                }
+                if (mi instanceof MenuItemPrayer
+                        && ((MenuItemPrayer) mi).getType() == Type.HtmlInWebView) {
+                    prayers.add((MenuItemPrayer) mi);
+                    loadPrayer((MenuItemPrayer) mi);
+                } else {
+                    //todo: implement
+                    //activity.displayMenuItem(mi);
+                    //todo: add update of recently used
+                }
+                return false;
+            }
+            return super.shouldOverrideUrlLoading(view, url);
+        }
 
-		((ViewGroup) wvContent.getParent()).removeView(wvContent);
-	}
+        public void onPageFinished(WebView view, String url) {
+            String anchor = null;
+            if (url.startsWith("file:///android_asset/")) {
+                anchor = Uri.parse(url).getEncodedFragment();
+            }
+            for (int i = prayers.size() - 1; i >= 0; --i) {
+                MenuItemPrayer p = prayers.get(i);
+                String u = "file:///android_asset/" + p.getFileName();
+                if (url.equals(u) || url.startsWith(u + "#")) {
+                    while (prayers.size() > i + 1) {
+                        prayers.remove(prayers.size() - 1);
+                    }
+                    break;
+                }
+            }
 
-	@Override
-	public void onPause() {
-		super.onPause();
-		wvContent.onPause();
-	}
+            ActionBar actionBar = activity.getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setTitle(getMenuItem().getName());
+            }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		wvContent.onResume();
-	}
+            if (!TextUtils.isEmpty(anchor)) {
+                view.loadUrl("javascript:function prayerbook_scrollToElement(id) {"
+                        + "var elem = document.getElementById(id);" + "var x = 0; var y = 0;"
+                        + "while (elem != null) {" + "  y += elem.offsetTop;"
+                        + "  elem = elem.offsetParent;  }" + "window.scrollTo(x, y);  };"
+                        + " console.log ( '#someButton was clicked' );"
+                        + "prayerbook_scrollToElement('" + anchor + "');");
+            }
+        }
 
-	@Override
-	public boolean goBack() {
-		if (wvContent.canGoBack()) {
-			if (prayers.size() > 1) {
-				prayers.remove(prayers.size() - 1);
-			}
-			wvContent.goBack();
-			return true;
-		}
-		return false;
-	}
+        @SuppressWarnings("deprecation")
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view,
+                                                          String url) {
+            InputStream stream = inputStreamForAndroidResource(url);
+            if (stream != null) {
+                return new WebResourceResponse(null, null, stream);
+            }
+            return super.shouldInterceptRequest(view, url);
+        }
 
-	@Override
-	public boolean hasContentWithSameId(int itemId) {
-		MenuItemPrayer p1 = getMenuItem();
-		if (p1 == null) {
-			p1 = Parcels.unwrap(getArguments().getParcelable("prayer"));
-		}
-		return p1 != null && p1.getId() == itemId;
-	}
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                InputStream stream = inputStreamForAndroidResource(request.getUrl().toString());
+                if (stream != null) {
+                    return new WebResourceResponse(null, null, stream);
+                }
+            }
+            return super.shouldInterceptRequest(view, request);
+        }
 
-	@Override
-	public MenuItemPrayer getMenuItem() {
-		return prayers.get(prayers.size() - 1);
-	}
+        private InputStream inputStreamForAndroidResource(String url) {
+            final String ANDROID_ASSET = "file:///android_asset/";
+
+            if (url.startsWith(ANDROID_ASSET)) {
+                url = url.replaceFirst(ANDROID_ASSET, "");
+                try {
+                    AssetManager assets = activity.getAssets();
+                    Uri uri = Uri.parse(url);
+                    return assets.open(uri.getPath(), AssetManager.ACCESS_STREAMING);
+                } catch (IOException ignored) {
+                }
+            }
+            return null;
+        }
+    }
 }

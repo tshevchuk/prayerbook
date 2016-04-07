@@ -53,7 +53,7 @@ public class PresenterModule {
 
     @Provides
     HtmlViewPresenter provideHtmlViewPresenter() {
-        return new HtmlViewPresenter();
+        return new HtmlViewPresenter(dataManager);
     }
 
     @Provides

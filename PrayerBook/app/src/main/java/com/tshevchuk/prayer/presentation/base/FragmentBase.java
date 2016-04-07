@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
@@ -13,8 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
@@ -25,11 +24,7 @@ import javax.inject.Inject;
 public abstract class FragmentBase extends Fragment implements BaseView {
     protected HomeActivity activity;
     @Inject
-    protected Catalog catalog;
-    @Inject
-    protected AnalyticsManager analyticsManager;
-    @Inject
-    protected PreferenceManager preferenceManager;
+    AnalyticsManager analyticsManager;
 
     protected abstract String getScreenTitle();
 
@@ -98,21 +93,23 @@ public abstract class FragmentBase extends Fragment implements BaseView {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
-        MenuItemBase menuItem = getMenuItem();
-        if (menuItem != null && menuItem.getId() != 0) {
-            inflater.inflate(R.menu.actionbar_create_shortcut, menu);
-        }
+        //todo: implement
+//        MenuItemBase menuItem = getMenuItem();
+//        if (menuItem != null && menuItem.getId() != 0) {
+//            inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+//        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mi_create_shortcut:
-                MenuItemBase mi = getMenuItem();
-                createShortcut(mi);
-                ((HomeActivity) getActivity()).sendAnalyticsOptionsMenuEvent(
-                        item.getTitle(),
-                        String.format("#%d %s", mi.getId(), mi.getName()));
+                //TODO: implement
+//                MenuItemBase mi = getMenuItem();
+//                createShortcut(mi);
+//                ((HomeActivity) getActivity()).sendAnalyticsOptionsMenuEvent(
+//                        item.getTitle(),
+//                        String.format("#%d %s", mi.getId(), mi.getName()));
                 return true;
 
             case android.R.id.home:
@@ -129,21 +126,16 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
-    public boolean hasContentWithSameId(int itemId) {
-        return false;
-    }
-
     public boolean goBack() {
         return false;
     }
 
-    public MenuItemBase getMenuItem() {
-        return null;
-    }
-
     private boolean canCreateShortcut() {
-        MenuItemBase menuItem = getMenuItem();
-        return menuItem != null && menuItem.getId() != 0;
+        //todo: implement
+//        MenuItemBase menuItem = getMenuItem();
+        //       return menuItem != null && menuItem.getId() != 0;
+
+        return false;
     }
 
     private void createShortcut(MenuItemBase mi) {
@@ -166,4 +158,33 @@ public abstract class FragmentBase extends Fragment implements BaseView {
     protected boolean isNavigationDrawerEnabled() {
         return false;
     }
+
+    @Override
+    public void showProgress() {
+        //todo: show progress in case this method was called before onResume
+        if (isResumed()) {
+            activity.setProgressBarIndeterminateVisibility(true);
+        }
+    }
+
+    @Override
+    public void hideProgress() {
+        //todo: hide progress in onPause
+        if (isResumed()) {
+            activity.setProgressBarIndeterminateVisibility(false);
+        }
+    }
+
+    @Override
+    public void showError(String msg) {
+        //todo: handle case when this method was called before onResume
+        if (isResumed()) {
+            View v = getView();
+            if (v == null) {
+                return;
+            }
+            Snackbar.make(v, msg, Snackbar.LENGTH_LONG).show();
+        }
+    }
+
 }

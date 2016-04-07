@@ -1,9 +1,7 @@
 package com.tshevchuk.prayer.presentation.prayer;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.NestedScrollView;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +28,11 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
         args.putInt("id", id);
         f.setArguments(args);
         return f;
+    }
+
+    @Override
+    protected String getScreenTitle() {
+        return prayer.getName();
     }
 
     @Override
@@ -64,13 +67,6 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        int fontSizeSp = preferenceManager.getFontSizeSp();
-        tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (firstVisibleCharacterOffset == null) {
@@ -87,24 +83,8 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
     }
 
     @Override
-    public boolean hasContentWithSameId(int itemId) {
-        //todo: implement
-        return false;
-    }
-
-    @Override
-    public MenuItemPrayer getMenuItem() {
-        return prayer;
-    }
-
-    @Override
     public void setMenuItem(MenuItemPrayer prayer) {
         this.prayer = prayer;
-    }
-
-    @Override
-    public void showProgress() {
-        activity.setProgressBarIndeterminateVisibility(true);
     }
 
     @Override
@@ -123,19 +103,5 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
                 }
             }
         });
-    }
-
-    @Override
-    public void hideProgress() {
-        activity.setProgressBarIndeterminateVisibility(false);
-    }
-
-    @Override
-    public void showError(String msg) {
-        View v = getView();
-        if (v == null) {
-            return;
-        }
-        Snackbar.make(v, msg, Snackbar.LENGTH_LONG).show();
     }
 }

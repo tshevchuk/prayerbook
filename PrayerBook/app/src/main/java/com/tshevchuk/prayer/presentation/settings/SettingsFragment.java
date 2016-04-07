@@ -107,6 +107,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 break;
             case PreferenceManager.PREF_TEXT_FONT_SIZE:
                 presenter.onSettingsChanged(key, sharedPreferences.getString(key, ""));
+                getActivity().recreate();
                 break;
             case PreferenceManager.PREF_DEFAULT_SCREENS:
                 presenter.onSettingsChanged(key, sharedPreferences.getString(key, ""));

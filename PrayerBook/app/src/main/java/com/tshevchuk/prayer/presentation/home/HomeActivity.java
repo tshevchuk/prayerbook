@@ -1,13 +1,9 @@
 package com.tshevchuk.prayer.presentation.home;
 
-import android.content.Intent;
 import android.database.MatrixCursor;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.FileProvider;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
@@ -17,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,10 +45,6 @@ import com.tshevchuk.prayer.presentation.sub_menu.SubMenuListAdapter;
 
 import org.codechimp.apprater.AppRater;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -334,7 +325,9 @@ public class HomeActivity extends AppCompatActivity {
 		if (curFragment != null
 				&& fragment.getClass().equals(curFragment.getClass())
 				&& curFragment instanceof FragmentBase
-				&& ((FragmentBase) curFragment).hasContentWithSameId(id)) {
+			//todo: implement
+//				&& ((FragmentBase) curFragment).hasContentWithSameId(id)
+				) {
 			return;
 		}
 
@@ -376,85 +369,87 @@ public class HomeActivity extends AppCompatActivity {
 	}
 
 	private void reportError() {
-		File dir = new File(getCacheDir(), "error_report_screenshots");
-		if (!dir.exists()) {
-			if (!dir.mkdirs()) {
-				Log.d(TAG, "Can't create directory");
-				return;
-			}
-		}
-		File imageFile = new File(dir
-				, "prayerbook_error_image_" + System.currentTimeMillis() + ".png");
 
-		Bitmap bitmap = null;
-		View v1 = getWindow().getDecorView().findViewById(android.R.id.content);
-
-		boolean willNotCache = v1.willNotCacheDrawing();
-		v1.setWillNotCacheDrawing(false);
-
-		int color = v1.getDrawingCacheBackgroundColor();
-		v1.setDrawingCacheBackgroundColor(preferenceManager
-				.isNightModeEnabled() ? Color.BLACK : Color.WHITE);
-
-		if (color != 0) {
-			v1.destroyDrawingCache();
-		}
-		v1.buildDrawingCache();
-		Bitmap cacheBitmap = v1.getDrawingCache();
-		if (cacheBitmap != null) {
-			bitmap = Bitmap.createBitmap(cacheBitmap);
-		}
-
-		v1.destroyDrawingCache();
-		v1.setWillNotCacheDrawing(willNotCache);
-		v1.setDrawingCacheBackgroundColor(color);
-
-		if (bitmap != null) {
-			OutputStream fout;
-			try {
-				fout = new FileOutputStream(imageFile);
-				bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fout);
-				fout.flush();
-				fout.close();
-			} catch (IOException e) {
-				bitmap = null;
-				e.printStackTrace();
-			}
-		}
-
-		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-		emailIntent.setType("message/rfc822");
-		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
-				new String[]{"taras.shevchuk@gmail.com"});
-		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
-				"Молитовник: Повідомлення про помилку");
-
-		StringBuilder sb = new StringBuilder();
-		sb.append("Опишіть коротко помилку:\n\n\n\n");
-		sb.append("----------------------------");
-		sb.append("\nПрограма: ").append(utils.getApplicationNameAndVersion());
-		ActionBar actionBar = getSupportActionBar();
-		if (actionBar != null) {
-			sb.append("\nЗаголовок: ").append(actionBar.getTitle());
-		}
-		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
-		sb.append("\nФрагмент: ").append(f.getClass().getName());
-		if (f instanceof FragmentBase) {
-			MenuItemBase mi = ((FragmentBase) f).getMenuItem();
-			if (mi != null) {
-				sb.append("\nЕлемент меню: ").append(mi.getId()).append(" ")
-						.append(mi.getName());
-			}
-		}
-		sb.append("\n").append(Utils.getDeviceInfo(getApplicationContext()));
-
-		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
-		if (bitmap != null) {
-			emailIntent.putExtra(Intent.EXTRA_STREAM,
-					FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile)
-			);
-		}
-		startActivity(Intent.createChooser(emailIntent,
-				"Відправити повідомлення про помилку..."));
+		//todo: implement
+//		File dir = new File(getCacheDir(), "error_report_screenshots");
+//		if (!dir.exists()) {
+//			if (!dir.mkdirs()) {
+//				Log.d(TAG, "Can't create directory");
+//				return;
+//			}
+//		}
+//		File imageFile = new File(dir
+//				, "prayerbook_error_image_" + System.currentTimeMillis() + ".png");
+//
+//		Bitmap bitmap = null;
+//		View v1 = getWindow().getDecorView().findViewById(android.R.id.content);
+//
+//		boolean willNotCache = v1.willNotCacheDrawing();
+//		v1.setWillNotCacheDrawing(false);
+//
+//		int color = v1.getDrawingCacheBackgroundColor();
+//		v1.setDrawingCacheBackgroundColor(preferenceManager
+//				.isNightModeEnabled() ? Color.BLACK : Color.WHITE);
+//
+//		if (color != 0) {
+//			v1.destroyDrawingCache();
+//		}
+//		v1.buildDrawingCache();
+//		Bitmap cacheBitmap = v1.getDrawingCache();
+//		if (cacheBitmap != null) {
+//			bitmap = Bitmap.createBitmap(cacheBitmap);
+//		}
+//
+//		v1.destroyDrawingCache();
+//		v1.setWillNotCacheDrawing(willNotCache);
+//		v1.setDrawingCacheBackgroundColor(color);
+//
+//		if (bitmap != null) {
+//			OutputStream fout;
+//			try {
+//				fout = new FileOutputStream(imageFile);
+//				bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fout);
+//				fout.flush();
+//				fout.close();
+//			} catch (IOException e) {
+//				bitmap = null;
+//				e.printStackTrace();
+//			}
+//		}
+//
+//		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+//		emailIntent.setType("message/rfc822");
+//		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+//				new String[]{"taras.shevchuk@gmail.com"});
+//		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+//				"Молитовник: Повідомлення про помилку");
+//
+//		StringBuilder sb = new StringBuilder();
+//		sb.append("Опишіть коротко помилку:\n\n\n\n");
+//		sb.append("----------------------------");
+//		sb.append("\nПрограма: ").append(utils.getApplicationNameAndVersion());
+//		ActionBar actionBar = getSupportActionBar();
+//		if (actionBar != null) {
+//			sb.append("\nЗаголовок: ").append(actionBar.getTitle());
+//		}
+//		Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+//		sb.append("\nФрагмент: ").append(f.getClass().getName());
+//		if (f instanceof FragmentBase) {
+//			MenuItemBase mi = ((FragmentBase) f).getMenuItem();
+//			if (mi != null) {
+//				sb.append("\nЕлемент меню: ").append(mi.getId()).append(" ")
+//						.append(mi.getName());
+//			}
+//		}
+//		sb.append("\n").append(Utils.getDeviceInfo(getApplicationContext()));
+//
+//		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
+//		if (bitmap != null) {
+//			emailIntent.putExtra(Intent.EXTRA_STREAM,
+//					FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile)
+//			);
+//		}
+//		startActivity(Intent.createChooser(emailIntent,
+//				"Відправити повідомлення про помилку..."));
 	}
 }
