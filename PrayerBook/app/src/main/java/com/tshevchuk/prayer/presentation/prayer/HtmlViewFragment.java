@@ -20,9 +20,6 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.model.MenuItemBase;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.domain.model.MenuItemPrayer.Type;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
@@ -63,6 +60,22 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
     }
 
     @Override
+    public void scrollToUrlAnchor(String url) {
+        String anchor = null;
+        if (url.startsWith(URL_ROOT_ASSET_FOLDER)) {
+            anchor = Uri.parse(url).getEncodedFragment();
+        }
+        if (!TextUtils.isEmpty(anchor)) {
+            wvContent.loadUrl("javascript:function prayerbook_scrollToElement(id) {"
+                    + "var elem = document.getElementById(id);" + "var x = 0; var y = 0;"
+                    + "while (elem != null) {" + "  y += elem.offsetTop;"
+                    + "  elem = elem.offsetParent;  }" + "window.scrollTo(x, y);  };"
+                    + " console.log ( '#someButton was clicked' );"
+                    + "prayerbook_scrollToElement('" + anchor + "');");
+        }
+    }
+
+    @Override
     protected BasePresenter getPresenter() {
         return presenter;
     }
@@ -93,14 +106,11 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
             wvContent.setWebChromeClient(new WebChromeClient() {
                 @Override
                 public void onProgressChanged(WebView view, int newProgress) {
-                    //todo: move to presenter
-                    activity.setProgressBarIndeterminateVisibility(newProgress < 100);
+                    presenter.onLoadingProgresChanged(newProgress);
                 }
             });
 
             wvContent.setWebViewClient(new PrayerWebViewClient());
-            //todo: move to presenter
-            activity.setProgressBarIndeterminateVisibility(true);
             presenter.onWebViewCreated();
         }
         flContent.addView(wvContent);
@@ -148,69 +158,24 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         wvContent.loadUrl(url);
     }
 
-    private static class PrayerWebViewClient extends WebViewClient {
+    private class PrayerWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (url.startsWith("prayerbook://")) {
                 String params[] = url.substring(13).split("#");
-                int id = Integer.valueOf(params[0]);
-                MenuItemBase mi = catalog.getMenuItemById(id);
-                if (mi instanceof MenuItemPrayer) {
-                    if (params.length == 2
-                            && !TextUtils.isEmpty(params[1])) {
-                        ((MenuItemPrayer) mi)
-                                .setHtmlLinkAnchor(params[1]);
-                    }
-                }
-                if (mi instanceof MenuItemPrayer
-                        && ((MenuItemPrayer) mi).getType() == Type.HtmlInWebView) {
-                    prayers.add((MenuItemPrayer) mi);
-                    loadPrayer((MenuItemPrayer) mi);
-                } else {
-                    //todo: implement
-                    //activity.displayMenuItem(mi);
-                    //todo: add update of recently used
-                }
+                presenter.onLinkClick(params);
                 return false;
             }
             return super.shouldOverrideUrlLoading(view, url);
         }
 
         public void onPageFinished(WebView view, String url) {
-            String anchor = null;
-            if (url.startsWith("file:///android_asset/")) {
-                anchor = Uri.parse(url).getEncodedFragment();
-            }
-            for (int i = prayers.size() - 1; i >= 0; --i) {
-                MenuItemPrayer p = prayers.get(i);
-                String u = "file:///android_asset/" + p.getFileName();
-                if (url.equals(u) || url.startsWith(u + "#")) {
-                    while (prayers.size() > i + 1) {
-                        prayers.remove(prayers.size() - 1);
-                    }
-                    break;
-                }
-            }
-
-            ActionBar actionBar = activity.getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.setTitle(getMenuItem().getName());
-            }
-
-            if (!TextUtils.isEmpty(anchor)) {
-                view.loadUrl("javascript:function prayerbook_scrollToElement(id) {"
-                        + "var elem = document.getElementById(id);" + "var x = 0; var y = 0;"
-                        + "while (elem != null) {" + "  y += elem.offsetTop;"
-                        + "  elem = elem.offsetParent;  }" + "window.scrollTo(x, y);  };"
-                        + " console.log ( '#someButton was clicked' );"
-                        + "prayerbook_scrollToElement('" + anchor + "');");
-            }
+            presenter.onPageLoadFinished(url);
         }
 
         @SuppressWarnings("deprecation")
         @Override
-        public WebResourceResponse shouldInterceptRequest(WebView view,
-                                                          String url) {
+        public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
             InputStream stream = inputStreamForAndroidResource(url);
             if (stream != null) {
                 return new WebResourceResponse(null, null, stream);
@@ -230,10 +195,8 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         }
 
         private InputStream inputStreamForAndroidResource(String url) {
-            final String ANDROID_ASSET = "file:///android_asset/";
-
-            if (url.startsWith(ANDROID_ASSET)) {
-                url = url.replaceFirst(ANDROID_ASSET, "");
+            if (url.startsWith(URL_ROOT_ASSET_FOLDER)) {
+                url = url.replaceFirst(URL_ROOT_ASSET_FOLDER, "");
                 try {
                     AssetManager assets = activity.getAssets();
                     Uri uri = Uri.parse(url);

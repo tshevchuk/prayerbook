@@ -118,6 +118,13 @@ public class TextsRepository {
         return catalog.getMenuItemById(id);
     }
 
+    public MenuListItem getMenuListItem(int id) {
+        MenuItemBase menuItemBase = catalog.getMenuItemById(id);
+        MenuListItem item = new MenuListItem(menuItemBase);
+        item.setMenuListItemType(getMenuListItemType(menuItemBase));
+        return item;
+    }
+
     public CharSequence loadText(MenuItemPrayer item) {
         CharSequence prayer = inMemoryCacheManager.getCharSequence(item.getFileName());
 

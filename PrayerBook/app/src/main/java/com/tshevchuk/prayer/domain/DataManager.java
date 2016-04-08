@@ -84,6 +84,10 @@ public class DataManager {
         return textsRepository.getMenuItem(id);
     }
 
+    public MenuListItem getMenuListItem(int id) {
+        return textsRepository.getMenuListItem(id);
+    }
+
     public CharSequence loadText(MenuItemPrayer item) {
         return textsRepository.loadText(item);
     }

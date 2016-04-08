@@ -1,11 +1,14 @@
 package com.tshevchuk.prayer.presentation.base;
 
+import java.util.BitSet;
+
 /**
  * Created by taras on 22.03.16.
  */
 public abstract class BasePresenter<T extends BaseView> {
 
     private T mvpView;
+    private BitSet progressStates = new BitSet();
 
     public void attachView(T mvpView) {
         this.mvpView = mvpView;
@@ -25,6 +28,18 @@ public abstract class BasePresenter<T extends BaseView> {
 
     public void checkViewAttached() {
         if (!isViewAttached()) throw new MvpViewNotAttachedException();
+    }
+
+    protected void showProgress(int progressId) {
+        progressStates.set(progressId, true);
+        getMvpView().showProgress();
+    }
+
+    protected void hideProgress(int progressId) {
+        progressStates.set(progressId, false);
+        if (progressStates.isEmpty()) {
+            getMvpView().hideProgress();
+        }
     }
 
     public static class MvpViewNotAttachedException extends RuntimeException {

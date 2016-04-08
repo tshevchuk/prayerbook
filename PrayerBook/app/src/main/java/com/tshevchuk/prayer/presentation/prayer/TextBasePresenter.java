@@ -24,10 +24,6 @@ public class TextBasePresenter<T extends BaseView> extends BasePresenter<T> {
         this.dataManager = dataManager;
     }
 
-    public void setMenuItemPrayer(MenuItemPrayer menuItemPrayer) {
-        this.menuItemPrayer = menuItemPrayer;
-    }
-
     public void onOpenAboutClick() {
         navigator.showAboutPrayer(this, menuItemPrayer);
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Опис",
