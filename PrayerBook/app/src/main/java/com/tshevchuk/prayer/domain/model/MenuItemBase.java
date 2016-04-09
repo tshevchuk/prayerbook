@@ -51,4 +51,6 @@ public abstract class MenuItemBase {
 		this.isOfficialUGCCText = isOfficialUGCCText;
 		return this;
 	}
+
+
 }

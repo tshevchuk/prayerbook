@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
-import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
@@ -196,11 +195,5 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             presenter.onVisibleDaysChanged(firstVisibleItem, lvCalendar.getLastVisiblePosition());
             prevFirstVisibleItem = firstVisibleItem;
         }
-    }
-
-    @Override
-    public MenuItemBase getMenuItem() {
-        // TODO: implement
-        return null;
     }
 }

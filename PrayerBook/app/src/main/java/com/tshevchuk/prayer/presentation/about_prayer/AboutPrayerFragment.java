@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
@@ -71,10 +70,5 @@ public class AboutPrayerFragment extends FragmentBase implements AboutPrayerView
     @Override
     public void setAboutHtml(String about) {
         tvAbout.setText(Html.fromHtml(about));
-    }
-
-    @Override
-    public MenuItemBase getMenuItem() {
-        return prayer;
     }
 }

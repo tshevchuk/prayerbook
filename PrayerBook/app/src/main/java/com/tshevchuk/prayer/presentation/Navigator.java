@@ -25,7 +25,7 @@ public class Navigator {
         FragmentBase f = null;
 
         if (item.getMenuListItemType() == MenuListItemType.WebView) {
-            f = HtmlViewFragment.getInstance();
+            f = HtmlViewFragment.getInstance(item.getId());
         } else if (item.getMenuListItemType() == MenuListItemType.TextView) {
             f = TextViewFragment.getInstance(item.getId());
         } else if (item.getMenuListItemType() == MenuListItemType.SubMenu) {

@@ -9,7 +9,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
@@ -52,11 +51,6 @@ public class SubMenuFragment extends FragmentBase implements SubMenuView {
     }
 
     @Override
-    public boolean hasContentWithSameId(int itemId) {
-        return itemId == subMenuId;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         subMenuId = getArguments().getInt("subMenuId");
@@ -78,12 +72,6 @@ public class SubMenuFragment extends FragmentBase implements SubMenuView {
         });
 
         return v;
-    }
-
-    @Override
-    public MenuItemBase getMenuItem() {
-        //todo: fix it
-        return null;
     }
 
     @Override

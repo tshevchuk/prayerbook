@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
-import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
@@ -79,12 +78,6 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         lvItems.addHeaderView(calendarToday);
 
         return v;
-    }
-
-    @Override
-    public MenuItemBase getMenuItem() {
-        //todo: handle menu item
-        return null;
     }
 
     @Override

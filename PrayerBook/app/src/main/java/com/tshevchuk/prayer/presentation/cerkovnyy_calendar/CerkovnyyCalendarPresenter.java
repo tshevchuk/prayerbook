@@ -81,6 +81,6 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
 
     @Parcel
     public static class InstanceState {
-        private int year;
+        int year;
     }
 }

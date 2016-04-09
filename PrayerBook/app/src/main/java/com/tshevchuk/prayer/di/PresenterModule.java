@@ -52,8 +52,8 @@ public class PresenterModule {
     }
 
     @Provides
-    HtmlViewPresenter provideHtmlViewPresenter() {
-        return new HtmlViewPresenter(dataManager, presenter, navigator);
+    HtmlViewPresenter provideHtmlViewPresenter(DataManager dataManager, Navigator navigator) {
+        return new HtmlViewPresenter(dataManager, navigator);
     }
 
     @Provides

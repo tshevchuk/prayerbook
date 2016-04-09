@@ -11,6 +11,8 @@ import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by taras on 18.03.16.
  */
@@ -18,9 +20,9 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
     private final static int PROGRESS_ID_WEB_VIEW_LOADING = 0;
 
     private final List<MenuItemPrayer> prayers = new ArrayList<>();
-
     private final DataManager dataManager;
     private final Navigator navigator;
+    private boolean webViewCreated;
 
     public HtmlViewPresenter(DataManager dataManager, Navigator navigator) {
         this.dataManager = dataManager;
@@ -35,6 +37,11 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         if (!prayers.isEmpty()) {
             getMvpView().setScreenTitle(prayers.get(prayers.size() - 1).getName());
         }
+        if (webViewCreated) {
+            loadPrayer(prayers.get(prayers.size() - 1));
+            onLoadingProgresChanged(0);
+            webViewCreated = false;
+        }
     }
 
     public void setArgPrayerId(int id) {
@@ -43,6 +50,7 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         }
     }
 
+    @DebugLog
     private void loadPrayer(MenuItemPrayer p) {
         String url = "file:///android_asset/" + p.getFileName();
         if (p.getHtmlLinkAnchor() != null && !p.getHtmlLinkAnchor().isEmpty()) {
@@ -52,8 +60,7 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
     }
 
     public void onWebViewCreated() {
-        loadPrayer(prayers.get(prayers.size() - 1));
-        onLoadingProgresChanged(0);
+        webViewCreated = true;
     }
 
     public void onGoBack() {
@@ -99,7 +106,9 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
             }
         }
 
-        getMvpView().setScreenTitle(prayers.get(prayers.size() - 1).getName());
-        getMvpView().scrollToUrlAnchor(url);
+        if (!prayers.isEmpty()) {
+            getMvpView().setScreenTitle(prayers.get(prayers.size() - 1).getName());
+            getMvpView().scrollToUrlAnchor(url);
+        }
     }
 }

@@ -28,6 +28,8 @@ import java.io.InputStream;
 
 import javax.inject.Inject;
 
+import hugo.weaving.DebugLog;
+
 public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
     @Inject
     HtmlViewPresenter presenter;
@@ -153,6 +155,7 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         settings.setDefaultFontSize(textFontSizeSp);
     }
 
+    @DebugLog
     @Override
     public void loadUrl(String url) {
         wvContent.loadUrl(url);

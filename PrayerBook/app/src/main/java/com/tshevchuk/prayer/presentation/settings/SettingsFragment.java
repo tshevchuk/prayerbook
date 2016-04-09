@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
@@ -122,5 +123,23 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void showProgress() {
+        //empty
+    }
+
+    @Override
+    public void hideProgress() {
+        //empty
+    }
+
+    @Override
+    public void showError(String msg) {
+        View view = getView();
+        if (view != null) {
+            Snackbar.make(view, msg, Snackbar.LENGTH_LONG).show();
+        }
     }
 }
