@@ -10,6 +10,7 @@ import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppPresenter;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerPresenter;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarPresenter;
+import com.tshevchuk.prayer.presentation.navigation_drawer.NavigationDrawerPresenter;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedPresenter;
 import com.tshevchuk.prayer.presentation.prayer.HtmlViewPresenter;
 import com.tshevchuk.prayer.presentation.prayer.TextViewPresenter;
@@ -72,5 +73,10 @@ public class PresenterModule {
     @Provides
     SettingsPresenter provideSettingsPresenter(AnalyticsManager analyticsManager, Navigator navigator) {
         return new SettingsPresenter(analyticsManager, navigator);
+    }
+
+    @Provides
+    NavigationDrawerPresenter provideNavigationDrawerPresenter(DataManager dataManager, Navigator navigator) {
+        return new NavigationDrawerPresenter(dataManager, navigator);
     }
 }

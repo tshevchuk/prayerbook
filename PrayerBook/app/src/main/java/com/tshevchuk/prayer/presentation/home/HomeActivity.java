@@ -3,6 +3,7 @@ package com.tshevchuk.prayer.presentation.home;
 import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.CursorAdapter;
@@ -14,13 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.SearchView.OnSuggestionListener;
@@ -41,13 +40,14 @@ import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
 import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
-import com.tshevchuk.prayer.presentation.sub_menu.SubMenuListAdapter;
 
 import org.codechimp.apprater.AppRater;
 
 import java.util.List;
 
 import javax.inject.Inject;
+
+import hugo.weaving.DebugLog;
 
 public class HomeActivity extends AppCompatActivity {
 	public final static String PARAM_SCREEN_ID = "screen_id";
@@ -64,7 +64,6 @@ public class HomeActivity extends AppCompatActivity {
 	DataManager dataManager;
 
 	private DrawerLayout drawerLayout;
-	private ListView drawerList;
 	private ActionBarDrawerToggle drawerToggle;
 	private SearchView searchView;
 
@@ -83,22 +82,9 @@ public class HomeActivity extends AppCompatActivity {
 		setProgressBarIndeterminateVisibility(false);
 
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		drawerList = (ListView) findViewById(R.id.left_drawer);
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 		setSupportActionBar(toolbar);
-
-		drawerList.setAdapter(new SubMenuListAdapter(this, dataManager.getTopMenuListItems()));
-		drawerList.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				//todo: implement
-				//displayMenuItem(catalog.getTopMenuItems().get(position));
-				//todo: add update of recently used
-			}
-		});
-
 		ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			actionBar.setDisplayHomeAsUpEnabled(true);
@@ -313,29 +299,20 @@ public class HomeActivity extends AppCompatActivity {
 				param);
 	}
 
+	@DebugLog
 	public void displayFragment(Fragment fragment, int id, CharSequence title) {
-		drawerLayout.closeDrawer(drawerList);
+		drawerLayout.closeDrawer(Gravity.LEFT);
 		ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			actionBar.show();
 		}
 
-		Fragment curFragment = getSupportFragmentManager().findFragmentById(
-				R.id.content_frame);
-		if (curFragment != null
-				&& fragment.getClass().equals(curFragment.getClass())
-				&& curFragment instanceof FragmentBase
-			//todo: implement
-//				&& ((FragmentBase) curFragment).hasContentWithSameId(id)
-				) {
-			return;
-		}
-
-		FragmentTransaction transaction = getSupportFragmentManager()
-				.beginTransaction();
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		Fragment curFragment = fragmentManager.findFragmentById(R.id.content_frame);
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
 		transaction.replace(R.id.content_frame, fragment);
 		if (curFragment != null)
-			transaction.addToBackStack(String.valueOf(id));
+			transaction.addToBackStack("item#" + fragmentManager.getBackStackEntryCount());
 		transaction.commit();
 
 		if (TextUtils.isEmpty(title)) {
@@ -343,6 +320,11 @@ public class HomeActivity extends AppCompatActivity {
 		}
 
 		analyticsManager.sendActionEvent("Fragment Opened", id + " " + title);
+	}
+
+	public void clearBackStack() {
+		getSupportFragmentManager().popBackStackImmediate("item#0",
+				android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
 	}
 
 	private void search(String query) {

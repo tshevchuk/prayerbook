@@ -54,10 +54,12 @@ public class TextsRepository {
         return items;
     }
 
-    public List<MenuListItem> getTopMenuListItems() {
-        List<MenuListItem> items = new ArrayList<>();
+    public ArrayList<MenuListItem> getTopMenuListItems() {
+        ArrayList<MenuListItem> items = new ArrayList<>();
         for (MenuItemBase item : catalog.getTopMenuItems()) {
-            items.add(new MenuListItem(item));
+            MenuListItem listItem = new MenuListItem(item);
+            listItem.setMenuListItemType(getMenuListItemType(item));
+            items.add(listItem);
         }
         return items;
     }

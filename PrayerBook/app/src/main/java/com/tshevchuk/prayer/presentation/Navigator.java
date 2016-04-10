@@ -17,10 +17,13 @@ import com.tshevchuk.prayer.presentation.prayer.HtmlViewFragment;
 import com.tshevchuk.prayer.presentation.prayer.TextViewFragment;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by taras on 22.03.16.
  */
 public class Navigator {
+    @DebugLog
     public void showMenuItem(BasePresenter<? extends BaseView> presenter, MenuListItem item) {
         FragmentBase f = null;
 
@@ -65,5 +68,9 @@ public class Navigator {
 
     public void showSubMenu(BasePresenter<? extends BaseView> presenter, int id, String name) {
         getHomeActivity(presenter).displayFragment(SubMenuFragment.getInstance(id, name), id, name);
+    }
+
+    public void clearBackStack(BasePresenter<? extends BaseView> presenter) {
+        getHomeActivity(presenter).clearBackStack();
     }
 }

@@ -45,7 +45,7 @@ public class DataManager {
         return textsRepository.getMenuListItems(id);
     }
 
-    public List<MenuListItem> getTopMenuListItems() {
+    public ArrayList<MenuListItem> getTopMenuListItems() {
         return textsRepository.getTopMenuListItems();
     }
 
