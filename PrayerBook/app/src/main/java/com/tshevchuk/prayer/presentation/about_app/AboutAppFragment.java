@@ -26,7 +26,7 @@ public class AboutAppFragment extends FragmentBase implements AboutView {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

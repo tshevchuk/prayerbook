@@ -36,7 +36,7 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

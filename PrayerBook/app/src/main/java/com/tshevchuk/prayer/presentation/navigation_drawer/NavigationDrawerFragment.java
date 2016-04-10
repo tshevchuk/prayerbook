@@ -34,7 +34,7 @@ public class NavigationDrawerFragment extends FragmentBase implements Navigation
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

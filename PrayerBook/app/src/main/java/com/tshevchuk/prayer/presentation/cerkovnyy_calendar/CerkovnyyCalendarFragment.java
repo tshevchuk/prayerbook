@@ -49,7 +49,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

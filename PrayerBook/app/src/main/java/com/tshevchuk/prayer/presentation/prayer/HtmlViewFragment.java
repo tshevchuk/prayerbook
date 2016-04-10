@@ -78,7 +78,7 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 
@@ -140,7 +140,7 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
     }
 
     @Override
-    public boolean goBack() {
+    public boolean onBackButtonPress() {
         if (wvContent.canGoBack()) {
             presenter.onGoBack();
             wvContent.goBack();

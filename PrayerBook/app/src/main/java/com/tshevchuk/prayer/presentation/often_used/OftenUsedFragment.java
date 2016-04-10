@@ -44,7 +44,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

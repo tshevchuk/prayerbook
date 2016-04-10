@@ -38,7 +38,7 @@ public class AboutPrayerFragment extends FragmentBase implements AboutPrayerView
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

@@ -28,7 +28,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
 
     protected abstract String getScreenTitle();
 
-    protected abstract BasePresenter getPresenter();
+    public abstract BasePresenter getPresenter();
 
     @Override
     public void onAttach(Context context) {
@@ -187,4 +187,11 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
+    public boolean onUpButtonPress() {
+        return false;
+    }
+
+    public boolean onBackButtonPress() {
+        return false;
+    }
 }

@@ -41,7 +41,7 @@ public class SearchFragment extends FragmentBase implements SearchView {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

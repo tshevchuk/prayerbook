@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.presentation.home;
 
 import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,16 +28,11 @@ import android.widget.SimpleCursorAdapter;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
-import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
-import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
 import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
 
@@ -49,19 +44,13 @@ import javax.inject.Inject;
 
 import hugo.weaving.DebugLog;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements HomeView {
 	public final static String PARAM_SCREEN_ID = "screen_id";
 	private static final String TAG = HomeActivity.class.getName();
 	@Inject
-	Catalog catalog;
-	@Inject
-	PreferenceManager preferenceManager;
-	@Inject
-	AnalyticsManager analyticsManager;
-	@Inject
 	Utils utils;
 	@Inject
-	DataManager dataManager;
+	HomePresenter presenter;
 
 	private DrawerLayout drawerLayout;
 	private ActionBarDrawerToggle drawerToggle;
@@ -72,9 +61,6 @@ public class HomeActivity extends AppCompatActivity {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
 		((PrayerBookApplication) getApplication()).getViewComponent().inject(this);
-
-		setTheme(preferenceManager.isNightModeEnabled() ? R.style.PrayerBook_ThemeDark
-				: R.style.PrayerBook_ThemeLight);
 
 		super.onCreate(savedInstanceState);
 
@@ -92,21 +78,13 @@ public class HomeActivity extends AppCompatActivity {
 			actionBar.setHomeButtonEnabled(true);
 		}
 
-		TypedValue typedValue = new TypedValue();
-		getTheme().resolveAttribute(R.attr.pb_navigationDrawerIconDrawable,
-				typedValue, true);
-
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
 				toolbar, R.string.app_name, R.string.app_name) {
 			public void onDrawerClosed(View view) {
-				// getActionBar().setTitle(mTitle);
-				// calling onPrepareOptionsMenu() to show action bar icons
 				invalidateOptionsMenu();
 			}
 
 			public void onDrawerOpened(View drawerView) {
-				// getActionBar().setTitle(mDrawerTitle);
-				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
 				ActionBar actionBar1 = getSupportActionBar();
 				if (actionBar1 != null) {
@@ -117,30 +95,17 @@ public class HomeActivity extends AppCompatActivity {
 		drawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				onBackPressed();
+				presenter.onBackPressed();
 			}
 		});
 		drawerLayout.addDrawerListener(drawerToggle);
 
-		if (savedInstanceState == null) {
-			MenuItemBase mi = catalog.getMenuItemById(preferenceManager.getDefaultMenuItemId());
-			int id;
-			if (getIntent() != null) {
-				id = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);
-				if (id != 0) {
-					mi = catalog.getMenuItemById(id);
-				}
-			}
-			//todo: implement
-			//displayMenuItem(mi);
-			//todo: add update of recently used
+		presenter.setRestoringInstanceState(savedInstanceState != null);
 
-			//todo: remove this line
-			displayFragment(OftenUsedFragment.getInstance(), Catalog.ID_RECENT_SCREENS, "recent");
-//			displayFragment(SubMenuFragment.getInstance(7, "pisni"), 7, "pisni");
-
-			if (Utils.isNetworkAvailable(getApplicationContext())) {
-				AppRater.app_launched(this);
+		if (getIntent() != null) {
+			int screenId = getIntent().getIntExtra(PARAM_SCREEN_ID, 0);
+			if (screenId != 0) {
+				presenter.setParamScreenId(screenId);
 			}
 		}
 	}
@@ -149,12 +114,14 @@ public class HomeActivity extends AppCompatActivity {
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		drawerToggle.syncState();
+		presenter.attachView(this);
 	}
 
 	@Override
 	protected void onDestroy() {
 		GoogleAnalytics.getInstance(getApplicationContext())
 				.dispatchLocalHits();
+		presenter.detachView();
 		super.onDestroy();
 
 	}
@@ -433,5 +400,39 @@ public class HomeActivity extends AppCompatActivity {
 //		}
 //		startActivity(Intent.createChooser(emailIntent,
 //				"Відправити повідомлення про помилку..."));
+	}
+
+	@Override
+	public void showProgress() {
+		// empty
+	}
+
+	@Override
+	public void hideProgress() {
+		// empty
+	}
+
+	@Override
+	public void showError(String msg) {
+		Snackbar.make(drawerLayout, msg, Snackbar.LENGTH_LONG).show();
+	}
+
+	@Override
+	public boolean handleUpAction() {
+		return ((FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame))
+				.onUpButtonPress();
+	}
+
+	@Override
+	public boolean handleBackAction() {
+		return ((FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame))
+				.onBackButtonPress();
+	}
+
+	@Override
+	public void updateAppRater() {
+		if (Utils.isNetworkAvailable(getApplicationContext())) {
+			AppRater.app_launched(this);
+		}
 	}
 }

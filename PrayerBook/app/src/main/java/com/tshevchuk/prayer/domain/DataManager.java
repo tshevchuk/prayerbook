@@ -91,4 +91,8 @@ public class DataManager {
     public CharSequence loadText(MenuItemPrayer item) {
         return textsRepository.loadText(item);
     }
+
+    public int getDefaultScreenMenuItemId() {
+        return preferenceManager.getDefaultMenuItemId();
+    }
 }

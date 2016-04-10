@@ -41,7 +41,7 @@ public class SubMenuFragment extends FragmentBase implements SubMenuView {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    public BasePresenter getPresenter() {
         return presenter;
     }
 

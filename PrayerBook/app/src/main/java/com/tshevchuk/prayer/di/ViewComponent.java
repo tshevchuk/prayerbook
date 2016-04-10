@@ -34,6 +34,5 @@ public interface ViewComponent {
     void inject(HtmlViewFragment fragment);
     void inject(SubMenuFragment fragment);
     void inject(SearchFragment fragment);
-
     void inject(NavigationDrawerFragment fragment);
 }
