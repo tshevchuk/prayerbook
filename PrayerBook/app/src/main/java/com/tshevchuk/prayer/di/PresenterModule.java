@@ -83,6 +83,6 @@ public class PresenterModule {
 
     @Provides
     HomePresenter provideHomePresenter() {
-        return new HomePresenter(navigator, dataManager);
+        return new HomePresenter(navigator, dataManager, analyticsManager);
     }
 }

@@ -84,7 +84,7 @@ public class ViewModule {
     @Provides
     @Singleton
     Navigator provideNavigator() {
-        return new Navigator();
+        return new Navigator(analyticsManager);
     }
 
     @Provides
