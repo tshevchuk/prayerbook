@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.presentation.often_used;
 
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.base.BaseView;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  */
 public interface OftenUsedView extends BaseView {
     void setMenuItems(ArrayList<MenuListItemOftenUsed> menuListItems);
-
     void setCalendarDay(CalendarDay day, int fontSizeSp);
+
+    void showSearchSuggestions(ArrayList<MenuListItemSearch> items);
 }

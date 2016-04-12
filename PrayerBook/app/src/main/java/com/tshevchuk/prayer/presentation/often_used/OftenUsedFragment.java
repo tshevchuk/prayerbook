@@ -1,9 +1,14 @@
 package com.tshevchuk.prayer.presentation.often_used;
 
+import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -11,12 +16,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
@@ -33,6 +41,8 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     private TextView tvDay;
     private TextView tvDescription;
     private LinearLayout llToday;
+    private SearchView searchView;
+
 
     public static OftenUsedFragment getInstance() {
         return new OftenUsedFragment();
@@ -78,6 +88,58 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         lvItems.addHeaderView(calendarToday);
 
         return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.actionbar_search, menu);
+        MenuItem miSearch = menu.findItem(R.id.mi_search);
+        searchView = (SearchView) MenuItemCompat.getActionView(miSearch);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                presenter.onSearchSubmit(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                presenter.onSearchQueryTextChange(newText);
+                return true;
+            }
+        });
+        searchView.setQueryHint("Введіть текст для пошуку");
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public void showSearchSuggestions(final ArrayList<MenuListItemSearch> items) {
+        String[] columnNames = {"_id", "text"};
+        MatrixCursor cursor = new MatrixCursor(columnNames);
+        CharSequence[] temp = new CharSequence[2];
+        for (MenuListItemSearch item : items) {
+            temp[0] = Integer.toString(item.getId());
+            temp[1] = Html.fromHtml(item.getDisplayName());
+            cursor.addRow(temp);
+        }
+        String[] from = {"text"};
+        int[] to = {R.id.tvName};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getContext(), R.layout.f_search_item,
+                cursor, from, to, 0);
+        searchView.setSuggestionsAdapter(adapter);
+        searchView.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
+            @Override
+            public boolean onSuggestionSelect(int position) {
+                return false;
+            }
+
+            @Override
+            public boolean onSuggestionClick(int position) {
+                presenter.onSearchSuggestionClick(items.get(position));
+                return true;
+            }
+        });
     }
 
     @Override

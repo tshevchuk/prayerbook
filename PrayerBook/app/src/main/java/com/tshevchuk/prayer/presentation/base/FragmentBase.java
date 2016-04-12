@@ -21,6 +21,8 @@ import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import javax.inject.Inject;
 
+import hugo.weaving.DebugLog;
+
 public abstract class FragmentBase extends Fragment implements BaseView {
     protected HomeActivity activity;
     @Inject
@@ -30,18 +32,21 @@ public abstract class FragmentBase extends Fragment implements BaseView {
 
     public abstract BasePresenter getPresenter();
 
+    @DebugLog
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.activity = (HomeActivity) getActivity();
     }
 
+    @DebugLog
     @Override
     public void onDetach() {
         super.onDetach();
         activity = null;
     }
 
+    @DebugLog
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         });
     }
 
+    @DebugLog
     @Override
     public void onResume() {
         super.onResume();
@@ -75,6 +81,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         analyticsManager.sendScreenEvent(getClass().getSimpleName());
     }
 
+    @DebugLog
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -83,16 +90,17 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         getPresenter().attachView(this);
     }
 
+    @DebugLog
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         getPresenter().detachView();
     }
 
+    @DebugLog
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-
         //todo: implement
 //        MenuItemBase menuItem = getMenuItem();
 //        if (menuItem != null && menuItem.getId() != 0) {
@@ -100,6 +108,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
 //        }
     }
 
+    @DebugLog
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -159,6 +168,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         return false;
     }
 
+    @DebugLog
     @Override
     public void showProgress() {
         //todo: show progress in case this method was called before onResume
@@ -167,6 +177,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
+    @DebugLog
     @Override
     public void hideProgress() {
         //todo: hide progress in onPause
@@ -175,6 +186,7 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
+    @DebugLog
     @Override
     public void showError(String msg) {
         //todo: handle case when this method was called before onResume
@@ -187,10 +199,12 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
+    @DebugLog
     public boolean onUpButtonPress() {
         return false;
     }
 
+    @DebugLog
     public boolean onBackButtonPress() {
         return false;
     }

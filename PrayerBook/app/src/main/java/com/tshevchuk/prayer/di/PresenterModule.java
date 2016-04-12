@@ -38,8 +38,9 @@ public class PresenterModule {
     }
 
     @Provides
-    OftenUsedPresenter provideOftenUsedPresenter(Navigator navigator, DataManager dataManager) {
-        return new OftenUsedPresenter(navigator, dataManager);
+    OftenUsedPresenter provideOftenUsedPresenter(Navigator navigator, DataManager dataManager,
+                                                 AnalyticsManager analyticsManager) {
+        return new OftenUsedPresenter(navigator, dataManager, analyticsManager);
     }
 
     @Provides
@@ -77,12 +78,14 @@ public class PresenterModule {
     }
 
     @Provides
-    NavigationDrawerPresenter provideNavigationDrawerPresenter(DataManager dataManager, Navigator navigator) {
+    NavigationDrawerPresenter provideNavigationDrawerPresenter(DataManager dataManager,
+                                                               Navigator navigator) {
         return new NavigationDrawerPresenter(dataManager, navigator);
     }
 
     @Provides
-    HomePresenter provideHomePresenter() {
+    HomePresenter provideHomePresenter(Navigator navigator, DataManager dataManager,
+                                       AnalyticsManager analyticsManager) {
         return new HomePresenter(navigator, dataManager, analyticsManager);
     }
 }

@@ -1,17 +1,10 @@
 package com.tshevchuk.prayer.presentation.home;
 
-import android.text.TextUtils;
-
-import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
-import com.tshevchuk.prayer.presentation.search.SearchFragment;
-
-import java.util.ArrayList;
 
 /**
  * Created by taras on 23.03.16.
@@ -58,36 +51,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
         restoringInstanceState = restoring;
     }
 
-    public void onSearchSubmit(String query) {
-        if (!navigator.updateSearchPhraseOnSearchView(this, query)) {
-            navigator.showSearchScreen(this, query);
-        }
-        analyticsManager.sendActionEvent(Analytics.CAT_SEARCH, "Підтверджено пошукову фразу", query);
-    }
-
-    public void onSearchQueryTextChange(String newText) {
-        //todo: refactor
-        if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof SearchFragment) {
-            search(newText);
-            analyticsManager.sendActionEvent(Analytics.CAT_SEARCH, "Пошук на фрагменті пошуку", newText);
-        } else {
-            final ArrayList<MenuListItemSearch> items = dataManager.searchMenuItems(newText);
-            getMvpView().showSearchSuggestions(items);
-            if (!TextUtils.isEmpty(newText)) {
-                analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
-                        "Пошук із випадаючим списком підказок", newText);
-            }
-        }
-    }
-
-    private void search(String query) {
-        if (!navigator.updateSearchPhraseOnSearchView(this, query)) {
-            navigator.showSearchScreen(this, query);
-        }
-    }
-
     public void onSettingsClick() {
-        //todo: refactor
         navigator.showSettings(this);
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Налаштування");
     }
@@ -176,12 +140,5 @@ public class HomePresenter extends BasePresenter<HomeView> {
 //				"Відправити повідомлення про помилку..."));
 
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Повідомити про помилку");
-    }
-
-    public void onSearchSuggestionClick(MenuListItemSearch mi) {
-        navigator.showMenuItem(this, mi);
-        dataManager.updateRecentlyUsedBecauseItemOpened(mi.getId());
-        analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
-                "Вибрано випадаючу підказку", mi.getId() + " " + mi.getName());
     }
 }

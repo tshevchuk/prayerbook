@@ -1,9 +1,14 @@
 package com.tshevchuk.prayer.presentation.often_used;
 
+import android.text.TextUtils;
+
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
+import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
@@ -12,17 +17,21 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by taras on 18.03.16.
  */
 public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
     private final Navigator navigator;
     private final DataManager dataManager;
+    private final AnalyticsManager analyticsManager;
 
     @Inject
-    public OftenUsedPresenter(Navigator navigator, DataManager dataManager) {
+    public OftenUsedPresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager) {
         this.navigator = navigator;
         this.dataManager = dataManager;
+        this.analyticsManager = analyticsManager;
     }
 
     @Override
@@ -58,5 +67,28 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
         CalendarDay day = dataManager.getCalendarDay(new Date());
         int fontSizeSp = dataManager.getTextFontSizeSp();
         getMvpView().setCalendarDay(day, fontSizeSp);
+    }
+
+    @DebugLog
+    public void onSearchSubmit(String query) {
+        navigator.showSearchScreen(this, query);
+        analyticsManager.sendActionEvent(Analytics.CAT_SEARCH, "Підтверджено пошукову фразу", query);
+    }
+
+    @DebugLog
+    public void onSearchQueryTextChange(String newText) {
+        getMvpView().showSearchSuggestions(dataManager.searchMenuItems(newText));
+        if (!TextUtils.isEmpty(newText)) {
+            analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+                    "Пошук із випадаючим списком підказок", newText);
+        }
+    }
+
+    @DebugLog
+    public void onSearchSuggestionClick(MenuListItemSearch mi) {
+        navigator.showMenuItem(this, mi);
+        dataManager.updateRecentlyUsedBecauseItemOpened(mi.getId());
+        analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
+                "Вибрано випадаючу підказку", mi.getId() + " " + mi.getName());
     }
 }

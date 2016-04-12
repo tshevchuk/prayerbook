@@ -5,8 +5,6 @@ package com.tshevchuk.prayer.presentation.base;
  */
 public interface BaseView {
     void showProgress();
-
     void hideProgress();
-
     void showError(String msg);
 }

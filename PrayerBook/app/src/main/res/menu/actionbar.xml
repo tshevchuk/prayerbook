@@ -12,11 +12,4 @@
         android:menuCategory="secondary"
         android:title="@string/menu_items__preferences"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/mi_search"
-        android:icon="?pb_actionBarSearchIconDrawable"
-        android:title="@string/menu_items__search"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom"/>
-
 </menu>

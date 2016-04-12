@@ -72,7 +72,8 @@ public class SearchFragment extends FragmentBase implements SearchView {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        activity.getSearchView().setIconified(false);
+        //todo: implement
+        //activity.getSearchView().setIconified(false);
     }
 
     public void onSearchPhraseChange(String searchPhrase) {

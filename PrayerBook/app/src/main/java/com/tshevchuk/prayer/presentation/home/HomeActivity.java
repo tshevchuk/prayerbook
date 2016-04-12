@@ -1,40 +1,30 @@
 package com.tshevchuk.prayer.presentation.home;
 
-import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.SearchView;
-import android.widget.SearchView.OnQueryTextListener;
-import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
 
 import org.codechimp.apprater.AppRater;
-
-import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -48,12 +38,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     @Inject
     HomePresenter presenter;
     @Inject
-    private AnalyticsManager analyticsManager;
+    AnalyticsManager analyticsManager;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private SearchView searchView;
 
+    @DebugLog
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
@@ -108,6 +98,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         }
     }
 
+    @DebugLog
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -115,6 +106,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         presenter.attachView(this);
     }
 
+    @DebugLog
     @Override
     protected void onDestroy() {
         GoogleAnalytics.getInstance(getApplicationContext()).dispatchLocalHits();
@@ -123,6 +115,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     }
 
+    @DebugLog
     @Override
     protected void onResume() {
         super.onResume();
@@ -135,40 +128,14 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         }
     }
 
+    @DebugLog
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar, menu);
-        MenuItem miSearch = menu.findItem(R.id.mi_search);
-        searchView = (SearchView) MenuItemCompat.getActionView(miSearch);
-        searchView.setOnQueryTextListener(new OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                presenter.onSearchSubmit(query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                presenter.onSearchQueryTextChange(newText);
-                return true;
-            }
-        });
-        searchView.setQueryHint("Введіть текст для пошуку");
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onSearchRequested() {
-        if (searchView != null) {
-            if (searchView.isIconified()) {
-                searchView.setIconified(false);
-            } else {
-                presenter.onSearchSubmit(searchView.getQuery().toString());
-            }
-        }
-        return super.onSearchRequested();
-    }
-
+    @DebugLog
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
@@ -176,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         return super.onPrepareOptionsMenu(menu);
     }
 
+    @DebugLog
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -194,6 +162,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         return super.onOptionsItemSelected(item);
     }
 
+    @DebugLog
     @Override
     public void onBackPressed() {
         Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
@@ -222,6 +191,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         transaction.commit();
     }
 
+    @DebugLog
     public void clearBackStack() {
         getSupportFragmentManager().popBackStackImmediate("item#0",
                 android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -231,37 +201,38 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         return (FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame);
     }
 
-    public SearchView getSearchView() {
-        return searchView;
-    }
-
     public void setNavigationDrawerEnabled(boolean enabled) {
         drawerToggle.setDrawerIndicatorEnabled(enabled);
         drawerLayout.setDrawerLockMode(enabled ? DrawerLayout.LOCK_MODE_UNLOCKED
                 : DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
+    @DebugLog
     @Override
     public void showProgress() {
         // empty
     }
 
+    @DebugLog
     @Override
     public void hideProgress() {
         // empty
     }
 
+    @DebugLog
     @Override
     public void showError(String msg) {
         Snackbar.make(drawerLayout, msg, Snackbar.LENGTH_LONG).show();
     }
 
+    @DebugLog
     @Override
     public boolean handleUpAction() {
         return ((FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame))
                 .onUpButtonPress();
     }
 
+    @DebugLog
     @Override
     public boolean handleBackAction() {
         return ((FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame))
@@ -273,35 +244,5 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         if (Utils.isNetworkAvailable(getApplicationContext())) {
             AppRater.app_launched(this);
         }
-    }
-
-    @Override
-    public void showSearchSuggestions(final ArrayList<MenuListItemSearch> items) {
-        String[] columnNames = {"_id", "text"};
-        MatrixCursor cursor = new MatrixCursor(columnNames);
-        CharSequence[] temp = new CharSequence[2];
-        for (MenuListItemSearch item : items) {
-            temp[0] = Integer.toString(item.getId());
-            temp[1] = Html.fromHtml(item.getDisplayName());
-            cursor.addRow(temp);
-        }
-        String[] from = {"text"};
-        int[] to = {R.id.tvName};
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.f_search_item, cursor,
-                from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        searchView.setSuggestionsAdapter(adapter);
-        searchView.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
-            @Override
-            public boolean onSuggestionSelect(int position) {
-                return false;
-            }
-
-            @Override
-            public boolean onSuggestionClick(int position) {
-                presenter.onSearchSuggestionClick(items.get(position));
-                return true;
-            }
-        });
-
     }
 }
