@@ -7,6 +7,7 @@ import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.data.ScreenshotFileManager;
 import com.tshevchuk.prayer.data.cache.InMemoryCacheManager;
 import com.tshevchuk.prayer.data.cache.InMemoryCacheManagerImpl;
 import com.tshevchuk.prayer.data.html_parser.HtmlParser;
@@ -102,5 +103,12 @@ public class ViewModule {
     @Provides
     AsyncTaskManager provideAsyncTaskManager() {
         return new AsyncTaskManagerImpl();
+    }
+
+
+    @Provides
+    @Singleton
+    ScreenshotFileManager provideScreenshotFileManager(Context context) {
+        return new ScreenshotFileManager(context);
     }
 }

@@ -208,4 +208,8 @@ public abstract class FragmentBase extends Fragment implements BaseView {
     public boolean onBackButtonPress() {
         return false;
     }
+
+    public String getErrorReportInfo() {
+        return getScreenTitle();
+    }
 }

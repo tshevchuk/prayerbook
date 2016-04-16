@@ -104,4 +104,10 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
             }
         });
     }
+
+    @Override
+    public String getErrorReportInfo() {
+        return super.getErrorReportInfo() + "; id: " + prayer.getId() + "; url: "
+                + prayer.getFileName();
+    }
 }

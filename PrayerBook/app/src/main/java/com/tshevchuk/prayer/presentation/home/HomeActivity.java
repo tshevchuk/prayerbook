@@ -1,15 +1,21 @@
 package com.tshevchuk.prayer.presentation.home;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +31,10 @@ import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
 
 import org.codechimp.apprater.AppRater;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 
 import javax.inject.Inject;
 
@@ -240,5 +250,83 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         if (Utils.isNetworkAvailable(getApplicationContext())) {
             AppRater.app_launched(this);
         }
+    }
+
+    @Override
+    public
+    @Nullable
+    byte[] createScreenshotJpeg() {
+        Bitmap bitmap = null;
+        View v1 = getWindow().getDecorView().findViewById(android.R.id.content);
+
+        boolean willNotCache = v1.willNotCacheDrawing();
+        v1.setWillNotCacheDrawing(false);
+
+        int color = v1.getDrawingCacheBackgroundColor();
+        v1.setDrawingCacheBackgroundColor(Color.GREEN);
+
+        if (color != 0) {
+            v1.destroyDrawingCache();
+        }
+        v1.buildDrawingCache();
+        Bitmap cacheBitmap = v1.getDrawingCache();
+        if (cacheBitmap != null) {
+            bitmap = Bitmap.createBitmap(cacheBitmap);
+        }
+
+        v1.destroyDrawingCache();
+        v1.setWillNotCacheDrawing(willNotCache);
+        v1.setDrawingCacheBackgroundColor(color);
+
+        if (bitmap != null) {
+
+            try {
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, os);
+                os.flush();
+                os.close();
+                return os.toByteArray();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void sendErrorReport(String email, File imageFile) {
+        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+        emailIntent.setType("message/rfc822");
+        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+                new String[]{email});
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+                getString(R.string.home__error_report_subject));
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(getString(R.string.home__error_report_please_describe_error)).append("\n\n\n\n");
+        sb.append("----------------------------");
+        sb.append("\nApplication: ").append(utils.getApplicationNameAndVersion())
+                .append(' ').append(getPackageName());
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            sb.append("\nTitle: ").append(actionBar.getTitle());
+        }
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        sb.append("\nFragment: ").append(f.getClass().getName());
+        if (f instanceof FragmentBase) {
+            String screenInfo = ((FragmentBase) f).getErrorReportInfo();
+            if (!TextUtils.isEmpty(screenInfo)) {
+                sb.append("\nCurrent Screen: ").append(screenInfo);
+            }
+        }
+        sb.append("\n").append(Utils.getDeviceInfo(getApplicationContext()));
+
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
+        if (imageFile != null) {
+            emailIntent.putExtra(Intent.EXTRA_STREAM,
+                    FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile)
+            );
+        }
+        startActivity(Intent.createChooser(emailIntent, getString(R.string.home__error_report_send_error_report)));
     }
 }

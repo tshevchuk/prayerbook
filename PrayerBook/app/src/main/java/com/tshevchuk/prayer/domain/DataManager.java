@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.domain;
 
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.PreferenceManager;
+import com.tshevchuk.prayer.data.ScreenshotFileManager;
 import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
 import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
@@ -11,6 +12,7 @@ import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,15 +28,18 @@ public class DataManager {
     private final PreferenceManager preferenceManager;
     private final TextsRepository textsRepository;
     private final CerkovnyyCalendarRepository cerkovnyyCalendarRepository;
+    private final ScreenshotFileManager screenshotFileManager;
 
     @Inject
     public DataManager(Catalog catalog, PreferenceManager preferenceManager,
                        TextsRepository textsRepository,
-                       CerkovnyyCalendarRepository cerkovnyyCalendarRepository) {
+                       CerkovnyyCalendarRepository cerkovnyyCalendarRepository,
+                       ScreenshotFileManager screenshotFileManager) {
         this.catalog = catalog;
         this.preferenceManager = preferenceManager;
         this.textsRepository = textsRepository;
         this.cerkovnyyCalendarRepository = cerkovnyyCalendarRepository;
+        this.screenshotFileManager = screenshotFileManager;
     }
 
     public Set<String> getAllPrayersReferences() {
@@ -94,5 +99,9 @@ public class DataManager {
 
     public int getDefaultScreenMenuItemId() {
         return preferenceManager.getDefaultMenuItemId();
+    }
+
+    public File storeErrorReportScreenshot(byte[] screenshot) {
+        return screenshotFileManager.storeErrorReportScreenshot(screenshot);
     }
 }

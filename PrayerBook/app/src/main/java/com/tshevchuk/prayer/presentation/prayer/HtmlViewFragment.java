@@ -161,6 +161,11 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         wvContent.loadUrl(url);
     }
 
+    @Override
+    public String getErrorReportInfo() {
+        return super.getErrorReportInfo() + "; URL: " + wvContent.getUrl();
+    }
+
     private class PrayerWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {

@@ -79,4 +79,9 @@ public class SubMenuFragment extends FragmentBase implements SubMenuView {
         adapter = new SubMenuListAdapter(activity, menuListItems);
         lvItems.setAdapter(adapter);
     }
+
+    @Override
+    public String getErrorReportInfo() {
+        return super.getErrorReportInfo() + "; id: " + subMenuId;
+    }
 }
