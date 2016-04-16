@@ -67,6 +67,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -108,7 +109,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
                 return true;
             }
         });
-        searchView.setQueryHint("Введіть текст для пошуку");
+        searchView.setQueryHint(getString(R.string.often_used__enter_search_phrase));
         super.onCreateOptionsMenu(menu, inflater);
     }
 

@@ -61,4 +61,8 @@ public class SearchPresenter extends BasePresenter<SearchView> {
         }
         getMvpView().setSearchResults(searchPhraseLowerCase, items);
     }
+
+    public void onSearchQueryTextChange(String newText) {
+        onSearch(newText);
+    }
 }

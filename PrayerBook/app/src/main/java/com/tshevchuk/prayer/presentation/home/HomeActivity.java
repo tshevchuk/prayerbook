@@ -197,10 +197,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                 android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
-    public FragmentBase getCurrentContentFragment() {
-        return (FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame);
-    }
-
     public void setNavigationDrawerEnabled(boolean enabled) {
         drawerToggle.setDrawerIndicatorEnabled(enabled);
         drawerLayout.setDrawerLockMode(enabled ? DrawerLayout.LOCK_MODE_UNLOCKED

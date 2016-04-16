@@ -106,14 +106,4 @@ public class Navigator {
         getHomeActivity(presenter).displayFragment(SearchFragment.newInstance(query));
         analyticsManager.sendActionEvent(Analytics.CAT_FRAGMENT_OPEN, "0 Search", query);
     }
-
-    public boolean updateSearchPhraseOnSearchView(BasePresenter<? extends BaseView> presenter,
-                                                  String query) {
-        FragmentBase f = getHomeActivity(presenter).getCurrentContentFragment();
-        if (f instanceof SearchFragment) {
-            ((SearchFragment) f).onSearchPhraseChange(query);
-            return true;
-        }
-        return false;
-    }
 }

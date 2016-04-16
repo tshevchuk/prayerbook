@@ -1,9 +1,11 @@
 package com.tshevchuk.prayer.presentation.search;
 
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -26,6 +28,8 @@ public class SearchFragment extends FragmentBase implements SearchView {
     SearchPresenter presenter;
     private ListView lvItems;
     private TextView tvHeader;
+    private android.widget.SearchView searchView;
+    private String searchPhrase;
 
     public static SearchFragment newInstance(String searchPhrase) {
         SearchFragment f = new SearchFragment();
@@ -65,19 +69,31 @@ public class SearchFragment extends FragmentBase implements SearchView {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String searchPhrase = getArguments().getString("searchPhrase");
+        searchPhrase = getArguments().getString("searchPhrase");
         presenter.setSearchPhrase(searchPhrase);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        //todo: implement
-        //activity.getSearchView().setIconified(false);
-    }
+        inflater.inflate(R.menu.actionbar_search, menu);
+        MenuItem miSearch = menu.findItem(R.id.mi_search);
+        searchView = (android.widget.SearchView) MenuItemCompat.getActionView(miSearch);
+        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
 
-    public void onSearchPhraseChange(String searchPhrase) {
-        presenter.setSearchPhrase(searchPhrase);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                presenter.onSearchQueryTextChange(newText);
+                return true;
+            }
+        });
+        searchView.setQueryHint(getString(R.string.search__enter_search_phrase));
+        searchView.setIconified(false);
+        searchView.setQuery(searchPhrase, false);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override

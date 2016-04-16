@@ -51,7 +51,10 @@
 
     <string name="search__search">Пошук</string>
     <string name="search__found_for_x">Для «%s» знайдено:</string>
+    <string name="search__enter_search_phrase">Введіть текст для пошуку</string>
 
     <string name="settings__settings">Налаштування</string>
+
+    <string name="often_used__enter_search_phrase">Введіть текст для пошуку</string>
 
 </resources>
