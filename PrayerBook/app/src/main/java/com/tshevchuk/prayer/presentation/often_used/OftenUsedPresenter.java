@@ -7,6 +7,7 @@ import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
+import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.Navigator;
@@ -29,6 +30,7 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
 
     @Inject
     public OftenUsedPresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager) {
+        super(analyticsManager, navigator);
         this.navigator = navigator;
         this.dataManager = dataManager;
         this.analyticsManager = analyticsManager;
@@ -90,5 +92,10 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
         dataManager.updateRecentlyUsedBecauseItemOpened(mi.getId());
         analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
                 "Вибрано випадаючу підказку", mi.getId() + " " + mi.getName());
+    }
+
+    public void onCreateShortcutClick() {
+        MenuItemBase mi = dataManager.getMenuItem(Catalog.ID_RECENT_SCREENS);
+        handleCreateShortcutClick(mi);
     }
 }

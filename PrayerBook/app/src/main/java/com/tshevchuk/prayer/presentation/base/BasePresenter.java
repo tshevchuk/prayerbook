@@ -1,14 +1,26 @@
 package com.tshevchuk.prayer.presentation.base;
 
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
+import com.tshevchuk.prayer.domain.model.MenuItemBase;
+import com.tshevchuk.prayer.presentation.Navigator;
+
 import java.util.BitSet;
+import java.util.Locale;
 
 /**
  * Created by taras on 22.03.16.
  */
 public abstract class BasePresenter<T extends BaseView> {
-
+    protected final AnalyticsManager analyticsManager;
+    protected final Navigator navigator;
     private T mvpView;
     private BitSet progressStates = new BitSet();
+
+    protected BasePresenter(AnalyticsManager analyticsManager, Navigator navigator) {
+        this.analyticsManager = analyticsManager;
+        this.navigator = navigator;
+    }
+
 
     public void attachView(T mvpView) {
         this.mvpView = mvpView;
@@ -40,6 +52,12 @@ public abstract class BasePresenter<T extends BaseView> {
         if (progressStates.isEmpty()) {
             getMvpView().hideProgress();
         }
+    }
+
+    protected void handleCreateShortcutClick(MenuItemBase mi) {
+        navigator.createShortcut(this, mi);
+        analyticsManager.sendActionEvent("Create launcher shortcut",
+                String.format(Locale.US, "#%d %s", mi.getId(), mi.getName()));
     }
 
     public static class MvpViewNotAttachedException extends RuntimeException {

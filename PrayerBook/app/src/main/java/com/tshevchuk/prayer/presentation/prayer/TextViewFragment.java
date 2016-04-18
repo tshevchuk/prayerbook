@@ -3,6 +3,9 @@ package com.tshevchuk.prayer.presentation.prayer;
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -48,6 +51,7 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
         }
         ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
         presenter.setId(getArguments().getInt("id"));
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -73,6 +77,23 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
             outState.putInt("firstVisibleCharOffset", getFirstVisibleCharacterOffset());
         } else {
             outState.putInt("firstVisibleCharOffset", firstVisibleCharacterOffset);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mi_create_shortcut:
+                presenter.onCreateShortcutClick();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

@@ -3,6 +3,7 @@ package com.tshevchuk.prayer.presentation.prayer;
 import android.text.TextUtils;
 
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.Navigator;
@@ -24,7 +25,9 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
     private final Navigator navigator;
     private boolean webViewCreated;
 
-    public HtmlViewPresenter(DataManager dataManager, Navigator navigator) {
+    public HtmlViewPresenter(DataManager dataManager, Navigator navigator,
+                             AnalyticsManager analyticsManager) {
+        super(analyticsManager, navigator);
         this.dataManager = dataManager;
         this.navigator = navigator;
     }
@@ -109,6 +112,13 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         if (!prayers.isEmpty()) {
             getMvpView().setScreenTitle(prayers.get(prayers.size() - 1).getName());
             getMvpView().scrollToUrlAnchor(url);
+        }
+    }
+
+    public void onCreateShortcutClick() {
+        if (!prayers.isEmpty()) {
+            MenuItemBase mi = prayers.get(prayers.size() - 1);
+            handleCreateShortcutClick(mi);
         }
     }
 }

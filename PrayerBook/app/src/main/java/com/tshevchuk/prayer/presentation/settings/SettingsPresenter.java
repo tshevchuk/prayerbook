@@ -14,6 +14,7 @@ public class SettingsPresenter extends BasePresenter<SettingsView> {
     private final Navigator navigator;
 
     public SettingsPresenter(AnalyticsManager analyticsManager, Navigator navigator) {
+        super(analyticsManager, navigator);
         this.analyticsManager = analyticsManager;
         this.navigator = navigator;
     }

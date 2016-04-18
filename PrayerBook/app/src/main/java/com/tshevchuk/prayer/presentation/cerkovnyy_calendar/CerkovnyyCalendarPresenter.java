@@ -1,9 +1,12 @@
 package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
+import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
+import com.tshevchuk.prayer.domain.model.MenuItemBase;
+import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
 import org.parceler.Parcel;
@@ -18,11 +21,11 @@ import java.util.GregorianCalendar;
 public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarView> {
     private final int currentYear;
     private final DataManager dataManager;
-    private final AnalyticsManager analyticsManager;
     public InstanceState instanceState = new InstanceState();
 
-    public CerkovnyyCalendarPresenter(AnalyticsManager analyticsManager, DataManager dataManager) {
-        this.analyticsManager = analyticsManager;
+    public CerkovnyyCalendarPresenter(AnalyticsManager analyticsManager, DataManager dataManager,
+                                      Navigator navigator) {
+        super(analyticsManager, navigator);
         this.dataManager = dataManager;
 
         currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
@@ -77,6 +80,11 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
 
         getMvpView().setCurrentMonths(
                 cal1.get(java.util.Calendar.MONTH), cal2.get(java.util.Calendar.MONTH), instanceState.year);
+    }
+
+    public void onCreateShortcutClick() {
+        MenuItemBase mi = dataManager.getMenuItem(Catalog.ID_CALENDAR);
+        handleCreateShortcutClick(mi);
     }
 
     @Parcel

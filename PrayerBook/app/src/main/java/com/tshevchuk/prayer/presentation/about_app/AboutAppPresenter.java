@@ -2,6 +2,8 @@ package com.tshevchuk.prayer.presentation.about_app;
 
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
+import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
 import java.util.ArrayList;
@@ -18,7 +20,9 @@ public class AboutAppPresenter extends BasePresenter<AboutView> {
     private final Utils utils;
 
     @Inject
-    public AboutAppPresenter(DataManager dataManager, Utils utils) {
+    public AboutAppPresenter(DataManager dataManager, Utils utils, AnalyticsManager analyticsManager,
+                             Navigator navigator) {
+        super(analyticsManager, navigator);
         this.dataManager = dataManager;
         this.utils = utils;
     }

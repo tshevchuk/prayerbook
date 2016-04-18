@@ -94,6 +94,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.actionbar_search, menu);
+        inflater.inflate(R.menu.actionbar_create_shortcut, menu);
         MenuItem miSearch = menu.findItem(R.id.mi_search);
         searchView = (SearchView) MenuItemCompat.getActionView(miSearch);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -113,6 +114,16 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mi_create_shortcut:
+                presenter.onCreateShortcutClick();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     public void showSearchSuggestions(final ArrayList<MenuListItemSearch> items) {

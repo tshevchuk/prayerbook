@@ -19,6 +19,7 @@ public class TextBasePresenter<T extends BaseView> extends BasePresenter<T> {
 
     public TextBasePresenter(AnalyticsManager analyticsManager,
                              Navigator navigator, DataManager dataManager) {
+        super(analyticsManager, navigator);
         this.analyticsManager = analyticsManager;
         this.navigator = navigator;
         this.dataManager = dataManager;

@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation.sub_menu;
 
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
@@ -19,7 +20,9 @@ public class SubMenuPresenter extends BasePresenter<SubMenuView> {
     private int subMenuId;
 
     @Inject
-    public SubMenuPresenter(DataManager dataManager, Navigator navigator) {
+    public SubMenuPresenter(DataManager dataManager, Navigator navigator,
+                            AnalyticsManager analyticsManager) {
+        super(analyticsManager, navigator);
         this.dataManager = dataManager;
         this.navigator = navigator;
     }
@@ -49,5 +52,9 @@ public class SubMenuPresenter extends BasePresenter<SubMenuView> {
     public void onItemClick(MenuListItem menuListItem) {
         navigator.showMenuItem(this, menuListItem);
         dataManager.updateRecentlyUsedBecauseItemOpened(menuListItem.getId());
+    }
+
+    public void onCreateShortcutClick() {
+        handleCreateShortcutClick(dataManager.getMenuItem(subMenuId));
     }
 }

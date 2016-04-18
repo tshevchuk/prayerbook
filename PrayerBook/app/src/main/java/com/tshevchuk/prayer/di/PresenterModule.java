@@ -28,13 +28,17 @@ import dagger.Provides;
 @Module
 public class PresenterModule {
     @Provides
-    AboutAppPresenter provideAboutAppPresenter(DataManager dataManager, Utils utils) {
-        return new AboutAppPresenter(dataManager, utils);
+    AboutAppPresenter provideAboutAppPresenter(DataManager dataManager, Utils utils,
+                                               AnalyticsManager analyticsManager,
+                                               Navigator navigator) {
+        return new AboutAppPresenter(dataManager, utils, analyticsManager, navigator);
     }
 
     @Provides
-    AboutPrayerPresenter provideAboutPrayerPresenter(Application application) {
-        return new AboutPrayerPresenter(application);
+    AboutPrayerPresenter provideAboutPrayerPresenter(Application application,
+                                                     AnalyticsManager analyticsManager,
+                                                     Navigator navigator) {
+        return new AboutPrayerPresenter(application, analyticsManager, navigator);
     }
 
     @Provides
@@ -45,18 +49,21 @@ public class PresenterModule {
 
     @Provides
     CerkovnyyCalendarPresenter provideCerkovnyyCalendarPresenter(AnalyticsManager analyticsManager,
-                                                                 DataManager dataManager) {
-        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager);
+                                                                 DataManager dataManager,
+                                                                 Navigator navigator) {
+        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager, navigator);
     }
 
     @Provides
-    SubMenuPresenter provideSubMenuPresenter(DataManager dataManager, Navigator navigator) {
-        return new SubMenuPresenter(dataManager, navigator);
+    SubMenuPresenter provideSubMenuPresenter(DataManager dataManager, Navigator navigator,
+                                             AnalyticsManager analyticsManager) {
+        return new SubMenuPresenter(dataManager, navigator, analyticsManager);
     }
 
     @Provides
-    HtmlViewPresenter provideHtmlViewPresenter(DataManager dataManager, Navigator navigator) {
-        return new HtmlViewPresenter(dataManager, navigator);
+    HtmlViewPresenter provideHtmlViewPresenter(DataManager dataManager, Navigator navigator,
+                                               AnalyticsManager analyticsManager) {
+        return new HtmlViewPresenter(dataManager, navigator, analyticsManager);
     }
 
     @Provides
@@ -79,8 +86,9 @@ public class PresenterModule {
 
     @Provides
     NavigationDrawerPresenter provideNavigationDrawerPresenter(DataManager dataManager,
-                                                               Navigator navigator) {
-        return new NavigationDrawerPresenter(dataManager, navigator);
+                                                               Navigator navigator,
+                                                               AnalyticsManager analyticsManager) {
+        return new NavigationDrawerPresenter(dataManager, navigator, analyticsManager);
     }
 
     @Provides

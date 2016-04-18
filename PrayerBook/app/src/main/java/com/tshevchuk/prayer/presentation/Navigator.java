@@ -1,8 +1,12 @@
 package com.tshevchuk.prayer.presentation;
 
+import android.content.Intent;
+
+import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
+import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemType;
@@ -105,5 +109,22 @@ public class Navigator {
     public void showSearchScreen(BasePresenter<? extends BaseView> presenter, String query) {
         getHomeActivity(presenter).displayFragment(SearchFragment.newInstance(query));
         analyticsManager.sendActionEvent(Analytics.CAT_FRAGMENT_OPEN, "0 Search", query);
+    }
+
+    public void createShortcut(BasePresenter<? extends BaseView> presenter, MenuItemBase mi) {
+        final HomeActivity activity = getHomeActivity(presenter);
+        Intent shortcutIntent = new Intent(activity.getApplicationContext(), HomeActivity.class);
+        shortcutIntent.putExtra(HomeActivity.PARAM_SCREEN_ID, mi.getId());
+        shortcutIntent.setAction(Intent.ACTION_MAIN);
+
+        Intent addIntent = new Intent();
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, mi.getName());
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
+                Intent.ShortcutIconResource.fromContext(activity.getApplicationContext(),
+                        R.mipmap.ic_launcher));
+
+        addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+        activity.sendBroadcast(addIntent);
     }
 }

@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -89,6 +92,7 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
         int id = getArguments().getInt("id");
         presenter.setArgPrayerId(id);
+        setHasOptionsMenu(true);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -147,6 +151,24 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
             return true;
         }
         return false;
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mi_create_shortcut:
+                presenter.onCreateShortcutClick();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation.navigation_drawer;
 
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
@@ -14,7 +15,9 @@ public class NavigationDrawerPresenter extends BasePresenter<NavigationDrawerVie
     private final DataManager dataManager;
     private final Navigator navigator;
 
-    public NavigationDrawerPresenter(DataManager dataManager, Navigator navigator) {
+    public NavigationDrawerPresenter(DataManager dataManager, Navigator navigator,
+                                     AnalyticsManager analyticsManager) {
+        super(analyticsManager, navigator);
         this.dataManager = dataManager;
         this.navigator = navigator;
     }

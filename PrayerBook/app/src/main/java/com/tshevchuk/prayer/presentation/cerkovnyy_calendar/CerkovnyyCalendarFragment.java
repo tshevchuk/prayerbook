@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -63,6 +66,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             presenter.instanceState = Parcels.unwrap(savedInstanceState.getParcelable("instanceState"));
             prevFirstVisibleItem = initPosition = savedInstanceState.getInt("firstVisiblePosition");
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -112,6 +116,23 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             outState.putInt("firstVisiblePosition", lvCalendar.getFirstVisiblePosition());
         } else {
             outState.putInt("firstVisiblePosition", initPosition);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mi_create_shortcut:
+                presenter.onCreateShortcutClick();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

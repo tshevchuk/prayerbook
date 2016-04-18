@@ -3,7 +3,9 @@ package com.tshevchuk.prayer.presentation.about_prayer;
 import android.app.Application;
 
 import com.tshevchuk.prayer.R;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
+import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
 /**
@@ -14,7 +16,9 @@ public class AboutPrayerPresenter extends BasePresenter<AboutPrayerView> {
     private final Application application;
     private MenuItemPrayer menuItemPrayer;
 
-    public AboutPrayerPresenter(Application application) {
+    public AboutPrayerPresenter(Application application, AnalyticsManager analyticsManager,
+                                Navigator navigator) {
+        super(analyticsManager, navigator);
         this.application = application;
     }
 

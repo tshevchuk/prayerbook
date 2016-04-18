@@ -19,6 +19,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
     private int paramScreenId;
 
     public HomePresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager) {
+        super(analyticsManager, navigator);
         this.navigator = navigator;
         this.dataManager = dataManager;
         this.analyticsManager = analyticsManager;

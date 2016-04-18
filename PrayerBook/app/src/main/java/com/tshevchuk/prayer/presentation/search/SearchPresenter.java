@@ -24,6 +24,7 @@ public class SearchPresenter extends BasePresenter<SearchView> {
 
     @Inject
     public SearchPresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager) {
+        super(analyticsManager, navigator);
         this.navigator = navigator;
         this.dataManager = dataManager;
         this.analyticsManager = analyticsManager;

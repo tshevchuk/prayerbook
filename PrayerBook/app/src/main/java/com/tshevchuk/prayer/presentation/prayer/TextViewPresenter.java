@@ -58,4 +58,8 @@ public class TextViewPresenter extends TextBasePresenter<TextViewView> {
             }
         });
     }
+
+    public void onCreateShortcutClick() {
+        handleCreateShortcutClick(menuItemPrayer);
+    }
 }
