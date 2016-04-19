@@ -1,8 +1,7 @@
 package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.AppCompatSpinner;
+import android.support.v4.view.MenuItemCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +21,6 @@ import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
-import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import org.parceler.Parcels;
 
@@ -40,7 +38,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     private TextView tvMonth;
     private int[] years;
     private int selectedYear;
-    private View oldActionBarCustomView;
 
     public static CerkovnyyCalendarFragment getInstance() {
         return new CerkovnyyCalendarFragment();
@@ -91,24 +88,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        addYearsSpinnerToActionBar();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        HomeActivity activity = (HomeActivity) getActivity();
-        ActionBar actionBar = activity.getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setCustomView(oldActionBarCustomView);
-        }
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("instanceState", Parcels.wrap(presenter.instanceState));
@@ -122,7 +101,35 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.actionbar_cerkovnyy_calendar, menu);
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+
+        MenuItem miSearch = menu.findItem(R.id.mi_calendar_year_spinner);
+        Spinner calendarYearSpinner = (Spinner) MenuItemCompat.getActionView(miSearch);
+
+        String[] formattedYears = new String[years.length];
+        int curYearPosition = 0;
+        for (int i = years.length - 1; i >= 0; --i) {
+            formattedYears[i] = getString(R.string.calendar__x_year, years[i]);
+            if (years[i] == selectedYear) {
+                curYearPosition = i;
+            }
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(calendarYearSpinner.getContext(),
+                android.R.layout.simple_spinner_dropdown_item, formattedYears);
+        calendarYearSpinner.setAdapter(adapter);
+        calendarYearSpinner.setSelection(curYearPosition);
+        calendarYearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                presenter.onYearSelected(years[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     @Override
@@ -134,42 +141,6 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void addYearsSpinnerToActionBar() {
-        HomeActivity activity = (HomeActivity) getActivity();
-        ActionBar actionBar = activity.getSupportActionBar();
-        if (actionBar == null) {
-            return;
-        }
-
-        String[] formattedYears = new String[years.length];
-        int curYearPosition = 0;
-        for (int i = years.length - 1; i >= 0; --i) {
-            formattedYears[i] = getString(R.string.calendar__x_year, years[i]);
-            if (years[i] == selectedYear) {
-                curYearPosition = i;
-            }
-        }
-
-        Spinner spinner = new AppCompatSpinner(actionBar.getThemedContext());
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(actionBar.getThemedContext(),
-                android.R.layout.simple_spinner_dropdown_item, formattedYears);
-        spinner.setAdapter(adapter);
-        spinner.setSelection(curYearPosition);
-        actionBar.setDisplayShowCustomEnabled(true);
-        oldActionBarCustomView = actionBar.getCustomView();
-        actionBar.setCustomView(spinner);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                presenter.onYearSelected(years[position]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
     }
 
     @Override

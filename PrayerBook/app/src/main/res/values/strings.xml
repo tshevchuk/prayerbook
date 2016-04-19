@@ -26,6 +26,7 @@
     </string-array>
     <string name="calendar__month_of_x_year">%1$s %2$s-го року</string>
     <string name="calendar__x_year">%s рік</string>
+    <string name="calendar__year">Рік</string>
 
 
     <string name="about_app__about_prayerbook">Про Молитовник</string>
