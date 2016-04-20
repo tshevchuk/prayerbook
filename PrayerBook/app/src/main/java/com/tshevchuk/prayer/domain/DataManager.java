@@ -104,4 +104,8 @@ public class DataManager {
     public File storeErrorReportScreenshot(byte[] screenshot) {
         return screenshotFileManager.storeErrorReportScreenshot(screenshot);
     }
+
+    public boolean isNightMode() {
+        return preferenceManager.isNightModeEnabled();
+    }
 }

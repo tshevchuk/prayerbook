@@ -15,4 +15,6 @@ public interface HomeView extends BaseView {
     byte[] createScreenshotJpeg();
 
     void sendErrorReport(String email, File imageFile);
+
+    void setNightMode(boolean nightMode);
 }

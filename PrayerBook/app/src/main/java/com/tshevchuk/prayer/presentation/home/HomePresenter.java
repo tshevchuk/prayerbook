@@ -38,6 +38,8 @@ public class HomePresenter extends BasePresenter<HomeView> {
 
             getMvpView().updateAppRater();
         }
+
+        getMvpView().setNightMode(dataManager.isNightMode());
     }
 
     public void onBackPressed() {

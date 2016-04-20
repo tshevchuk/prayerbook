@@ -1,5 +1,6 @@
 package com.tshevchuk.prayer.presentation.home;
 
+import android.app.UiModeManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -234,15 +235,15 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     @DebugLog
     @Override
     public boolean handleUpAction() {
-        return ((FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame))
-                .onUpButtonPress();
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        return f instanceof FragmentBase && ((FragmentBase) f).onUpButtonPress();
     }
 
     @DebugLog
     @Override
     public boolean handleBackAction() {
-        return ((FragmentBase) getSupportFragmentManager().findFragmentById(R.id.content_frame))
-                .onBackButtonPress();
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        return f instanceof FragmentBase && ((FragmentBase) f).onBackButtonPress();
     }
 
     @Override
@@ -328,5 +329,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
             );
         }
         startActivity(Intent.createChooser(emailIntent, getString(R.string.home__error_report_send_error_report)));
+    }
+
+    @Override
+    public void setNightMode(boolean nightMode) {
+        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+        uiModeManager.setNightMode(nightMode ? UiModeManager.MODE_NIGHT_YES
+                : UiModeManager.MODE_NIGHT_NO);
     }
 }

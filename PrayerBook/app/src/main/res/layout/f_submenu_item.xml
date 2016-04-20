@@ -1,9 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="48dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin" >
+    android:paddingRight="@dimen/activity_horizontal_margin">
 
     <TextView
         android:id="@+id/tv_name"
@@ -18,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|right"
         android:layout_margin="4dp"
-        android:src="@drawable/ic_oficial_texts_ugcc" />
+        app:srcCompat="@drawable/ic_official_text_ugcc" />
 
 </FrameLayout>
