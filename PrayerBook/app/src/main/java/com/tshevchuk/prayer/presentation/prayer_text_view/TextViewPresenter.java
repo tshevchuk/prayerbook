@@ -15,6 +15,8 @@ import java.util.Locale;
  * Created by taras on 18.03.16.
  */
 public class TextViewPresenter extends BasePresenter<TextViewView> {
+    private final static int PROGRESS_ID_TEXT_VIEW_LOADING = 0;
+
     private final DataManager dataManager;
     private final AsyncTaskManager asyncTaskManager;
     private int id;
@@ -46,7 +48,7 @@ public class TextViewPresenter extends BasePresenter<TextViewView> {
     }
 
     private void loadPrayer() {
-        getMvpView().showProgress();
+        showProgress(PROGRESS_ID_TEXT_VIEW_LOADING);
         asyncTaskManager.executeTask(new AsyncTaskManager.BackgroundTask<CharSequence>() {
             @Override
             public CharSequence doInBackground() {
@@ -56,12 +58,12 @@ public class TextViewPresenter extends BasePresenter<TextViewView> {
             @Override
             public void postExecute(CharSequence result) {
                 getMvpView().setPrayerText(result);
-                getMvpView().hideProgress();
+                hideProgress(PROGRESS_ID_TEXT_VIEW_LOADING);
             }
 
             @Override
             public void onError(Throwable tr) {
-                getMvpView().hideProgress();
+                hideProgress(PROGRESS_ID_TEXT_VIEW_LOADING);
                 getMvpView().showError(tr.getLocalizedMessage());
             }
         });

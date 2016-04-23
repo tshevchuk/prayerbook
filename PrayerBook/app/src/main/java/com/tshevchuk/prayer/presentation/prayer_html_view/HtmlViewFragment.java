@@ -21,6 +21,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
@@ -39,6 +40,7 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     HtmlViewPresenter presenter;
     private String screenTitle;
     private WebView wvContent;
+    private ProgressBar pbLoading;
 
 
     public static HtmlViewFragment getInstance(int id) {
@@ -102,6 +104,7 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_html_view, container, false);
         FrameLayout flContent = (FrameLayout) v.findViewById(R.id.fl_content);
+        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
         if (wvContent == null) {
             wvContent = new WebView(activity);
             wvContent.setLayoutParams(new FrameLayout.LayoutParams(
@@ -196,6 +199,19 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     public boolean onUpButtonPress() {
         return presenter.onUpButtonPress();
     }
+
+    @DebugLog
+    @Override
+    public void showProgress() {
+        pbLoading.setVisibility(View.VISIBLE);
+    }
+
+    @DebugLog
+    @Override
+    public void hideProgress() {
+        pbLoading.setVisibility(View.GONE);
+    }
+
 
     private class PrayerWebViewClient extends WebViewClient {
         @Override

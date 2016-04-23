@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
@@ -24,6 +25,7 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
     private TextView tvContent;
     private NestedScrollView svScroll;
     private MenuItemPrayer prayer;
+    private ProgressBar pbLoading;
 
     public static TextViewFragment getInstance(int id) {
         TextViewFragment f = new TextViewFragment();
@@ -60,6 +62,7 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
 
         tvContent = (TextView) v.findViewById(R.id.tv_content);
         svScroll = (NestedScrollView) v.findViewById(R.id.svScroll);
+        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
 
         return v;
     }
@@ -139,5 +142,15 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
     @Override
     public boolean onUpButtonPress() {
         return presenter.onUpButtonPress();
+    }
+
+    @Override
+    public void showProgress() {
+        pbLoading.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        pbLoading.setVisibility(View.GONE);
     }
 }

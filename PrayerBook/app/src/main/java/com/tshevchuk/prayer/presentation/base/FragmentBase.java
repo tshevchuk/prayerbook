@@ -2,8 +2,6 @@ package com.tshevchuk.prayer.presentation.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -23,7 +21,6 @@ import hugo.weaving.DebugLog;
 
 public abstract class FragmentBase extends Fragment implements BaseView {
     protected final List<Runnable> onResumeActions = new ArrayList<>();
-    protected final Handler handler = new Handler(Looper.getMainLooper());
     protected HomeActivity activity;
     @Inject
     AnalyticsManager analyticsManager;
@@ -70,11 +67,6 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
         activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
         analyticsManager.sendScreenEvent(getClass().getSimpleName());
-
-        for (Runnable r : onResumeActions) {
-            handler.post(r);
-        }
-        onResumeActions.clear();
     }
 
     @DebugLog
@@ -104,31 +96,13 @@ public abstract class FragmentBase extends Fragment implements BaseView {
     @DebugLog
     @Override
     public void showProgress() {
-        if (isResumed()) {
-            activity.setProgressBarIndeterminateVisibility(true);
-        } else {
-            onResumeActions.add(new Runnable() {
-                @Override
-                public void run() {
-                    showProgress();
-                }
-            });
-        }
+        throw new UnsupportedOperationException();
     }
 
     @DebugLog
     @Override
     public void hideProgress() {
-        if (isResumed()) {
-            activity.setProgressBarIndeterminateVisibility(false);
-        } else {
-            onResumeActions.add(new Runnable() {
-                @Override
-                public void run() {
-                    hideProgress();
-                }
-            });
-        }
+        throw new UnsupportedOperationException();
     }
 
     @DebugLog

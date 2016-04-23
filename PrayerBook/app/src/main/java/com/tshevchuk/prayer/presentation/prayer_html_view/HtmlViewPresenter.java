@@ -75,7 +75,12 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         }
     }
 
+    @DebugLog
     public void onLoadingProgresChanged(int progressPercent) {
+        if (!isViewAttached()) {
+            return;
+        }
+
         if (progressPercent < 100) {
             showProgress(PROGRESS_ID_WEB_VIEW_LOADING);
         } else {
@@ -101,6 +106,9 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
     }
 
     public void onPageLoadFinished(String url) {
+        if (!isViewAttached()) {
+            return;
+        }
         for (int i = prayers.size() - 1; i >= 0; --i) {
             MenuItemPrayer p = prayers.get(i);
             String u = HtmlViewView.URL_ROOT_ASSET_FOLDER + p.getFileName();
