@@ -188,4 +188,9 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             prevFirstVisibleItem = firstVisibleItem;
         }
     }
+
+    @Override
+    public boolean onUpButtonPress() {
+        return presenter.onUpButtonPress();
+    }
 }

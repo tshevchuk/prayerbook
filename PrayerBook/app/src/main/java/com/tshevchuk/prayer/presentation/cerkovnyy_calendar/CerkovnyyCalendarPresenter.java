@@ -87,6 +87,12 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         handleCreateShortcutClick(mi);
     }
 
+    public boolean onUpButtonPress() {
+        navigator.close(this);
+        navigator.showMenuItem(this, dataManager.getMenuListItem(Catalog.ID_RECENT_SCREENS));
+        return true;
+    }
+
     @Parcel
     public static class InstanceState {
         int year;

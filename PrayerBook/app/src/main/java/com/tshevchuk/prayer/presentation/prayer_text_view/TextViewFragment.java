@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.presentation.prayer;
+package com.tshevchuk.prayer.presentation.prayer_text_view;
 
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import javax.inject.Inject;
 
-public class TextViewFragment extends TextFragmentBase implements TextViewView {
+public class TextViewFragment extends FragmentBase implements TextViewView {
     @Inject
     TextViewPresenter presenter;
     private Integer firstVisibleCharacterOffset = null;
@@ -39,7 +39,7 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
     }
 
     @Override
-    public BasePresenter getPresenter() {
+    public TextViewPresenter getPresenter() {
         return presenter;
     }
 
@@ -84,6 +84,7 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+        inflater.inflate(R.menu.actionbar_textviewfragment, menu);
     }
 
     @Override
@@ -91,6 +92,9 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
         switch (item.getItemId()) {
             case R.id.mi_create_shortcut:
                 presenter.onCreateShortcutClick();
+                return true;
+            case R.id.mi_about_prayer:
+                presenter.onOpenAboutClick();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -130,5 +134,10 @@ public class TextViewFragment extends TextFragmentBase implements TextViewView {
     public String getErrorReportInfo() {
         return super.getErrorReportInfo() + "; id: " + prayer.getId() + "; url: "
                 + prayer.getFileName();
+    }
+
+    @Override
+    public boolean onUpButtonPress() {
+        return presenter.onUpButtonPress();
     }
 }

@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.presentation.prayer;
+package com.tshevchuk.prayer.presentation.prayer_html_view;
 
 import android.annotation.SuppressLint;
 import android.content.res.AssetManager;
@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.base.FragmentBase;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +34,7 @@ import javax.inject.Inject;
 
 import hugo.weaving.DebugLog;
 
-public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
+public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     @Inject
     HtmlViewPresenter presenter;
     private String screenTitle;
@@ -153,11 +154,11 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         return false;
     }
 
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
+        inflater.inflate(R.menu.actionbar_textviewfragment, menu);
     }
 
     @Override
@@ -165,6 +166,9 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
         switch (item.getItemId()) {
             case R.id.mi_create_shortcut:
                 presenter.onCreateShortcutClick();
+                return true;
+            case R.id.mi_about_prayer:
+                presenter.onOpenAboutClick();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -186,6 +190,11 @@ public class HtmlViewFragment extends TextFragmentBase implements HtmlViewView {
     @Override
     public String getErrorReportInfo() {
         return super.getErrorReportInfo() + "; URL: " + wvContent.getUrl();
+    }
+
+    @Override
+    public boolean onUpButtonPress() {
+        return presenter.onUpButtonPress();
     }
 
     private class PrayerWebViewClient extends WebViewClient {

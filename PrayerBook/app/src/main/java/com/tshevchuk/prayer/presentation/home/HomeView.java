@@ -8,8 +8,9 @@ import java.io.File;
  * Created by taras on 10.04.16.
  */
 public interface HomeView extends BaseView {
-    boolean handleUpAction();
-    boolean handleBackAction();
+    boolean handleContentViewUpAction();
+
+    boolean handleContentViewBackAction();
     void updateAppRater();
 
     byte[] createScreenshotJpeg();

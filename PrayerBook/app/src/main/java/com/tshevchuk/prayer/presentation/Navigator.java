@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
@@ -17,9 +18,10 @@ import com.tshevchuk.prayer.presentation.base.BaseView;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
+import com.tshevchuk.prayer.presentation.home.HomePresenter;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
-import com.tshevchuk.prayer.presentation.prayer.HtmlViewFragment;
-import com.tshevchuk.prayer.presentation.prayer.TextViewFragment;
+import com.tshevchuk.prayer.presentation.prayer_html_view.HtmlViewFragment;
+import com.tshevchuk.prayer.presentation.prayer_text_view.TextViewFragment;
 import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
@@ -75,7 +77,8 @@ public class Navigator {
             FragmentBase fragmentBase = (FragmentBase) mvpView;
             return (HomeActivity) fragmentBase.getActivity();
         }
-        throw new IllegalStateException("Wrong activity or fragment");
+        throw new IllegalStateException("Wrong activity or fragment, actual "
+                + mvpView.getClass().getName());
     }
 
     public void openAboutApp(BasePresenter<? extends BaseView> presenter) {
@@ -88,8 +91,11 @@ public class Navigator {
         analyticsFragmentOpened(0, "About prayer");
     }
 
+    @DebugLog
     public void close(BasePresenter<? extends BaseView> presenter) {
-        getHomeActivity(presenter).getFragmentManager().popBackStackImmediate();
+        android.support.v4.app.FragmentManager fragmentManager =
+                getHomeActivity(presenter).getSupportFragmentManager();
+        fragmentManager.popBackStack();
     }
 
     public void showSubMenu(BasePresenter<? extends BaseView> presenter, int id, String name) {
@@ -126,5 +132,19 @@ public class Navigator {
 
         addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
         activity.sendBroadcast(addIntent);
+    }
+
+    public void handleUpAction(HomePresenter homePresenter) {
+        HomeActivity activity = getHomeActivity(homePresenter);
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        boolean isBackStackEmpty = fragmentManager.getBackStackEntryCount() == 0;
+        if (isBackStackEmpty) {
+            if (!activity.handleContentViewUpAction()) {
+                activity.finish();
+            }
+            return;
+        }
+
+        fragmentManager.popBackStack();
     }
 }

@@ -1,8 +1,10 @@
-package com.tshevchuk.prayer.presentation.prayer;
+package com.tshevchuk.prayer.presentation.prayer_html_view;
 
 import android.text.TextUtils;
 
+import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
@@ -11,6 +13,7 @@ import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import hugo.weaving.DebugLog;
 
@@ -120,5 +123,24 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
             MenuItemBase mi = prayers.get(prayers.size() - 1);
             handleCreateShortcutClick(mi);
         }
+    }
+
+    public boolean onUpButtonPress() {
+        navigator.close(this);
+        MenuItemPrayer prayer = prayers.get(prayers.size() - 1);
+        int parentId = prayer.getParentItemId();
+        if (parentId > 0) {
+            navigator.showSubMenu(this, parentId, dataManager.getMenuItem(parentId).getName());
+        } else {
+            navigator.showMenuItem(this, dataManager.getMenuListItem(Catalog.ID_RECENT_SCREENS));
+        }
+        return true;
+    }
+
+    public void onOpenAboutClick() {
+        MenuItemPrayer prayer = prayers.get(prayers.size() - 1);
+        navigator.showAboutPrayer(this, prayer);
+        analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Опис",
+                String.format(Locale.US, "#%d %s", prayer.getId(), prayer.getName()));
     }
 }

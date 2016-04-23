@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         drawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onBackPressed();
+                presenter.onUpPressed();
             }
         });
         drawerLayout.addDrawerListener(drawerToggle);
@@ -234,14 +234,14 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @DebugLog
     @Override
-    public boolean handleUpAction() {
+    public boolean handleContentViewUpAction() {
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         return f instanceof FragmentBase && ((FragmentBase) f).onUpButtonPress();
     }
 
     @DebugLog
     @Override
-    public boolean handleBackAction() {
+    public boolean handleContentViewBackAction() {
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         return f instanceof FragmentBase && ((FragmentBase) f).onBackButtonPress();
     }

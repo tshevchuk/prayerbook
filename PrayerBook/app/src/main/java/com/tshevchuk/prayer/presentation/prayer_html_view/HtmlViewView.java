@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.presentation.prayer;
+package com.tshevchuk.prayer.presentation.prayer_html_view;
 
 import com.tshevchuk.prayer.presentation.base.BaseView;
 

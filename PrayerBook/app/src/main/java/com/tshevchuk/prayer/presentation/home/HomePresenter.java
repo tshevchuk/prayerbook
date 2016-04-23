@@ -42,10 +42,8 @@ public class HomePresenter extends BasePresenter<HomeView> {
         getMvpView().setNightMode(dataManager.isNightMode());
     }
 
-    public void onBackPressed() {
-        if (!getMvpView().handleUpAction()) {
-            getMvpView().handleBackAction();
-        }
+    public void onUpPressed() {
+        navigator.handleUpAction(this);
     }
 
     public void setParamScreenId(int id) {

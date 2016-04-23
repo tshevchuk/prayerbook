@@ -13,8 +13,8 @@ import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarPre
 import com.tshevchuk.prayer.presentation.home.HomePresenter;
 import com.tshevchuk.prayer.presentation.navigation_drawer.NavigationDrawerPresenter;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedPresenter;
-import com.tshevchuk.prayer.presentation.prayer.HtmlViewPresenter;
-import com.tshevchuk.prayer.presentation.prayer.TextViewPresenter;
+import com.tshevchuk.prayer.presentation.prayer_html_view.HtmlViewPresenter;
+import com.tshevchuk.prayer.presentation.prayer_text_view.TextViewPresenter;
 import com.tshevchuk.prayer.presentation.search.SearchPresenter;
 import com.tshevchuk.prayer.presentation.settings.SettingsPresenter;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuPresenter;

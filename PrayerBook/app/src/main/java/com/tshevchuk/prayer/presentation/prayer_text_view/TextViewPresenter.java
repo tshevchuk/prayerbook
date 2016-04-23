@@ -1,21 +1,29 @@
-package com.tshevchuk.prayer.presentation.prayer;
+package com.tshevchuk.prayer.presentation.prayer_text_view;
 
+import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.DataManager;
+import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.Navigator;
+import com.tshevchuk.prayer.presentation.base.BasePresenter;
+
+import java.util.Locale;
 
 /**
  * Created by taras on 18.03.16.
  */
-public class TextViewPresenter extends TextBasePresenter<TextViewView> {
+public class TextViewPresenter extends BasePresenter<TextViewView> {
+    private final DataManager dataManager;
     private final AsyncTaskManager asyncTaskManager;
     private int id;
+    private MenuItemPrayer menuItemPrayer;
 
     public TextViewPresenter(AnalyticsManager analyticsManager, Navigator navigator,
                              DataManager dataManager, AsyncTaskManager asyncTaskManager) {
-        super(analyticsManager, navigator, dataManager);
+        super(analyticsManager, navigator);
+        this.dataManager = dataManager;
         this.asyncTaskManager = asyncTaskManager;
     }
 
@@ -61,5 +69,22 @@ public class TextViewPresenter extends TextBasePresenter<TextViewView> {
 
     public void onCreateShortcutClick() {
         handleCreateShortcutClick(menuItemPrayer);
+    }
+
+    public boolean onUpButtonPress() {
+        navigator.close(this);
+        int parentId = menuItemPrayer.getParentItemId();
+        if (parentId > 0) {
+            navigator.showSubMenu(this, parentId, dataManager.getMenuItem(parentId).getName());
+        } else {
+            navigator.showMenuItem(this, dataManager.getMenuListItem(Catalog.ID_RECENT_SCREENS));
+        }
+        return true;
+    }
+
+    public void onOpenAboutClick() {
+        navigator.showAboutPrayer(this, menuItemPrayer);
+        analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Опис",
+                String.format(Locale.US, "#%d %s", menuItemPrayer.getId(), menuItemPrayer.getName()));
     }
 }
