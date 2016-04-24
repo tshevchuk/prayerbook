@@ -15,10 +15,14 @@ import java.util.Locale;
 
 public class Utils {
 	private static Locale ukrainianLocale;
+	final Context context;
 
-	public static String getAssetAsString(String fileName) throws IOException {
-		InputStream input = PrayerBookApplication.getInstance().getAssets()
-				.open(fileName);
+	public Utils(Context context) {
+		this.context = context;
+	}
+
+	public static String getAssetAsString(Context context, String fileName) throws IOException {
+		InputStream input = context.getAssets().open(fileName);
 		java.util.Scanner s = new java.util.Scanner(input);
 		//noinspection TryFinallyCanBeTryWithResources
 		try {
@@ -29,9 +33,8 @@ public class Utils {
 		}
 	}
 
-	public static boolean isDebuggable() {
-		Context c = PrayerBookApplication.getInstance();
-		return 0 != (c.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE);
+	public static boolean isDebuggable(Context context) {
+		return 0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE);
 	}
 
 	public static Locale getUkrainianLocale() {
@@ -41,16 +44,27 @@ public class Utils {
 		return ukrainianLocale;
 	}
 
-	public static boolean isNetworkAvailable() {
-		ConnectivityManager connectivityManager = (ConnectivityManager) PrayerBookApplication
-				.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+	public static boolean isNetworkAvailable(Context context) {
+		ConnectivityManager connectivityManager = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetworkInfo = connectivityManager
 				.getActiveNetworkInfo();
 		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
-	public static String getApplicationNameAndVersion() {
-		Context context = PrayerBookApplication.getInstance();
+	public static String getDeviceInfo(Context context) {
+		DisplayMetrics metrics = new DisplayMetrics();
+		((WindowManager) context.getSystemService(Context.WINDOW_SERVICE))
+				.getDefaultDisplay().getMetrics(metrics);
+
+		return "OS Version: " + System.getProperty("os.version") + "(" + android.os.Build.VERSION.INCREMENTAL + ")"
+				+ "\nOS API Level: " + android.os.Build.VERSION.SDK_INT
+				+ "\nDevice: " + android.os.Build.DEVICE
+				+ "\nModel (and Product): " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")"
+				+ "\nScreen size: " + metrics.widthPixels + "x" + metrics.heightPixels + " (" + metrics.densityDpi + ")";
+	}
+
+	public String getApplicationNameAndVersion() {
 		PackageManager packageManager = context.getPackageManager();
 		ApplicationInfo applicationInfo;
 		String pkgNm = context.getPackageName();
@@ -63,17 +77,5 @@ public class Utils {
 		}
 		return applicationInfo != null ? packageManager
 				.getApplicationLabel(applicationInfo) + " " + ver : "(unknown)";
-	}
-
-	public static String getDeviceInfo() {
-		DisplayMetrics metrics = new DisplayMetrics();
-		((WindowManager) PrayerBookApplication.getInstance().getSystemService(Context.WINDOW_SERVICE))
-				.getDefaultDisplay().getMetrics(metrics);
-
-		return "OS Version: " + System.getProperty("os.version") + "(" + android.os.Build.VERSION.INCREMENTAL + ")"
-				+ "\nOS API Level: " + android.os.Build.VERSION.SDK_INT
-				+ "\nDevice: " + android.os.Build.DEVICE
-				+ "\nModel (and Product): " + android.os.Build.MODEL + " (" + android.os.Build.PRODUCT + ")"
-				+ "\nScreen size: " + metrics.widthPixels + "x" + metrics.heightPixels + " (" + metrics.densityDpi + ")";
 	}
 }

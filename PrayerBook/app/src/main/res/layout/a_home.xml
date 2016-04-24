@@ -22,15 +22,12 @@
             android:layout_height="match_parent" />
         <!-- The navigation drawer -->
 
-        <ListView
-            android:id="@+id/left_drawer"
+        <fragment
+            android:id="@+id/navigation_drawer_fragment"
+            android:name="com.tshevchuk.prayer.presentation.navigation_drawer.NavigationDrawerFragment"
             android:layout_width="240dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="?pb_navigationDrawerBackgroundDrawable"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp" />
+            android:layout_gravity="start" />
 
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
