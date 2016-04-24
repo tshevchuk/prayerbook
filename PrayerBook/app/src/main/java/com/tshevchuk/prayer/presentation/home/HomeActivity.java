@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
@@ -40,6 +41,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import hugo.weaving.DebugLog;
+import io.fabric.sdk.android.Fabric;
 
 public class HomeActivity extends AppCompatActivity implements HomeView {
     public final static String PARAM_SCREEN_ID = "screen_id";
@@ -62,6 +64,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         ((PrayerBookApplication) getApplication()).getViewComponent().inject(this);
 
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.a_home);
         setProgressBarIndeterminateVisibility(false);

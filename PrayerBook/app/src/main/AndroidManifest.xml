@@ -36,6 +36,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="61ac31ad3ca025e7b8c414980975d1bfe9dedbdb" />
     </application>
 
 </manifest>
