@@ -21,7 +21,7 @@ import dagger.Component;
  * Created by taras on 18.03.16.
  */
 @Singleton
-@Component(modules = {AppModule.class, ViewModule.class, PresenterModule.class})
+@Component(modules = {AppModule.class, ModelModule.class, PresenterModule.class})
 public interface ViewComponent {
     void inject(HomeActivity activity);
     void inject(FragmentBase fragment);

@@ -5,9 +5,9 @@ import android.app.Application;
 import com.tshevchuk.prayer.BuildConfig;
 import com.tshevchuk.prayer.di.AppModule;
 import com.tshevchuk.prayer.di.DaggerViewComponent;
+import com.tshevchuk.prayer.di.ModelModule;
 import com.tshevchuk.prayer.di.PresenterModule;
 import com.tshevchuk.prayer.di.ViewComponent;
-import com.tshevchuk.prayer.di.ViewModule;
 
 import timber.log.Timber;
 
@@ -23,7 +23,7 @@ public class PrayerBookApplication extends Application {
 
 		viewComponent = DaggerViewComponent.builder()
 				.appModule(new AppModule(this))
-				.viewModule(new ViewModule())
+				.modelModule(new ModelModule())
 				.presenterModule(new PresenterModule())
 				.build();
 		if (BuildConfig.DEBUG) {

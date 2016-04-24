@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.di;
 
 import android.app.Application;
+import android.content.Context;
 
 import javax.inject.Singleton;
 
@@ -24,4 +25,12 @@ public class AppModule {
     Application providesApplication() {
         return application;
     }
+
+
+    @Provides
+    @Singleton
+    Context provideContext(Application application) {
+        return application;
+    }
+
 }

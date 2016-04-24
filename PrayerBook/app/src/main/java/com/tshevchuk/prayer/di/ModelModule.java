@@ -29,17 +29,11 @@ import dagger.Provides;
  * Created by taras on 20.03.16.
  */
 @Module
-public class ViewModule {
+public class ModelModule {
     @Provides
     @Singleton
     Catalog provideCatalog(Application application) {
         return new Catalog(application);
-    }
-
-    @Provides
-    @Singleton
-    Context provideContext(Application application) {
-        return application;
     }
 
     @Provides
