@@ -38,6 +38,7 @@ public class TextViewPresenter extends BasePresenter<TextViewView> {
         super.attachView(mvpView);
         menuItemPrayer = (MenuItemPrayer) dataManager.getMenuItem(id);
         getMvpView().setMenuItem(menuItemPrayer);
+        getMvpView().setFontSizeSp(dataManager.getTextFontSizeSp());
         loadPrayer();
     }
 

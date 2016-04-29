@@ -2,6 +2,7 @@ package com.tshevchuk.prayer.presentation.prayer_text_view;
 
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -131,6 +132,11 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
                 }
             }
         });
+    }
+
+    @Override
+    public void setFontSizeSp(int textFontSizeSp) {
+        tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, textFontSizeSp);
     }
 
     @Override
