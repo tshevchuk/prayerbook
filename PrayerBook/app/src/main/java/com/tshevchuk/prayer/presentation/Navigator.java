@@ -134,6 +134,7 @@ public class Navigator {
         activity.sendBroadcast(addIntent);
     }
 
+    @DebugLog
     public void handleUpAction(HomePresenter homePresenter) {
         HomeActivity activity = getHomeActivity(homePresenter);
         FragmentManager fragmentManager = activity.getSupportFragmentManager();

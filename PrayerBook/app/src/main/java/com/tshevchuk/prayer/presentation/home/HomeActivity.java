@@ -181,7 +181,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void onBackPressed() {
         Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         if (curFragment != null && curFragment instanceof FragmentBase
-                && ((FragmentBase) curFragment).goBack()) {
+                && ((FragmentBase) curFragment).onBackButtonPress()) {
             return;
         }
         super.onBackPressed();

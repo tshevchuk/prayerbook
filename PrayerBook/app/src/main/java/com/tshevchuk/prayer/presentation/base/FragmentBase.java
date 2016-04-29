@@ -85,10 +85,6 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         getPresenter().detachView();
     }
 
-    public boolean goBack() {
-        return false;
-    }
-
     protected boolean isNavigationDrawerEnabled() {
         return false;
     }

@@ -158,6 +158,11 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     }
 
     @Override
+    public boolean onUpButtonPress() {
+        return presenter.onUpButtonPress();
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
@@ -193,11 +198,6 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     @Override
     public String getErrorReportInfo() {
         return super.getErrorReportInfo() + "; URL: " + wvContent.getUrl();
-    }
-
-    @Override
-    public boolean onUpButtonPress() {
-        return presenter.onUpButtonPress();
     }
 
     @DebugLog
