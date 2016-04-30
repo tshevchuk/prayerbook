@@ -52,7 +52,7 @@ public class Utils {
 		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
-	public static String getDeviceInfo(Context context) {
+	public String getDeviceInfo() {
 		DisplayMetrics metrics = new DisplayMetrics();
 		((WindowManager) context.getSystemService(Context.WINDOW_SERVICE))
 				.getDefaultDisplay().getMetrics(metrics);

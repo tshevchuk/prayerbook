@@ -15,7 +15,9 @@ public interface HomeView extends BaseView {
 
     byte[] createScreenshotJpeg();
 
-    void sendErrorReport(String email, File imageFile);
+    void sendErrorReport(String email, File imageFile, File textFile);
 
     void setNightMode(boolean nightMode);
+
+    String getCurrentScreenInfoForErrorReport();
 }

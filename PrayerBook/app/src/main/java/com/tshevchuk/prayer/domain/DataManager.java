@@ -1,8 +1,8 @@
 package com.tshevchuk.prayer.domain;
 
 import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.FileManager;
 import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.data.ScreenshotFileManager;
 import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
 import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.model.CalendarDay;
@@ -28,18 +28,18 @@ public class DataManager {
     private final PreferenceManager preferenceManager;
     private final TextsRepository textsRepository;
     private final CerkovnyyCalendarRepository cerkovnyyCalendarRepository;
-    private final ScreenshotFileManager screenshotFileManager;
+    private final FileManager fileManager;
 
     @Inject
     public DataManager(Catalog catalog, PreferenceManager preferenceManager,
                        TextsRepository textsRepository,
                        CerkovnyyCalendarRepository cerkovnyyCalendarRepository,
-                       ScreenshotFileManager screenshotFileManager) {
+                       FileManager fileManager) {
         this.catalog = catalog;
         this.preferenceManager = preferenceManager;
         this.textsRepository = textsRepository;
         this.cerkovnyyCalendarRepository = cerkovnyyCalendarRepository;
-        this.screenshotFileManager = screenshotFileManager;
+        this.fileManager = fileManager;
     }
 
     public Set<String> getAllPrayersReferences() {
@@ -102,7 +102,11 @@ public class DataManager {
     }
 
     public File storeErrorReportScreenshot(byte[] screenshot) {
-        return screenshotFileManager.storeErrorReportScreenshot(screenshot);
+        return fileManager.storeErrorReportScreenshot(screenshot);
+    }
+
+    public File storeErrorReportDeviceInfoAttachment(String s) {
+        return fileManager.storeErrorReportDeviceInfoAttachment(s);
     }
 
     public boolean isNightMode() {

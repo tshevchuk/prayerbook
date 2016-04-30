@@ -1,5 +1,8 @@
 package com.tshevchuk.prayer.presentation.home;
 
+import android.content.Context;
+
+import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
@@ -15,14 +18,19 @@ public class HomePresenter extends BasePresenter<HomeView> {
     private final Navigator navigator;
     private final DataManager dataManager;
     private final AnalyticsManager analyticsManager;
+    private final Utils utils;
+    private final Context context;
     private boolean restoringInstanceState;
     private int paramScreenId;
 
-    public HomePresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager) {
+    public HomePresenter(Navigator navigator, DataManager dataManager,
+                         AnalyticsManager analyticsManager, Utils utils, Context context) {
         super(analyticsManager, navigator);
         this.navigator = navigator;
         this.dataManager = dataManager;
         this.analyticsManager = analyticsManager;
+        this.utils = utils;
+        this.context = context;
     }
 
     @Override
@@ -66,7 +74,15 @@ public class HomePresenter extends BasePresenter<HomeView> {
             imageFile = dataManager.storeErrorReportScreenshot(screenshot);
         }
 
-        getMvpView().sendErrorReport("taras.shevchuk@gmail.com", imageFile);
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nApplication: ").append(utils.getApplicationNameAndVersion())
+                .append(' ').append(context.getPackageName());
+        sb.append("\n").append(getMvpView().getCurrentScreenInfoForErrorReport());
+        sb.append("\n").append(utils.getDeviceInfo());
+
+        File deviceInfoFile = dataManager.storeErrorReportDeviceInfoAttachment(sb.toString());
+
+        getMvpView().sendErrorReport("taras.shevchuk@gmail.com", imageFile, deviceInfoFile);
 
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Повідомити про помилку");
     }

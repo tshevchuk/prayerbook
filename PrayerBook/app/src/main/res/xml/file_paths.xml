@@ -1,5 +1,5 @@
 <paths>
     <cache-path
-        name="error_report_screenshots"
-        path="error_report_screenshots/" />
+        name="error_reports_attachments"
+        path="error_reports_attachments/" />
 </paths>

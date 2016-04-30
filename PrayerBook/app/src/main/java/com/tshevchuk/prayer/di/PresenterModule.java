@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.di;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.DataManager;
@@ -93,7 +94,7 @@ public class PresenterModule {
 
     @Provides
     HomePresenter provideHomePresenter(Navigator navigator, DataManager dataManager,
-                                       AnalyticsManager analyticsManager) {
-        return new HomePresenter(navigator, dataManager, analyticsManager);
+                                       AnalyticsManager analyticsManager, Utils utils, Context context) {
+        return new HomePresenter(navigator, dataManager, analyticsManager, utils, context);
     }
 }

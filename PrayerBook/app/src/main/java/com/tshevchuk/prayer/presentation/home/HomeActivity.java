@@ -4,6 +4,7 @@ import android.app.UiModeManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -38,6 +39,7 @@ import org.codechimp.apprater.AppRater;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -47,8 +49,6 @@ import io.fabric.sdk.android.Fabric;
 public class HomeActivity extends AppCompatActivity implements HomeView {
     public final static String PARAM_SCREEN_ID = "screen_id";
     private static final String TAG = HomeActivity.class.getName();
-    @Inject
-    Utils utils;
     @Inject
     HomePresenter presenter;
     @Inject
@@ -301,22 +301,42 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     }
 
     @Override
-    public void sendErrorReport(String email, File imageFile) {
-        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+    public void sendErrorReport(String email, File imageFile, File textFile) {
+        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND_MULTIPLE);
         emailIntent.setType("message/rfc822");
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
                 new String[]{email});
         emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
                 getString(R.string.home__error_report_subject));
 
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+                getString(R.string.home__error_report_please_describe_error) + "\n\n\n\n");
+
+        ArrayList<Uri> uris = new ArrayList<Uri>();
+        if (imageFile != null) {
+            uris.add(FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile));
+        }
+        if (textFile != null) {
+            uris.add(FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", textFile));
+        }
+
+        emailIntent.putExtra(Intent.EXTRA_STREAM, uris);
+        startActivity(Intent.createChooser(emailIntent, getString(R.string.home__error_report_send_error_report)));
+    }
+
+    @Override
+    public void setNightMode(boolean nightMode) {
+        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+        uiModeManager.setNightMode(nightMode ? UiModeManager.MODE_NIGHT_YES
+                : UiModeManager.MODE_NIGHT_NO);
+    }
+
+    @Override
+    public String getCurrentScreenInfoForErrorReport() {
         StringBuilder sb = new StringBuilder();
-        sb.append(getString(R.string.home__error_report_please_describe_error)).append("\n\n\n\n");
-        sb.append("----------------------------");
-        sb.append("\nApplication: ").append(utils.getApplicationNameAndVersion())
-                .append(' ').append(getPackageName());
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            sb.append("\nTitle: ").append(actionBar.getTitle());
+            sb.append("Title: ").append(actionBar.getTitle());
         }
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         sb.append("\nFragment: ").append(f.getClass().getName());
@@ -326,22 +346,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                 sb.append("\nCurrent Screen: ").append(screenInfo);
             }
         }
-        sb.append("\n").append(Utils.getDeviceInfo(getApplicationContext()));
-
-        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
-        if (imageFile != null) {
-            emailIntent.putExtra(Intent.EXTRA_STREAM,
-                    FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile)
-            );
-        }
-        startActivity(Intent.createChooser(emailIntent, getString(R.string.home__error_report_send_error_report)));
-    }
-
-    @Override
-    public void setNightMode(boolean nightMode) {
-        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-        uiModeManager.setNightMode(nightMode ? UiModeManager.MODE_NIGHT_YES
-                : UiModeManager.MODE_NIGHT_NO);
+        return sb.toString();
     }
 
     public void restoreToolbarState() {
