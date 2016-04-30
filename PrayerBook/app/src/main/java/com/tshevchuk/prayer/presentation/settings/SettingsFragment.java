@@ -90,6 +90,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         super.onPause();
         getPreferenceScreen().getSharedPreferences().
                 unregisterOnSharedPreferenceChangeListener(this);
+        activity.restoreToolbarState();
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -55,6 +56,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
+    private AppBarLayout appBarLayout;
 
     @DebugLog
     @Override
@@ -71,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -339,5 +342,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
         uiModeManager.setNightMode(nightMode ? UiModeManager.MODE_NIGHT_YES
                 : UiModeManager.MODE_NIGHT_NO);
+    }
+
+    public void restoreToolbarState() {
+        appBarLayout.setExpanded(true, true);
     }
 }

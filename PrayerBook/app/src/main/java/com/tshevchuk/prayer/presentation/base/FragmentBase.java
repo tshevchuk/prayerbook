@@ -69,6 +69,12 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         analyticsManager.sendScreenEvent(getClass().getSimpleName());
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        activity.restoreToolbarState();
+    }
+
     @DebugLog
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
