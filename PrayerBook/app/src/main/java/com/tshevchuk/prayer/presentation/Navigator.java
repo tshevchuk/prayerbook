@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.tshevchuk.prayer.R;
@@ -73,9 +74,9 @@ public class Navigator {
         BaseView mvpView = presenter.getMvpView();
         if (mvpView instanceof HomeActivity) {
             return (HomeActivity) mvpView;
-        } else if (mvpView instanceof FragmentBase) {
-            FragmentBase fragmentBase = (FragmentBase) mvpView;
-            return (HomeActivity) fragmentBase.getActivity();
+        } else if (mvpView instanceof Fragment) {
+            Fragment fragment = (Fragment) mvpView;
+            return (HomeActivity) fragment.getActivity();
         }
         throw new IllegalStateException("Wrong activity or fragment, actual "
                 + mvpView.getClass().getName());
