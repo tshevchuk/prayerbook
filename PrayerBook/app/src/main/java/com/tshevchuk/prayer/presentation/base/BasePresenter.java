@@ -7,6 +7,8 @@ import com.tshevchuk.prayer.presentation.Navigator;
 import java.util.BitSet;
 import java.util.Locale;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by taras on 22.03.16.
  */
@@ -42,11 +44,13 @@ public abstract class BasePresenter<T extends BaseView> {
         if (!isViewAttached()) throw new MvpViewNotAttachedException();
     }
 
+    @DebugLog
     protected void showProgress(int progressId) {
         progressStates.set(progressId, true);
         getMvpView().showProgress();
     }
 
+    @DebugLog
     protected void hideProgress(int progressId) {
         progressStates.set(progressId, false);
         if (progressStates.isEmpty()) {
