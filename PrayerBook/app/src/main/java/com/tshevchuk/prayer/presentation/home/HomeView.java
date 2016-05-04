@@ -20,4 +20,6 @@ public interface HomeView extends BaseView {
     void setNightMode(boolean nightMode);
 
     String getCurrentScreenInfoForErrorReport();
+
+    void enableToolbarHidingOnScroll(boolean hideToolbarOnScrolling);
 }

@@ -48,6 +48,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
         }
 
         getMvpView().setNightMode(dataManager.isNightMode());
+        getMvpView().enableToolbarHidingOnScroll(dataManager.isHideToolbarOnScrolling());
     }
 
     public void onUpPressed() {

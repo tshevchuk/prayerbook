@@ -20,6 +20,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by taras on 23.03.16.
  */
@@ -60,6 +62,11 @@ public class DataManager {
 
     public boolean isShowOfficialUGCC() {
         return preferenceManager.isShowOfficialUgccEnabled();
+    }
+
+    @DebugLog
+    public boolean isHideToolbarOnScrolling() {
+        return preferenceManager.isHideToolbarOnScrolling();
     }
 
     public void updateRecentlyUsedBecauseItemOpened(int id) {

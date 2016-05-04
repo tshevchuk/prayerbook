@@ -111,6 +111,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 presenter.onSettingsChanged(key, sharedPreferences.getString(key, ""));
                 getActivity().recreate();
                 break;
+            case PreferenceManager.PREF_HIDE_TOOLBAR_ON_SCROLLING:
+                presenter.onSettingsChanged(key,
+                        String.valueOf(sharedPreferences.getBoolean(key, false)));
+                getActivity().recreate();
+                break;
             case PreferenceManager.PREF_DEFAULT_SCREENS:
                 presenter.onSettingsChanged(key, sharedPreferences.getString(key, ""));
                 break;

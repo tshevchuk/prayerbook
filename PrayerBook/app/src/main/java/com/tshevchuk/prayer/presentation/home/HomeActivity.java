@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private AppBarLayout appBarLayout;
+    private Toolbar toolbar;
 
     @DebugLog
     @Override
@@ -72,7 +73,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         setProgressBarIndeterminateVisibility(false);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 
         setSupportActionBar(toolbar);
@@ -347,6 +348,18 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
             }
         }
         return sb.toString();
+    }
+
+    @DebugLog
+    @Override
+    public void enableToolbarHidingOnScroll(boolean hideToolbarOnScrolling) {
+        int scrollFlags = hideToolbarOnScrolling ?
+                (AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                        | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
+                        | AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP)
+                : 0;
+        ((AppBarLayout.LayoutParams) toolbar.getLayoutParams()).setScrollFlags(scrollFlags);
+
     }
 
     public void restoreToolbarState() {

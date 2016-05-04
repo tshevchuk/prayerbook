@@ -55,6 +55,12 @@
     <string name="search__enter_search_phrase">Введіть текст для пошуку</string>
 
     <string name="settings__settings">Налаштування</string>
+    <string name="settings__night_mode">Нічний режим</string>
+    <string name="settings__font_size">Розмір шрифта</string>
+    <string name="settings__show_on_app_start">Відкривати при старті програми</string>
+    <string name="settings__show_official_ugcc_texts">Відображати офіційні тексти УГКЦ</string>
+    <string name="settings__about_app">Про програму</string>
+    <string name="settings__hide_toolbar_on_scrolling">Ховати панель інструментів під час прокрутки</string>
 
     <string name="often_used__enter_search_phrase">Введіть текст для пошуку</string>
 

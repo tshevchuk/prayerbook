@@ -10,6 +10,7 @@ public class PreferenceManager {
 	public static final String PREF_ABOUT_APP = "pref_aboutApp";
 	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
 	public static final String PREF_SHOW_OFFICIAL_UGCC = "pref_showOfficialUGCC";
+	public static final String PREF_HIDE_TOOLBAR_ON_SCROLLING = "pref_hideToolbarOnScrolling";
 	private static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
@@ -28,6 +29,10 @@ public class PreferenceManager {
 
 	public boolean isShowOfficialUgccEnabled() {
 		return sharedPrefs.getBoolean(PREF_SHOW_OFFICIAL_UGCC, false);
+	}
+
+	public boolean isHideToolbarOnScrolling() {
+		return sharedPrefs.getBoolean(PREF_HIDE_TOOLBAR_ON_SCROLLING, false);
 	}
 
 	public int getFontSizeSp() {

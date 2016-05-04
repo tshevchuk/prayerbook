@@ -4,31 +4,36 @@
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="pref_nightMode"
-        android:title="Нічний режим" />
+        android:title="@string/settings__night_mode" />
 
     <ListPreference
         android:defaultValue="20"
-        android:dialogTitle="Розмір шрифта"
+        android:dialogTitle="@string/settings__font_size"
         android:entries="@array/TextFontSizes"
         android:entryValues="@array/TextFontSizes"
         android:key="pref_textFontSize"
-        android:title="Розмір шрифта" />
+        android:title="@string/settings__font_size" />
 
     <ListPreference
         android:defaultValue="400"
-        android:dialogTitle="Відкривати при старті програми"
+        android:dialogTitle="@string/settings__show_on_app_start"
         android:entries="@array/DefaultScreens"
         android:entryValues="@array/DefaultScreensIds"
         android:key="pref_defaultScreens"
-        android:title="Відкривати при старті програми" />
+        android:title="@string/settings__show_on_app_start" />
 
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="pref_showOfficialUGCC"
-        android:title="Відображати офіційні тексти УГКЦ" />
+        android:title="@string/settings__show_official_ugcc_texts" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_hideToolbarOnScrolling"
+        android:title="@string/settings__hide_toolbar_on_scrolling" />
 
     <Preference
         android:key="pref_aboutApp"
-        android:title="Про програму" />
+        android:title="@string/settings__about_app" />
 
 </PreferenceScreen>
