@@ -1,0 +1,522 @@
+{
+  "20270102": {
+    "day": "<i>Передсвяття Різдва Христового</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -123
+  },
+  "20270106": {
+    "day": "<i>Навечір'я Різдва Христового</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -119
+  },
+  "20270107": {
+    "day": "<b><r>⊕ РІЗДВО ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -118
+  },
+  "20270108": {
+    "day": "<b><r>⊕ Собор Пресвятої Богородиці і св. Йосифа Обручника</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -117
+  },
+  "20270109": {
+    "day": "<r>Первомученика і архидиякона Стефана</r>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -116
+  },
+  "20270113": {
+    "day": "<i>Віддання Різдва Христового</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -112
+  },
+  "20270114": {
+    "day": "<b><r>⊕ Обрізання ГНІХ і св. Василія Великого</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -111
+  },
+  "20270115": {
+    "day": "<i>Передсвяття Богоявління</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -110
+  },
+  "20270118": {
+    "day": "<i>Навечір'я Богоявління</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -107
+  },
+  "20270119": {
+    "day": "<b><r>⊕ БОГОЯВЛІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -106
+  },
+  "20270127": {
+    "day": "<i>Віддання Богоявління</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -98
+  },
+  "20270214": {
+    "day": "<i>Передсв. Стрітення</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -80
+  },
+  "20270215": {
+    "day": "<b><r>⊕ СТРІТЕННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -79
+  },
+  "20270221": {
+    "day": "<i>Віддання Стрітення</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -73
+  },
+  "20270224": {
+    "day": "<i><r>Митаря і Фарисея</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -70
+  },
+  "20270303": {
+    "day": "<i><r>Блудного сина</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -63
+  },
+  "20270309": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -57
+  },
+  "20270310": {
+    "day": "<i><r>М'ясопусна</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -56
+  },
+  "20270317": {
+    "day": "<i><r>Сиропусна</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -49
+  },
+  "20270318": {
+    "day": "<i>Початок Великого Посту</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -48
+  },
+  "20270324": {
+    "day": "<i><r>1 посту. Неділя Православ'я</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -42
+  },
+  "20270330": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -36
+  },
+  "20270331": {
+    "day": "<i><r>2 Посту</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -35
+  },
+  "20270406": {
+    "day": "<i>Передсв. Благовіщення</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -29
+  },
+  "20270407": {
+    "day": "<b><r>⊕ БЛАГОВІЩЕННЯ ПРЕЧИСТОЇ ДІВИ МАРІЇ</r></b>, <i><r>3 Посту. Хрестопоклінна</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -28
+  },
+  "20270408": {
+    "day": "<i>Віддання Благовіщення</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -27
+  },
+  "20270413": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -22
+  },
+  "20270414": {
+    "day": "<i><r>4 Посту</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -21
+  },
+  "20270417": {
+    "day": "<i>Поклони</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -18
+  },
+  "20270420": {
+    "day": "<i>Акафістова</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -15
+  },
+  "20270421": {
+    "day": "<i><r>5 Посту</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -14
+  },
+  "20270427": {
+    "day": "<i>Лазарева</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -8
+  },
+  "20270428": {
+    "day": "<b><r>КВІТНА</r></b>, <b><r>† ВХІД ГОСПОДНІЙ В ЄРУСАЛИМ</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -7
+  },
+  "20270429": {
+    "day": "<i>Страсний тиждень</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -6
+  },
+  "20270502": {
+    "day": "ВЕЛ. ЧЕТВЕР, <i>Страсті</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -3
+  },
+  "20270503": {
+    "day": "<b><r>ВЕЛ. П'ЯТНИЦЯ</r></b>, <i><r>Плащаниця</r></i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -2
+  },
+  "20270504": {
+    "day": "ВЕЛ. СУБОТА",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -1
+  },
+  "20270505": {
+    "day": "<b><r>⊕ ВОСКРЕСІННЯ ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 0
+  },
+  "20270506": {
+    "day": "<b><r>СВ. ПОНЕДІЛОК</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 1
+  },
+  "20270507": {
+    "day": "<b><r>СВ. ВІВТОРОК</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 2
+  },
+  "20270512": {
+    "day": "<i><r>Томина</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 7
+  },
+  "20270519": {
+    "day": "<i><r>Мироносиць</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 14
+  },
+  "20270526": {
+    "day": "<i><r>Розслабленого</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 21
+  },
+  "20270529": {
+    "day": "<i>Переполовення</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 24
+  },
+  "20270602": {
+    "day": "<i><r>Самарянки</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 28
+  },
+  "20270609": {
+    "day": "<i><r>Сліпородженого</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 35
+  },
+  "20270613": {
+    "day": "<b><r>⊕ ВОЗНЕСІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 39
+  },
+  "20270616": {
+    "day": "<i><r>Св. Отців І Вселенського Собору</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 42
+  },
+  "20270622": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 48
+  },
+  "20270623": {
+    "day": "<b><r>⊕ ЗІСЛАННЯ СВЯТОГО ДУХА</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 49
+  },
+  "20270624": {
+    "day": "<b><r>⊕ ПРЕСВЯТОЇ ТРОЙЦІ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 50
+  },
+  "20270627": {
+    "day": "<b><r>† Свщмч. Миколая Чарнецького і 24-х укр. мучч.; муч. Омеляна Ковча;</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 53
+  },
+  "20270629": {
+    "day": "<i>Віддання Зіслання</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 55
+  },
+  "20270630": {
+    "day": "<i><r>1-а Нд. по Зісланні. Всіх святих</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 56
+  },
+  "20270701": {
+    "day": "<i>Початок Посту Святих Апостолів (Петрівки)</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 57
+  },
+  "20270704": {
+    "day": "<b><r>⊕ Пресвятої Євхаристії</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 60
+  },
+  "20270707": {
+    "day": "<i><r>2-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 63
+  },
+  "20270712": {
+    "day": "<b><r>† Христа Чоловіколюбця</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 68
+  },
+  "20270713": {
+    "day": "<b>† Співстр. Пресв. Богородиці</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 69
+  },
+  "20270714": {
+    "day": "<i><r>3-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 70
+  },
+  "20270721": {
+    "day": "<i><r>4-а Нд. по Зісланні. Всім святим Українського народу</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 77
+  },
+  "20270728": {
+    "day": "<i><r>5-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 84
+  },
+  "20270804": {
+    "day": "<i><r>6-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 91
+  },
+  "20270811": {
+    "day": "<i><r>7-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 98
+  },
+  "20270814": {
+    "day": "<i>Початок Успінського Посту (Спасівки)</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 101
+  },
+  "20270818": {
+    "day": "<i><r>8-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 105
+  },
+  "20270819": {
+    "day": "<b><r>⊕ ПРЕОБРАЖЕННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 106
+  },
+  "20270825": {
+    "day": "<i><r>9-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 112
+  },
+  "20270826": {
+    "day": "<i>Віддання Преображення</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 113
+  },
+  "20270827": {
+    "day": "<i>Передсв. Успіння</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 114
+  },
+  "20270828": {
+    "day": "<b><r>⊕ УСПІННЯ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 115
+  },
+  "20270901": {
+    "day": "<i><r>10-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 119
+  },
+  "20270905": {
+    "day": "<i>Віддання Успіння</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 123
+  },
+  "20270908": {
+    "day": "<i><r>11-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 126
+  },
+  "20270911": {
+    "day": "<b><r>⊕ Усікновення голови св. Йоана Христителя</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 129
+  },
+  "20270913": {
+    "day": "<b>† Покладення пояса Пресв. Богородиці</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 131
+  },
+  "20270914": {
+    "day": "<b>† Початок Церковного року</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 132
+  },
+  "20270915": {
+    "day": "<i><r>12-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 133
+  },
+  "20270920": {
+    "day": "<i>Передсв. Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 138
+  },
+  "20270921": {
+    "day": "<b><r>⊕ РІЗДВО ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 139
+  },
+  "20270922": {
+    "day": "<i><r>13-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 140
+  },
+  "20270925": {
+    "day": "<i>Віддання Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 143
+  },
+  "20270926": {
+    "day": "<i>Передсвяття Воздвиження</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 144
+  },
+  "20270927": {
+    "day": "<b><r>⊕ ВОЗДВИЖЕННЯ ХРЕСТА ГОСПОДНЬОГО</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 145
+  },
+  "20270929": {
+    "day": "<i><r>14-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 147
+  },
+  "20271004": {
+    "day": "<i>Віддання Воздвиження</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 152
+  },
+  "20271006": {
+    "day": "<i><r>15-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 154
+  },
+  "20271013": {
+    "day": "<i><r>16-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 161
+  },
+  "20271014": {
+    "day": "<b><r>⊕ Покров Пресвятої Богородиці</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 162
+  },
+  "20271020": {
+    "day": "<i><r>17-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 168
+  },
+  "20271027": {
+    "day": "<i><r>18-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 175
+  },
+  "20271103": {
+    "day": "<i><r>19-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 182
+  },
+  "20271110": {
+    "day": "<i><r>20-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 189
+  },
+  "20271117": {
+    "day": "<i><r>21-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 196
+  },
+  "20271124": {
+    "day": "<i><r>22-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 203
+  },
+  "20271128": {
+    "day": "<i>Початок Різвяного Посту (Пилипівки)</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 207
+  },
+  "20271201": {
+    "day": "<i><r>23-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 210
+  },
+  "20271203": {
+    "day": "<i>Передсв. Введення</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 212
+  },
+  "20271204": {
+    "day": "<b><r>⊕ ВВЕДЕННЯ В ХРАМ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 213
+  },
+  "20271208": {
+    "day": "<i>Віддання Введення</i>, <i><r>24-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 217
+  },
+  "20271215": {
+    "day": "<i><r>25-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 224
+  },
+  "20271221": {
+    "day": "<i>Передсв. Непороч. Зачаття Богородиці</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 230
+  },
+  "20271222": {
+    "day": "<b><r>⊕ Непорочне Зачаття Пресвятої Богородиці</r></b>, <i><r>26-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 231
+  },
+  "20271229": {
+    "day": "<i><r>27-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 238
+  }
+}

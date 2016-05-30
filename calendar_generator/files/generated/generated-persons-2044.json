@@ -1,0 +1,1752 @@
+{
+  "20440101": {
+    "person": "Муч. Боніфатія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -114
+  },
+  "20440102": {
+    "person": "Свщмч. Ігнатія Богоносця",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -113
+  },
+  "20440103": {
+    "person": "Муч. Юліяни",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -112
+  },
+  "20440104": {
+    "person": "Вмуч. Анастасії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -111
+  },
+  "20440105": {
+    "person": "10-х мучч. Критських",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -110
+  },
+  "20440106": {
+    "person": "Препмуч Євгенії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -109
+  },
+  "20440110": {
+    "person": "Мучч., спалених у Нікомидії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -105
+  },
+  "20440111": {
+    "person": "Св. дітей, убитих у Вифлеємі; преп. Маркела",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -104
+  },
+  "20440112": {
+    "person": "Муч. Анісії; преп. Зотика, пресвіт.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -103
+  },
+  "20440113": {
+    "person": "Преп. Меланії Римлянки",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -102
+  },
+  "20440115": {
+    "person": "Св. Сильвестра, Папи",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -100
+  },
+  "20440116": {
+    "person": "Прор. Малахії; муч. Гордія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -99
+  },
+  "20440117": {
+    "person": "Собор 70 апп.; преп. Теоктиста, ігумена",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -98
+  },
+  "20440118": {
+    "person": "Мучч. Теопемпта й Теони",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -97
+  },
+  "20440120": {
+    "person": "Собор св. Йоана Христителя",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -95
+  },
+  "20440121": {
+    "person": "Преп. Юрія Хозевіта; преп. Домініки; іспов. Еміліяна",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -94
+  },
+  "20440122": {
+    "person": "Муч. Полієвкта",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -93
+  },
+  "20440123": {
+    "person": "Свщмучч. Пратулинських; Св. Григорія Ніс.; препп. Дометіяна і Маркіяна",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -92
+  },
+  "20440124": {
+    "person": "<b>† Преп. Теодосія Великого</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20440125": {
+    "person": "Муч. Татіяни",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -90
+  },
+  "20440126": {
+    "person": "Мучч. Єрмила і Стратоніка",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -89
+  },
+  "20440127": {
+    "person": "Препмучч. Отців, убитих у Синаї",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -88
+  },
+  "20440128": {
+    "person": "Препп. Павла Тебського та Івана Кущника",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -87
+  },
+  "20440129": {
+    "person": "Поклоніння кайданам св. ап. Петра",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -86
+  },
+  "20440130": {
+    "person": "<b>† Преп. Антонія Великого</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -85
+  },
+  "20440131": {
+    "person": "Свв. Атанасія і Кирила, аєпп. Олександрійських",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -84
+  },
+  "20440201": {
+    "person": "Преп. Макарія Єгипетського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -83
+  },
+  "20440202": {
+    "person": "<b>† Преп. Євтимія Великого</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -82
+  },
+  "20440203": {
+    "person": "Іспов. Максима; муч. Неофіта",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -81
+  },
+  "20440204": {
+    "person": "Ап. Тимотея; препмуч. Анастасія Перського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -80
+  },
+  "20440205": {
+    "person": "Свщмч. Климента, єп.; муч. Агатангела",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -79
+  },
+  "20440206": {
+    "person": "Преп. Ксенії Римлянки",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -78
+  },
+  "20440207": {
+    "person": "<b>Свят. Григорія Богослова, аєп. Царгород.</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -77
+  },
+  "20440208": {
+    "person": "Препп. Ксенофонта і дружини його Марії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -76
+  },
+  "20440209": {
+    "person": "<b>† Перенес. мощей свят. Йоана Золотоустого</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -75
+  },
+  "20440210": {
+    "person": "Преп. Єфрема Сирійця",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -74
+  },
+  "20440211": {
+    "person": "Перенес. мощей свщмуч. Ігнатія Богоносця",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -73
+  },
+  "20440212": {
+    "person": "<b><r>⊕ Трьох Святителів: Василія, Григорія, Йоана Золотоустого</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -72
+  },
+  "20440213": {
+    "person": "Безсрібн. і чудотв. Кира й Івана",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -71
+  },
+  "20440214": {
+    "person": "Муч. Трифона",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20440216": {
+    "person": "Симеона Богоприємця і Анни Пророчиці",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -68
+  },
+  "20440217": {
+    "person": "Преп. Ісидора Пилюсіотського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -67
+  },
+  "20440218": {
+    "person": "Муч. Агафії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -66
+  },
+  "20440219": {
+    "person": "Свят. Вукола, єп.; свящмуч. Сілвана, єп.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -65
+  },
+  "20440220": {
+    "person": "Свят. Партенія, єп. Лампсакійського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -64
+  },
+  "20440221": {
+    "person": "Вмуч. Теодора Стратилата; прор. Захарії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20440222": {
+    "person": "Муч. Никифора",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -62
+  },
+  "20440223": {
+    "person": "Муч. Харалампія",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -61
+  },
+  "20440224": {
+    "person": "Свщмч. Власія, єп. Севастійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -60
+  },
+  "20440225": {
+    "person": "Свят. Мелетія, аєп. Антіохійського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -59
+  },
+  "20440226": {
+    "person": "Преп. Мартиніяна",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -58
+  },
+  "20440227": {
+    "person": "<b>† Рівноап. Кирила, учит. слов'ян</b>, преп. Авксентія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -57
+  },
+  "20440228": {
+    "person": "Ап. Онисима",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20440229": {
+    "person": "Мучч. Памфіла, Порфірія та ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -55
+  },
+  "20440301": {
+    "person": "Вмуч. Теодора Тирона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -54
+  },
+  "20440302": {
+    "person": "Свят. Льва, Папи Римського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -53
+  },
+  "20440303": {
+    "person": "Ап. Архипа",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -52
+  },
+  "20440304": {
+    "person": "Преп. Льва, єп. Катанського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -51
+  },
+  "20440305": {
+    "person": "Преп. Тимотея; свят. Євстатія, аєп. Антіох.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -50
+  },
+  "20440306": {
+    "person": "Віднайд. мощів мучч., що в Євгенії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20440307": {
+    "person": "Свщмч. Полікарпа, єп. Смирнського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -48
+  },
+  "20440308": {
+    "person": "<b>† Перше і друге знайдення голови Йоана Христ.</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -47
+  },
+  "20440309": {
+    "person": "Свят. Тарасія, аєп. Царгород.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -46
+  },
+  "20440310": {
+    "person": "Свят. Порфірія, єп. Газького",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -45
+  },
+  "20440311": {
+    "person": "Іспов. Прокопія Декаполіта",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -44
+  },
+  "20440312": {
+    "person": "Іспов. Василія, посника",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -43
+  },
+  "20440313": {
+    "person": "Преп. Касіяна",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20440314": {
+    "person": "Препмуч. Євдокії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -41
+  },
+  "20440315": {
+    "person": "Свщмч. Теодота, єп. Киринейського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -40
+  },
+  "20440316": {
+    "person": "Мучч. Євтропія, Клеоніка й Василіска",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -39
+  },
+  "20440317": {
+    "person": "Преп. Герасима, що в Йордані",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -38
+  },
+  "20440318": {
+    "person": "Муч. Конона",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -37
+  },
+  "20440319": {
+    "person": "42-х мучч. Аморійських",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -36
+  },
+  "20440320": {
+    "person": "Свщмучч. Василія, Єфрема, Капітона й ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20440321": {
+    "person": "Свят. Теофілакта, єп. Нікомидійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -34
+  },
+  "20440322": {
+    "person": "<b>† 40 мучч. Севастійських</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -33
+  },
+  "20440323": {
+    "person": "Мучч. Кондрата, Кипріяна, Анекта і Крискента",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -32
+  },
+  "20440324": {
+    "person": "Свят. Софронія, патр. Єрусалимського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -31
+  },
+  "20440325": {
+    "person": "Іспов. Теофана Сигріянського; свят. Григорія, Папи",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -30
+  },
+  "20440326": {
+    "person": "Перенес. мощей свят. Никифора, патр. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -29
+  },
+  "20440327": {
+    "person": "Преп. Венедикта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20440328": {
+    "person": "Мучч. Агапія і шістьох ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -27
+  },
+  "20440329": {
+    "person": "Мучч. Савина й Папи",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -26
+  },
+  "20440330": {
+    "person": "Преп. Олексія, чоловіка Божого",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -25
+  },
+  "20440331": {
+    "person": "Свят. Кирила, аєп. Єрусалимського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -24
+  },
+  "20440401": {
+    "person": "Мучч. Хризанта і Дарії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -23
+  },
+  "20440402": {
+    "person": "Препп. Отців, убитих у монастирі св. Сави",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20440403": {
+    "person": "Іспов. Якова, єп. Катанського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20440404": {
+    "person": "Свящмуч. Василія Анкірського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -20
+  },
+  "20440405": {
+    "person": "Мучч. Нікона та його учнів, з ним замучених",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -19
+  },
+  "20440406": {
+    "person": "Преп. Захарії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -18
+  },
+  "20440408": {
+    "person": "Собор арх. Гавриїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -16
+  },
+  "20440409": {
+    "person": "Муч. Матрони Солунської",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -15
+  },
+  "20440410": {
+    "person": "Преп. Іларіона Нового; преп. Стефана, чудотв.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20440411": {
+    "person": "Свщмчч. Марка й Кирила",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -13
+  },
+  "20440412": {
+    "person": "Преп. Івана Ліста",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -12
+  },
+  "20440413": {
+    "person": "Св. Іпатія, єп. Гангренського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -11
+  },
+  "20440414": {
+    "person": "Преп. Марії Єгипетської",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -10
+  },
+  "20440415": {
+    "person": "Преп. Тита, чудотворця",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -9
+  },
+  "20440416": {
+    "person": "Преп. Микити, ігум. Мідікійського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -8
+  },
+  "20440417": {
+    "person": "Препп. Йосифа Піснописця і Юрія, що в Малеї",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -7
+  },
+  "20440418": {
+    "person": "Мучч. Теодула, Агатопода й ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -6
+  },
+  "20440419": {
+    "person": "<b>† Св. Методія, учит. слов'ян</b>, св. Євтихія",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -5
+  },
+  "20440420": {
+    "person": "Свят. Юрія, єп. Митіленського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -4
+  },
+  "20440421": {
+    "person": "Апп. Іродіона, Агава, Руфа та ін.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -3
+  },
+  "20440422": {
+    "person": "Муч. Євпсихія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -2
+  },
+  "20440423": {
+    "person": "Мучч. Терентія, Помпілія і тих, що з ними",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -1
+  },
+  "20440424": {
+    "person": "Свщмч. Антипа, єп. Пергамського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 0
+  },
+  "20440425": {
+    "person": "Іспов. Василія, єп. Парійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 1
+  },
+  "20440426": {
+    "person": "Свщмч. Артемона Лаодикійського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 2
+  },
+  "20440427": {
+    "person": "Іспов. Мартина, Папи Римського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 3
+  },
+  "20440428": {
+    "person": "Апп. Аристарха, Пуда і Трохима",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 4
+  },
+  "20440429": {
+    "person": "Мучч. Агапії, Ірини й Хіонії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 5
+  },
+  "20440430": {
+    "person": "Святт. Симеона й Акакія, єпп.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 6
+  },
+  "20440501": {
+    "person": "Преп. Івана, учня Григорія Декаполіта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20440502": {
+    "person": "Преп. Івана, Печерника",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 8
+  },
+  "20440503": {
+    "person": "Преп. Теодора Трихіни",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 9
+  },
+  "20440504": {
+    "person": "Свщмч. Януарія й інших",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 10
+  },
+  "20440505": {
+    "person": "Препп. Теодора Сікіота і Віталія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 11
+  },
+  "20440506": {
+    "person": "<b>⊕ Вмуч. Юрія Переможця</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 12
+  },
+  "20440507": {
+    "person": "Муч. Сави Стратилата",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 13
+  },
+  "20440508": {
+    "person": "<b>† Ап. і єванг. Марка</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20440509": {
+    "person": "Свщмч. Василія, єп. Амасійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 15
+  },
+  "20440510": {
+    "person": "Свщмч. Симеона; свят. Стефана Волинського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 16
+  },
+  "20440511": {
+    "person": "Апп. Ясона й Сосіпатра; мучч. Максима, Дади й ін.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 17
+  },
+  "20440512": {
+    "person": "9-х мучч. у Кизиці; преп. Мемнона, чудотворця",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 18
+  },
+  "20440513": {
+    "person": "<b>† Ап. Якова, брата св. Йоана Богослова</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 19
+  },
+  "20440514": {
+    "person": "Прор. Єремії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 20
+  },
+  "20440515": {
+    "person": "Свят. Атанасія Великого. аєп. Олександр.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20440516": {
+    "person": "<b>† Преп. Теодосія Печерського</b>, Мучч. Тимотея і Маври",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 22
+  },
+  "20440517": {
+    "person": "Муч. Пелагії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 23
+  },
+  "20440518": {
+    "person": "Муч. Ірини, Преп. Никифора, ігум. Мідійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 24
+  },
+  "20440519": {
+    "person": "Праведного і многостражд. Йова",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 25
+  },
+  "20440520": {
+    "person": "Муч. Акакія, Поява Чесного Хреста в Єрусалимі",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 26
+  },
+  "20440521": {
+    "person": "<b>⊕ Ап. Йоана Богослова</b>, Преп. Арсенія Великого",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 27
+  },
+  "20440522": {
+    "person": "<b>† Перенесення мощей Миколая Чудотворця</b>, Прор. Ісаї; муч. Христофора",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20440523": {
+    "person": "<b>† Ап. Симона Зилота</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 29
+  },
+  "20440524": {
+    "person": "<b>† Рівноапп. Кирила і Методія, учит. слов'ян</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 30
+  },
+  "20440525": {
+    "person": "Святт. Єпіфанія, єп. Кіпру і Германа, патр. Єрусал.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 31
+  },
+  "20440526": {
+    "person": "Муч. Глікерії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 32
+  },
+  "20440527": {
+    "person": "Муч. Ісидора",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 33
+  },
+  "20440528": {
+    "person": "Преп. Пахомія Великого",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 34
+  },
+  "20440529": {
+    "person": "Преп. Теодора Освященного; мучч. Віта, модеста й ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20440530": {
+    "person": "Ап. Андроніка й інших із ним",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 36
+  },
+  "20440531": {
+    "person": "Мучч. Теодота, Петра, Діонісія, Андрія й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 37
+  },
+  "20440601": {
+    "person": "Свщмуч. Патрикія, єп. Пруського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 38
+  },
+  "20440602": {
+    "person": "Муч. Талалея",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 39
+  },
+  "20440603": {
+    "person": "<b>† Рівноапп. Костянтина і Олени</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 40
+  },
+  "20440604": {
+    "person": "Муч. Василіска",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 41
+  },
+  "20440605": {
+    "person": "Свят. Михаїла, єп.; преп. Єфросинії Полоцької",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20440606": {
+    "person": "Препп. Симеона Дивногорця, Микити Переяслав.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 43
+  },
+  "20440607": {
+    "person": "<b>† Третє віднайдення голови св. Йоана Христителя</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 44
+  },
+  "20440608": {
+    "person": "Ап. Карпа, одного з 70-ти",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 45
+  },
+  "20440609": {
+    "person": "Свщмч. Терапонта, єп. Сардійського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 46
+  },
+  "20440610": {
+    "person": "Свят. Микити, єп. Халкедонського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 47
+  },
+  "20440611": {
+    "person": "Препмуч. Теодосії, діви",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 48
+  },
+  "20440612": {
+    "person": "Преп. Ісаакія Далматського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 49
+  },
+  "20440613": {
+    "person": "Ап. Єрмія; муч. Єрмея",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 50
+  },
+  "20440614": {
+    "person": "Муч. Юстина, філософа й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 51
+  },
+  "20440615": {
+    "person": "Св. Никифора, патр. Царгородського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 52
+  },
+  "20440616": {
+    "person": "Муч. Лукиліяна і тих, що з ним",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 53
+  },
+  "20440617": {
+    "person": "Св. Митрофана, патр. Царгородського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 54
+  },
+  "20440618": {
+    "person": "Свщмч. Доротея, єп. Тирського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 55
+  },
+  "20440619": {
+    "person": "Препп. Вісаріона й Іларіона",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20440620": {
+    "person": "Свщмч. Теодота, єп. Анкірського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 57
+  },
+  "20440621": {
+    "person": "Перенес. мощей вмуч. Теодора Тирона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 58
+  },
+  "20440622": {
+    "person": "Св. Кирила, аєп. Олександрійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 59
+  },
+  "20440623": {
+    "person": "Свщмч. Тимотея, єп. Пруського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20440624": {
+    "person": "<b>† Апп. Вартоломея і Варнави</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 61
+  },
+  "20440625": {
+    "person": "Препп. Онуфрія Великого і Петра Атонського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 62
+  },
+  "20440626": {
+    "person": "Муч. Акилини; св. Трифілія, єп. Левкусії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20440627": {
+    "person": "прор. Єлисея; св. Методія, патр. Царгород.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 64
+  },
+  "20440628": {
+    "person": "Прор. Амоса; преп. Єроніма Стридонського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 65
+  },
+  "20440629": {
+    "person": "Свят. Тихона, єп. Аматунського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 66
+  },
+  "20440630": {
+    "person": "Мучч. Мануїла, Савела та Ізмаїла",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 67
+  },
+  "20440701": {
+    "person": "Муч. Леонтія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20440702": {
+    "person": "<b>† Ап. Юди, брата Господнього</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20440703": {
+    "person": "Свщмч. Методія, єп. Патарського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20440704": {
+    "person": "Муч. Юліяна Тарсійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 71
+  },
+  "20440705": {
+    "person": "Свщмч. Євсевія, єп. Самосатського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 72
+  },
+  "20440706": {
+    "person": "Муч. Агрипини",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 73
+  },
+  "20440707": {
+    "person": "<b><r>⊕ Різдво св. Йоана Хрестителя</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 74
+  },
+  "20440708": {
+    "person": "Препмуч. Февронії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 75
+  },
+  "20440709": {
+    "person": "Преп. Давида Солунського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 76
+  },
+  "20440710": {
+    "person": "Преп. Самсона, лікаря",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20440711": {
+    "person": "Перенес. мощей безсрібн. Кира й Івана",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 78
+  },
+  "20440712": {
+    "person": "<b><r>⊕ Верх. апп. ПЕТРА І ПАВЛА</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 79
+  },
+  "20440713": {
+    "person": "<b>† Собор 12-ох апп.</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 80
+  },
+  "20440714": {
+    "person": "Безсрібн. і чудотв. Косми і Дам'яна",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 81
+  },
+  "20440715": {
+    "person": "<b>† Покладення Ризи Пресв. Богородиці у Влахерні</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 82
+  },
+  "20440716": {
+    "person": "Муч. Якинта; свят. Анатолія, патр. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 83
+  },
+  "20440717": {
+    "person": "Свщмч. Павла Гойдича; свят. Андрія, єп. Критського; преп. Марти",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20440718": {
+    "person": "<b>† Преп. Атанасія Атонського</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 85
+  },
+  "20440719": {
+    "person": "Преп. Сісоя Великого",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 86
+  },
+  "20440720": {
+    "person": "Препп. Томи й Акакія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 87
+  },
+  "20440721": {
+    "person": "Вмуч. Прокопія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 88
+  },
+  "20440722": {
+    "person": "Свщмч. Панкратія, єп. Тавроменійського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 89
+  },
+  "20440723": {
+    "person": "<b>† Преп. Антонія Печерського</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 90
+  },
+  "20440724": {
+    "person": "<b>Рівноап. Ольги, кн. Київської</b>, муч. Євфимії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20440725": {
+    "person": "Мучч. Прокла й Іларія; преп. Михаїла Малеїна",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 92
+  },
+  "20440726": {
+    "person": "Преп. Стефана Саваїта; Собор арх. Гавриїла",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 93
+  },
+  "20440727": {
+    "person": "Ап. Акили",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 94
+  },
+  "20440728": {
+    "person": "<b>† Рівноап. Володимира Великого, князя Київського</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 95
+  },
+  "20440729": {
+    "person": "Свщмч. Атеногена й 10-х його учнів",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 96
+  },
+  "20440730": {
+    "person": "Вмуч. Маріни",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 97
+  },
+  "20440731": {
+    "person": "Мучч. Якинта й Еміліяна",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20440801": {
+    "person": "Преп. Макрини, сестри св. Василія Вел.; преп. Дія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 99
+  },
+  "20440802": {
+    "person": "<b>⊕ Прор. Іллі</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 100
+  },
+  "20440803": {
+    "person": "Препп. Симеона й Івана; проп. Єзекиїла",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 101
+  },
+  "20440804": {
+    "person": "Рівноап. Марії Магдалини",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 102
+  },
+  "20440805": {
+    "person": "Мучч. Трохима, Теофіла та ін.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 103
+  },
+  "20440806": {
+    "person": "<b>† Мучч. Бориса і Гліба</b>, вмуч. Христини",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 104
+  },
+  "20440807": {
+    "person": "<b>† Успіння св. Анни, матері Пресв. Богородиці</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20440808": {
+    "person": "Муч. Єрмолая й інших",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 106
+  },
+  "20440809": {
+    "person": "<b>† Вмуч. Пантелеймона, лікаря</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 107
+  },
+  "20440810": {
+    "person": "Апп. Прохора, Ніканора, Тимона й Пармена",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 108
+  },
+  "20440811": {
+    "person": "Муч. Калиніка",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 109
+  },
+  "20440812": {
+    "person": "Апп. Сили, Силуана, Андроніка та ін.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 110
+  },
+  "20440813": {
+    "person": "Преп. Євдокима, праведного",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 111
+  },
+  "20440814": {
+    "person": "Перенес. Чесного Хреста; мучч. Макавейських",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20440815": {
+    "person": "Перенес. мощей первомуч. Стефана",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 113
+  },
+  "20440816": {
+    "person": "Препп. Ісаака, Далмата й Фавста",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 114
+  },
+  "20440817": {
+    "person": "7-ох мучч. Ефеських; препмуч. Євдокії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 115
+  },
+  "20440818": {
+    "person": "Муч. Євсигнія; спомин освячення Патріаршого собору Воскресіння Христового в Києві",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 116
+  },
+  "20440820": {
+    "person": "Препмуч. Дометія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 118
+  },
+  "20440821": {
+    "person": "Св. Еміліяна; мучч. Єлевтерія і Леоніда",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 119
+  },
+  "20440822": {
+    "person": "<b>† Ап. Матія</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 120
+  },
+  "20440823": {
+    "person": "Муч. Лаврентія, архидиякона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 121
+  },
+  "20440824": {
+    "person": "Муч. Євпла",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 122
+  },
+  "20440825": {
+    "person": "Мучч. Фотія і Аникити",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 123
+  },
+  "20440826": {
+    "person": "Преп. Максима, ісповідника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 124
+  },
+  "20440827": {
+    "person": "<b>† Перенес. мощей преп. Теодосія Печерськ.</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 125
+  },
+  "20440829": {
+    "person": "Нерукотворн. Образа ГНІХ; муч. Діомида",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 127
+  },
+  "20440830": {
+    "person": "Муч. Мирона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 128
+  },
+  "20440831": {
+    "person": "Мучч. Флора й Лавра",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 129
+  },
+  "20440901": {
+    "person": "Муч. Андрія Стратилата й інших",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 130
+  },
+  "20440902": {
+    "person": "Прор. Самуїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 131
+  },
+  "20440903": {
+    "person": "Ап. Тадея; муч. Васси",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 132
+  },
+  "20440904": {
+    "person": "Мучч. Агатоніка, Северіяна, Зенона та ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 133
+  },
+  "20440905": {
+    "person": "Муч. Луппа; свщмч. Іринея Ліонського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 134
+  },
+  "20440906": {
+    "person": "Свщмч. Євтихія",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 135
+  },
+  "20440907": {
+    "person": "Апп. Тита і Вартоломея",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 136
+  },
+  "20440908": {
+    "person": "Мучч. Адріяна й Наталії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 137
+  },
+  "20440909": {
+    "person": "Преп. Пімена",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 138
+  },
+  "20440910": {
+    "person": "Преп. Мойсея Мурина; св. Августина, єп. Іппонського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 139
+  },
+  "20440912": {
+    "person": "Свв. Олександра, Івана, Павла, патріярхів Царгородських",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 141
+  },
+  "20440914": {
+    "person": "преп. Симеона Стовпника",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 143
+  },
+  "20440915": {
+    "person": "Муч. Маманта; св. Івана Посника, патр. Царгород.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 144
+  },
+  "20440916": {
+    "person": "Свщмч. Антима, єп. Никодимії; преп. Теоктиста",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 145
+  },
+  "20440917": {
+    "person": "Свщмч. Вавили, єп. Антіохії; прор. Мойсея Боговидця",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 146
+  },
+  "20440918": {
+    "person": "Прор. Захарії, батька св. Йоана Христ.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20440919": {
+    "person": "Чудо арх. Михаїла; мучч. Євдоксія й ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 148
+  },
+  "20440920": {
+    "person": "Муч. Созонта",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 149
+  },
+  "20440922": {
+    "person": "Праведних Йоакима й Анни; муч. Северіяна",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 151
+  },
+  "20440923": {
+    "person": "Мучч. Минодори, Митродори й Німфодори",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 152
+  },
+  "20440924": {
+    "person": "Преп. Теодори Олександрійської",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 153
+  },
+  "20440925": {
+    "person": "Свщмч. Автонома",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20440926": {
+    "person": "Свщмч. Корнилія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 155
+  },
+  "20440928": {
+    "person": "Вмуч. Микити",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 157
+  },
+  "20440929": {
+    "person": "Вмуч. Євфимії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 158
+  },
+  "20440930": {
+    "person": "Мучч. Софії та її дочок: Віри, Надії й Любові",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 159
+  },
+  "20441001": {
+    "person": "Преп. Євменія, єп. Гортинського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 160
+  },
+  "20441002": {
+    "person": "Мучч. Трохима, Саватія і Дорімедонта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20441003": {
+    "person": "Муч. Євстратія й ін.; мучч. Михаїла і Теодора Чернігів.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 162
+  },
+  "20441004": {
+    "person": "Ап. Кондрата",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 163
+  },
+  "20441005": {
+    "person": "Свщмч. Фоки, єп. Синопійського; прор. Йони",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 164
+  },
+  "20441006": {
+    "person": "Зачаття св. Йоана Христителя",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 165
+  },
+  "20441007": {
+    "person": "Первомуч. Теклі, рівноап.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 166
+  },
+  "20441008": {
+    "person": "Преп. Єфросинії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 167
+  },
+  "20441009": {
+    "person": "<b>⊕ Ап. Йоана Богослова</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20441010": {
+    "person": "Муч. Калістрата та ін.; преп. Ніла Криптофер.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 169
+  },
+  "20441011": {
+    "person": "Іспов. Харитона; Вячеслава",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 170
+  },
+  "20441012": {
+    "person": "Преп. Киріяна, самітника",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 171
+  },
+  "20441013": {
+    "person": "Свщмч. Григорія, єп. Великої Вірменії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 172
+  },
+  "20441015": {
+    "person": "Свщмч. Кипріяна; муч. Юстини; преп. Андрія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 174
+  },
+  "20441016": {
+    "person": "Свщмч. Діонісія Ареопатіга",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20441017": {
+    "person": "Свщмч. Єротея, єп. Атен.; преп. Франціска Асиж.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 176
+  },
+  "20441018": {
+    "person": "Муч. Харитини",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 177
+  },
+  "20441019": {
+    "person": "<b>† Ап. Томи</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 178
+  },
+  "20441020": {
+    "person": "Мучч. Сергія і Вакха",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 179
+  },
+  "20441021": {
+    "person": "Преп. Пелагії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 180
+  },
+  "20441022": {
+    "person": "<b>† Ап. Якова Алфеєва</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 181
+  },
+  "20441023": {
+    "person": "Мучч. Євлампія та Євлампії, сестри його",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 182
+  },
+  "20441024": {
+    "person": "Ап. Филипа, дияк.; преп. Теофана, єп. Нікейського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 183
+  },
+  "20441025": {
+    "person": "Мучч. Прова, Тараха й Андроніка; преп. Косми",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 184
+  },
+  "20441026": {
+    "person": "Мучч. Карпа, Папіли й Агатоніки",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 185
+  },
+  "20441027": {
+    "person": "Преп. Параскеви Терновської; мучч. Назарія й ін.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 186
+  },
+  "20441028": {
+    "person": "Преп. Євтимія; препмуч. Лукіяна",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 187
+  },
+  "20441029": {
+    "person": "Муч. Лонгіна, сотника",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 188
+  },
+  "20441030": {
+    "person": "Прор. Осії; препмуч. Андрія Крит.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20441031": {
+    "person": "<b>† Ап. і єванг. Луки</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 190
+  },
+  "20441101": {
+    "person": "Свщмч. Теодора Ромжі; прор. Йоіла; муч. Уара",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 191
+  },
+  "20441102": {
+    "person": "Вмуч. Артемія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 192
+  },
+  "20441103": {
+    "person": "Преп. Іларіона Великого",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 193
+  },
+  "20441104": {
+    "person": "Св. Аверкія, єп. Єрапольського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 194
+  },
+  "20441105": {
+    "person": "Ап. Якова, брата Господнього",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 195
+  },
+  "20441106": {
+    "person": "Мучч. Арети й інших",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20441107": {
+    "person": "Мучч. Маркіяна й Мартирія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 197
+  },
+  "20441108": {
+    "person": "<b>⊕ Вмуч. Димитрія Мироточця</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 198
+  },
+  "20441109": {
+    "person": "Муч. Нестора; мучч. Капітоліни й Єротіїди",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 199
+  },
+  "20441110": {
+    "person": "Мучч. Терентія і Неоніли; муч. Параскеви, що в Іконії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 200
+  },
+  "20441111": {
+    "person": "Преп. Анастасії; преп. Аврамія Ростовського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 201
+  },
+  "20441112": {
+    "person": "Мучч. Зиновія і Зиновії, сестри його",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 202
+  },
+  "20441113": {
+    "person": "Апп. Стахія, Амплія й інших; муч. Елімаха",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20441114": {
+    "person": "Безсрібників і чудотв. Косми і Дам'яна",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 204
+  },
+  "20441115": {
+    "person": "Мучч. Акиндіна, Пигасія, Афтонія, Елпидифора й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 205
+  },
+  "20441116": {
+    "person": "Мучч. Акепсима, Йосифа й Айтала",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 206
+  },
+  "20441117": {
+    "person": "Преп. Йоанікія Великого; мучч. Нікандра та Єрмея",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 207
+  },
+  "20441118": {
+    "person": "Мучч. Галактіона й Епістими",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 208
+  },
+  "20441119": {
+    "person": "Іспов. Павла, аєп. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 209
+  },
+  "20441120": {
+    "person": "Преп. Йосафати Гордашевської; 33-х мучч., що в Мелітині",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20441121": {
+    "person": "<b><r>⊕ Собор архистратига Михаїла</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 211
+  },
+  "20441122": {
+    "person": "Препп. Матрони і Теоктисти",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 212
+  },
+  "20441123": {
+    "person": "Апп. Ераста, Олімпа, Родіона і тих, що з ними",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 213
+  },
+  "20441124": {
+    "person": "Мучч. Мини, Віктора і Вінкентія; преп. Теодора Студ.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 214
+  },
+  "20441125": {
+    "person": "<b>⊕ Свщмч. Йосафата, аєп. Полоцького</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 215
+  },
+  "20441126": {
+    "person": "<b>† Св. Йоана Золотоустого, аєп. Царгород.</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 216
+  },
+  "20441127": {
+    "person": "<b>† Ап. Пилипа</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 217
+  },
+  "20441128": {
+    "person": "Іспов. Гурія, Самона й Авіва",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 218
+  },
+  "20441129": {
+    "person": "<b>† Ап. і Єванг. Матея</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 219
+  },
+  "20441130": {
+    "person": "Св. Григорія, єп. Неокесарійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 220
+  },
+  "20441201": {
+    "person": "Мучч. Платона і Романа",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 221
+  },
+  "20441202": {
+    "person": "Прор. Авдія; муч. Варлаама",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 222
+  },
+  "20441203": {
+    "person": "Преп. Григорія Декаполіта",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 223
+  },
+  "20441205": {
+    "person": "Ап. Филимона і тих, що з ним",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 225
+  },
+  "20441206": {
+    "person": "Свв. Амфілохія і Григорія, єпп.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 226
+  },
+  "20441207": {
+    "person": "Вмуч. Катерини; вмуч. Меркурія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 227
+  },
+  "20441208": {
+    "person": "Свщмч. Климента, Папи",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 228
+  },
+  "20441209": {
+    "person": "Преп. Аліпія, стовпника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 229
+  },
+  "20441210": {
+    "person": "Вмуч. Якова Персіянина; преп. Паладія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 230
+  },
+  "20441211": {
+    "person": "Препмуч. Стефана Нового; муч. Іринарха",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20441212": {
+    "person": "Мучч. Парамона і Філумена",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 232
+  },
+  "20441213": {
+    "person": "<b>† Ап. Андрія Первозванного</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 233
+  },
+  "20441214": {
+    "person": "Прор. Наума",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 234
+  },
+  "20441215": {
+    "person": "Прор. Авакума",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 235
+  },
+  "20441216": {
+    "person": "Прор. Софонії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 236
+  },
+  "20441217": {
+    "person": "Вмуч. Варвари; преп. Івана Дамаскина",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 237
+  },
+  "20441218": {
+    "person": "<b>† Преп. Сави Освященного</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20441219": {
+    "person": "<b><r>⊕ Миколая Чудотворця, аєп. Мир Ликійських</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 239
+  },
+  "20441220": {
+    "person": "Св. Амвросія Медіоланського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 240
+  },
+  "20441221": {
+    "person": "Преп. Патапія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 241
+  },
+  "20441223": {
+    "person": "Мучч. Мини, Єрмогена й Євграфа",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 243
+  },
+  "20441224": {
+    "person": "Преп. Даниїла Стовпника",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 244
+  },
+  "20441225": {
+    "person": "Св. Спиридона, єп. Трімітійського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 245
+  },
+  "20441226": {
+    "person": "<b>† Мучч. Євстратія, Євгенія, Авксентія й Ореста</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 246
+  },
+  "20441227": {
+    "person": "Мучч. Тирса, Левкія, Филимона, Аполонія, Калиніка",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 247
+  },
+  "20441228": {
+    "person": "Свщмч. Елевтерія; преп. Павла",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 248
+  },
+  "20441229": {
+    "person": "Прор. Агея",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 249
+  },
+  "20441230": {
+    "person": "Прор. Даниїла й Ананії, Азарії й Мисаїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 250
+  },
+  "20441231": {
+    "person": "Муч. Севастіяна й ін.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 251
+  }
+}
