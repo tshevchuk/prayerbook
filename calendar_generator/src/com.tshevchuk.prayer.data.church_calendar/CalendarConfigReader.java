@@ -1,4 +1,4 @@
-package com.tshevchuk.calendar_validation.utils;
+package com.tshevchuk.prayer.data.church_calendar;
 
 import java.io.IOException;
 

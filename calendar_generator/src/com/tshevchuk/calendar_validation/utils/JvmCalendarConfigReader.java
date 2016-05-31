@@ -1,5 +1,7 @@
 package com.tshevchuk.calendar_validation.utils;
 
+import com.tshevchuk.prayer.data.church_calendar.CalendarConfigReader;
+
 import java.io.IOException;
 
 /**

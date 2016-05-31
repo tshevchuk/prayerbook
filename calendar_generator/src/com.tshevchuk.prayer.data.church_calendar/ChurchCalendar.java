@@ -1,9 +1,5 @@
 package com.tshevchuk.prayer.data.church_calendar;
 
-import com.tshevchuk.calendar_validation.utils.CalendarConfigReader;
-import com.tshevchuk.calendar_validation.utils.DateUtils;
-import com.tshevchuk.calendar_validation.utils.TextUtils;
-
 import java.io.IOException;
 import java.util.*;
 
@@ -78,14 +74,27 @@ public class ChurchCalendar {
         return new CalendarDateInfo(date, dateJulian, day, person, isDateRed, easterShiftDays, pist, pistName);
     }
 
-     private String getCalendarDay(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException {
+    private String getCalendarDay(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException {
         String fix = churchCalendarJsonParser.getFixDay(year, month, dayOfMonth);
         String movable = churchCalendarJsonParser.getMovableDay(easterShiftDays);
         String nonMovable = churchCalendarJsonParser.getNonMovableDay(month, dayOfMonth);
-         String day = TextUtils.join(", ", nonMovable, movable);
+        StringBuilder sb = new StringBuilder();
+        if (nonMovable != null) {
+            sb.append(nonMovable);
+        }
+        if (nonMovable != null && !nonMovable.isEmpty()
+                && movable != null && !movable.isEmpty()) {
+            sb.append(", ");
+        }
+        if (movable != null) {
+            sb.append(movable);
+        }
+
+        String day = sb.toString();
         if (fix != null) {
             if (fix.equals(day)) {
-                throw new IllegalStateException(String.format("Fix and calculated day are equal %d-%d-%d %s", year, month, dayOfMonth, fix));
+                throw new IllegalStateException(String.format(Locale.US,
+                        "Fix and calculated day are equal %d-%d-%d %s", year, month, dayOfMonth, fix));
             }
             return fix;
         }
@@ -97,7 +106,7 @@ public class ChurchCalendar {
         if (person == null) {
             person = churchCalendarJsonParser.getNonMovablePerson(month, dayOfMonth);
         }
-        return TextUtils.isEmpty(person) ? null : person;
+        return (person == null || person.isEmpty()) ? null : person;
     }
 
     private boolean isRedDate(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException {
@@ -130,10 +139,14 @@ public class ChurchCalendar {
         }
         if (pist != null) {
             if (pist.getType().equals(movablePistType)) {
-                throw new IllegalStateException("Same type for pist in posty and in movable sections " + DateUtils.dateToDateStr(year, month, dayOfMonth) + " shift: " + easterShiftDays + "; " + pist);
+                throw new IllegalStateException("Same type for pist in posty and in movable sections "
+                        + String.format(Locale.US, "%d-%02d-%02d", year, month, dayOfMonth)
+                        + " shift: " + easterShiftDays + "; " + pist);
             }
             if (pist.getType().equals(nonMovablePistType)) {
-                throw new IllegalStateException("Same type for pist in posty and in non-movable sections " + DateUtils.dateToDateStr(year, month, dayOfMonth) + " shift: " + easterShiftDays + "; " + pist);
+                throw new IllegalStateException("Same type for pist in posty and in non-movable sections "
+                        + String.format(Locale.US, "%d-%02d-%02d", year, month, dayOfMonth)
+                        + " shift: " + easterShiftDays + "; " + pist);
             }
             if (pistType == null) {
                 pistType = pist.getType();
@@ -146,7 +159,7 @@ public class ChurchCalendar {
         if (pistType == null && dayOfWeek == Calendar.FRIDAY) {
             pistType = CalendarDateInfo.PIST_PIST;
         }
-        return TextUtils.isEmpty(pistType) ? null : pistType;
+        return (pistType == null || pistType.isEmpty()) ? null : pistType;
     }
 
     private Pist getPist(int month, int dayOfMonth, int easterShiftDays) throws IOException {

@@ -1,11 +1,11 @@
 package com.tshevchuk.calendar_validation.command_line_tasks;
 
 import com.google.gson.stream.JsonWriter;
-import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
-import com.tshevchuk.prayer.data.church_calendar.ChurchCalendar;
 import com.tshevchuk.calendar_validation.utils.DateUtils;
 import com.tshevchuk.calendar_validation.utils.FileUtils;
 import com.tshevchuk.calendar_validation.utils.JvmCalendarConfigReader;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
+import com.tshevchuk.prayer.data.church_calendar.ChurchCalendar;
 
 import java.io.IOException;
 import java.io.StringWriter;
