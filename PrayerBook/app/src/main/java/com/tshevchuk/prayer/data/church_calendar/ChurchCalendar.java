@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer.data.church_calendar;
 
+import org.json.JSONException;
+
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +19,7 @@ public class ChurchCalendar {
         configReader = calendarConfigReader;
     }
 
-    public int[] getCalendarYears() throws IOException {
+    public int[] getCalendarYears() throws IOException, JSONException {
         readCalendarConfig();
         String[] dates = churchCalendarJsonParser.getEasterDates();
         int years[] = new int[dates.length];
@@ -27,7 +29,7 @@ public class ChurchCalendar {
         return years;
     }
 
-    public CalendarDate getEasterDateJulian(int year) throws IOException {
+    public CalendarDate getEasterDateJulian(int year) throws IOException, JSONException {
         readCalendarConfig();
         //2003-04-27
         String[] dates = churchCalendarJsonParser.getEasterDates();
@@ -41,7 +43,7 @@ public class ChurchCalendar {
         return null;
     }
 
-    public CalendarDateInfo getCalendarDay(Date date) throws IOException {
+    public CalendarDateInfo getCalendarDay(Date date) throws IOException, JSONException {
         readCalendarConfig();
 
         Calendar cal = Calendar.getInstance();
@@ -75,10 +77,24 @@ public class ChurchCalendar {
         String person = getCalendarPerson(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
         String pist = getPistType(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
         String pistName = getPistName(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
-        return new CalendarDateInfo(date, dateJulian, day, person, isDateRed, easterShiftDays, pist, pistName);
+        CalendarDateInfo calendarDateInfo = new CalendarDateInfo(date, dateJulian, day, person, isDateRed, easterShiftDays, pist, pistName);
+        calendarDateInfo.setDayDescription(getDayDescription(day, person));
+        return calendarDateInfo;
     }
 
-    private String getCalendarDay(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException {
+    private String getDayDescription(String day, String person) {
+        StringBuilder sb = new StringBuilder();
+        if (day != null) {
+            sb.append(day);
+        }
+        sb.append(day == null || day.isEmpty() || person == null || person.isEmpty() ? "" : "<br>");
+        if (person != null) {
+            sb.append(person);
+        }
+        return sb.toString().replaceAll("<r>", "<font color=\"red\">").replaceAll("</r>", "</font>");
+    }
+
+    private String getCalendarDay(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException, JSONException {
         String fix = churchCalendarJsonParser.getFixDay(year, month, dayOfMonth);
         String movable = churchCalendarJsonParser.getMovableDay(easterShiftDays);
         String nonMovable = churchCalendarJsonParser.getNonMovableDay(month, dayOfMonth);
@@ -105,7 +121,7 @@ public class ChurchCalendar {
         return day;
     }
 
-    private String getCalendarPerson(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException {
+    private String getCalendarPerson(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, JSONException {
         String person = churchCalendarJsonParser.getFixPerson(year, month, dayOfMonth);
         if (person == null) {
             person = churchCalendarJsonParser.getNonMovablePerson(month, dayOfMonth);
@@ -113,7 +129,7 @@ public class ChurchCalendar {
         return (person == null || person.isEmpty()) ? null : person;
     }
 
-    private boolean isRedDate(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException {
+    private boolean isRedDate(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, JSONException {
         if (dayOfWeek == Calendar.SUNDAY) {
             return true;
         }
@@ -121,13 +137,13 @@ public class ChurchCalendar {
                 || churchCalendarJsonParser.isMovableDayRed(easterShiftDays);
     }
 
-    private void readCalendarConfig() throws IOException {
+    private void readCalendarConfig() throws IOException, JSONException {
         if (churchCalendarJsonParser == null) {
             churchCalendarJsonParser = new ChurchCalendarJsonParser(configReader.readConfig(FILE_NAME_CALENDAR_DAYS_JSON));
         }
     }
 
-    private String getPistType(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException {
+    private String getPistType(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException, JSONException {
         if (posty == null) {
             posty = churchCalendarJsonParser.getPosty();
         }

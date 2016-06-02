@@ -15,6 +15,7 @@ public class CalendarDateInfo {
 	private final int shiftDaysFromEaster;
 	private final String pistType;
 	private final String pistName;
+	private String dayDescription;
 
 	public CalendarDateInfo(Date date, Date dateJulian,
 							String day, String person, boolean isDateRed, int shiftDaysFromEaster, String pistType, String pistName) {
@@ -64,6 +65,14 @@ public class CalendarDateInfo {
 				", pistType='" + pistType + '\'' +
 				", pistName='" + pistName + '\'' +
 				'}';
+	}
+
+	public String getDayDescription() {
+		return dayDescription;
+	}
+
+	public void setDayDescription(String dayDescription) {
+		this.dayDescription = dayDescription;
 	}
 
 	public int getShiftDaysFromEaster() {

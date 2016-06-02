@@ -1,16 +1,18 @@
 package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
+import org.json.JSONException;
 import org.parceler.Parcel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -38,7 +40,13 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
     public void attachView(CerkovnyyCalendarView mvpView) {
         super.attachView(mvpView);
 
-        getMvpView().setYears(dataManager.getYears(), instanceState.year);
+        try {
+            getMvpView().setYears(dataManager.getYears(), instanceState.year);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onYearSelected(int year) {
@@ -53,11 +61,17 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, year);
 
-        ArrayList<CalendarDay> calendarDays = new ArrayList<>(daysCount);
+        ArrayList<CalendarDateInfo> calendarDays = new ArrayList<>(daysCount);
 
-        for (int i = 0; i < daysCount; ++i) {
-            calendar.set(Calendar.DAY_OF_YEAR, i + 1);
-            calendarDays.add(dataManager.getCalendarDay(calendar.getTime()));
+        try {
+            for (int i = 0; i < daysCount; ++i) {
+                calendar.set(Calendar.DAY_OF_YEAR, i + 1);
+                calendarDays.add(dataManager.getCalendarDay(calendar.getTime()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
         int position = (year == currentYear) ? (java.util.Calendar

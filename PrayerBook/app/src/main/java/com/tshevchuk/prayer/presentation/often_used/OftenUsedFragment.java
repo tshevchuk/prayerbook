@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer.presentation.often_used;
 
+import android.app.UiModeManager;
+import android.content.Context;
 import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -14,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -22,7 +25,7 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.domain.model.CalendarDay;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
@@ -42,6 +45,8 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     private TextView tvDescription;
     private LinearLayout llToday;
     private SearchView searchView;
+    private UiModeManager uiModeManager;
+    private ImageView ivPistIcon;
 
 
     public static OftenUsedFragment getInstance() {
@@ -68,6 +73,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         super.onCreate(savedInstanceState);
         ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
         setHasOptionsMenu(true);
+        uiModeManager = (UiModeManager) getContext().getSystemService(Context.UI_MODE_SERVICE);
     }
 
     @Override
@@ -87,6 +93,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
             }
         });
         lvItems.addHeaderView(calendarToday);
+        ivPistIcon = (ImageView) v.findViewById(R.id.ivIconPist);
 
         return v;
     }
@@ -167,16 +174,34 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     }
 
     @Override
-    public void setCalendarDay(CalendarDay day, int fontSizeSp) {
+    public void setCalendarDay(CalendarDateInfo day, int fontSizeSp) {
         llToday.setVisibility(View.VISIBLE);
         String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
-                .format(day.getDay());
+                .format(day.getDate());
         if (day.isDateRed()) {
             d = "<font color=\"red\">" + d + "</font>";
         }
         tvDay.setText(Html.fromHtml(d));
         tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-        tvDescription.setText(Html.fromHtml(day.getDescription().toString()));
+        tvDescription.setText(Html.fromHtml(day.getDayDescription()));
         tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+        if (CalendarDateInfo.PIST_PIST.equals(day.getPistType())) {
+            ivPistIcon.setImageResource(
+                    uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES
+                            ? R.drawable.ic_pist_fish_white
+                            : R.drawable.ic_pist_fish_black);
+            ivPistIcon.setBackgroundResource(R.drawable.background_pist_pist);
+            ivPistIcon.setVisibility(View.VISIBLE);
+        } else if (CalendarDateInfo.PIST_STROHYY.equals(day.getPistType())) {
+            ivPistIcon.setImageResource(R.drawable.ic_pist_fish_red);
+            ivPistIcon.setBackgroundResource(R.drawable.background_pist_pist);
+            ivPistIcon.setVisibility(View.VISIBLE);
+        } else if (CalendarDateInfo.PIST_ZAHALNYTSYA.equals(day.getPistType())) {
+            ivPistIcon.setImageResource(0);
+            ivPistIcon.setBackgroundResource(R.drawable.background_pist_zahalnytsya);
+            ivPistIcon.setVisibility(View.VISIBLE);
+        } else {
+            ivPistIcon.setVisibility(View.GONE);
+        }
     }
 }

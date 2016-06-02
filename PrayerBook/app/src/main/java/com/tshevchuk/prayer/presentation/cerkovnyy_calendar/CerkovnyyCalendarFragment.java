@@ -2,22 +2,21 @@ package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.domain.model.CalendarDay;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 import com.tshevchuk.prayer.presentation.base.FragmentBase;
@@ -34,7 +33,8 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     private int prevFirstVisibleItem;
     private Integer initPosition;
 
-    private ListView lvCalendar;
+    private RecyclerView rvCalendar;
+    private LinearLayoutManager layoutManager;
     private TextView tvMonth;
     private int[] years;
     private int selectedYear;
@@ -69,18 +69,17 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_cerkovnyy_calendar, container, false);
-        lvCalendar = (ListView) v.findViewById(R.id.lvCalendar);
+        rvCalendar = (RecyclerView) v.findViewById(R.id.rvCalendar);
         tvMonth = (TextView) v.findViewById(R.id.tvMonth);
 
-        lvCalendar.setOnScrollListener(new OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-            }
+        layoutManager = new LinearLayoutManager(getContext());
+        rvCalendar.setLayoutManager(layoutManager);
 
+        rvCalendar.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScroll(AbsListView view, int firstVisibleItem,
-                                 int visibleItemCount, int totalItemCount) {
-                onVisibleDaysChanged(firstVisibleItem, false);
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                onVisibleDaysChanged(layoutManager.findFirstVisibleItemPosition(), false);
             }
         });
 
@@ -92,7 +91,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
         super.onSaveInstanceState(outState);
         outState.putParcelable("instanceState", Parcels.wrap(presenter.instanceState));
         if (initPosition == null) {
-            outState.putInt("firstVisiblePosition", lvCalendar.getFirstVisiblePosition());
+            outState.putInt("firstVisiblePosition", layoutManager.findFirstVisibleItemPosition());
         } else {
             outState.putInt("firstVisiblePosition", initPosition);
         }
@@ -144,20 +143,20 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     }
 
     @Override
-    public void showCalendarForYear(int year, ArrayList<CalendarDay> calendarDays,
+    public void showCalendarForYear(int year, ArrayList<CalendarDateInfo> calendarDays,
                                     int positionOfToday, int fontSizeSp) {
-        lvCalendar.setAdapter(new CerkovnyyCalendarListAdapter(activity, calendarDays,
+        rvCalendar.setAdapter(new CerkovnyyCalendarRecyclerViewAdapter(activity, calendarDays,
                 positionOfToday, fontSizeSp));
 
         if (initPosition != null) {
-            lvCalendar.setSelection(initPosition);
+            layoutManager.scrollToPosition(initPosition);
             initPosition = null;
         } else {
-            lvCalendar.setSelection(positionOfToday);
+            layoutManager.scrollToPosition(positionOfToday);
         }
 
         final int pos = positionOfToday;
-        lvCalendar.post(new Runnable() {
+        rvCalendar.post(new Runnable() {
             @Override
             public void run() {
                 onVisibleDaysChanged(pos, true);
@@ -184,7 +183,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
 
     private void onVisibleDaysChanged(int firstVisibleItem, boolean force) {
         if (prevFirstVisibleItem != firstVisibleItem || force) {
-            presenter.onVisibleDaysChanged(firstVisibleItem, lvCalendar.getLastVisiblePosition());
+            presenter.onVisibleDaysChanged(firstVisibleItem, layoutManager.findLastVisibleItemPosition());
             prevFirstVisibleItem = firstVisibleItem;
         }
     }

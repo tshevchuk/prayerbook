@@ -3,16 +3,19 @@ package com.tshevchuk.prayer.domain;
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.data.FileManager;
 import com.tshevchuk.prayer.data.PreferenceManager;
-import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
+import com.tshevchuk.prayer.data.repositories.ChurchCalendarRepository;
 import com.tshevchuk.prayer.data.repositories.TextsRepository;
-import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 
+import org.json.JSONException;
+
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,18 +32,18 @@ public class DataManager {
     private final Catalog catalog;
     private final PreferenceManager preferenceManager;
     private final TextsRepository textsRepository;
-    private final CerkovnyyCalendarRepository cerkovnyyCalendarRepository;
+    private final ChurchCalendarRepository churchCalendarRepository;
     private final FileManager fileManager;
 
     @Inject
     public DataManager(Catalog catalog, PreferenceManager preferenceManager,
                        TextsRepository textsRepository,
-                       CerkovnyyCalendarRepository cerkovnyyCalendarRepository,
+                       ChurchCalendarRepository churchCalendarRepository,
                        FileManager fileManager) {
         this.catalog = catalog;
         this.preferenceManager = preferenceManager;
         this.textsRepository = textsRepository;
-        this.cerkovnyyCalendarRepository = cerkovnyyCalendarRepository;
+        this.churchCalendarRepository = churchCalendarRepository;
         this.fileManager = fileManager;
     }
 
@@ -76,8 +79,9 @@ public class DataManager {
         preferenceManager.markMenuItemAsOpened(id);
     }
 
-    public CalendarDay getCalendarDay(Date date) {
-        return cerkovnyyCalendarRepository.getCalendarDay(date);
+    @DebugLog
+    public CalendarDateInfo getCalendarDay(Date date) throws IOException, JSONException {
+        return churchCalendarRepository.getCalendarDay(date);
     }
 
     public int getTextFontSizeSp() {
@@ -88,8 +92,9 @@ public class DataManager {
         return textsRepository.searchMenuItems(searchPhrase);
     }
 
-    public int[] getYears() {
-        return cerkovnyyCalendarRepository.getYears();
+    @DebugLog
+    public int[] getYears() throws IOException, JSONException {
+        return churchCalendarRepository.getYears();
     }
 
     public MenuItemBase getMenuItem(int id) {

@@ -3,16 +3,19 @@ package com.tshevchuk.prayer.presentation.often_used;
 import android.text.TextUtils;
 
 import com.tshevchuk.prayer.data.Catalog;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.domain.model.CalendarDay;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -66,7 +69,14 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
     }
 
     private void loadCalendarDay() {
-        CalendarDay day = dataManager.getCalendarDay(new Date());
+        CalendarDateInfo day = null;
+        try {
+            day = dataManager.getCalendarDay(new Date());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         int fontSizeSp = dataManager.getTextFontSizeSp();
         getMvpView().setCalendarDay(day, fontSizeSp);
     }
