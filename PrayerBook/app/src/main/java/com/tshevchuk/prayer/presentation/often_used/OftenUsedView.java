@@ -16,4 +16,5 @@ public interface OftenUsedView extends BaseView {
     void setCalendarDay(CalendarDateInfo day, int fontSizeSp);
 
     void showSearchSuggestions(ArrayList<MenuListItemSearch> items);
+    void showCalendarProgressBar(boolean show);
 }

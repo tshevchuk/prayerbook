@@ -15,11 +15,13 @@
         android:background="@drawable/background_transparent_clickable"
         android:clickable="true"
         android:gravity="center_vertical"
-        android:minHeight="30dp"
+        android:minHeight="40dp"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="4dp">
+        android:paddingTop="4dp"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <TextView
             android:id="@+id/tvDay"
@@ -44,6 +46,12 @@
             android:layout_marginLeft="4dp"
             android:padding="4dp"
             tools:src="@drawable/ic_pist_fish_red" />
-
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pbCalendarLoading"
+        style="@android:style/Widget.ProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 </android.support.v7.widget.CardView>

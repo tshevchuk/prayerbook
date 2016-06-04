@@ -19,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -37,6 +38,8 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import hugo.weaving.DebugLog;
+
 public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     @Inject
     OftenUsedPresenter presenter;
@@ -47,6 +50,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     private SearchView searchView;
     private UiModeManager uiModeManager;
     private ImageView ivPistIcon;
+    private ProgressBar pbCalendarLoading;
 
 
     public static OftenUsedFragment getInstance() {
@@ -92,8 +96,9 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
                 presenter.onCalendarClick();
             }
         });
+        ivPistIcon = (ImageView) calendarToday.findViewById(R.id.ivIconPist);
+        pbCalendarLoading = (ProgressBar) calendarToday.findViewById(R.id.pbCalendarLoading);
         lvItems.addHeaderView(calendarToday);
-        ivPistIcon = (ImageView) v.findViewById(R.id.ivIconPist);
 
         return v;
     }
@@ -161,6 +166,13 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
     }
 
+    @DebugLog
+    @Override
+    public void showCalendarProgressBar(boolean show) {
+        pbCalendarLoading.setVisibility(show ? View.VISIBLE : View.GONE);
+        llToday.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
+    }
+
     @Override
     public void setMenuItems(final ArrayList<MenuListItemOftenUsed> menuListItems) {
         lvItems.setAdapter(new OftenUsedListAdapter(activity, menuListItems));
@@ -173,6 +185,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
     }
 
+    @DebugLog
     @Override
     public void setCalendarDay(CalendarDateInfo day, int fontSizeSp) {
         llToday.setVisibility(View.VISIBLE);
@@ -204,4 +217,5 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
             ivPistIcon.setVisibility(View.GONE);
         }
     }
+
 }

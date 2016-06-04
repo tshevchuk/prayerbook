@@ -19,7 +19,7 @@ public class ChurchCalendar {
         configReader = calendarConfigReader;
     }
 
-    public int[] getCalendarYears() throws IOException, JSONException {
+    public synchronized int[] getCalendarYears() throws IOException, JSONException {
         readCalendarConfig();
         String[] dates = churchCalendarJsonParser.getEasterDates();
         int years[] = new int[dates.length];
@@ -29,7 +29,7 @@ public class ChurchCalendar {
         return years;
     }
 
-    public CalendarDate getEasterDateJulian(int year) throws IOException, JSONException {
+    public synchronized CalendarDate getEasterDateJulian(int year) throws IOException, JSONException {
         readCalendarConfig();
         //2003-04-27
         String[] dates = churchCalendarJsonParser.getEasterDates();
@@ -43,7 +43,7 @@ public class ChurchCalendar {
         return null;
     }
 
-    public CalendarDateInfo getCalendarDay(Date date) throws IOException, JSONException {
+    public synchronized CalendarDateInfo getCalendarDay(Date date) throws IOException, JSONException {
         readCalendarConfig();
 
         Calendar cal = Calendar.getInstance();

@@ -10,6 +10,7 @@ import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
+import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.base.BasePresenter;
 
@@ -30,13 +31,15 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
     private final Navigator navigator;
     private final DataManager dataManager;
     private final AnalyticsManager analyticsManager;
+    private final AsyncTaskManager asyncTaskManager;
 
     @Inject
-    public OftenUsedPresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager) {
+    public OftenUsedPresenter(Navigator navigator, DataManager dataManager, AnalyticsManager analyticsManager, AsyncTaskManager asyncTaskManager) {
         super(analyticsManager, navigator);
         this.navigator = navigator;
         this.dataManager = dataManager;
         this.analyticsManager = analyticsManager;
+        this.asyncTaskManager = asyncTaskManager;
     }
 
     @Override
@@ -45,6 +48,12 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
 
         loadMenuItems();
         loadCalendarDay();
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        asyncTaskManager.cancelAll();
     }
 
     public void onCalendarClick() {
@@ -69,16 +78,27 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
     }
 
     private void loadCalendarDay() {
-        CalendarDateInfo day = null;
-        try {
-            day = dataManager.getCalendarDay(new Date());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        int fontSizeSp = dataManager.getTextFontSizeSp();
-        getMvpView().setCalendarDay(day, fontSizeSp);
+        getMvpView().showCalendarProgressBar(true);
+        asyncTaskManager.executeTask(new AsyncTaskManager.BackgroundTask<CalendarDateInfo>() {
+            @Override
+            public CalendarDateInfo doInBackground() throws IOException, JSONException {
+                return dataManager.getCalendarDay(new Date());
+            }
+
+            @DebugLog
+            @Override
+            public void postExecute(CalendarDateInfo result) {
+                int fontSizeSp = dataManager.getTextFontSizeSp();
+                getMvpView().setCalendarDay(result, fontSizeSp);
+                getMvpView().showCalendarProgressBar(false);
+            }
+
+            @DebugLog
+            @Override
+            public void onError(Throwable tr) {
+                getMvpView().showCalendarProgressBar(false);
+            }
+        });
     }
 
     @DebugLog

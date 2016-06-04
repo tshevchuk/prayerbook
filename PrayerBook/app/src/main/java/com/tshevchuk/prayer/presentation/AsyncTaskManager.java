@@ -9,7 +9,7 @@ public interface AsyncTaskManager {
     void cancelAll();
 
     interface BackgroundTask<T> {
-        T doInBackground();
+        T doInBackground() throws Exception;
 
         void postExecute(T result);
         void onError(Throwable tr);

@@ -44,15 +44,15 @@ public class PresenterModule {
 
     @Provides
     OftenUsedPresenter provideOftenUsedPresenter(Navigator navigator, DataManager dataManager,
-                                                 AnalyticsManager analyticsManager) {
-        return new OftenUsedPresenter(navigator, dataManager, analyticsManager);
+                                                 AnalyticsManager analyticsManager, AsyncTaskManager asyncTaskManager) {
+        return new OftenUsedPresenter(navigator, dataManager, analyticsManager, asyncTaskManager);
     }
 
     @Provides
     CerkovnyyCalendarPresenter provideCerkovnyyCalendarPresenter(AnalyticsManager analyticsManager,
                                                                  DataManager dataManager,
-                                                                 Navigator navigator) {
-        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager, navigator);
+                                                                 Navigator navigator, AsyncTaskManager asyncTaskManager) {
+        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager, navigator, asyncTaskManager);
     }
 
     @Provides

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     private RecyclerView rvCalendar;
     private LinearLayoutManager layoutManager;
     private TextView tvMonth;
+    private ProgressBar pbLoading;
     private int[] years;
     private int selectedYear;
 
@@ -71,6 +73,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
         View v = inflater.inflate(R.layout.f_cerkovnyy_calendar, container, false);
         rvCalendar = (RecyclerView) v.findViewById(R.id.rvCalendar);
         tvMonth = (TextView) v.findViewById(R.id.tvMonth);
+        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
 
         layoutManager = new LinearLayoutManager(getContext());
         rvCalendar.setLayoutManager(layoutManager);
@@ -79,7 +82,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                onVisibleDaysChanged(layoutManager.findFirstVisibleItemPosition(), false);
+                onVisibleDaysChanged(false);
             }
         });
 
@@ -152,14 +155,13 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
             layoutManager.scrollToPosition(initPosition);
             initPosition = null;
         } else {
-            layoutManager.scrollToPosition(positionOfToday);
+            layoutManager.scrollToPosition(positionOfToday == -1 ? 0 : positionOfToday);
         }
 
-        final int pos = positionOfToday;
         rvCalendar.post(new Runnable() {
             @Override
             public void run() {
-                onVisibleDaysChanged(pos, true);
+                onVisibleDaysChanged(true);
             }
         });
     }
@@ -181,7 +183,8 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
         this.selectedYear = currentYear;
     }
 
-    private void onVisibleDaysChanged(int firstVisibleItem, boolean force) {
+    private void onVisibleDaysChanged(boolean force) {
+        int firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
         if (prevFirstVisibleItem != firstVisibleItem || force) {
             presenter.onVisibleDaysChanged(firstVisibleItem, layoutManager.findLastVisibleItemPosition());
             prevFirstVisibleItem = firstVisibleItem;
@@ -191,5 +194,17 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     @Override
     public boolean onUpButtonPress() {
         return presenter.onUpButtonPress();
+    }
+
+    @Override
+    public void showProgress() {
+        pbLoading.setVisibility(View.VISIBLE);
+        rvCalendar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        pbLoading.setVisibility(View.GONE);
+        rvCalendar.setVisibility(View.VISIBLE);
     }
 }
