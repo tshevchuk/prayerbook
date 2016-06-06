@@ -3,7 +3,7 @@ package com.tshevchuk.prayer.presentation.often_used;
 import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 import java.util.ArrayList;
 

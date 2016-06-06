@@ -1,6 +1,6 @@
 package com.tshevchuk.prayer.presentation.prayer_html_view;
 
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 /**
  * Created by taras on 06.04.16.

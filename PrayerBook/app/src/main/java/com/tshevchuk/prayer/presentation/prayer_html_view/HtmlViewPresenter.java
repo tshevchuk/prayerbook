@@ -9,7 +9,7 @@ import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.Navigator;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;

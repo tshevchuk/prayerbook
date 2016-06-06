@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
-import com.tshevchuk.prayer.presentation.base.FragmentBase;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.presentation.base;
+package com.tshevchuk.prayer.presentation.common;
 
 import android.content.Context;
 import android.os.Bundle;

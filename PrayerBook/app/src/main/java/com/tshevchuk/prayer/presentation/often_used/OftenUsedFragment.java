@@ -30,8 +30,9 @@ import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
-import com.tshevchuk.prayer.presentation.base.FragmentBase;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.CalendarUtils;
+import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -198,24 +199,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
         tvDescription.setText(Html.fromHtml(day.getDayDescription()));
         tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-        if (CalendarDateInfo.PIST_PIST.equals(day.getPistType())) {
-            ivPistIcon.setImageResource(
-                    uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES
-                            ? R.drawable.ic_pist_fish_white
-                            : R.drawable.ic_pist_fish_black);
-            ivPistIcon.setBackgroundResource(R.drawable.background_pist_pist);
-            ivPistIcon.setVisibility(View.VISIBLE);
-        } else if (CalendarDateInfo.PIST_STROHYY.equals(day.getPistType())) {
-            ivPistIcon.setImageResource(R.drawable.ic_pist_fish_red);
-            ivPistIcon.setBackgroundResource(R.drawable.background_pist_pist);
-            ivPistIcon.setVisibility(View.VISIBLE);
-        } else if (CalendarDateInfo.PIST_ZAHALNYTSYA.equals(day.getPistType())) {
-            ivPistIcon.setImageResource(0);
-            ivPistIcon.setBackgroundResource(R.drawable.background_pist_zahalnytsya);
-            ivPistIcon.setVisibility(View.VISIBLE);
-        } else {
-            ivPistIcon.setVisibility(View.GONE);
-        }
+        CalendarUtils.showPistTypeOnImageView(ivPistIcon, day, uiModeManager);
     }
 
 }

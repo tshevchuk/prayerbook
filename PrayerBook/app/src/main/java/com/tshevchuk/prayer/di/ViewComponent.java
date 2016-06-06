@@ -2,8 +2,8 @@ package com.tshevchuk.prayer.di;
 
 import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerFragment;
-import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
+import com.tshevchuk.prayer.presentation.common.FragmentBase;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
 import com.tshevchuk.prayer.presentation.navigation_drawer.NavigationDrawerFragment;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;

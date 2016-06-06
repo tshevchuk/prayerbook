@@ -8,15 +8,13 @@ import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.Navigator;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
 
 import org.json.JSONException;
 import org.parceler.Parcel;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import hugo.weaving.DebugLog;
 
@@ -70,28 +68,21 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
 
     private void setCalendar(final int year) {
         showProgress(PROGRESS_ID_LOAD_CALENDAR);
-        asyncTaskManager.executeTask(new AsyncTaskManager.BackgroundTask<ArrayList<CalendarDateInfo>>() {
+        asyncTaskManager.executeTask(new AsyncTaskManager.BackgroundTask<Void>() {
+            private ArrayList<CalendarDateInfo> resultCalendarDays;
+
             @DebugLog
             @Override
-            public ArrayList<CalendarDateInfo> doInBackground() throws Exception {
-                int daysCount = new GregorianCalendar().isLeapYear(year) ? 366 : 365;
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.YEAR, year);
-
-                ArrayList<CalendarDateInfo> calendarDays = new ArrayList<>(daysCount);
-
-                for (int i = 0; i < daysCount; ++i) {
-                    calendar.set(Calendar.DAY_OF_YEAR, i + 1);
-                    calendarDays.add(dataManager.getCalendarDay(calendar.getTime()));
-                }
-                return calendarDays;
+            public Void doInBackground() throws Exception {
+                resultCalendarDays = dataManager.getCalendarDays(year);
+                return null;
             }
 
             @Override
-            public void postExecute(ArrayList<CalendarDateInfo> result) {
+            public void postExecute(Void result) {
                 int position = (year == currentYear) ? (java.util.Calendar
                         .getInstance().get(java.util.Calendar.DAY_OF_YEAR) - 1) : -1;
-                getMvpView().showCalendarForYear(instanceState.year, result, position,
+                getMvpView().showCalendarForYear(instanceState.year, resultCalendarDays, position,
                         dataManager.getTextFontSizeSp());
                 hideProgress(PROGRESS_ID_LOAD_CALENDAR);
             }

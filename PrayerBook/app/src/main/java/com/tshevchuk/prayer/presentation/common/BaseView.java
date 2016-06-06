@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.presentation.base;
+package com.tshevchuk.prayer.presentation.common;
 
 /**
  * Created by taras on 24.03.16.

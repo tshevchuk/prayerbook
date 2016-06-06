@@ -1,6 +1,6 @@
 package com.tshevchuk.prayer.presentation.home;
 
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 import java.io.File;
 

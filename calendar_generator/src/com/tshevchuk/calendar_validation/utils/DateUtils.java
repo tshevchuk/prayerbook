@@ -22,6 +22,7 @@ public class DateUtils {
 
     public static List<Date> getDatesOfYear(int year) {
         Calendar cal = Calendar.getInstance();
+        cal.clear();
         List<Date> dates = new ArrayList<>();
         for (cal.set(year, 0, 1); cal.get(Calendar.YEAR) == year; cal.add(Calendar.DAY_OF_MONTH, 1)) {
             dates.add(cal.getTime());

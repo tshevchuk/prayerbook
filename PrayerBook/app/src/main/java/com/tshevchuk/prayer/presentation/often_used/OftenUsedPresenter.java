@@ -12,7 +12,7 @@ import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.Navigator;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
 
 import org.json.JSONException;
 

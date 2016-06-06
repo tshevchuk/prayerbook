@@ -1,4 +1,4 @@
-package com.tshevchuk.prayer.presentation.base;
+package com.tshevchuk.prayer.presentation.common;
 
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemBase;

@@ -1,7 +1,7 @@
 package com.tshevchuk.prayer.presentation.navigation_drawer;
 
 import com.tshevchuk.prayer.domain.model.MenuListItem;
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 import java.util.ArrayList;
 

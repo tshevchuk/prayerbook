@@ -6,7 +6,7 @@ import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.Navigator;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
 
 /**
  * Created by taras on 22.03.16.

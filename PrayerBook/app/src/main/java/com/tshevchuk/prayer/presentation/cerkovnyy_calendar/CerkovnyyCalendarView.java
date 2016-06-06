@@ -1,7 +1,7 @@
 package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 import java.util.ArrayList;
 

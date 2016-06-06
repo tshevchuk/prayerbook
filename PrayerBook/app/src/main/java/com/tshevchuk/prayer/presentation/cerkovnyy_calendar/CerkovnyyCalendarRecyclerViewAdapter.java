@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
+import com.tshevchuk.prayer.presentation.common.CalendarUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,24 +71,7 @@ public class CerkovnyyCalendarRecyclerViewAdapter extends RecyclerView.Adapter<C
         } else {
             vh.tvDay.setBackgroundResource(0);
         }
-        if (CalendarDateInfo.PIST_PIST.equals(day.getPistType())) {
-            vh.ivPistIcon.setImageResource(
-                    uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES
-                            ? R.drawable.ic_pist_fish_white
-                            : R.drawable.ic_pist_fish_black);
-            vh.ivPistIcon.setBackgroundResource(R.drawable.background_pist_pist);
-            vh.ivPistIcon.setVisibility(View.VISIBLE);
-        } else if (CalendarDateInfo.PIST_STROHYY.equals(day.getPistType())) {
-            vh.ivPistIcon.setImageResource(R.drawable.ic_pist_fish_red);
-            vh.ivPistIcon.setBackgroundResource(R.drawable.background_pist_pist);
-            vh.ivPistIcon.setVisibility(View.VISIBLE);
-        } else if (CalendarDateInfo.PIST_ZAHALNYTSYA.equals(day.getPistType())) {
-            vh.ivPistIcon.setImageResource(0);
-            vh.ivPistIcon.setBackgroundResource(R.drawable.background_pist_zahalnytsya);
-            vh.ivPistIcon.setVisibility(View.VISIBLE);
-        } else {
-            vh.ivPistIcon.setVisibility(View.GONE);
-        }
+        CalendarUtils.showPistTypeOnImageView(vh.ivPistIcon, day, uiModeManager);
     }
 
     @Override

@@ -24,6 +24,7 @@ public class Main {
                 new CompareNewsUgccRedDayTask(),
                 new CompareNewsUgccPostyTask(),
                 new CompareDyvensvitPostyTask(),
+                new CompareCalendarGenerationByDayAndByDaysTask(),
         };
     }
 

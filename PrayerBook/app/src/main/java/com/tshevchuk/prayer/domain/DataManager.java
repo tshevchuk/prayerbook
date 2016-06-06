@@ -79,9 +79,12 @@ public class DataManager {
         preferenceManager.markMenuItemAsOpened(id);
     }
 
-    @DebugLog
     public CalendarDateInfo getCalendarDay(Date date) throws IOException, JSONException {
         return churchCalendarRepository.getCalendarDay(date);
+    }
+
+    public ArrayList<CalendarDateInfo> getCalendarDays(int year) throws IOException, JSONException {
+        return churchCalendarRepository.getCalendarDays(year);
     }
 
     public int getTextFontSizeSp() {
