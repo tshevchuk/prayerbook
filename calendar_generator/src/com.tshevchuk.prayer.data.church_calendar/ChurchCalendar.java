@@ -32,6 +32,11 @@ public class ChurchCalendar {
         return years;
     }
 
+    public synchronized int[] getVerifiedYears() throws IOException, JSONException {
+        readCalendarConfig();
+        return churchCalendarJsonParser.getVerifiedYears();
+    }
+
     public synchronized CalendarDate getEasterDateJulian(int year) throws IOException, JSONException {
         readCalendarConfig();
         if (lastEasterJulianDate != null && lastEasterJulianDate.getYear() == year) {

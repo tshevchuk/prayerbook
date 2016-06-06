@@ -100,6 +100,11 @@ public class DataManager {
         return churchCalendarRepository.getYears();
     }
 
+    @DebugLog
+    public int[] getVerifiedYears() throws IOException, JSONException {
+        return churchCalendarRepository.getVerifiedYears();
+    }
+
     public MenuItemBase getMenuItem(int id) {
         return textsRepository.getMenuItem(id);
     }

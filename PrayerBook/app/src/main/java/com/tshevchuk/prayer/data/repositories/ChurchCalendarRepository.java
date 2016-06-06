@@ -30,4 +30,8 @@ public class ChurchCalendarRepository {
     public int[] getYears() throws IOException, JSONException {
         return churchCalendar.getCalendarYears();
     }
+
+    public int[] getVerifiedYears() throws IOException, JSONException {
+        return churchCalendar.getVerifiedYears();
+    }
 }

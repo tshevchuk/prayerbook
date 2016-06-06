@@ -15,4 +15,6 @@ public interface CerkovnyyCalendarView extends BaseView {
     void setCurrentMonths(int monthFrom, int monthTo, int year);
 
     void setYears(int[] years, int currentYear);
+
+    void showCalendarNotVerifiedWarning(int year);
 }

@@ -70,11 +70,19 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         showProgress(PROGRESS_ID_LOAD_CALENDAR);
         asyncTaskManager.executeTask(new AsyncTaskManager.BackgroundTask<Void>() {
             private ArrayList<CalendarDateInfo> resultCalendarDays;
+            private boolean isVerifiedYear = false;
 
             @DebugLog
             @Override
             public Void doInBackground() throws Exception {
                 resultCalendarDays = dataManager.getCalendarDays(year);
+                int[] verifiedYears = dataManager.getVerifiedYears();
+                for (int i = verifiedYears.length - 1; i >= 0; i--) {
+                    if (verifiedYears[i] == year) {
+                        isVerifiedYear = true;
+                        break;
+                    }
+                }
                 return null;
             }
 
@@ -85,6 +93,9 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
                 getMvpView().showCalendarForYear(instanceState.year, resultCalendarDays, position,
                         dataManager.getTextFontSizeSp());
                 hideProgress(PROGRESS_ID_LOAD_CALENDAR);
+                if (!isVerifiedYear) {
+                    getMvpView().showCalendarNotVerifiedWarning(year);
+                }
             }
 
             @Override

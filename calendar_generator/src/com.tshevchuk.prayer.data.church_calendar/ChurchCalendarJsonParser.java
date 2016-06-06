@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -128,8 +129,8 @@ public class ChurchCalendarJsonParser {
             } else {
                 String date = pistJson.optString("fromDate", null);
                 String[] parts = date.split("\\.");
-                int day = Integer.valueOf(parts[0].replaceAll("^0+", ""));
-                int month = Integer.valueOf(parts[1].replaceAll("^0+", ""));
+                int day = Integer.parseInt(parts[0].replaceAll("^0+", ""));
+                int month = Integer.parseInt(parts[1].replaceAll("^0+", ""));
                 pist.setFromNonMovableDate(month, day);
             }
             if (pistJson.has("toMovable")) {
@@ -137,8 +138,8 @@ public class ChurchCalendarJsonParser {
             } else {
                 String date = pistJson.optString("toDate", null);
                 String[] parts = date.split("\\.");
-                int day = Integer.valueOf(parts[0].replaceAll("^0+", ""));
-                int month = Integer.valueOf(parts[1].replaceAll("^0+", ""));
+                int day = Integer.parseInt(parts[0].replaceAll("^0+", ""));
+                int month = Integer.parseInt(parts[1].replaceAll("^0+", ""));
                 pist.setToNonMovableDate(month, day);
             }
             posty.add(pist);
@@ -194,5 +195,15 @@ public class ChurchCalendarJsonParser {
             dates[i] = easterDates.getString(i);
         }
         return dates;
+    }
+
+    public int[] getVerifiedYears() throws JSONException {
+        JSONObject fixes = getFixes();
+        int[] years = new int[fixes.length()];
+        int index = 0;
+        for (Iterator itr = fixes.keys(); itr.hasNext(); index++) {
+            years[index] = Integer.parseInt((String) itr.next());
+        }
+        return years;
     }
 }

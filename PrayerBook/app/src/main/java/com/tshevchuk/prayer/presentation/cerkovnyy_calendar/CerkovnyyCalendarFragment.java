@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -181,6 +182,12 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     public void setYears(int[] years, int currentYear) {
         this.years = years;
         this.selectedYear = currentYear;
+    }
+
+    @Override
+    public void showCalendarNotVerifiedWarning(int year) {
+        Snackbar.make(rvCalendar, getString(R.string.calendar__calendar_not_verified_x_year, year),
+                Snackbar.LENGTH_LONG).show();
     }
 
     private void onVisibleDaysChanged(boolean force) {

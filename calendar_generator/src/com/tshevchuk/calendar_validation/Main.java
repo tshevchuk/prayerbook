@@ -19,6 +19,7 @@ public class Main {
                 new ParseNewsUgccCalendarTask(),
                 new PrintDaysNewsUgccTask(),
                 new PrintEasterDatesTask(),
+                new PrintVerifiedYearsTask(),
                 new CompareNewsUgccPersonTask(),
                 new CompareNewsUgccDayTask(),
                 new CompareNewsUgccRedDayTask(),
