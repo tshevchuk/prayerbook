@@ -1,0 +1,377 @@
+{
+  "20460101": {
+    "isRed": true,
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -118
+  },
+  "20460107": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -112
+  },
+  "20460108": {
+    "isRed": true,
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -111
+  },
+  "20460109": {
+    "isRed": true,
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -110
+  },
+  "20460114": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -105
+  },
+  "20460119": {
+    "isRed": true,
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -100
+  },
+  "20460121": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -98
+  },
+  "20460128": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20460204": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -84
+  },
+  "20460211": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -77
+  },
+  "20460212": {
+    "isRed": true,
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -76
+  },
+  "20460215": {
+    "isRed": true,
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -73
+  },
+  "20460218": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20460225": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20460304": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20460311": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20460318": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20460325": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20460401": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20460407": {
+    "isRed": true,
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20460408": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20460415": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20460422": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -7
+  },
+  "20460429": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 0
+  },
+  "20460430": {
+    "isRed": true,
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 1
+  },
+  "20460501": {
+    "isRed": true,
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 2
+  },
+  "20460506": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20460513": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20460520": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20460527": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20460603": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20460607": {
+    "isRed": true,
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 39
+  },
+  "20460610": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20460617": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 49
+  },
+  "20460618": {
+    "isRed": true,
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 50
+  },
+  "20460624": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20460628": {
+    "isRed": true,
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20460701": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20460706": {
+    "isRed": true,
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20460707": {
+    "isRed": true,
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20460708": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20460712": {
+    "isRed": true,
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 74
+  },
+  "20460715": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20460722": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20460729": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20460805": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20460812": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20460819": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20460826": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 119
+  },
+  "20460828": {
+    "isRed": true,
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 121
+  },
+  "20460902": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 126
+  },
+  "20460909": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 133
+  },
+  "20460911": {
+    "isRed": true,
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 135
+  },
+  "20460916": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 140
+  },
+  "20460921": {
+    "isRed": true,
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 145
+  },
+  "20460923": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20460927": {
+    "isRed": true,
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 151
+  },
+  "20460930": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20461007": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20461014": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20461021": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20461028": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 182
+  },
+  "20461104": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20461111": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20461118": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20461121": {
+    "isRed": true,
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 206
+  },
+  "20461125": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20461202": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 217
+  },
+  "20461204": {
+    "isRed": true,
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 219
+  },
+  "20461209": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 224
+  },
+  "20461216": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20461219": {
+    "isRed": true,
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 234
+  },
+  "20461222": {
+    "isRed": true,
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 237
+  },
+  "20461223": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20461230": {
+    "isRed": true,
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 245
+  }
+}

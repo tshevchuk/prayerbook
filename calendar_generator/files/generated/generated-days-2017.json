@@ -1,0 +1,537 @@
+{
+  "20170102": {
+    "day": "<i>Передсвяття Різдва Христового</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -104
+  },
+  "20170106": {
+    "day": "<i>Навечір'я Різдва Христового</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -100
+  },
+  "20170107": {
+    "day": "<b><r>⊕ РІЗДВО ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -99
+  },
+  "20170108": {
+    "day": "<b><r>⊕ Собор Пресвятої Богородиці і св. Йосифа Обручника</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -98
+  },
+  "20170109": {
+    "day": "<r>Первомученика і архидиякона Стефана</r>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -97
+  },
+  "20170113": {
+    "day": "<i>Віддання Різдва Христового</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -93
+  },
+  "20170114": {
+    "day": "<b><r>⊕ Обрізання ГНІХ і св. Василія Великого</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -92
+  },
+  "20170115": {
+    "day": "<i>Передсвяття Богоявління</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20170118": {
+    "day": "<i>Навечір'я Богоявління</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -88
+  },
+  "20170119": {
+    "day": "<b><r>⊕ БОГОЯВЛІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -87
+  },
+  "20170127": {
+    "day": "<i>Віддання Богоявління</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -79
+  },
+  "20170205": {
+    "day": "<i><r>Митаря і Фарисея</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20170212": {
+    "day": "<i><r>Блудного сина</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20170214": {
+    "day": "<i>Передсв. Стрітення</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -61
+  },
+  "20170215": {
+    "day": "<b><r>⊕ СТРІТЕННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -60
+  },
+  "20170218": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -57
+  },
+  "20170219": {
+    "day": "<i><r>М'ясопусна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20170221": {
+    "day": "<i>Віддання Стрітення</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -54
+  },
+  "20170226": {
+    "day": "<i><r>Сиропусна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20170227": {
+    "day": "<i>Початок Великого Посту</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -48
+  },
+  "20170305": {
+    "day": "<i><r>1 посту. Неділя Православ'я</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20170311": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -36
+  },
+  "20170312": {
+    "day": "<i><r>2 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20170319": {
+    "day": "<i><r>3 Посту. Хрестопоклінна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20170325": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20170326": {
+    "day": "<i><r>4 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20170329": {
+    "day": "<i>Поклони</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -18
+  },
+  "20170401": {
+    "day": "<i>Акафістова</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -15
+  },
+  "20170402": {
+    "day": "<i><r>5 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20170406": {
+    "day": "<i>Передсв. Благовіщення</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -10
+  },
+  "20170407": {
+    "day": "<b><r>⊕ БЛАГОВІЩЕННЯ ПРЕЧИСТОЇ ДІВИ МАРІЇ</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -9
+  },
+  "20170408": {
+    "day": "<i>Віддання Благовіщення</i>, <i>Лазарева</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -8
+  },
+  "20170409": {
+    "day": "<b><r>КВІТНА</r></b>, <b><r>† ВХІД ГОСПОДНІЙ В ЄРУСАЛИМ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -7
+  },
+  "20170410": {
+    "day": "<i>Страсний тиждень</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -6
+  },
+  "20170413": {
+    "day": "ВЕЛ. ЧЕТВЕР, <i>Страсті</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -3
+  },
+  "20170414": {
+    "day": "<b><r>ВЕЛ. П'ЯТНИЦЯ</r></b>, <i><r>Плащаниця</r></i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -2
+  },
+  "20170415": {
+    "day": "ВЕЛ. СУБОТА",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -1
+  },
+  "20170416": {
+    "day": "<b><r>⊕ ВОСКРЕСІННЯ ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 0
+  },
+  "20170417": {
+    "day": "<b><r>СВ. ПОНЕДІЛОК</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 1
+  },
+  "20170418": {
+    "day": "<b><r>СВ. ВІВТОРОК</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 2
+  },
+  "20170423": {
+    "day": "<i><r>Томина</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20170430": {
+    "day": "<i><r>Мироносиць</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20170507": {
+    "day": "<i><r>Розслабленого</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20170510": {
+    "day": "<i>Переполовення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 24
+  },
+  "20170514": {
+    "day": "<i><r>Самарянки</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20170521": {
+    "day": "<i><r>Сліпородженого</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20170525": {
+    "day": "<b><r>⊕ ВОЗНЕСІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 39
+  },
+  "20170528": {
+    "day": "<i><r>Св. Отців І Вселенського Собору</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20170603": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 48
+  },
+  "20170604": {
+    "day": "<b><r>⊕ ЗІСЛАННЯ СВЯТОГО ДУХА</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 49
+  },
+  "20170605": {
+    "day": "<b><r>⊕ ПРЕСВЯТОЇ ТРОЙЦІ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 50
+  },
+  "20170610": {
+    "day": "<i>Віддання Зіслання</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 55
+  },
+  "20170611": {
+    "day": "<i><r>1-а Нд. по Зісланні. Всіх святих</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20170612": {
+    "day": "<i>Початок Посту Святих Апостолів (Петрівки)</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 57
+  },
+  "20170615": {
+    "day": "<b><r>⊕ Пресвятої Євхаристії</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20170618": {
+    "day": "<i><r>2-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20170623": {
+    "day": "<b><r>† Христа Чоловіколюбця</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20170624": {
+    "day": "<b>† Співстр. Пресв. Богородиці</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20170625": {
+    "day": "<i><r>3-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20170627": {
+    "day": "<b><r>† Свщмч. Миколая Чарнецького і 24-х укр. мучч.; муч. Омеляна Ковча;</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 72
+  },
+  "20170702": {
+    "day": "<i><r>4-а Нд. по Зісланні. Всім святим Українського народу</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20170709": {
+    "day": "<i><r>5-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20170716": {
+    "day": "<i><r>6-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20170723": {
+    "day": "<i><r>7-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20170730": {
+    "day": "<i><r>8-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20170806": {
+    "day": "<i><r>9-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20170813": {
+    "day": "<i><r>10-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 119
+  },
+  "20170814": {
+    "day": "<i>Початок Успінського Посту (Спасівки)</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 120
+  },
+  "20170819": {
+    "day": "<b><r>⊕ ПРЕОБРАЖЕННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 125
+  },
+  "20170820": {
+    "day": "<i><r>11-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 126
+  },
+  "20170826": {
+    "day": "<i>Віддання Преображення</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 132
+  },
+  "20170827": {
+    "day": "<i>Передсв. Успіння</i>, <i><r>12-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 133
+  },
+  "20170828": {
+    "day": "<b><r>⊕ УСПІННЯ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 134
+  },
+  "20170903": {
+    "day": "<i><r>13-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 140
+  },
+  "20170905": {
+    "day": "<i>Віддання Успіння</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 142
+  },
+  "20170910": {
+    "day": "<i><r>14-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20170911": {
+    "day": "<b><r>⊕ Усікновення голови св. Йоана Христителя</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 148
+  },
+  "20170913": {
+    "day": "<b>† Покладення пояса Пресв. Богородиці</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 150
+  },
+  "20170914": {
+    "day": "<b>† Початок Церковного року</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 151
+  },
+  "20170917": {
+    "day": "<i><r>15-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20170920": {
+    "day": "<i>Передсв. Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 157
+  },
+  "20170921": {
+    "day": "<b><r>⊕ РІЗДВО ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 158
+  },
+  "20170924": {
+    "day": "<i><r>16-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20170925": {
+    "day": "<i>Віддання Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 162
+  },
+  "20170926": {
+    "day": "<i>Передсвяття Воздвиження</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 163
+  },
+  "20170927": {
+    "day": "<b><r>⊕ ВОЗДВИЖЕННЯ ХРЕСТА ГОСПОДНЬОГО</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 164
+  },
+  "20171001": {
+    "day": "<i><r>17-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20171004": {
+    "day": "<i>Віддання Воздвиження</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 171
+  },
+  "20171008": {
+    "day": "<i><r>18-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20171014": {
+    "day": "<b><r>⊕ Покров Пресвятої Богородиці</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 181
+  },
+  "20171015": {
+    "day": "<i><r>19-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 182
+  },
+  "20171022": {
+    "day": "<i><r>20-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20171029": {
+    "day": "<i><r>21-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20171105": {
+    "day": "<i><r>22-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20171112": {
+    "day": "<i><r>23-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20171119": {
+    "day": "<i><r>24-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 217
+  },
+  "20171126": {
+    "day": "<i><r>25-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 224
+  },
+  "20171128": {
+    "day": "<i>Початок Різвяного Посту (Пилипівки)</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 226
+  },
+  "20171203": {
+    "day": "<i>Передсв. Введення</i>, <i><r>26-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20171204": {
+    "day": "<b><r>⊕ ВВЕДЕННЯ В ХРАМ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 232
+  },
+  "20171208": {
+    "day": "<i>Віддання Введення</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 236
+  },
+  "20171210": {
+    "day": "<i><r>27-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20171217": {
+    "day": "<i><r>28-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 245
+  },
+  "20171221": {
+    "day": "<i>Передсв. Непороч. Зачаття Богородиці</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 249
+  },
+  "20171222": {
+    "day": "<b><r>⊕ Непорочне Зачаття Пресвятої Богородиці</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 250
+  },
+  "20171224": {
+    "day": "<i><r>29-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 252
+  },
+  "20171231": {
+    "day": "<i><r>30-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 259
+  }
+}

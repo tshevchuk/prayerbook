@@ -1,0 +1,542 @@
+{
+  "20150102": {
+    "day": "<i>Передсвяття Різдва Христового</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -100
+  },
+  "20150104": {
+    "day": "<i><r>Неділя перед Різдвом</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -98
+  },
+  "20150106": {
+    "day": "<i>Навечір'я Різдва Христового</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -96
+  },
+  "20150107": {
+    "day": "<b><r>⊕ РІЗДВО ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -95
+  },
+  "20150108": {
+    "day": "<b><r>⊕ Собор Пресвятої Богородиці і св. Йосифа Обручника</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -94
+  },
+  "20150109": {
+    "day": "<r>Первомученика і архидиякона Стефана</r>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -93
+  },
+  "20150111": {
+    "day": "<i><r>Неділя по Різдві</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20150113": {
+    "day": "<i>Віддання Різдва Христового</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -89
+  },
+  "20150114": {
+    "day": "<b><r>⊕ Обрізання ГНІХ і св. Василія Великого</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -88
+  },
+  "20150115": {
+    "day": "<i>Передсвяття Богоявління</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -87
+  },
+  "20150116": {
+    "day": "<i>Царські часи</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -86
+  },
+  "20150118": {
+    "day": "<i>Навечір'я Богоявління</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -84
+  },
+  "20150119": {
+    "day": "<b><r>⊕ БОГОЯВЛІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -83
+  },
+  "20150125": {
+    "day": "<i><r>Закхея</r></i>, <i><r>Неділя по Богоявленні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -77
+  },
+  "20150127": {
+    "day": "<i>Віддання Богоявління</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -75
+  },
+  "20150201": {
+    "day": "<i><r>Митаря і Фарисея</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20150208": {
+    "day": "<i><r>Блудного сина</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20150214": {
+    "day": "<i>Передсв. Стрітення</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -57
+  },
+  "20150215": {
+    "day": "<b><r>⊕ СТРІТЕННЯ ГОСПОДНЄ</r></b>, <i><r>М'ясопусна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20150221": {
+    "day": "<i>Віддання Стрітення</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -50
+  },
+  "20150222": {
+    "day": "<i><r>Сиропусна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20150223": {
+    "day": "<i>Початок Великого Посту</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -48
+  },
+  "20150301": {
+    "day": "<i><r>1 посту. Неділя Православ'я</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20150307": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -36
+  },
+  "20150308": {
+    "day": "<i><r>2 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20150314": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -29
+  },
+  "20150315": {
+    "day": "<i><r>3 Посту. Хрестопоклінна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20150321": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20150322": {
+    "day": "<i><r>4 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20150325": {
+    "day": "<i>Поклони</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -18
+  },
+  "20150328": {
+    "day": "<i>Акафістова</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -15
+  },
+  "20150329": {
+    "day": "<i><r>5 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20150404": {
+    "day": "<i>Лазарева</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -8
+  },
+  "20150405": {
+    "day": "<b><r>КВІТНА</r></b>, <b><r>† ВХІД ГОСПОДНІЙ В ЄРУСАЛИМ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -7
+  },
+  "20150406": {
+    "day": "<i>Передсв. Благовіщення</i>, <i>Страсний тиждень</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -6
+  },
+  "20150407": {
+    "day": "<b><r>⊕ БЛАГОВІЩЕННЯ ПРЕЧИСТОЇ ДІВИ МАРІЇ</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -5
+  },
+  "20150408": {
+    "day": "<i>Віддання Благовіщення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -4
+  },
+  "20150409": {
+    "day": "ВЕЛ. ЧЕТВЕР",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -3
+  },
+  "20150410": {
+    "day": "<b><r>ВЕЛ. П'ЯТНИЦЯ</r></b>, <i><r>Плащаниця</r></i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -2
+  },
+  "20150411": {
+    "day": "ВЕЛ. СУБОТА",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -1
+  },
+  "20150412": {
+    "day": "<b><r>⊕ ВОСКРЕСІННЯ ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 0
+  },
+  "20150413": {
+    "day": "<b><r>СВ. ПОНЕДІЛОК</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 1
+  },
+  "20150414": {
+    "day": "<b><r>СВ. ВІВТОРОК</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 2
+  },
+  "20150419": {
+    "day": "<i><r>Томина</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20150426": {
+    "day": "<i><r>Мироносиць</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20150503": {
+    "day": "<i><r>Розслабленого</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20150506": {
+    "day": "<i>Переполовення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 24
+  },
+  "20150510": {
+    "day": "<i><r>Самарянки</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20150517": {
+    "day": "<i><r>Сліпородженого</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20150521": {
+    "day": "<b><r>⊕ ВОЗНЕСІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 39
+  },
+  "20150524": {
+    "day": "<i><r>Св. Отців І Вселенського Собору</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20150530": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 48
+  },
+  "20150531": {
+    "day": "<b><r>⊕ ЗІСЛАННЯ СВЯТОГО ДУХА</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 49
+  },
+  "20150601": {
+    "day": "<b><r>⊕ ПРЕСВЯТОЇ ТРОЙЦІ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 50
+  },
+  "20150606": {
+    "day": "<i>Віддання Зіслання</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 55
+  },
+  "20150607": {
+    "day": "<i><r>1-а Нд. по Зісланні. Всіх святих</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20150608": {
+    "day": "<i>Початок Посту Святих Апостолів (Петрівки)</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 57
+  },
+  "20150611": {
+    "day": "<b><r>⊕ Пресвятої Євхаристії</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20150614": {
+    "day": "<i><r>2-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20150619": {
+    "day": "<b><r>† Христа Чоловіколюбця</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20150620": {
+    "day": "<b>† Співстр. Пресв. Богородиці</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20150621": {
+    "day": "<i><r>3-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20150627": {
+    "day": "<b><r>† Свщмч. Миколая Чарнецького і 24-х укр. мучч.; муч. Омеляна Ковча;</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 76
+  },
+  "20150628": {
+    "day": "<i><r>4-а Нд. по Зісланні. Всім святим Українського народу</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20150705": {
+    "day": "<i><r>5-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20150712": {
+    "day": "<i><r>6-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20150719": {
+    "day": "<i><r>7-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20150726": {
+    "day": "<i><r>8-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20150802": {
+    "day": "<i><r>9-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20150809": {
+    "day": "<i><r>10-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 119
+  },
+  "20150814": {
+    "day": "<i>Початок Успінського Посту (Спасівки)</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 124
+  },
+  "20150816": {
+    "day": "<i><r>11-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 126
+  },
+  "20150819": {
+    "day": "<b><r>⊕ ПРЕОБРАЖЕННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 129
+  },
+  "20150823": {
+    "day": "<i><r>12-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 133
+  },
+  "20150826": {
+    "day": "<i>Віддання Преображення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 136
+  },
+  "20150827": {
+    "day": "<i>Передсв. Успіння</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 137
+  },
+  "20150828": {
+    "day": "<b><r>⊕ УСПІННЯ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 138
+  },
+  "20150830": {
+    "day": "<i><r>13-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 140
+  },
+  "20150905": {
+    "day": "<i>Віддання Успіння</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 146
+  },
+  "20150906": {
+    "day": "<i><r>14-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20150911": {
+    "day": "<b><r>⊕ Усікновення голови св. Йоана Христителя</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 152
+  },
+  "20150913": {
+    "day": "<b>† Покладення пояса Пресв. Богородиці</b>, <i><r>15-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20150914": {
+    "day": "<b>† Початок Церковного року</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 155
+  },
+  "20150920": {
+    "day": "<i>Передсв. Різдва Пресв. Богородиці</i>, <i><r>16-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20150921": {
+    "day": "<b><r>⊕ РІЗДВО ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 162
+  },
+  "20150925": {
+    "day": "<i>Віддання Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 166
+  },
+  "20150926": {
+    "day": "<i>Передсвяття Воздвиження</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 167
+  },
+  "20150927": {
+    "day": "<b><r>⊕ ВОЗДВИЖЕННЯ ХРЕСТА ГОСПОДНЬОГО</r></b>, <i><r>17-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20151004": {
+    "day": "<i>Віддання Воздвиження</i>, <i><r>18-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20151011": {
+    "day": "<i><r>19-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 182
+  },
+  "20151014": {
+    "day": "<b><r>⊕ Покров Пресвятої Богородиці</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 185
+  },
+  "20151018": {
+    "day": "<i><r>20-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20151025": {
+    "day": "<i><r>21-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20151101": {
+    "day": "<i><r>22-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20151108": {
+    "day": "<i><r>23-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20151115": {
+    "day": "<i><r>24-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 217
+  },
+  "20151122": {
+    "day": "<i><r>25-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 224
+  },
+  "20151128": {
+    "day": "<i>Початок Різвяного Посту (Пилипівки)</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 230
+  },
+  "20151129": {
+    "day": "<i><r>26-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20151203": {
+    "day": "<i>Передсв. Введення</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 235
+  },
+  "20151204": {
+    "day": "<b><r>⊕ ВВЕДЕННЯ В ХРАМ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 236
+  },
+  "20151206": {
+    "day": "<i>Віддання Євхаристії</i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20151208": {
+    "day": "<i>Віддання Введення</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 240
+  },
+  "20151213": {
+    "day": "<i><r>28-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 245
+  },
+  "20151220": {
+    "day": "<i><r>29-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 252
+  },
+  "20151221": {
+    "day": "<i>Передсв. Непороч. Зачаття Богородиці</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 253
+  },
+  "20151222": {
+    "day": "<b><r>⊕ Непорочне Зачаття Пресвятої Богородиці</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 254
+  },
+  "20151227": {
+    "day": "<i><r>30-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 259
+  }
+}

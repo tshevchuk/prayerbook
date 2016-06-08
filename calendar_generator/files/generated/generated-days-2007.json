@@ -1,0 +1,522 @@
+{
+  "20070102": {
+    "day": "<i>Передсвяття Різдва Христового</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -96
+  },
+  "20070106": {
+    "day": "<i>Навечір'я Різдва Христового</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -92
+  },
+  "20070107": {
+    "day": "<b><r>⊕ РІЗДВО ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20070108": {
+    "day": "<b><r>⊕ Собор Пресвятої Богородиці і св. Йосифа Обручника</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -90
+  },
+  "20070109": {
+    "day": "<r>Первомученика і архидиякона Стефана</r>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -89
+  },
+  "20070113": {
+    "day": "<i>Віддання Різдва Христового</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -85
+  },
+  "20070114": {
+    "day": "<b><r>⊕ Обрізання ГНІХ і св. Василія Великого</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -84
+  },
+  "20070115": {
+    "day": "<i>Передсвяття Богоявління</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -83
+  },
+  "20070118": {
+    "day": "<i>Навечір'я Богоявління</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -80
+  },
+  "20070119": {
+    "day": "<b><r>⊕ БОГОЯВЛІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -79
+  },
+  "20070127": {
+    "day": "<i>Віддання Богоявління</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -71
+  },
+  "20070128": {
+    "day": "<i><r>Митаря і Фарисея</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20070204": {
+    "day": "<i><r>Блудного сина</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20070210": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -57
+  },
+  "20070211": {
+    "day": "<i><r>М'ясопусна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20070214": {
+    "day": "<i>Передсв. Стрітення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -53
+  },
+  "20070215": {
+    "day": "<b><r>⊕ СТРІТЕННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -52
+  },
+  "20070218": {
+    "day": "<i><r>Сиропусна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20070219": {
+    "day": "<i>Початок Великого Посту</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -48
+  },
+  "20070221": {
+    "day": "<i>Віддання Стрітення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -46
+  },
+  "20070225": {
+    "day": "<i><r>1 посту. Неділя Православ'я</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20070303": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -36
+  },
+  "20070304": {
+    "day": "<i><r>2 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20070311": {
+    "day": "<i><r>3 Посту. Хрестопоклінна</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20070317": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20070318": {
+    "day": "<i><r>4 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20070321": {
+    "day": "<i>Поклони</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -18
+  },
+  "20070324": {
+    "day": "<i>Акафістова</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -15
+  },
+  "20070325": {
+    "day": "<i><r>5 Посту</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20070331": {
+    "day": "<i>Лазарева</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -8
+  },
+  "20070401": {
+    "day": "<b><r>КВІТНА</r></b>, <b><r>† ВХІД ГОСПОДНІЙ В ЄРУСАЛИМ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -7
+  },
+  "20070402": {
+    "day": "<i>Страсний тиждень</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -6
+  },
+  "20070405": {
+    "day": "ВЕЛ. ЧЕТВЕР, <i>Страсті</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -3
+  },
+  "20070406": {
+    "day": "<i>Передсв. Благовіщення</i>, <b><r>ВЕЛ. П'ЯТНИЦЯ</r></b>, <i><r>Плащаниця</r></i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -2
+  },
+  "20070407": {
+    "day": "<b><r>⊕ БЛАГОВІЩЕННЯ ПРЕЧИСТОЇ ДІВИ МАРІЇ</r></b>, ВЕЛ. СУБОТА",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -1
+  },
+  "20070408": {
+    "day": "<i>Віддання Благовіщення</i>, <b><r>⊕ ВОСКРЕСІННЯ ХРИСТОВЕ</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 0
+  },
+  "20070409": {
+    "day": "<b><r>СВ. ПОНЕДІЛОК</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 1
+  },
+  "20070410": {
+    "day": "<b><r>СВ. ВІВТОРОК</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 2
+  },
+  "20070415": {
+    "day": "<i><r>Томина</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20070422": {
+    "day": "<i><r>Мироносиць</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20070429": {
+    "day": "<i><r>Розслабленого</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20070502": {
+    "day": "<i>Переполовення</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 24
+  },
+  "20070506": {
+    "day": "<i><r>Самарянки</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20070513": {
+    "day": "<i><r>Сліпородженого</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20070517": {
+    "day": "<b><r>⊕ ВОЗНЕСІННЯ ГОСПОДНЄ</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 39
+  },
+  "20070520": {
+    "day": "<i><r>Св. Отців І Вселенського Собору</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20070526": {
+    "day": "<i>Заупокійна</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 48
+  },
+  "20070527": {
+    "day": "<b><r>⊕ ЗІСЛАННЯ СВЯТОГО ДУХА</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 49
+  },
+  "20070528": {
+    "day": "<b><r>⊕ ПРЕСВЯТОЇ ТРОЙЦІ</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 50
+  },
+  "20070602": {
+    "day": "<i>Віддання Зіслання</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 55
+  },
+  "20070603": {
+    "day": "<i><r>1-а Нд. по Зісланні. Всіх святих</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20070604": {
+    "day": "<i>Початок Посту Святих Апостолів (Петрівки)</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 57
+  },
+  "20070607": {
+    "day": "<b><r>⊕ Пресвятої Євхаристії</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20070610": {
+    "day": "<i><r>2-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20070615": {
+    "day": "<b><r>† Христа Чоловіколюбця</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20070616": {
+    "day": "<b>† Співстр. Пресв. Богородиці</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20070617": {
+    "day": "<i><r>3-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20070624": {
+    "day": "<i><r>4-а Нд. по Зісланні. Всім святим Українського народу</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20070627": {
+    "day": "<b><r>† Свщмч. Миколая Чарнецького і 24-х укр. мучч.; муч. Омеляна Ковча;</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 80
+  },
+  "20070701": {
+    "day": "<i><r>5-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20070708": {
+    "day": "<i><r>6-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20070715": {
+    "day": "<i><r>7-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20070722": {
+    "day": "<i><r>8-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20070729": {
+    "day": "<i><r>9-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20070805": {
+    "day": "<i><r>10-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 119
+  },
+  "20070812": {
+    "day": "<i><r>11-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 126
+  },
+  "20070814": {
+    "day": "<i>Початок Успінського Посту (Спасівки)</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 128
+  },
+  "20070819": {
+    "day": "<b><r>⊕ ПРЕОБРАЖЕННЯ ГОСПОДНЄ</r></b>, <i><r>12-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 133
+  },
+  "20070826": {
+    "day": "<i>Віддання Преображення</i>, <i><r>13-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 140
+  },
+  "20070827": {
+    "day": "<i>Передсв. Успіння</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 141
+  },
+  "20070828": {
+    "day": "<b><r>⊕ УСПІННЯ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 142
+  },
+  "20070902": {
+    "day": "<i><r>14-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20070905": {
+    "day": "<i>Віддання Успіння</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 150
+  },
+  "20070909": {
+    "day": "<i><r>15-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20070911": {
+    "day": "<b><r>⊕ Усікновення голови св. Йоана Христителя</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 156
+  },
+  "20070913": {
+    "day": "<b>† Покладення пояса Пресв. Богородиці</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 158
+  },
+  "20070914": {
+    "day": "<b>† Початок Церковного року</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 159
+  },
+  "20070916": {
+    "day": "<i><r>16-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20070920": {
+    "day": "<i>Передсв. Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 165
+  },
+  "20070921": {
+    "day": "<b><r>⊕ РІЗДВО ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 166
+  },
+  "20070923": {
+    "day": "<i><r>17-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20070925": {
+    "day": "<i>Віддання Різдва Пресв. Богородиці</i>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 170
+  },
+  "20070926": {
+    "day": "<i>Передсвяття Воздвиження</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 171
+  },
+  "20070927": {
+    "day": "<b><r>⊕ ВОЗДВИЖЕННЯ ХРЕСТА ГОСПОДНЬОГО</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 172
+  },
+  "20070930": {
+    "day": "<i><r>18-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20071004": {
+    "day": "<i>Віддання Воздвиження</i>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 179
+  },
+  "20071007": {
+    "day": "<i><r>19-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 182
+  },
+  "20071014": {
+    "day": "<b><r>⊕ Покров Пресвятої Богородиці</r></b>, <i><r>20-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20071021": {
+    "day": "<i><r>21-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20071028": {
+    "day": "<i><r>22-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20071104": {
+    "day": "<i><r>23-я Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20071111": {
+    "day": "<i><r>24-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 217
+  },
+  "20071118": {
+    "day": "<i><r>25-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 224
+  },
+  "20071125": {
+    "day": "<i><r>26-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20071128": {
+    "day": "<i>Початок Різвяного Посту (Пилипівки)</i>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 234
+  },
+  "20071202": {
+    "day": "<i><r>27-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20071203": {
+    "day": "<i>Передсв. Введення</i>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 239
+  },
+  "20071204": {
+    "day": "<b><r>⊕ ВВЕДЕННЯ В ХРАМ ПРЕСВЯТОЇ БОГОРОДИЦІ</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 240
+  },
+  "20071208": {
+    "day": "<i>Віддання Введення</i>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 244
+  },
+  "20071209": {
+    "day": "<i><r>28-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 245
+  },
+  "20071216": {
+    "day": "<i><r>29-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 252
+  },
+  "20071221": {
+    "day": "<i>Передсв. Непороч. Зачаття Богородиці</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 257
+  },
+  "20071222": {
+    "day": "<b><r>⊕ Непорочне Зачаття Пресвятої Богородиці</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 258
+  },
+  "20071223": {
+    "day": "<i><r>30-а Нд. по Зісланні</r></i>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 259
+  }
+}

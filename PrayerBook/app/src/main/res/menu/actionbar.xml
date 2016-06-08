@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mi_report_mistake"
+        android:menuCategory="secondary"
+        android:title="@string/menu_items__report_about_issue"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/mi_settings"
+        android:menuCategory="secondary"
+        android:title="@string/menu_items__preferences"
+        app:showAsAction="never"/>
+</menu>

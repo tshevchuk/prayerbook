@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Молитовник</string>
+
+    <string name="menu_items__create_shortcut_on_launcher">Створити ярлик на панелі запуску</string>
+    <string name="menu_items__description">Опис</string>
+    <string name="menu_items__report_about_issue">Повідомити про помилку</string>
+    <string name="menu_items__preferences">Налаштування</string>
+    <string name="menu_items__search">Пошук</string>
+
+    <string name="calendar__today">Сьогодні</string>
+    <string-array name="calendar__monthes">
+        <item>Січень</item>
+        <item>Лютий</item>
+        <item>Березень</item>
+        <item>Квітень</item>
+        <item>Травень</item>
+        <item>Червень</item>
+        <item>Липень</item>
+        <item>Серпень</item>
+        <item>Вересень</item>
+        <item>Жовтень</item>
+        <item>Листопад</item>
+        <item>Грудень</item>
+    </string-array>
+    <string name="calendar__month_of_x_year">%1$s %2$s-го року</string>
+    <string name="calendar__x_year">%s рік</string>
+    <string name="calendar__year">Рік</string>
+    <string name="calendar__calendar_not_verified_x_year">Календар для %d року згенеровано автоматично і наразі неперевірено.</string>
+    <string name="calendar__cerk_calendar">Церковний календар</string>
+    <string name="calendar__posty_zahalnytsi">Пости та загальниці</string>
+    <string name="calendar__about_church_calendar">Про церковний календар</string>
+
+    <string name="about_church_calendar__title">Про цекрвоний календар</string>
+    <string name="about_church_calendar__legend">Умовні позначення:</string>
+    <string name="about_church_calendar__pist">Піст</string>
+    <string name="about_church_calendar__strohyy_pist">Строгий піст</string>
+    <string name="about_church_calendar__zahalnytsya">Загальниця</string>
+
+    <string name="about_app__about_prayerbook">Про Молитовник</string>
+    <string name="about_app__info">Коротка довідка: https://github.com/tshevchuk/prayerbook/wiki/Довідка-програми-Молитовник
+        \n\nАвтор: Тарас Шевчук taras.shevchuk@gmail.com
+        \n
+        \nПодяки:
+        \nІван Дутка - за поради і зауваження, надані деякі тексти;
+        \nСтепан Сус - за поширення програми в Facebook
+        \n
+        \nІсторія змін: https://github.com/tshevchuk/prayerbook/wiki/Історія-змін
+        \n
+        \nДопомогти проекту можна наступними способами: https://github.com/tshevchuk/prayerbook/wiki/Як-допомогти-проекту%%3F
+        \n
+        \nДжерела текстів:
+        \n%s
+    </string>
+
+    <string name="about_prayer__description">Опис</string>
+    <string name="about_prayer__this_is_official_text_ugcc">Цей текст/молитва належить до офіційних текстів УГКЦ</string>
+
+
+    <string name="search__search">Пошук</string>
+    <string name="search__found_for_x">Для «%s» знайдено:</string>
+    <string name="search__enter_search_phrase">Введіть текст для пошуку</string>
+
+    <string name="settings__settings">Налаштування</string>
+    <string name="settings__night_mode">Нічний режим</string>
+    <string name="settings__font_size">Розмір шрифта</string>
+    <string name="settings__show_on_app_start">Відкривати при старті програми</string>
+    <string name="settings__show_official_ugcc_texts">Відображати офіційні тексти УГКЦ</string>
+    <string name="settings__about_app">Про програму</string>
+    <string name="settings__hide_toolbar_on_scrolling">Ховати панель інструментів під час прокрутки</string>
+
+    <string name="often_used__enter_search_phrase">Введіть текст для пошуку</string>
+
+    <string name="home__error_report_subject">Молитовник: Повідомлення про помилку</string>
+    <string name="home__error_report_please_describe_error">Опишіть коротко помилку:</string>
+    <string name="home__error_report_send_error_report">Відправити повідомлення про помилку…</string>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_nightMode"
+        android:title="Нічний режим" />
+
+    <ListPreference
+        android:defaultValue="20"
+        android:dialogTitle="Розмір шрифта"
+        android:entries="@array/TextFontSizes"
+        android:entryValues="@array/TextFontSizes"
+        android:key="pref_textFontSize"
+        android:title="Розмір шрифта" />
+
+    <ListPreference
+        android:defaultValue="2"
+        android:dialogTitle="Відкривати при старті програми"
+        android:entries="@array/DefaultScreens"
+        android:entryValues="@array/DefaultScreensIds"
+        android:key="pref_defaultScreens"
+        android:title="Відкривати при старті програми" />
+
+    <Preference
+        android:key="pref_aboutApp"
+        android:title="Про програму" />
+
+</PreferenceScreen>

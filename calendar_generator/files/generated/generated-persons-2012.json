@@ -1,0 +1,1707 @@
+{
+  "20120101": {
+    "person": "Муч. Боніфатія",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -105
+  },
+  "20120102": {
+    "person": "Свщмч. Ігнатія Богоносця",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -104
+  },
+  "20120103": {
+    "person": "Муч. Юліяни",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -103
+  },
+  "20120104": {
+    "person": "Вмуч. Анастасії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -102
+  },
+  "20120105": {
+    "person": "10-х мучч. Критських",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -101
+  },
+  "20120106": {
+    "person": "Препмуч Євгенії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -100
+  },
+  "20120110": {
+    "person": "Мучч., спалених у Нікомидії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -96
+  },
+  "20120111": {
+    "person": "Св. дітей, убитих у Вифлеємі; преп. Маркела",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -95
+  },
+  "20120112": {
+    "person": "Муч. Анісії; преп. Зотика, пресвіт.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -94
+  },
+  "20120113": {
+    "person": "Преп. Меланії Римлянки",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -93
+  },
+  "20120115": {
+    "person": "Св. Сильвестра, Папи",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20120116": {
+    "person": "Прор. Малахії; муч. Гордія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -90
+  },
+  "20120117": {
+    "person": "Собор 70 апп.; преп. Теоктиста, ігумена",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -89
+  },
+  "20120118": {
+    "person": "Мучч. Теопемпта й Теони",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -88
+  },
+  "20120120": {
+    "person": "Собор св. Йоана Христителя",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -86
+  },
+  "20120121": {
+    "person": "Преп. Юрія Хозевіта; преп. Домініки; іспов. Еміліяна",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -85
+  },
+  "20120122": {
+    "person": "Муч. Полієвкта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -84
+  },
+  "20120123": {
+    "person": "Свщмучч. Пратулинських; Св. Григорія Ніс.; препп. Дометіяна і Маркіяна",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -83
+  },
+  "20120124": {
+    "person": "<b>† Преп. Теодосія Великого</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -82
+  },
+  "20120125": {
+    "person": "Муч. Татіяни",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -81
+  },
+  "20120126": {
+    "person": "Мучч. Єрмила і Стратоніка",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -80
+  },
+  "20120127": {
+    "person": "Препмучч. Отців, убитих у Синаї",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -79
+  },
+  "20120128": {
+    "person": "Препп. Павла Тебського та Івана Кущника",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -78
+  },
+  "20120129": {
+    "person": "Поклоніння кайданам св. ап. Петра",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -77
+  },
+  "20120130": {
+    "person": "<b>† Преп. Антонія Великого</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -76
+  },
+  "20120131": {
+    "person": "Свв. Атанасія і Кирила, аєпп. Олександрійських",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -75
+  },
+  "20120201": {
+    "person": "Преп. Макарія Єгипетського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -74
+  },
+  "20120202": {
+    "person": "<b>† Преп. Євтимія Великого</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -73
+  },
+  "20120203": {
+    "person": "Іспов. Максима; муч. Неофіта",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -72
+  },
+  "20120204": {
+    "person": "Ап. Тимотея; препмуч. Анастасія Перського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -71
+  },
+  "20120205": {
+    "person": "Свщмч. Климента, єп.; муч. Агатангела",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20120206": {
+    "person": "Преп. Ксенії Римлянки",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -69
+  },
+  "20120207": {
+    "person": "<b>Свят. Григорія Богослова, аєп. Царгород.</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -68
+  },
+  "20120208": {
+    "person": "Препп. Ксенофонта і дружини його Марії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -67
+  },
+  "20120209": {
+    "person": "<b>† Перенес. мощей свят. Йоана Золотоустого</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -66
+  },
+  "20120210": {
+    "person": "Преп. Єфрема Сирійця",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -65
+  },
+  "20120211": {
+    "person": "Перенес. мощей свщмуч. Ігнатія Богоносця",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -64
+  },
+  "20120212": {
+    "person": "<b><r>⊕ Трьох Святителів: Василія, Григорія, Йоана Золотоустого</r></b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20120213": {
+    "person": "Безсрібн. і чудотв. Кира й Івана",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -62
+  },
+  "20120214": {
+    "person": "Муч. Трифона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -61
+  },
+  "20120216": {
+    "person": "Симеона Богоприємця і Анни Пророчиці",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -59
+  },
+  "20120217": {
+    "person": "Преп. Ісидора Пилюсіотського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -58
+  },
+  "20120218": {
+    "person": "Муч. Агафії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -57
+  },
+  "20120219": {
+    "person": "Свят. Вукола, єп.; свящмуч. Сілвана, єп.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20120220": {
+    "person": "Свят. Партенія, єп. Лампсакійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -55
+  },
+  "20120221": {
+    "person": "Вмуч. Теодора Стратилата; прор. Захарії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -54
+  },
+  "20120222": {
+    "person": "Муч. Никифора",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -53
+  },
+  "20120223": {
+    "person": "Муч. Харалампія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -52
+  },
+  "20120224": {
+    "person": "Свщмч. Власія, єп. Севастійського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -51
+  },
+  "20120225": {
+    "person": "Свят. Мелетія, аєп. Антіохійського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -50
+  },
+  "20120226": {
+    "person": "Преп. Мартиніяна",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20120227": {
+    "person": "<b>† Рівноап. Кирила, учит. слов'ян</b>, преп. Авксентія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -48
+  },
+  "20120228": {
+    "person": "Ап. Онисима",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -47
+  },
+  "20120229": {
+    "person": "Мучч. Памфіла, Порфірія та ін.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -46
+  },
+  "20120301": {
+    "person": "Вмуч. Теодора Тирона",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -45
+  },
+  "20120302": {
+    "person": "Свят. Льва, Папи Римського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -44
+  },
+  "20120303": {
+    "person": "Ап. Архипа",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -43
+  },
+  "20120304": {
+    "person": "Преп. Льва, єп. Катанського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20120305": {
+    "person": "Преп. Тимотея; свят. Євстатія, аєп. Антіох.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -41
+  },
+  "20120306": {
+    "person": "Віднайд. мощів мучч., що в Євгенії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -40
+  },
+  "20120307": {
+    "person": "Свщмч. Полікарпа, єп. Смирнського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -39
+  },
+  "20120308": {
+    "person": "<b>† Перше і друге знайдення голови Йоана Христ.</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -38
+  },
+  "20120309": {
+    "person": "Свят. Тарасія, аєп. Царгород.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -37
+  },
+  "20120310": {
+    "person": "Свят. Порфірія, єп. Газького",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -36
+  },
+  "20120311": {
+    "person": "Іспов. Прокопія Декаполіта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20120312": {
+    "person": "Іспов. Василія, посника",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -34
+  },
+  "20120313": {
+    "person": "Преп. Касіяна",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -33
+  },
+  "20120314": {
+    "person": "Препмуч. Євдокії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -32
+  },
+  "20120315": {
+    "person": "Свщмч. Теодота, єп. Киринейського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -31
+  },
+  "20120316": {
+    "person": "Мучч. Євтропія, Клеоніка й Василіска",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -30
+  },
+  "20120317": {
+    "person": "Преп. Герасима, що в Йордані",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -29
+  },
+  "20120318": {
+    "person": "Муч. Конона",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20120319": {
+    "person": "42-х мучч. Аморійських",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -27
+  },
+  "20120320": {
+    "person": "Свщмучч. Василія, Єфрема, Капітона й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -26
+  },
+  "20120321": {
+    "person": "Свят. Теофілакта, єп. Нікомидійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -25
+  },
+  "20120322": {
+    "person": "<b>† 40 мучч. Севастійських</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -24
+  },
+  "20120323": {
+    "person": "Мучч. Кондрата, Кипріяна, Анекта і Крискента",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -23
+  },
+  "20120324": {
+    "person": "Свят. Софронія, патр. Єрусалимського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20120325": {
+    "person": "Іспов. Теофана Сигріянського; свят. Григорія, Папи",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20120326": {
+    "person": "Перенес. мощей свят. Никифора, патр. Царгород.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -20
+  },
+  "20120327": {
+    "person": "Преп. Венедикта",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -19
+  },
+  "20120328": {
+    "person": "Мучч. Агапія і шістьох ін.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -18
+  },
+  "20120329": {
+    "person": "Мучч. Савина й Папи",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -17
+  },
+  "20120330": {
+    "person": "Преп. Олексія, чоловіка Божого",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -16
+  },
+  "20120331": {
+    "person": "Свят. Кирила, аєп. Єрусалимського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -15
+  },
+  "20120401": {
+    "person": "Мучч. Хризанта і Дарії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20120402": {
+    "person": "Препп. Отців, убитих у монастирі св. Сави",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -13
+  },
+  "20120403": {
+    "person": "Іспов. Якова, єп. Катанського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -12
+  },
+  "20120404": {
+    "person": "Свящмуч. Василія Анкірського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -11
+  },
+  "20120405": {
+    "person": "Мучч. Нікона та його учнів, з ним замучених",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -10
+  },
+  "20120406": {
+    "person": "Преп. Захарії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -9
+  },
+  "20120409": {
+    "person": "Муч. Матрони Солунської",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -6
+  },
+  "20120410": {
+    "person": "Преп. Іларіона Нового; преп. Стефана, чудотв.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -5
+  },
+  "20120411": {
+    "person": "Свщмчч. Марка й Кирила",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -4
+  },
+  "20120414": {
+    "person": "Преп. Марії Єгипетської",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -1
+  },
+  "20120418": {
+    "person": "Мучч. Теодула, Агатопода й ін.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 3
+  },
+  "20120419": {
+    "person": "<b>† Св. Методія, учит. слов'ян</b>, св. Євтихія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 4
+  },
+  "20120420": {
+    "person": "Свят. Юрія, єп. Митіленського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 5
+  },
+  "20120421": {
+    "person": "Апп. Іродіона, Агава, Руфа та ін.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 6
+  },
+  "20120422": {
+    "person": "Муч. Євпсихія",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20120423": {
+    "person": "Мучч. Терентія, Помпілія і тих, що з ними",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 8
+  },
+  "20120424": {
+    "person": "Свщмч. Антипа, єп. Пергамського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 9
+  },
+  "20120425": {
+    "person": "Іспов. Василія, єп. Парійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 10
+  },
+  "20120426": {
+    "person": "Свщмч. Артемона Лаодикійського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 11
+  },
+  "20120427": {
+    "person": "Іспов. Мартина, Папи Римського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 12
+  },
+  "20120428": {
+    "person": "Апп. Аристарха, Пуда і Трохима",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 13
+  },
+  "20120429": {
+    "person": "Мучч. Агапії, Ірини й Хіонії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20120430": {
+    "person": "Святт. Симеона й Акакія, єпп.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 15
+  },
+  "20120501": {
+    "person": "Преп. Івана, учня Григорія Декаполіта",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 16
+  },
+  "20120502": {
+    "person": "Преп. Івана, Печерника",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 17
+  },
+  "20120503": {
+    "person": "Преп. Теодора Трихіни",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 18
+  },
+  "20120504": {
+    "person": "Свщмч. Януарія й інших",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 19
+  },
+  "20120505": {
+    "person": "Препп. Теодора Сікіота і Віталія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 20
+  },
+  "20120506": {
+    "person": "<b>⊕ Вмуч. Юрія Переможця</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20120507": {
+    "person": "Муч. Сави Стратилата",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 22
+  },
+  "20120508": {
+    "person": "<b>† Ап. і єванг. Марка</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 23
+  },
+  "20120509": {
+    "person": "Свщмч. Василія, єп. Амасійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 24
+  },
+  "20120510": {
+    "person": "Свщмч. Симеона; свят. Стефана Волинського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 25
+  },
+  "20120511": {
+    "person": "Апп. Ясона й Сосіпатра; мучч. Максима, Дади й ін.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 26
+  },
+  "20120512": {
+    "person": "9-х мучч. у Кизиці; преп. Мемнона, чудотворця",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 27
+  },
+  "20120513": {
+    "person": "<b>† Ап. Якова, брата св. Йоана Богослова</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20120514": {
+    "person": "Прор. Єремії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 29
+  },
+  "20120515": {
+    "person": "Свят. Атанасія Великого. аєп. Олександр.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 30
+  },
+  "20120516": {
+    "person": "<b>† Преп. Теодосія Печерського</b>, Мучч. Тимотея і Маври",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 31
+  },
+  "20120517": {
+    "person": "Муч. Пелагії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 32
+  },
+  "20120518": {
+    "person": "Муч. Ірини, Преп. Никифора, ігум. Мідійського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 33
+  },
+  "20120519": {
+    "person": "Праведного і многостражд. Йова",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 34
+  },
+  "20120520": {
+    "person": "Муч. Акакія, Поява Чесного Хреста в Єрусалимі",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20120521": {
+    "person": "<b>⊕ Ап. Йоана Богослова</b>, Преп. Арсенія Великого",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 36
+  },
+  "20120522": {
+    "person": "<b>† Перенесення мощей Миколая Чудотворця</b>, Прор. Ісаї; муч. Христофора",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 37
+  },
+  "20120523": {
+    "person": "<b>† Ап. Симона Зилота</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 38
+  },
+  "20120525": {
+    "person": "Святт. Єпіфанія, єп. Кіпру і Германа, патр. Єрусал.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 40
+  },
+  "20120526": {
+    "person": "Муч. Глікерії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 41
+  },
+  "20120527": {
+    "person": "Муч. Ісидора",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20120528": {
+    "person": "Преп. Пахомія Великого",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 43
+  },
+  "20120529": {
+    "person": "Преп. Теодора Освященного; мучч. Віта, модеста й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 44
+  },
+  "20120530": {
+    "person": "Ап. Андроніка й інших із ним",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 45
+  },
+  "20120531": {
+    "person": "Мучч. Теодота, Петра, Діонісія, Андрія й ін., <b>† Рівноапп. Костянтина і Олени</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 46
+  },
+  "20120601": {
+    "person": "Свщмуч. Патрикія, єп. Пруського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 47
+  },
+  "20120602": {
+    "person": "Муч. Талалея",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 48
+  },
+  "20120605": {
+    "person": "Свят. Михаїла, єп.; преп. Єфросинії Полоцької",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 51
+  },
+  "20120606": {
+    "person": "Препп. Симеона Дивногорця, Микити Переяслав.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 52
+  },
+  "20120607": {
+    "person": "<b>† Третє віднайдення голови св. Йоана Христителя</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 53
+  },
+  "20120608": {
+    "person": "Ап. Карпа, одного з 70-ти",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 54
+  },
+  "20120609": {
+    "person": "Свщмч. Терапонта, єп. Сардійського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 55
+  },
+  "20120610": {
+    "person": "Свят. Микити, єп. Халкедонського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20120611": {
+    "person": "Препмуч. Теодосії, діви",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 57
+  },
+  "20120612": {
+    "person": "Преп. Ісаакія Далматського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 58
+  },
+  "20120613": {
+    "person": "Ап. Єрмія; муч. Єрмея",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 59
+  },
+  "20120614": {
+    "person": "Муч. Юстина, філософа й ін.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20120615": {
+    "person": "Св. Никифора, патр. Царгородського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 61
+  },
+  "20120616": {
+    "person": "Муч. Лукиліяна і тих, що з ним",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 62
+  },
+  "20120617": {
+    "person": "Св. Митрофана, патр. Царгородського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20120618": {
+    "person": "Свщмч. Доротея, єп. Тирського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 64
+  },
+  "20120619": {
+    "person": "Препп. Вісаріона й Іларіона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 65
+  },
+  "20120620": {
+    "person": "Свщмч. Теодота, єп. Анкірського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 66
+  },
+  "20120621": {
+    "person": "Перенес. мощей вмуч. Теодора Тирона",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 67
+  },
+  "20120622": {
+    "person": "Св. Кирила, аєп. Олександрійського, <i>(на неділю)</i>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20120623": {
+    "person": "Свщмч. Тимотея, єп. Пруського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20120624": {
+    "person": "<b>† Апп. Вартоломея і Варнави</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20120625": {
+    "person": "Препп. Онуфрія Великого і Петра Атонського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 71
+  },
+  "20120626": {
+    "person": "Муч. Акилини; св. Трифілія, єп. Левкусії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 72
+  },
+  "20120627": {
+    "person": "прор. Єлисея; св. Методія, патр. Царгород.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 73
+  },
+  "20120628": {
+    "person": "Прор. Амоса; преп. Єроніма Стридонського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 74
+  },
+  "20120629": {
+    "person": "Свят. Тихона, єп. Аматунського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 75
+  },
+  "20120630": {
+    "person": "Мучч. Мануїла, Савела та Ізмаїла",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 76
+  },
+  "20120701": {
+    "person": "Муч. Леонтія",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20120702": {
+    "person": "<b>† Ап. Юди, брата Господнього</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 78
+  },
+  "20120703": {
+    "person": "Свщмч. Методія, єп. Патарського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 79
+  },
+  "20120704": {
+    "person": "Муч. Юліяна Тарсійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 80
+  },
+  "20120705": {
+    "person": "Свщмч. Євсевія, єп. Самосатського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 81
+  },
+  "20120706": {
+    "person": "Муч. Агрипини",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 82
+  },
+  "20120707": {
+    "person": "<b><r>⊕ Різдво св. Йоана Хрестителя</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 83
+  },
+  "20120708": {
+    "person": "Препмуч. Февронії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20120709": {
+    "person": "Преп. Давида Солунського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 85
+  },
+  "20120710": {
+    "person": "Преп. Самсона, лікаря",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 86
+  },
+  "20120711": {
+    "person": "Перенес. мощей безсрібн. Кира й Івана",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 87
+  },
+  "20120712": {
+    "person": "<b><r>⊕ Верх. апп. ПЕТРА І ПАВЛА</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 88
+  },
+  "20120713": {
+    "person": "<b>† Собор 12-ох апп.</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 89
+  },
+  "20120714": {
+    "person": "Безсрібн. і чудотв. Косми і Дам'яна",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 90
+  },
+  "20120715": {
+    "person": "<b>† Покладення Ризи Пресв. Богородиці у Влахерні</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20120716": {
+    "person": "Муч. Якинта; свят. Анатолія, патр. Царгород.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 92
+  },
+  "20120717": {
+    "person": "Свщмч. Павла Гойдича; свят. Андрія, єп. Критського; преп. Марти",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 93
+  },
+  "20120718": {
+    "person": "<b>† Преп. Атанасія Атонського</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 94
+  },
+  "20120719": {
+    "person": "Преп. Сісоя Великого",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 95
+  },
+  "20120720": {
+    "person": "Препп. Томи й Акакія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 96
+  },
+  "20120721": {
+    "person": "Вмуч. Прокопія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 97
+  },
+  "20120722": {
+    "person": "Свщмч. Панкратія, єп. Тавроменійського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20120723": {
+    "person": "<b>† Преп. Антонія Печерського</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 99
+  },
+  "20120724": {
+    "person": "<b>Рівноап. Ольги, кн. Київської</b>, муч. Євфимії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 100
+  },
+  "20120725": {
+    "person": "Мучч. Прокла й Іларія; преп. Михаїла Малеїна",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 101
+  },
+  "20120726": {
+    "person": "Преп. Стефана Саваїта; Собор арх. Гавриїла",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 102
+  },
+  "20120727": {
+    "person": "Ап. Акили",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 103
+  },
+  "20120728": {
+    "person": "<b>† Рівноап. Володимира Великого, князя Київського</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 104
+  },
+  "20120729": {
+    "person": "Свщмч. Атеногена й 10-х його учнів",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20120730": {
+    "person": "Вмуч. Маріни",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 106
+  },
+  "20120731": {
+    "person": "Мучч. Якинта й Еміліяна",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 107
+  },
+  "20120801": {
+    "person": "Преп. Макрини, сестри св. Василія Вел.; преп. Дія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 108
+  },
+  "20120802": {
+    "person": "<b>⊕ Прор. Іллі</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 109
+  },
+  "20120803": {
+    "person": "Препп. Симеона й Івана; проп. Єзекиїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 110
+  },
+  "20120804": {
+    "person": "Рівноап. Марії Магдалини",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 111
+  },
+  "20120805": {
+    "person": "Мучч. Трохима, Теофіла та ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20120806": {
+    "person": "<b>† Мучч. Бориса і Гліба</b>, вмуч. Христини",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 113
+  },
+  "20120807": {
+    "person": "<b>† Успіння св. Анни, матері Пресв. Богородиці</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 114
+  },
+  "20120808": {
+    "person": "Муч. Єрмолая й інших",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 115
+  },
+  "20120809": {
+    "person": "<b>† Вмуч. Пантелеймона, лікаря</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 116
+  },
+  "20120810": {
+    "person": "Апп. Прохора, Ніканора, Тимона й Пармена",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 117
+  },
+  "20120811": {
+    "person": "Муч. Калиніка",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 118
+  },
+  "20120812": {
+    "person": "Апп. Сили, Силуана, Андроніка та ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 119
+  },
+  "20120813": {
+    "person": "Преп. Євдокима, праведного",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 120
+  },
+  "20120814": {
+    "person": "Перенес. Чесного Хреста; мучч. Макавейських",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 121
+  },
+  "20120815": {
+    "person": "Перенес. мощей первомуч. Стефана",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 122
+  },
+  "20120816": {
+    "person": "Препп. Ісаака, Далмата й Фавста",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 123
+  },
+  "20120817": {
+    "person": "7-ох мучч. Ефеських; препмуч. Євдокії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 124
+  },
+  "20120818": {
+    "person": "Муч. Євсигнія; спомин освячення Патріаршого собору Воскресіння Христового в Києві",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 125
+  },
+  "20120820": {
+    "person": "Препмуч. Дометія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 127
+  },
+  "20120821": {
+    "person": "Св. Еміліяна; мучч. Єлевтерія і Леоніда",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 128
+  },
+  "20120822": {
+    "person": "<b>† Ап. Матія</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 129
+  },
+  "20120823": {
+    "person": "Муч. Лаврентія, архидиякона",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 130
+  },
+  "20120824": {
+    "person": "Муч. Євпла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 131
+  },
+  "20120825": {
+    "person": "Мучч. Фотія і Аникити",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 132
+  },
+  "20120826": {
+    "person": "Преп. Максима, ісповідника",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 133
+  },
+  "20120827": {
+    "person": "<b>† Перенес. мощей преп. Теодосія Печерськ.</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 134
+  },
+  "20120829": {
+    "person": "Нерукотворн. Образа ГНІХ; муч. Діомида",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 136
+  },
+  "20120830": {
+    "person": "Муч. Мирона",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 137
+  },
+  "20120831": {
+    "person": "Мучч. Флора й Лавра",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 138
+  },
+  "20120901": {
+    "person": "Муч. Андрія Стратилата й інших",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 139
+  },
+  "20120902": {
+    "person": "Прор. Самуїла",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 140
+  },
+  "20120903": {
+    "person": "Ап. Тадея; муч. Васси",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 141
+  },
+  "20120904": {
+    "person": "Мучч. Агатоніка, Северіяна, Зенона та ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 142
+  },
+  "20120905": {
+    "person": "Муч. Луппа; свщмч. Іринея Ліонського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 143
+  },
+  "20120906": {
+    "person": "Свщмч. Євтихія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 144
+  },
+  "20120907": {
+    "person": "Апп. Тита і Вартоломея",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 145
+  },
+  "20120908": {
+    "person": "Мучч. Адріяна й Наталії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 146
+  },
+  "20120909": {
+    "person": "Преп. Пімена",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20120910": {
+    "person": "Преп. Мойсея Мурина; св. Августина, єп. Іппонського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 148
+  },
+  "20120912": {
+    "person": "Свв. Олександра, Івана, Павла, патріярхів Царгородських",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 150
+  },
+  "20120914": {
+    "person": "преп. Симеона Стовпника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 152
+  },
+  "20120915": {
+    "person": "Муч. Маманта; св. Івана Посника, патр. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 153
+  },
+  "20120916": {
+    "person": "Свщмч. Антима, єп. Никодимії; преп. Теоктиста",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20120917": {
+    "person": "Свщмч. Вавили, єп. Антіохії; прор. Мойсея Боговидця",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 155
+  },
+  "20120918": {
+    "person": "Прор. Захарії, батька св. Йоана Христ.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 156
+  },
+  "20120919": {
+    "person": "Чудо арх. Михаїла; мучч. Євдоксія й ін.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 157
+  },
+  "20120920": {
+    "person": "Муч. Созонта",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 158
+  },
+  "20120922": {
+    "person": "Праведних Йоакима й Анни; муч. Северіяна",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 160
+  },
+  "20120923": {
+    "person": "Мучч. Минодори, Митродори й Німфодори",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20120924": {
+    "person": "Преп. Теодори Олександрійської",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 162
+  },
+  "20120925": {
+    "person": "Свщмч. Автонома",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 163
+  },
+  "20120926": {
+    "person": "Свщмч. Корнилія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 164
+  },
+  "20120928": {
+    "person": "Вмуч. Микити",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 166
+  },
+  "20120929": {
+    "person": "Вмуч. Євфимії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 167
+  },
+  "20120930": {
+    "person": "Мучч. Софії та її дочок: Віри, Надії й Любові",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20121001": {
+    "person": "Преп. Євменія, єп. Гортинського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 169
+  },
+  "20121002": {
+    "person": "Мучч. Трохима, Саватія і Дорімедонта",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 170
+  },
+  "20121003": {
+    "person": "Муч. Євстратія й ін.; мучч. Михаїла і Теодора Чернігів.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 171
+  },
+  "20121004": {
+    "person": "Ап. Кондрата",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 172
+  },
+  "20121005": {
+    "person": "Свщмч. Фоки, єп. Синопійського; прор. Йони",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 173
+  },
+  "20121006": {
+    "person": "Зачаття св. Йоана Христителя",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 174
+  },
+  "20121007": {
+    "person": "Первомуч. Теклі, рівноап.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20121008": {
+    "person": "Преп. Єфросинії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 176
+  },
+  "20121009": {
+    "person": "<b>⊕ Ап. Йоана Богослова</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 177
+  },
+  "20121010": {
+    "person": "Муч. Калістрата та ін.; преп. Ніла Криптофер.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 178
+  },
+  "20121011": {
+    "person": "Іспов. Харитона; Вячеслава",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 179
+  },
+  "20121012": {
+    "person": "Преп. Киріяна, самітника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 180
+  },
+  "20121013": {
+    "person": "Свщмч. Григорія, єп. Великої Вірменії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 181
+  },
+  "20121015": {
+    "person": "Свщмч. Кипріяна; муч. Юстини; преп. Андрія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 183
+  },
+  "20121016": {
+    "person": "Свщмч. Діонісія Ареопатіга",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 184
+  },
+  "20121017": {
+    "person": "Свщмч. Єротея, єп. Атен.; преп. Франціска Асиж.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 185
+  },
+  "20121018": {
+    "person": "Муч. Харитини",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 186
+  },
+  "20121019": {
+    "person": "<b>† Ап. Томи</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 187
+  },
+  "20121020": {
+    "person": "Мучч. Сергія і Вакха",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 188
+  },
+  "20121021": {
+    "person": "Преп. Пелагії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20121022": {
+    "person": "<b>† Ап. Якова Алфеєва</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 190
+  },
+  "20121023": {
+    "person": "Мучч. Євлампія та Євлампії, сестри його",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 191
+  },
+  "20121024": {
+    "person": "Ап. Филипа, дияк.; преп. Теофана, єп. Нікейського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 192
+  },
+  "20121025": {
+    "person": "Мучч. Прова, Тараха й Андроніка; преп. Косми",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 193
+  },
+  "20121026": {
+    "person": "Мучч. Карпа, Папіли й Агатоніки",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 194
+  },
+  "20121027": {
+    "person": "Преп. Параскеви Терновської; мучч. Назарія й ін.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 195
+  },
+  "20121028": {
+    "person": "Преп. Євтимія; препмуч. Лукіяна",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20121029": {
+    "person": "Муч. Лонгіна, сотника",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 197
+  },
+  "20121030": {
+    "person": "Прор. Осії; препмуч. Андрія Крит.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 198
+  },
+  "20121031": {
+    "person": "<b>† Ап. і єванг. Луки</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 199
+  },
+  "20121101": {
+    "person": "Свщмч. Теодора Ромжі; прор. Йоіла; муч. Уара",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 200
+  },
+  "20121102": {
+    "person": "Вмуч. Артемія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 201
+  },
+  "20121103": {
+    "person": "Преп. Іларіона Великого",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 202
+  },
+  "20121104": {
+    "person": "Св. Аверкія, єп. Єрапольського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20121105": {
+    "person": "Ап. Якова, брата Господнього",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 204
+  },
+  "20121106": {
+    "person": "Мучч. Арети й інших",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 205
+  },
+  "20121107": {
+    "person": "Мучч. Маркіяна й Мартирія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 206
+  },
+  "20121108": {
+    "person": "<b>⊕ Вмуч. Димитрія Мироточця</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 207
+  },
+  "20121109": {
+    "person": "Муч. Нестора; мучч. Капітоліни й Єротіїди",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 208
+  },
+  "20121110": {
+    "person": "Мучч. Терентія і Неоніли; муч. Параскеви, що в Іконії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 209
+  },
+  "20121111": {
+    "person": "Преп. Анастасії; преп. Аврамія Ростовського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20121112": {
+    "person": "Мучч. Зиновія і Зиновії, сестри його",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 211
+  },
+  "20121113": {
+    "person": "Апп. Стахія, Амплія й інших; муч. Елімаха",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 212
+  },
+  "20121114": {
+    "person": "Безсрібників і чудотв. Косми і Дам'яна",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 213
+  },
+  "20121115": {
+    "person": "Мучч. Акиндіна, Пигасія, Афтонія, Елпидифора й ін.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 214
+  },
+  "20121116": {
+    "person": "Мучч. Акепсима, Йосифа й Айтала",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 215
+  },
+  "20121117": {
+    "person": "Преп. Йоанікія Великого; мучч. Нікандра та Єрмея",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 216
+  },
+  "20121118": {
+    "person": "Мучч. Галактіона й Епістими",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 217
+  },
+  "20121119": {
+    "person": "Іспов. Павла, аєп. Царгород.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 218
+  },
+  "20121120": {
+    "person": "Преп. Йосафати Гордашевської; 33-х мучч., що в Мелітині",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 219
+  },
+  "20121121": {
+    "person": "<b><r>⊕ Собор архистратига Михаїла</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 220
+  },
+  "20121122": {
+    "person": "Препп. Матрони і Теоктисти",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 221
+  },
+  "20121123": {
+    "person": "Апп. Ераста, Олімпа, Родіона і тих, що з ними",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 222
+  },
+  "20121124": {
+    "person": "Мучч. Мини, Віктора і Вінкентія; преп. Теодора Студ.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 223
+  },
+  "20121125": {
+    "person": "<b>⊕ Свщмч. Йосафата, аєп. Полоцького</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 224
+  },
+  "20121126": {
+    "person": "<b>† Св. Йоана Золотоустого, аєп. Царгород.</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 225
+  },
+  "20121127": {
+    "person": "<b>† Ап. Пилипа</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 226
+  },
+  "20121128": {
+    "person": "Іспов. Гурія, Самона й Авіва",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 227
+  },
+  "20121129": {
+    "person": "<b>† Ап. і Єванг. Матея</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 228
+  },
+  "20121130": {
+    "person": "Св. Григорія, єп. Неокесарійського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 229
+  },
+  "20121201": {
+    "person": "Мучч. Платона і Романа",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 230
+  },
+  "20121202": {
+    "person": "Прор. Авдія; муч. Варлаама",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20121203": {
+    "person": "Преп. Григорія Декаполіта",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 232
+  },
+  "20121205": {
+    "person": "Ап. Филимона і тих, що з ним",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 234
+  },
+  "20121206": {
+    "person": "Свв. Амфілохія і Григорія, єпп.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 235
+  },
+  "20121207": {
+    "person": "Вмуч. Катерини; вмуч. Меркурія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 236
+  },
+  "20121208": {
+    "person": "Свщмч. Климента, Папи",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 237
+  },
+  "20121209": {
+    "person": "Преп. Аліпія, стовпника",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20121210": {
+    "person": "Вмуч. Якова Персіянина; преп. Паладія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 239
+  },
+  "20121211": {
+    "person": "Препмуч. Стефана Нового; муч. Іринарха",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 240
+  },
+  "20121212": {
+    "person": "Мучч. Парамона і Філумена",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 241
+  },
+  "20121213": {
+    "person": "<b>† Ап. Андрія Первозванного</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 242
+  },
+  "20121214": {
+    "person": "Прор. Наума",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 243
+  },
+  "20121215": {
+    "person": "Прор. Авакума",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 244
+  },
+  "20121216": {
+    "person": "Прор. Софонії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 245
+  },
+  "20121217": {
+    "person": "Вмуч. Варвари; преп. Івана Дамаскина",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 246
+  },
+  "20121218": {
+    "person": "<b>† Преп. Сави Освященного</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 247
+  },
+  "20121219": {
+    "person": "<b><r>⊕ Миколая Чудотворця, аєп. Мир Ликійських</r></b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 248
+  },
+  "20121220": {
+    "person": "Св. Амвросія Медіоланського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 249
+  },
+  "20121221": {
+    "person": "Преп. Патапія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 250
+  },
+  "20121223": {
+    "person": "Мучч. Мини, Єрмогена й Євграфа",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 252
+  },
+  "20121224": {
+    "person": "Преп. Даниїла Стовпника",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 253
+  },
+  "20121225": {
+    "person": "Св. Спиридона, єп. Трімітійського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 254
+  },
+  "20121226": {
+    "person": "<b>† Мучч. Євстратія, Євгенія, Авксентія й Ореста</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 255
+  },
+  "20121227": {
+    "person": "Мучч. Тирса, Левкія, Филимона, Аполонія, Калиніка",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 256
+  },
+  "20121228": {
+    "person": "Свщмч. Елевтерія; преп. Павла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 257
+  },
+  "20121229": {
+    "person": "Прор. Агея",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 258
+  },
+  "20121230": {
+    "person": "Прор. Даниїла й Ананії, Азарії й Мисаїла",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 259
+  },
+  "20121231": {
+    "person": "Муч. Севастіяна й ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 260
+  }
+}

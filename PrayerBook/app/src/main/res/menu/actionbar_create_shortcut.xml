@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/mi_create_shortcut"
+        android:title="@string/menu_items__create_shortcut_on_launcher"
+        app:showAsAction="never"/>
+
+</menu>
