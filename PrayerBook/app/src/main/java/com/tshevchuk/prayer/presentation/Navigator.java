@@ -13,11 +13,12 @@ import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.domain.model.MenuListItemType;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
+import com.tshevchuk.prayer.presentation.about_church_calendar.AboutChurchCalendarFragment;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerFragment;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
-import com.tshevchuk.prayer.presentation.base.BaseView;
-import com.tshevchuk.prayer.presentation.base.FragmentBase;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.BaseView;
+import com.tshevchuk.prayer.presentation.common.FragmentBase;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
 import com.tshevchuk.prayer.presentation.home.HomePresenter;
 import com.tshevchuk.prayer.presentation.often_used.OftenUsedFragment;
@@ -86,6 +87,12 @@ public class Navigator {
         getHomeActivity(presenter).displayFragment(new AboutAppFragment());
         analyticsFragmentOpened(0, "About app");
     }
+
+    public void openAboutCalendar(BasePresenter<? extends BaseView> presenter) {
+        getHomeActivity(presenter).displayFragment(new AboutChurchCalendarFragment());
+        analyticsFragmentOpened(0, "About church calendar");
+    }
+
 
     public void showAboutPrayer(BasePresenter<? extends BaseView> presenter, MenuItemPrayer prayer) {
         getHomeActivity(presenter).displayFragment(AboutPrayerFragment.getInstance(prayer));

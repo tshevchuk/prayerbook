@@ -1,7 +1,7 @@
 package com.tshevchuk.prayer.presentation.prayer_text_view;
 
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 /**
  * Created by taras on 03.04.16.

@@ -27,7 +27,16 @@
     <string name="calendar__month_of_x_year">%1$s %2$s-го року</string>
     <string name="calendar__x_year">%s рік</string>
     <string name="calendar__year">Рік</string>
+    <string name="calendar__calendar_not_verified_x_year">Календар для %d року згенеровано автоматично і наразі неперевірено.</string>
+    <string name="calendar__cerk_calendar">Церковний календар</string>
+    <string name="calendar__posty_zahalnytsi">Пости та загальниці</string>
+    <string name="calendar__about_church_calendar">Про церковний календар</string>
 
+    <string name="about_church_calendar__title">Про цекрвоний календар</string>
+    <string name="about_church_calendar__legend">Умовні позначення:</string>
+    <string name="about_church_calendar__pist">Піст</string>
+    <string name="about_church_calendar__strohyy_pist">Строгий піст</string>
+    <string name="about_church_calendar__zahalnytsya">Загальниця</string>
 
     <string name="about_app__about_prayerbook">Про Молитовник</string>
     <string name="about_app__info">Коротка довідка: https://github.com/tshevchuk/prayerbook/wiki/Довідка-програми-Молитовник
@@ -48,7 +57,6 @@
     <string name="about_prayer__description">Опис</string>
     <string name="about_prayer__this_is_official_text_ugcc">Цей текст/молитва належить до офіційних текстів УГКЦ</string>
 
-    <string name="cerk_calendar__cerk_calendar">Церковний календар</string>
 
     <string name="search__search">Пошук</string>
     <string name="search__found_for_x">Для «%s» знайдено:</string>

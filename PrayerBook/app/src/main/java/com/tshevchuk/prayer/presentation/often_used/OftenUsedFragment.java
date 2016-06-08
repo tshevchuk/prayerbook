@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer.presentation.often_used;
 
+import android.app.UiModeManager;
+import android.content.Context;
 import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -14,25 +16,30 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
-import com.tshevchuk.prayer.domain.model.CalendarDay;
+import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
-import com.tshevchuk.prayer.presentation.base.FragmentBase;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.CalendarUtils;
+import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
+
+import hugo.weaving.DebugLog;
 
 public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     @Inject
@@ -42,6 +49,9 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     private TextView tvDescription;
     private LinearLayout llToday;
     private SearchView searchView;
+    private UiModeManager uiModeManager;
+    private ImageView ivPistIcon;
+    private ProgressBar pbCalendarLoading;
 
 
     public static OftenUsedFragment getInstance() {
@@ -68,6 +78,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         super.onCreate(savedInstanceState);
         ((PrayerBookApplication) getActivity().getApplication()).getViewComponent().inject(this);
         setHasOptionsMenu(true);
+        uiModeManager = (UiModeManager) getContext().getSystemService(Context.UI_MODE_SERVICE);
     }
 
     @Override
@@ -86,6 +97,8 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
                 presenter.onCalendarClick();
             }
         });
+        ivPistIcon = (ImageView) calendarToday.findViewById(R.id.ivIconPist);
+        pbCalendarLoading = (ProgressBar) calendarToday.findViewById(R.id.pbCalendarLoading);
         lvItems.addHeaderView(calendarToday);
 
         return v;
@@ -154,6 +167,13 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
     }
 
+    @DebugLog
+    @Override
+    public void showCalendarProgressBar(boolean show) {
+        pbCalendarLoading.setVisibility(show ? View.VISIBLE : View.GONE);
+        llToday.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
+    }
+
     @Override
     public void setMenuItems(final ArrayList<MenuListItemOftenUsed> menuListItems) {
         lvItems.setAdapter(new OftenUsedListAdapter(activity, menuListItems));
@@ -166,17 +186,20 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
     }
 
+    @DebugLog
     @Override
-    public void setCalendarDay(CalendarDay day, int fontSizeSp) {
+    public void setCalendarDay(CalendarDateInfo day, int fontSizeSp) {
         llToday.setVisibility(View.VISIBLE);
         String d = new SimpleDateFormat("d EE", Utils.getUkrainianLocale())
-                .format(day.getDay());
+                .format(day.getDate());
         if (day.isDateRed()) {
             d = "<font color=\"red\">" + d + "</font>";
         }
         tvDay.setText(Html.fromHtml(d));
         tvDay.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-        tvDescription.setText(Html.fromHtml(day.getDescription().toString()));
+        tvDescription.setText(Html.fromHtml(day.getDayDescription()));
         tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
+        CalendarUtils.showPistTypeOnImageView(ivPistIcon, day, uiModeManager);
     }
+
 }

@@ -14,8 +14,8 @@ import android.widget.ListView;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
 import com.tshevchuk.prayer.presentation.PrayerBookApplication;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
-import com.tshevchuk.prayer.presentation.base.FragmentBase;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import java.util.List;
 

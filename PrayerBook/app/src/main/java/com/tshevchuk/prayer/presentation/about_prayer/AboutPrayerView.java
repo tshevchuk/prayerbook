@@ -1,6 +1,6 @@
 package com.tshevchuk.prayer.presentation.about_prayer;
 
-import com.tshevchuk.prayer.presentation.base.BaseView;
+import com.tshevchuk.prayer.presentation.common.BaseView;
 
 /**
  * Created by taras on 25.03.16.

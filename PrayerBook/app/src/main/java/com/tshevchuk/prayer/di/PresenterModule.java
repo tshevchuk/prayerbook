@@ -9,6 +9,7 @@ import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.Navigator;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppPresenter;
+import com.tshevchuk.prayer.presentation.about_church_calendar.AboutChurchCalendarPresenter;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerPresenter;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarPresenter;
 import com.tshevchuk.prayer.presentation.home.HomePresenter;
@@ -44,15 +45,15 @@ public class PresenterModule {
 
     @Provides
     OftenUsedPresenter provideOftenUsedPresenter(Navigator navigator, DataManager dataManager,
-                                                 AnalyticsManager analyticsManager) {
-        return new OftenUsedPresenter(navigator, dataManager, analyticsManager);
+                                                 AnalyticsManager analyticsManager, AsyncTaskManager asyncTaskManager) {
+        return new OftenUsedPresenter(navigator, dataManager, analyticsManager, asyncTaskManager);
     }
 
     @Provides
     CerkovnyyCalendarPresenter provideCerkovnyyCalendarPresenter(AnalyticsManager analyticsManager,
                                                                  DataManager dataManager,
-                                                                 Navigator navigator) {
-        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager, navigator);
+                                                                 Navigator navigator, AsyncTaskManager asyncTaskManager) {
+        return new CerkovnyyCalendarPresenter(analyticsManager, dataManager, navigator, asyncTaskManager);
     }
 
     @Provides
@@ -96,5 +97,13 @@ public class PresenterModule {
     HomePresenter provideHomePresenter(Navigator navigator, DataManager dataManager,
                                        AnalyticsManager analyticsManager, Utils utils, Context context) {
         return new HomePresenter(navigator, dataManager, analyticsManager, utils, context);
+    }
+
+    @Provides
+    AboutChurchCalendarPresenter provideAboutChurchCalendarPresenter(DataManager dataManager,
+                                                                     Utils utils,
+                                                                     AnalyticsManager analyticsManager,
+                                                                     Navigator navigator){
+        return new AboutChurchCalendarPresenter(dataManager, utils, analyticsManager, navigator);
     }
 }

@@ -1,0 +1,1747 @@
+{
+  "20050101": {
+    "person": "Муч. Боніфатія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -120
+  },
+  "20050102": {
+    "person": "Свщмч. Ігнатія Богоносця",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -119
+  },
+  "20050103": {
+    "person": "Муч. Юліяни",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -118
+  },
+  "20050104": {
+    "person": "Вмуч. Анастасії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -117
+  },
+  "20050105": {
+    "person": "10-х мучч. Критських",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -116
+  },
+  "20050106": {
+    "person": "Препмуч Євгенії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -115
+  },
+  "20050110": {
+    "person": "Мучч., спалених у Нікомидії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -111
+  },
+  "20050111": {
+    "person": "Св. дітей, убитих у Вифлеємі; преп. Маркела",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -110
+  },
+  "20050112": {
+    "person": "Муч. Анісії; преп. Зотика, пресвіт.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -109
+  },
+  "20050113": {
+    "person": "Преп. Меланії Римлянки",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -108
+  },
+  "20050115": {
+    "person": "Св. Сильвестра, Папи",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -106
+  },
+  "20050116": {
+    "person": "Прор. Малахії; муч. Гордія",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -105
+  },
+  "20050117": {
+    "person": "Собор 70 апп.; преп. Теоктиста, ігумена",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -104
+  },
+  "20050118": {
+    "person": "Мучч. Теопемпта й Теони",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -103
+  },
+  "20050120": {
+    "person": "Собор св. Йоана Христителя",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -101
+  },
+  "20050121": {
+    "person": "Преп. Юрія Хозевіта; преп. Домініки; іспов. Еміліяна",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -100
+  },
+  "20050122": {
+    "person": "Муч. Полієвкта",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -99
+  },
+  "20050123": {
+    "person": "Свщмучч. Пратулинських; Св. Григорія Ніс.; препп. Дометіяна і Маркіяна",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -98
+  },
+  "20050124": {
+    "person": "<b>† Преп. Теодосія Великого</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -97
+  },
+  "20050125": {
+    "person": "Муч. Татіяни",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -96
+  },
+  "20050126": {
+    "person": "Мучч. Єрмила і Стратоніка",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -95
+  },
+  "20050127": {
+    "person": "Препмучч. Отців, убитих у Синаї",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -94
+  },
+  "20050128": {
+    "person": "Препп. Павла Тебського та Івана Кущника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -93
+  },
+  "20050129": {
+    "person": "Поклоніння кайданам св. ап. Петра",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -92
+  },
+  "20050130": {
+    "person": "<b>† Преп. Антонія Великого</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -91
+  },
+  "20050131": {
+    "person": "Свв. Атанасія і Кирила, аєпп. Олександрійських",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -90
+  },
+  "20050201": {
+    "person": "Преп. Макарія Єгипетського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -89
+  },
+  "20050202": {
+    "person": "<b>† Преп. Євтимія Великого</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -88
+  },
+  "20050203": {
+    "person": "Іспов. Максима; муч. Неофіта",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -87
+  },
+  "20050204": {
+    "person": "Ап. Тимотея; препмуч. Анастасія Перського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -86
+  },
+  "20050205": {
+    "person": "Свщмч. Климента, єп.; муч. Агатангела",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -85
+  },
+  "20050206": {
+    "person": "Преп. Ксенії Римлянки",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -84
+  },
+  "20050207": {
+    "person": "<b>Свят. Григорія Богослова, аєп. Царгород.</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -83
+  },
+  "20050208": {
+    "person": "Препп. Ксенофонта і дружини його Марії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -82
+  },
+  "20050209": {
+    "person": "<b>† Перенес. мощей свят. Йоана Золотоустого</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -81
+  },
+  "20050210": {
+    "person": "Преп. Єфрема Сирійця",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -80
+  },
+  "20050211": {
+    "person": "Перенес. мощей свщмуч. Ігнатія Богоносця",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -79
+  },
+  "20050212": {
+    "person": "<b><r>⊕ Трьох Святителів: Василія, Григорія, Йоана Золотоустого</r></b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -78
+  },
+  "20050213": {
+    "person": "Безсрібн. і чудотв. Кира й Івана",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -77
+  },
+  "20050214": {
+    "person": "Муч. Трифона",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -76
+  },
+  "20050216": {
+    "person": "Симеона Богоприємця і Анни Пророчиці",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -74
+  },
+  "20050217": {
+    "person": "Преп. Ісидора Пилюсіотського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -73
+  },
+  "20050218": {
+    "person": "Муч. Агафії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -72
+  },
+  "20050219": {
+    "person": "Свят. Вукола, єп.; свящмуч. Сілвана, єп.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -71
+  },
+  "20050220": {
+    "person": "Свят. Партенія, єп. Лампсакійського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -70
+  },
+  "20050221": {
+    "person": "Вмуч. Теодора Стратилата; прор. Захарії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -69
+  },
+  "20050222": {
+    "person": "Муч. Никифора",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -68
+  },
+  "20050223": {
+    "person": "Муч. Харалампія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -67
+  },
+  "20050224": {
+    "person": "Свщмч. Власія, єп. Севастійського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -66
+  },
+  "20050225": {
+    "person": "Свят. Мелетія, аєп. Антіохійського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -65
+  },
+  "20050226": {
+    "person": "Преп. Мартиніяна",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -64
+  },
+  "20050227": {
+    "person": "<b>† Рівноап. Кирила, учит. слов'ян</b>, преп. Авксентія",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -63
+  },
+  "20050228": {
+    "person": "Ап. Онисима",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -62
+  },
+  "20050301": {
+    "person": "Мучч. Памфіла, Порфірія та ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -61
+  },
+  "20050302": {
+    "person": "Вмуч. Теодора Тирона",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -60
+  },
+  "20050303": {
+    "person": "Свят. Льва, Папи Римського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -59
+  },
+  "20050304": {
+    "person": "Ап. Архипа",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -58
+  },
+  "20050305": {
+    "person": "Преп. Льва, єп. Катанського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -57
+  },
+  "20050306": {
+    "person": "Преп. Тимотея; свят. Євстатія, аєп. Антіох.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -56
+  },
+  "20050307": {
+    "person": "Віднайд. мощів мучч., що в Євгенії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -55
+  },
+  "20050308": {
+    "person": "Свщмч. Полікарпа, єп. Смирнського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -54
+  },
+  "20050309": {
+    "person": "<b>† Перше і друге знайдення голови Йоана Христ.</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -53
+  },
+  "20050310": {
+    "person": "Свят. Тарасія, аєп. Царгород.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -52
+  },
+  "20050311": {
+    "person": "Свят. Порфірія, єп. Газького",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -51
+  },
+  "20050312": {
+    "person": "Іспов. Прокопія Декаполіта",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -50
+  },
+  "20050313": {
+    "person": "Іспов. Василія, посника",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -49
+  },
+  "20050314": {
+    "person": "Препмуч. Євдокії",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -48
+  },
+  "20050315": {
+    "person": "Свщмч. Теодота, єп. Киринейського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -47
+  },
+  "20050316": {
+    "person": "Мучч. Євтропія, Клеоніка й Василіска",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -46
+  },
+  "20050317": {
+    "person": "Преп. Герасима, що в Йордані",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -45
+  },
+  "20050318": {
+    "person": "Муч. Конона",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -44
+  },
+  "20050319": {
+    "person": "42-х мучч. Аморійських",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -43
+  },
+  "20050320": {
+    "person": "Свщмучч. Василія, Єфрема, Капітона й ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -42
+  },
+  "20050321": {
+    "person": "Свят. Теофілакта, єп. Нікомидійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -41
+  },
+  "20050322": {
+    "person": "<b>† 40 мучч. Севастійських</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -40
+  },
+  "20050323": {
+    "person": "Мучч. Кондрата, Кипріяна, Анекта і Крискента",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -39
+  },
+  "20050324": {
+    "person": "Свят. Софронія, патр. Єрусалимського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -38
+  },
+  "20050325": {
+    "person": "Іспов. Теофана Сигріянського; свят. Григорія, Папи",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -37
+  },
+  "20050326": {
+    "person": "Перенес. мощей свят. Никифора, патр. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -36
+  },
+  "20050327": {
+    "person": "Преп. Венедикта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -35
+  },
+  "20050328": {
+    "person": "Мучч. Агапія і шістьох ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -34
+  },
+  "20050329": {
+    "person": "Мучч. Савина й Папи",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -33
+  },
+  "20050330": {
+    "person": "Преп. Олексія, чоловіка Божого",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -32
+  },
+  "20050331": {
+    "person": "Свят. Кирила, аєп. Єрусалимського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -31
+  },
+  "20050401": {
+    "person": "Мучч. Хризанта і Дарії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -30
+  },
+  "20050402": {
+    "person": "Препп. Отців, убитих у монастирі св. Сави",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -29
+  },
+  "20050403": {
+    "person": "Іспов. Якова, єп. Катанського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -28
+  },
+  "20050404": {
+    "person": "Свящмуч. Василія Анкірського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -27
+  },
+  "20050405": {
+    "person": "Мучч. Нікона та його учнів, з ним замучених",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -26
+  },
+  "20050406": {
+    "person": "Преп. Захарії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -25
+  },
+  "20050408": {
+    "person": "Собор арх. Гавриїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -23
+  },
+  "20050409": {
+    "person": "Муч. Матрони Солунської",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -22
+  },
+  "20050410": {
+    "person": "Преп. Іларіона Нового; преп. Стефана, чудотв.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -21
+  },
+  "20050411": {
+    "person": "Свщмчч. Марка й Кирила",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -20
+  },
+  "20050412": {
+    "person": "Преп. Івана Ліста",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -19
+  },
+  "20050413": {
+    "person": "Св. Іпатія, єп. Гангренського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -18
+  },
+  "20050414": {
+    "person": "Преп. Марії Єгипетської",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -17
+  },
+  "20050415": {
+    "person": "Преп. Тита, чудотворця",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -16
+  },
+  "20050416": {
+    "person": "Преп. Микити, ігум. Мідікійського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -15
+  },
+  "20050417": {
+    "person": "Препп. Йосифа Піснописця і Юрія, що в Малеї",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -14
+  },
+  "20050418": {
+    "person": "Мучч. Теодула, Агатопода й ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -13
+  },
+  "20050419": {
+    "person": "<b>† Св. Методія, учит. слов'ян</b>, св. Євтихія",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -12
+  },
+  "20050420": {
+    "person": "Свят. Юрія, єп. Митіленського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -11
+  },
+  "20050421": {
+    "person": "Апп. Іродіона, Агава, Руфа та ін.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -10
+  },
+  "20050422": {
+    "person": "Муч. Євпсихія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -9
+  },
+  "20050423": {
+    "person": "Мучч. Терентія, Помпілія і тих, що з ними",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -8
+  },
+  "20050424": {
+    "person": "Свщмч. Антипа, єп. Пергамського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": -7
+  },
+  "20050425": {
+    "person": "Іспов. Василія, єп. Парійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": -6
+  },
+  "20050426": {
+    "person": "Свщмч. Артемона Лаодикійського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": -5
+  },
+  "20050427": {
+    "person": "Іспов. Мартина, Папи Римського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": -4
+  },
+  "20050428": {
+    "person": "Апп. Аристарха, Пуда і Трохима",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": -3
+  },
+  "20050429": {
+    "person": "Мучч. Агапії, Ірини й Хіонії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": -2
+  },
+  "20050430": {
+    "person": "Святт. Симеона й Акакія, єпп.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": -1
+  },
+  "20050501": {
+    "person": "Преп. Івана, учня Григорія Декаполіта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 0
+  },
+  "20050502": {
+    "person": "Преп. Івана, Печерника",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 1
+  },
+  "20050503": {
+    "person": "Преп. Теодора Трихіни",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 2
+  },
+  "20050504": {
+    "person": "Свщмч. Януарія й інших",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 3
+  },
+  "20050505": {
+    "person": "Препп. Теодора Сікіота і Віталія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 4
+  },
+  "20050506": {
+    "person": "<b>⊕ Вмуч. Юрія Переможця</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 5
+  },
+  "20050507": {
+    "person": "Муч. Сави Стратилата",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 6
+  },
+  "20050508": {
+    "person": "<b>† Ап. і єванг. Марка</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 7
+  },
+  "20050509": {
+    "person": "Свщмч. Василія, єп. Амасійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 8
+  },
+  "20050510": {
+    "person": "Свщмч. Симеона; свят. Стефана Волинського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 9
+  },
+  "20050511": {
+    "person": "Апп. Ясона й Сосіпатра; мучч. Максима, Дади й ін.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 10
+  },
+  "20050512": {
+    "person": "9-х мучч. у Кизиці; преп. Мемнона, чудотворця",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 11
+  },
+  "20050513": {
+    "person": "<b>† Ап. Якова, брата св. Йоана Богослова</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 12
+  },
+  "20050514": {
+    "person": "Прор. Єремії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 13
+  },
+  "20050515": {
+    "person": "Свят. Атанасія Великого. аєп. Олександр.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 14
+  },
+  "20050516": {
+    "person": "<b>† Преп. Теодосія Печерського</b>, Мучч. Тимотея і Маври",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 15
+  },
+  "20050517": {
+    "person": "Муч. Пелагії",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 16
+  },
+  "20050518": {
+    "person": "Муч. Ірини, Преп. Никифора, ігум. Мідійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 17
+  },
+  "20050519": {
+    "person": "Праведного і многостражд. Йова",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 18
+  },
+  "20050520": {
+    "person": "Муч. Акакія, Поява Чесного Хреста в Єрусалимі",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 19
+  },
+  "20050521": {
+    "person": "<b>⊕ Ап. Йоана Богослова</b>, Преп. Арсенія Великого",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 20
+  },
+  "20050522": {
+    "person": "<b>† Перенесення мощей Миколая Чудотворця</b>, Прор. Ісаї; муч. Христофора",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 21
+  },
+  "20050523": {
+    "person": "<b>† Ап. Симона Зилота</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 22
+  },
+  "20050524": {
+    "person": "<b>† Рівноапп. Кирила і Методія, учит. слов'ян</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 23
+  },
+  "20050525": {
+    "person": "Святт. Єпіфанія, єп. Кіпру і Германа, патр. Єрусал.",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 24
+  },
+  "20050526": {
+    "person": "Муч. Глікерії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 25
+  },
+  "20050527": {
+    "person": "Муч. Ісидора",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 26
+  },
+  "20050528": {
+    "person": "Преп. Пахомія Великого",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 27
+  },
+  "20050529": {
+    "person": "Преп. Теодора Освященного; мучч. Віта, модеста й ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 28
+  },
+  "20050530": {
+    "person": "Ап. Андроніка й інших із ним",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 29
+  },
+  "20050531": {
+    "person": "Мучч. Теодота, Петра, Діонісія, Андрія й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 30
+  },
+  "20050601": {
+    "person": "Свщмуч. Патрикія, єп. Пруського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 31
+  },
+  "20050602": {
+    "person": "Муч. Талалея",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 32
+  },
+  "20050603": {
+    "person": "<b>† Рівноапп. Костянтина і Олени</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 33
+  },
+  "20050604": {
+    "person": "Муч. Василіска",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 34
+  },
+  "20050605": {
+    "person": "Свят. Михаїла, єп.; преп. Єфросинії Полоцької",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 35
+  },
+  "20050606": {
+    "person": "Препп. Симеона Дивногорця, Микити Переяслав.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 36
+  },
+  "20050607": {
+    "person": "<b>† Третє віднайдення голови св. Йоана Христителя</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 37
+  },
+  "20050608": {
+    "person": "Ап. Карпа, одного з 70-ти",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 38
+  },
+  "20050609": {
+    "person": "Свщмч. Терапонта, єп. Сардійського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 39
+  },
+  "20050610": {
+    "person": "Свят. Микити, єп. Халкедонського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 40
+  },
+  "20050611": {
+    "person": "Препмуч. Теодосії, діви",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 41
+  },
+  "20050612": {
+    "person": "Преп. Ісаакія Далматського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 42
+  },
+  "20050613": {
+    "person": "Ап. Єрмія; муч. Єрмея",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 43
+  },
+  "20050614": {
+    "person": "Муч. Юстина, філософа й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 44
+  },
+  "20050615": {
+    "person": "Св. Никифора, патр. Царгородського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 45
+  },
+  "20050616": {
+    "person": "Муч. Лукиліяна і тих, що з ним",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 46
+  },
+  "20050617": {
+    "person": "Св. Митрофана, патр. Царгородського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 47
+  },
+  "20050618": {
+    "person": "Свщмч. Доротея, єп. Тирського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 48
+  },
+  "20050619": {
+    "person": "Препп. Вісаріона й Іларіона",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 49
+  },
+  "20050620": {
+    "person": "Свщмч. Теодота, єп. Анкірського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 50
+  },
+  "20050621": {
+    "person": "Перенес. мощей вмуч. Теодора Тирона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 51
+  },
+  "20050622": {
+    "person": "Св. Кирила, аєп. Олександрійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 52
+  },
+  "20050623": {
+    "person": "Свщмч. Тимотея, єп. Пруського",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 53
+  },
+  "20050624": {
+    "person": "<b>† Апп. Вартоломея і Варнави</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 54
+  },
+  "20050625": {
+    "person": "Препп. Онуфрія Великого і Петра Атонського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 55
+  },
+  "20050626": {
+    "person": "Муч. Акилини; св. Трифілія, єп. Левкусії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 56
+  },
+  "20050627": {
+    "person": "прор. Єлисея; св. Методія, патр. Царгород.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 57
+  },
+  "20050628": {
+    "person": "Прор. Амоса; преп. Єроніма Стридонського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 58
+  },
+  "20050629": {
+    "person": "Свят. Тихона, єп. Аматунського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 59
+  },
+  "20050630": {
+    "person": "Мучч. Мануїла, Савела та Ізмаїла",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 60
+  },
+  "20050701": {
+    "person": "Муч. Леонтія",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 61
+  },
+  "20050702": {
+    "person": "<b>† Ап. Юди, брата Господнього</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 62
+  },
+  "20050703": {
+    "person": "Свщмч. Методія, єп. Патарського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 63
+  },
+  "20050704": {
+    "person": "Муч. Юліяна Тарсійського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 64
+  },
+  "20050705": {
+    "person": "Свщмч. Євсевія, єп. Самосатського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 65
+  },
+  "20050706": {
+    "person": "Муч. Агрипини",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 66
+  },
+  "20050707": {
+    "person": "<b><r>⊕ Різдво св. Йоана Хрестителя</r></b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 67
+  },
+  "20050708": {
+    "person": "Препмуч. Февронії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 68
+  },
+  "20050709": {
+    "person": "Преп. Давида Солунського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 69
+  },
+  "20050710": {
+    "person": "Преп. Самсона, лікаря",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 70
+  },
+  "20050711": {
+    "person": "Перенес. мощей безсрібн. Кира й Івана",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 71
+  },
+  "20050712": {
+    "person": "<b><r>⊕ Верх. апп. ПЕТРА І ПАВЛА</r></b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 72
+  },
+  "20050713": {
+    "person": "<b>† Собор 12-ох апп.</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 73
+  },
+  "20050714": {
+    "person": "Безсрібн. і чудотв. Косми і Дам'яна",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 74
+  },
+  "20050715": {
+    "person": "<b>† Покладення Ризи Пресв. Богородиці у Влахерні</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 75
+  },
+  "20050716": {
+    "person": "Муч. Якинта; свят. Анатолія, патр. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 76
+  },
+  "20050717": {
+    "person": "Свщмч. Павла Гойдича; свят. Андрія, єп. Критського; преп. Марти",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 77
+  },
+  "20050718": {
+    "person": "<b>† Преп. Атанасія Атонського</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 78
+  },
+  "20050719": {
+    "person": "Преп. Сісоя Великого",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 79
+  },
+  "20050720": {
+    "person": "Препп. Томи й Акакія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 80
+  },
+  "20050721": {
+    "person": "Вмуч. Прокопія",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 81
+  },
+  "20050722": {
+    "person": "Свщмч. Панкратія, єп. Тавроменійського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 82
+  },
+  "20050723": {
+    "person": "<b>† Преп. Антонія Печерського</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 83
+  },
+  "20050724": {
+    "person": "<b>Рівноап. Ольги, кн. Київської</b>, муч. Євфимії",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 84
+  },
+  "20050725": {
+    "person": "Мучч. Прокла й Іларія; преп. Михаїла Малеїна",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 85
+  },
+  "20050726": {
+    "person": "Преп. Стефана Саваїта; Собор арх. Гавриїла",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 86
+  },
+  "20050727": {
+    "person": "Ап. Акили",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 87
+  },
+  "20050728": {
+    "person": "<b>† Рівноап. Володимира Великого, князя Київського</b>",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 88
+  },
+  "20050729": {
+    "person": "Свщмч. Атеногена й 10-х його учнів",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 89
+  },
+  "20050730": {
+    "person": "Вмуч. Маріни",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 90
+  },
+  "20050731": {
+    "person": "Мучч. Якинта й Еміліяна",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 91
+  },
+  "20050801": {
+    "person": "Преп. Макрини, сестри св. Василія Вел.; преп. Дія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 92
+  },
+  "20050802": {
+    "person": "<b>⊕ Прор. Іллі</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 93
+  },
+  "20050803": {
+    "person": "Препп. Симеона й Івана; проп. Єзекиїла",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 94
+  },
+  "20050804": {
+    "person": "Рівноап. Марії Магдалини",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 95
+  },
+  "20050805": {
+    "person": "Мучч. Трохима, Теофіла та ін.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 96
+  },
+  "20050806": {
+    "person": "<b>† Мучч. Бориса і Гліба</b>, вмуч. Христини",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 97
+  },
+  "20050807": {
+    "person": "<b>† Успіння св. Анни, матері Пресв. Богородиці</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 98
+  },
+  "20050808": {
+    "person": "Муч. Єрмолая й інших",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 99
+  },
+  "20050809": {
+    "person": "<b>† Вмуч. Пантелеймона, лікаря</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 100
+  },
+  "20050810": {
+    "person": "Апп. Прохора, Ніканора, Тимона й Пармена",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 101
+  },
+  "20050811": {
+    "person": "Муч. Калиніка",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 102
+  },
+  "20050812": {
+    "person": "Апп. Сили, Силуана, Андроніка та ін.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 103
+  },
+  "20050813": {
+    "person": "Преп. Євдокима, праведного",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 104
+  },
+  "20050814": {
+    "person": "Перенес. Чесного Хреста; мучч. Макавейських",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 105
+  },
+  "20050815": {
+    "person": "Перенес. мощей первомуч. Стефана",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 106
+  },
+  "20050816": {
+    "person": "Препп. Ісаака, Далмата й Фавста",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 107
+  },
+  "20050817": {
+    "person": "7-ох мучч. Ефеських; препмуч. Євдокії",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 108
+  },
+  "20050818": {
+    "person": "Муч. Євсигнія; спомин освячення Патріаршого собору Воскресіння Христового в Києві",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 109
+  },
+  "20050820": {
+    "person": "Препмуч. Дометія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 111
+  },
+  "20050821": {
+    "person": "Св. Еміліяна; мучч. Єлевтерія і Леоніда",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 112
+  },
+  "20050822": {
+    "person": "<b>† Ап. Матія</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 113
+  },
+  "20050823": {
+    "person": "Муч. Лаврентія, архидиякона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 114
+  },
+  "20050824": {
+    "person": "Муч. Євпла",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 115
+  },
+  "20050825": {
+    "person": "Мучч. Фотія і Аникити",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 116
+  },
+  "20050826": {
+    "person": "Преп. Максима, ісповідника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 117
+  },
+  "20050827": {
+    "person": "<b>† Перенес. мощей преп. Теодосія Печерськ.</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 118
+  },
+  "20050829": {
+    "person": "Нерукотворн. Образа ГНІХ; муч. Діомида",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 120
+  },
+  "20050830": {
+    "person": "Муч. Мирона",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 121
+  },
+  "20050831": {
+    "person": "Мучч. Флора й Лавра",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 122
+  },
+  "20050901": {
+    "person": "Муч. Андрія Стратилата й інших",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 123
+  },
+  "20050902": {
+    "person": "Прор. Самуїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 124
+  },
+  "20050903": {
+    "person": "Ап. Тадея; муч. Васси",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 125
+  },
+  "20050904": {
+    "person": "Мучч. Агатоніка, Северіяна, Зенона та ін.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 126
+  },
+  "20050905": {
+    "person": "Муч. Луппа; свщмч. Іринея Ліонського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 127
+  },
+  "20050906": {
+    "person": "Свщмч. Євтихія",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 128
+  },
+  "20050907": {
+    "person": "Апп. Тита і Вартоломея",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 129
+  },
+  "20050908": {
+    "person": "Мучч. Адріяна й Наталії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 130
+  },
+  "20050909": {
+    "person": "Преп. Пімена",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 131
+  },
+  "20050910": {
+    "person": "Преп. Мойсея Мурина; св. Августина, єп. Іппонського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 132
+  },
+  "20050912": {
+    "person": "Свв. Олександра, Івана, Павла, патріярхів Царгородських",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 134
+  },
+  "20050914": {
+    "person": "преп. Симеона Стовпника",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 136
+  },
+  "20050915": {
+    "person": "Муч. Маманта; св. Івана Посника, патр. Царгород.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 137
+  },
+  "20050916": {
+    "person": "Свщмч. Антима, єп. Никодимії; преп. Теоктиста",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 138
+  },
+  "20050917": {
+    "person": "Свщмч. Вавили, єп. Антіохії; прор. Мойсея Боговидця",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 139
+  },
+  "20050918": {
+    "person": "Прор. Захарії, батька св. Йоана Христ.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 140
+  },
+  "20050919": {
+    "person": "Чудо арх. Михаїла; мучч. Євдоксія й ін.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 141
+  },
+  "20050920": {
+    "person": "Муч. Созонта",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 142
+  },
+  "20050922": {
+    "person": "Праведних Йоакима й Анни; муч. Северіяна",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 144
+  },
+  "20050923": {
+    "person": "Мучч. Минодори, Митродори й Німфодори",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 145
+  },
+  "20050924": {
+    "person": "Преп. Теодори Олександрійської",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 146
+  },
+  "20050925": {
+    "person": "Свщмч. Автонома",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 147
+  },
+  "20050926": {
+    "person": "Свщмч. Корнилія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 148
+  },
+  "20050928": {
+    "person": "Вмуч. Микити",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 150
+  },
+  "20050929": {
+    "person": "Вмуч. Євфимії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 151
+  },
+  "20050930": {
+    "person": "Мучч. Софії та її дочок: Віри, Надії й Любові",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 152
+  },
+  "20051001": {
+    "person": "Преп. Євменія, єп. Гортинського",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 153
+  },
+  "20051002": {
+    "person": "Мучч. Трохима, Саватія і Дорімедонта",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 154
+  },
+  "20051003": {
+    "person": "Муч. Євстратія й ін.; мучч. Михаїла і Теодора Чернігів.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 155
+  },
+  "20051004": {
+    "person": "Ап. Кондрата",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 156
+  },
+  "20051005": {
+    "person": "Свщмч. Фоки, єп. Синопійського; прор. Йони",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 157
+  },
+  "20051006": {
+    "person": "Зачаття св. Йоана Христителя",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 158
+  },
+  "20051007": {
+    "person": "Первомуч. Теклі, рівноап.",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 159
+  },
+  "20051008": {
+    "person": "Преп. Єфросинії",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 160
+  },
+  "20051009": {
+    "person": "<b>⊕ Ап. Йоана Богослова</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 161
+  },
+  "20051010": {
+    "person": "Муч. Калістрата та ін.; преп. Ніла Криптофер.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 162
+  },
+  "20051011": {
+    "person": "Іспов. Харитона; Вячеслава",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 163
+  },
+  "20051012": {
+    "person": "Преп. Киріяна, самітника",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 164
+  },
+  "20051013": {
+    "person": "Свщмч. Григорія, єп. Великої Вірменії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 165
+  },
+  "20051015": {
+    "person": "Свщмч. Кипріяна; муч. Юстини; преп. Андрія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 167
+  },
+  "20051016": {
+    "person": "Свщмч. Діонісія Ареопатіга",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 168
+  },
+  "20051017": {
+    "person": "Свщмч. Єротея, єп. Атен.; преп. Франціска Асиж.",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 169
+  },
+  "20051018": {
+    "person": "Муч. Харитини",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 170
+  },
+  "20051019": {
+    "person": "<b>† Ап. Томи</b>",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 171
+  },
+  "20051020": {
+    "person": "Мучч. Сергія і Вакха",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 172
+  },
+  "20051021": {
+    "person": "Преп. Пелагії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 173
+  },
+  "20051022": {
+    "person": "<b>† Ап. Якова Алфеєва</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 174
+  },
+  "20051023": {
+    "person": "Мучч. Євлампія та Євлампії, сестри його",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 175
+  },
+  "20051024": {
+    "person": "Ап. Филипа, дияк.; преп. Теофана, єп. Нікейського",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 176
+  },
+  "20051025": {
+    "person": "Мучч. Прова, Тараха й Андроніка; преп. Косми",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 177
+  },
+  "20051026": {
+    "person": "Мучч. Карпа, Папіли й Агатоніки",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 178
+  },
+  "20051027": {
+    "person": "Преп. Параскеви Терновської; мучч. Назарія й ін.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 179
+  },
+  "20051028": {
+    "person": "Преп. Євтимія; препмуч. Лукіяна",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 180
+  },
+  "20051029": {
+    "person": "Муч. Лонгіна, сотника",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 181
+  },
+  "20051030": {
+    "person": "Прор. Осії; препмуч. Андрія Крит.",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 182
+  },
+  "20051031": {
+    "person": "<b>† Ап. і єванг. Луки</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 183
+  },
+  "20051101": {
+    "person": "Свщмч. Теодора Ромжі; прор. Йоіла; муч. Уара",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 184
+  },
+  "20051102": {
+    "person": "Вмуч. Артемія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 185
+  },
+  "20051103": {
+    "person": "Преп. Іларіона Великого",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 186
+  },
+  "20051104": {
+    "person": "Св. Аверкія, єп. Єрапольського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 187
+  },
+  "20051105": {
+    "person": "Ап. Якова, брата Господнього",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 188
+  },
+  "20051106": {
+    "person": "Мучч. Арети й інших",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 189
+  },
+  "20051107": {
+    "person": "Мучч. Маркіяна й Мартирія",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 190
+  },
+  "20051108": {
+    "person": "<b>⊕ Вмуч. Димитрія Мироточця</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 191
+  },
+  "20051109": {
+    "person": "Муч. Нестора; мучч. Капітоліни й Єротіїди",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 192
+  },
+  "20051110": {
+    "person": "Мучч. Терентія і Неоніли; муч. Параскеви, що в Іконії",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 193
+  },
+  "20051111": {
+    "person": "Преп. Анастасії; преп. Аврамія Ростовського",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 194
+  },
+  "20051112": {
+    "person": "Мучч. Зиновія і Зиновії, сестри його",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 195
+  },
+  "20051113": {
+    "person": "Апп. Стахія, Амплія й інших; муч. Елімаха",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 196
+  },
+  "20051114": {
+    "person": "Безсрібників і чудотв. Косми і Дам'яна",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 197
+  },
+  "20051115": {
+    "person": "Мучч. Акиндіна, Пигасія, Афтонія, Елпидифора й ін.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 198
+  },
+  "20051116": {
+    "person": "Мучч. Акепсима, Йосифа й Айтала",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 199
+  },
+  "20051117": {
+    "person": "Преп. Йоанікія Великого; мучч. Нікандра та Єрмея",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 200
+  },
+  "20051118": {
+    "person": "Мучч. Галактіона й Епістими",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 201
+  },
+  "20051119": {
+    "person": "Іспов. Павла, аєп. Царгород.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 202
+  },
+  "20051120": {
+    "person": "Преп. Йосафати Гордашевської; 33-х мучч., що в Мелітині",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 203
+  },
+  "20051121": {
+    "person": "<b><r>⊕ Собор архистратига Михаїла</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 204
+  },
+  "20051122": {
+    "person": "Препп. Матрони і Теоктисти",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 205
+  },
+  "20051123": {
+    "person": "Апп. Ераста, Олімпа, Родіона і тих, що з ними",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 206
+  },
+  "20051124": {
+    "person": "Мучч. Мини, Віктора і Вінкентія; преп. Теодора Студ.",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 207
+  },
+  "20051125": {
+    "person": "<b>⊕ Свщмч. Йосафата, аєп. Полоцького</b>",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 208
+  },
+  "20051126": {
+    "person": "<b>† Св. Йоана Золотоустого, аєп. Царгород.</b>",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 209
+  },
+  "20051127": {
+    "person": "<b>† Ап. Пилипа</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 210
+  },
+  "20051128": {
+    "person": "Іспов. Гурія, Самона й Авіва",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 211
+  },
+  "20051129": {
+    "person": "<b>† Ап. і Єванг. Матея</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 212
+  },
+  "20051130": {
+    "person": "Св. Григорія, єп. Неокесарійського",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 213
+  },
+  "20051201": {
+    "person": "Мучч. Платона і Романа",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 214
+  },
+  "20051202": {
+    "person": "Прор. Авдія; муч. Варлаама",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 215
+  },
+  "20051203": {
+    "person": "Преп. Григорія Декаполіта",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 216
+  },
+  "20051205": {
+    "person": "Ап. Филимона і тих, що з ним",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 218
+  },
+  "20051206": {
+    "person": "Свв. Амфілохія і Григорія, єпп.",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 219
+  },
+  "20051207": {
+    "person": "Вмуч. Катерини; вмуч. Меркурія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 220
+  },
+  "20051208": {
+    "person": "Свщмч. Климента, Папи",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 221
+  },
+  "20051209": {
+    "person": "Преп. Аліпія, стовпника",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 222
+  },
+  "20051210": {
+    "person": "Вмуч. Якова Персіянина; преп. Паладія",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 223
+  },
+  "20051211": {
+    "person": "Препмуч. Стефана Нового; муч. Іринарха",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 224
+  },
+  "20051212": {
+    "person": "Мучч. Парамона і Філумена",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 225
+  },
+  "20051213": {
+    "person": "<b>† Ап. Андрія Первозванного</b>",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 226
+  },
+  "20051214": {
+    "person": "Прор. Наума",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 227
+  },
+  "20051215": {
+    "person": "Прор. Авакума",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 228
+  },
+  "20051216": {
+    "person": "Прор. Софонії",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 229
+  },
+  "20051217": {
+    "person": "Вмуч. Варвари; преп. Івана Дамаскина",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 230
+  },
+  "20051218": {
+    "person": "<b>† Преп. Сави Освященного</b>",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 231
+  },
+  "20051219": {
+    "person": "<b><r>⊕ Миколая Чудотворця, аєп. Мир Ликійських</r></b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 232
+  },
+  "20051220": {
+    "person": "Св. Амвросія Медіоланського",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 233
+  },
+  "20051221": {
+    "person": "Преп. Патапія",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 234
+  },
+  "20051223": {
+    "person": "Мучч. Мини, Єрмогена й Євграфа",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 236
+  },
+  "20051224": {
+    "person": "Преп. Даниїла Стовпника",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 237
+  },
+  "20051225": {
+    "person": "Св. Спиридона, єп. Трімітійського",
+    "dayOfWeek": "нд",
+    "shiftDaysFromEaster": 238
+  },
+  "20051226": {
+    "person": "<b>† Мучч. Євстратія, Євгенія, Авксентія й Ореста</b>",
+    "dayOfWeek": "пн",
+    "shiftDaysFromEaster": 239
+  },
+  "20051227": {
+    "person": "Мучч. Тирса, Левкія, Филимона, Аполонія, Калиніка",
+    "dayOfWeek": "вт",
+    "shiftDaysFromEaster": 240
+  },
+  "20051228": {
+    "person": "Свщмч. Елевтерія; преп. Павла",
+    "dayOfWeek": "ср",
+    "shiftDaysFromEaster": 241
+  },
+  "20051229": {
+    "person": "Прор. Агея",
+    "dayOfWeek": "чт",
+    "shiftDaysFromEaster": 242
+  },
+  "20051230": {
+    "person": "Прор. Даниїла й Ананії, Азарії й Мисаїла",
+    "dayOfWeek": "пт",
+    "shiftDaysFromEaster": 243
+  },
+  "20051231": {
+    "person": "Муч. Севастіяна й ін.",
+    "dayOfWeek": "сб",
+    "shiftDaysFromEaster": 244
+  }
+}

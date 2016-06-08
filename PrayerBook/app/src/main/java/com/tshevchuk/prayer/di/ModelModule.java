@@ -5,20 +5,23 @@ import android.content.Context;
 
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;
-import com.tshevchuk.prayer.data.CerkovnyyCalendar;
 import com.tshevchuk.prayer.data.FileManager;
 import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.data.cache.InMemoryCacheManager;
 import com.tshevchuk.prayer.data.cache.InMemoryCacheManagerImpl;
+import com.tshevchuk.prayer.data.church_calendar.CalendarConfigReader;
+import com.tshevchuk.prayer.data.church_calendar.ChurchCalendar;
 import com.tshevchuk.prayer.data.html_parser.HtmlParser;
 import com.tshevchuk.prayer.data.html_parser.HtmlParserImpl;
-import com.tshevchuk.prayer.data.repositories.CerkovnyyCalendarRepository;
+import com.tshevchuk.prayer.data.repositories.ChurchCalendarRepository;
 import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.AnalyticsManagerImpl;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.AsyncTaskManagerImpl;
 import com.tshevchuk.prayer.presentation.Navigator;
+
+import java.io.IOException;
 
 import javax.inject.Singleton;
 
@@ -50,8 +53,14 @@ public class ModelModule {
 
     @Provides
     @Singleton
-    CerkovnyyCalendar provideCerkovnyyCalendar() {
-        return new CerkovnyyCalendar();
+    ChurchCalendar provideCerkovnyyCalendar(final Context context) {
+        CalendarConfigReader calendarConfigReader = new CalendarConfigReader() {
+            @Override
+            public String readConfig(String fileName) throws IOException {
+                return Utils.getAssetAsString(context, "church_calendar/" + fileName);
+            }
+        };
+        return new ChurchCalendar(calendarConfigReader);
     }
 
     @Provides
@@ -72,8 +81,8 @@ public class ModelModule {
 
     @Provides
     @Singleton
-    CerkovnyyCalendarRepository provideCalendarRepository(CerkovnyyCalendar cerkovnyyCalendar) {
-        return new CerkovnyyCalendarRepository(cerkovnyyCalendar);
+    ChurchCalendarRepository provideCalendarRepository(ChurchCalendar churchCalendar) {
+        return new ChurchCalendarRepository(churchCalendar);
     }
 
     @Provides

@@ -7,7 +7,7 @@ import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
 import com.tshevchuk.prayer.presentation.Navigator;
-import com.tshevchuk.prayer.presentation.base.BasePresenter;
+import com.tshevchuk.prayer.presentation.common.BasePresenter;
 
 import java.io.File;
 
