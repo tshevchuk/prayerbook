@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.di;
 
 import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
+import com.tshevchuk.prayer.presentation.about_church_calendar.AboutChurchCalendarFragment;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerFragment;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
@@ -35,4 +36,6 @@ public interface ViewComponent {
     void inject(SubMenuFragment fragment);
     void inject(SearchFragment fragment);
     void inject(NavigationDrawerFragment fragment);
+
+    void inject(AboutChurchCalendarFragment fragment);
 }

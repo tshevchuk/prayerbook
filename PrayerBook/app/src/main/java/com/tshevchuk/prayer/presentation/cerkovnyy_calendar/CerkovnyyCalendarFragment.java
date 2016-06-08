@@ -48,7 +48,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
 
     @Override
     protected String getScreenTitle() {
-        return getString(R.string.cerk_calendar__cerk_calendar);
+        return getString(R.string.calendar__cerk_calendar);
     }
 
     @Override
@@ -140,6 +140,12 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
         switch (item.getItemId()) {
             case R.id.mi_create_shortcut:
                 presenter.onCreateShortcutClick();
+                return true;
+            case R.id.mi_posty_zahalnytsi:
+                presenter.onPostyZahalnytsiClick();
+                return true;
+            case R.id.mi_about_calendar:
+                presenter.onAboutCalendarClick();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

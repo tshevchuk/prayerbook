@@ -132,6 +132,14 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         return true;
     }
 
+    public void onPostyZahalnytsiClick() {
+        navigator.showMenuItem(this, dataManager.getMenuListItem(Catalog.ID_POSTY_ZAHALNYTSI));
+    }
+
+    public void onAboutCalendarClick(){
+        navigator.openAboutCalendar(this);
+    }
+
     @Parcel
     public static class InstanceState {
         int year;

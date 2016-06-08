@@ -60,11 +60,9 @@
 
             <ImageView
                 android:id="@+id/ivIconPist"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                style="@style/CalendarIconPist"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginLeft="4dp"
-                android:padding="4dp"
                 tools:src="@drawable/ic_pist_fish_red" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
