@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -56,8 +57,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private AppBarLayout appBarLayout;
     private Toolbar toolbar;
+    private FrameLayout flContent;
 
     @DebugLog
     @Override
@@ -74,7 +75,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+        flContent = (FrameLayout) findViewById(R.id.content_frame);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -313,7 +314,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
                 getString(R.string.home__error_report_please_describe_error) + "\n\n\n\n");
 
-        ArrayList<Uri> uris = new ArrayList<Uri>();
+        ArrayList<Uri> uris = new ArrayList<>();
         if (imageFile != null) {
             uris.add(FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile));
         }
@@ -353,16 +354,14 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     @DebugLog
     @Override
     public void enableToolbarHidingOnScroll(boolean hideToolbarOnScrolling) {
-        int scrollFlags = hideToolbarOnScrolling ?
-                (AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
-                        | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
-                        | AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP)
-                : 0;
-        ((AppBarLayout.LayoutParams) toolbar.getLayoutParams()).setScrollFlags(scrollFlags);
-
+        //noinspection unchecked
+        CoordinatorLayout.Behavior<Toolbar> behavior =
+                ((CoordinatorLayout.LayoutParams) toolbar.getLayoutParams()).getBehavior();
+        ((ToolbarBehavior) behavior).setToolbarHidingOnScrollEnabled(hideToolbarOnScrolling);
     }
 
     public void restoreToolbarState() {
-        appBarLayout.setExpanded(true, true);
+        toolbar.setTranslationY(0);
+        flContent.setTranslationY(toolbar.getHeight());
     }
 }

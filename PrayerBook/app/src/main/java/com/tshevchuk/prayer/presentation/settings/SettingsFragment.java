@@ -113,7 +113,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 break;
             case PreferenceManager.PREF_HIDE_TOOLBAR_ON_SCROLLING:
                 presenter.onSettingsChanged(key,
-                        String.valueOf(sharedPreferences.getBoolean(key, false)));
+                        String.valueOf(sharedPreferences.getBoolean(key,
+                                getResources().getBoolean(R.bool.enable_toolbar_hiding_on_scroll_default))));
                 getActivity().recreate();
                 break;
             case PreferenceManager.PREF_DEFAULT_SCREENS:

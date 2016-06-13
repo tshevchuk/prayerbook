@@ -1,8 +1,11 @@
 package com.tshevchuk.prayer.data;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import com.tshevchuk.prayer.R;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
@@ -15,12 +18,14 @@ public class PreferenceManager {
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
 	private final SharedPreferences sharedPrefs;
+	private final Context context;
 	private int[] recentMenuItemsId;
 	private float[] recentMenuItemsShowCount;
 
 	public PreferenceManager(Application application) {
 		sharedPrefs = android.preference.PreferenceManager
 				.getDefaultSharedPreferences(application);
+		context = application;
 	}
 
 	public boolean isNightModeEnabled() {
@@ -32,7 +37,7 @@ public class PreferenceManager {
 	}
 
 	public boolean isHideToolbarOnScrolling() {
-		return sharedPrefs.getBoolean(PREF_HIDE_TOOLBAR_ON_SCROLLING, false);
+		return sharedPrefs.getBoolean(PREF_HIDE_TOOLBAR_ON_SCROLLING, context.getResources().getBoolean(R.bool.enable_toolbar_hiding_on_scroll_default));
 	}
 
 	public int getFontSizeSp() {
