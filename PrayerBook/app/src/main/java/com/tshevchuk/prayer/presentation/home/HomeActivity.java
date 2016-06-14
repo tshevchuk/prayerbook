@@ -1,6 +1,5 @@
 package com.tshevchuk.prayer.presentation.home;
 
-import android.app.UiModeManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -17,6 +16,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -63,9 +63,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     @DebugLog
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-
         ((PrayerBookApplication) getApplication()).getViewComponent().inject(this);
+
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setNightMode(presenter.isNightModeEnabled());
 
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
@@ -328,9 +329,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     public void setNightMode(boolean nightMode) {
-        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-        uiModeManager.setNightMode(nightMode ? UiModeManager.MODE_NIGHT_YES
-                : UiModeManager.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(nightMode ? AppCompatDelegate.MODE_NIGHT_YES
+                : AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     @Override
