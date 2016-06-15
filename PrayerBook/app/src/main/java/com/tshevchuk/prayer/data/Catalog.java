@@ -48,7 +48,7 @@ public class Catalog {
 	private static final String SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA = "Християнський портал Кіріос - Молитви до Пресвятої Богородиці на кожен день тижня (преп. Ніла Сорського) http://kyrios.org.ua/spirituality/prayer/816-molitvi-do-presvjatoyi-bogoroditsi-na-kozhen-den-tizhnja-prep-nila-sorskogo.html";
 	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
 	private static final int ID_SCHODENNI_MOLYTVY = 1;
-	private static final int NEXT_ID_TO_ADD = 911;
+	private static final int NEXT_ID_TO_ADD = 913;
 	private final List<MenuItemBase> topMenu;
 	private final SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<>();
 	private Application application;
@@ -663,6 +663,12 @@ public class Catalog {
 		sm.text(11, "Боже великий, єдиний",
 				"texts/pisni/za-narid/bozhe-velykyj-jedynyj.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
+		sm.text(911, "Боже великий, єдиний (сучасний варіант)",
+				"texts/pisni/za-narid/bozhe-velykyj-jedynyj-suchansnyj.html",
+				"Молитва за Україну — Вікіпедія https://uk.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D0%B0_%D0%B7%D0%B0_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%83");
+		sm.text(912, "Боже великий, єдиний (альтернативний варіант)",
+				"texts/pisni/za-narid/bozhe-velykyj-jedynyj-alternatyvnyj.html",
+				"Молитва за Україну — Вікіпедія https://uk.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D0%B0_%D0%B7%D0%B0_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%83");
 		sm.text(12, "Боже, вислухай благання",
 				"texts/pisni/za-narid/bozhe-vyslukhaj-blahannya.html",
 				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA).setOfficialUGCCText(true);
