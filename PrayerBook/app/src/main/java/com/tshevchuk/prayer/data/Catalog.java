@@ -47,8 +47,9 @@ public class Catalog {
 	private static final String SRC_MOLYTVY_KYRIOS = "Християнський портал Кіріос - Молитви http://kyrios.org.ua/spirituality/prayer.html";
 	private static final String SRC_MOLYTVY_KYRIOS_DO_PRESV_BOHORODYTSI_KOZHEN_DEN_TYZHNYA = "Християнський портал Кіріос - Молитви до Пресвятої Богородиці на кожен день тижня (преп. Ніла Сорського) http://kyrios.org.ua/spirituality/prayer/816-molitvi-do-presvjatoyi-bogoroditsi-na-kozhen-den-tizhnja-prep-nila-sorskogo.html";
 	private static final String SRC_LITURHIYA_KYRIOS = "Християнський портал Кіріос - Чин священної і Божественної Літургії святого Івана Золотоустого http://kyrios.org.ua/spirituality/bogosluzhinnja/1198-bozhestvenna-liturgija.html";
+	private static final String SRC_LITURHIYA_VASYLIYA_VELYKOHO = "Священна і Божественна Літургія во святих отця нашого Василія Великого. Рим 1980";
 	private static final int ID_SCHODENNI_MOLYTVY = 1;
-	private static final int NEXT_ID_TO_ADD = 913;
+	private static final int NEXT_ID_TO_ADD = 920;
 	private final List<MenuItemBase> topMenu;
 	private final SparseArray<MenuItemBase> menuItemsByIds = new SparseArray<>();
 	private Application application;
@@ -1156,6 +1157,9 @@ public class Catalog {
 						682,
 						"Священна і Божественна Літургія во святих отця нашого Йоана Золотоустого. Рим 1968 (переклад патріарха Йосифа чи прийдіте поклонімся)")
 				.setOfficialUGCCText(true);
+		sm.text(919, "Літургія Івана Золотоустого",
+				"texts/bohosluzhinnya/liturhiya/liturhiya-ivana-zolotoustoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA);
 		sm.html(686, "Молитви перед Літургією",
 				"texts/bohosluzhinnya/liturhiya/molytvy-pered-liturhiyeyu.html",
 				SRC_LITURHIYA_KYRIOS);
@@ -1166,6 +1170,27 @@ public class Catalog {
 				SRC_LITURHIYA_KYRIOS);
 		sm.html(685, "Літургія Жертви",
 				"texts/bohosluzhinnya/liturhiya/zhertvy.html", SRC_LITURHIYA_KYRIOS);
+
+		sm = menu
+				.subMenu(
+						913,
+						"Священна і Божественна Літургія во святих отця нашого Василія Великого. Рим 1980")
+				.setOfficialUGCCText(true);
+		sm.text(918, "Літургія Василія Великого",
+				"texts/bohosluzhinnya/liturhiya-vasyliya-velykoho/liturhiya-vasyliya-velykoho.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA + ", " + SRC_LITURHIYA_VASYLIYA_VELYKOHO);
+		sm.html(914, "Молитви перед Літургією",
+				"texts/bohosluzhinnya/liturhiya-vasyliya-velykoho/molytvy-pered-liturhiyeyu.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA + ", " + SRC_LITURHIYA_VASYLIYA_VELYKOHO);
+		sm.html(915, "Проскомидія",
+				"texts/bohosluzhinnya/liturhiya-vasyliya-velykoho/proskomydiya.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA + ", " + SRC_LITURHIYA_VASYLIYA_VELYKOHO);
+		sm.html(916, "Літургія Слова", "texts/bohosluzhinnya/liturhiya-vasyliya-velykoho/slova.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA + ", " + SRC_LITURHIYA_VASYLIYA_VELYKOHO);
+		sm.html(917, "Літургія Жертви",
+				"texts/bohosluzhinnya/liturhiya-vasyliya-velykoho/zhertvy.html",
+				SRC_MOLYTOVNYK_PRYJDITE_POKLONIMSYA + ", " + SRC_LITURHIYA_VASYLIYA_VELYKOHO);
+
 
 		menu.html(
 				893,
