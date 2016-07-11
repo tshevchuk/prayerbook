@@ -18,3 +18,9 @@
 
 
 -keep public class * extends android.app.Fragment
+
+
+# Parcel library
+-keep interface org.parceler.Parcel
+-keep @org.parceler.Parcel class * { *; }
+-keep class **$$Parcelable { *; }
