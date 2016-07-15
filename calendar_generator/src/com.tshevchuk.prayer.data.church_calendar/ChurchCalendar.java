@@ -3,13 +3,7 @@ package com.tshevchuk.prayer.data.church_calendar;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.IllegalFormatException;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class ChurchCalendar {
     public static final String FILE_NAME_CALENDAR_DAYS_JSON = "church_calendar.json";
@@ -71,7 +65,7 @@ public class ChurchCalendar {
         Calendar cachedGreg = null;
 
         for (int i = 1; i <= daysCount; ++i) {
-            if(cachedGreg == null){
+            if (cachedGreg == null) {
                 cachedGreg = Calendar.getInstance();
                 cachedGreg.clear();
                 cachedGreg.set(Calendar.YEAR, year);
@@ -80,7 +74,7 @@ public class ChurchCalendar {
 
             int cacheIndex = i % 13;
             Calendar jul = cachedJulian[cacheIndex];
-            if(jul == null){
+            if (jul == null) {
                 jul = julianCal;
                 jul.setTime(cachedGreg.getTime());
                 jul.add(Calendar.DAY_OF_MONTH, -13);
@@ -89,7 +83,7 @@ public class ChurchCalendar {
             calendarDays.add(getCalendarDay(cachedGreg, julianCal, easterDayOfYear));
 
             cachedGreg = cachedJulian[cacheIndex];
-            cachedJulian[cacheIndex]=cachedGreg;
+            cachedJulian[cacheIndex] = cachedGreg;
         }
         return calendarDays;
     }

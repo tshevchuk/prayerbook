@@ -4,7 +4,7 @@ import com.tshevchuk.calendar_validation.command_line_tasks.*;
 import com.tshevchuk.calendar_validation.file.InvalidFormatException;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
 
 public class Main {
     private final static CommandLineTask[] tasks;
@@ -26,6 +26,7 @@ public class Main {
                 new CompareNewsUgccPostyTask(),
                 new CompareDyvensvitPostyTask(),
                 new CompareCalendarGenerationByDayAndByDaysTask(),
+                new ExportToGoogleCalendarTask(),
         };
     }
 

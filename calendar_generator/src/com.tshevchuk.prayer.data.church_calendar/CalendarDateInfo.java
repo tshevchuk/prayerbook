@@ -79,9 +79,12 @@ public class CalendarDateInfo {
 		if (person != null ? !person.equals(that.person) : that.person != null) return false;
 		if (day != null ? !day.equals(that.day) : that.day != null) return false;
 		if (date != null ? !date.equals(that.date) : that.date != null) return false;
-		if (dateJulian != null ? !dateJulian.equals(that.dateJulian) : that.dateJulian != null) return false;
-		if (pistType != null ? !pistType.equals(that.pistType) : that.pistType != null) return false;
-		if (pistName != null ? !pistName.equals(that.pistName) : that.pistName != null) return false;
+		if (dateJulian != null ? !dateJulian.equals(that.dateJulian) : that.dateJulian != null)
+			return false;
+		if (pistType != null ? !pistType.equals(that.pistType) : that.pistType != null)
+			return false;
+		if (pistName != null ? !pistName.equals(that.pistName) : that.pistName != null)
+			return false;
 		return !(dayDescription != null ? !dayDescription.equals(that.dayDescription) : that.dayDescription != null);
 
 	}
