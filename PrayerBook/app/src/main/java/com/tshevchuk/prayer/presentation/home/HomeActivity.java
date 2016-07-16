@@ -317,10 +317,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
         ArrayList<Uri> uris = new ArrayList<>();
         if (imageFile != null) {
-            uris.add(FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", imageFile));
+            uris.add(FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", imageFile));
         }
         if (textFile != null) {
-            uris.add(FileProvider.getUriForFile(this, "com.tshevchuk.prayer.fileprovider", textFile));
+            uris.add(FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", textFile));
         }
 
         emailIntent.putExtra(Intent.EXTRA_STREAM, uris);

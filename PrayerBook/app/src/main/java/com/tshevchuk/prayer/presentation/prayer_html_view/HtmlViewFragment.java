@@ -84,6 +84,11 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     }
 
     @Override
+    public void setKeepScreenOn(boolean keepScreenOn) {
+        wvContent.setKeepScreenOn(keepScreenOn);
+    }
+
+    @Override
     public BasePresenter getPresenter() {
         return presenter;
     }

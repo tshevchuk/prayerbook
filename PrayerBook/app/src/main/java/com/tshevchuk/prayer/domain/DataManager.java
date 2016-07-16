@@ -132,4 +132,8 @@ public class DataManager {
     public boolean isNightMode() {
         return preferenceManager.isNightModeEnabled();
     }
+
+    public boolean isKeepScreenOn(){
+        return preferenceManager.isKeepScreenOn();
+    }
 }

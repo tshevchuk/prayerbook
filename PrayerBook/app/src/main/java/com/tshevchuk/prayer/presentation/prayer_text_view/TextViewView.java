@@ -11,4 +11,6 @@ public interface TextViewView extends BaseView {
     void setPrayerText(CharSequence param);
 
     void setFontSizeSp(int textFontSizeSp);
+
+    void setKeepScreenOn(boolean keepScreenOn);
 }

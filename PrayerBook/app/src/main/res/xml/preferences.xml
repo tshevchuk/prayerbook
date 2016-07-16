@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <CheckBoxPreference
         android:defaultValue="false"
@@ -31,6 +32,15 @@
         android:defaultValue="false"
         android:key="pref_hideToolbarOnScrolling"
         android:title="@string/settings__hide_toolbar_on_scrolling" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_keepScreenOn"
+        android:summaryOff="@string/settings__keep_screen_on_disabled"
+        android:summaryOn="@string/settings__keep_screen_on_enabled"
+        android:title="@string/settings__keep_screen_on"
+        tools:defaultValue="false" />
+
 
     <Preference
         android:key="pref_aboutApp"

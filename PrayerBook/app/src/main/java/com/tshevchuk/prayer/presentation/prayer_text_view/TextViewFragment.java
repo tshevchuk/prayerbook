@@ -140,6 +140,11 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
     }
 
     @Override
+    public void setKeepScreenOn(boolean keepScreenOn) {
+        tvContent.setKeepScreenOn(keepScreenOn);
+    }
+
+    @Override
     public String getErrorReportInfo() {
         return super.getErrorReportInfo() + "; id: " + prayer.getId() + "; url: "
                 + prayer.getFileName();

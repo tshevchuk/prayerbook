@@ -69,6 +69,9 @@
     <string name="settings__show_official_ugcc_texts">Відображати офіційні тексти УГКЦ</string>
     <string name="settings__about_app">Про програму</string>
     <string name="settings__hide_toolbar_on_scrolling">Ховати панель інструментів під час прокрутки</string>
+    <string name="settings__keep_screen_on">Блокувати автоматичне вимкнення екрану</string>
+    <string name="settings__keep_screen_on_enabled">Екран не вимикається автоматично</string>
+    <string name="settings__keep_screen_on_disabled">Екран вимикається автоматично</string>
 
     <string name="often_used__enter_search_phrase">Введіть текст для пошуку</string>
 

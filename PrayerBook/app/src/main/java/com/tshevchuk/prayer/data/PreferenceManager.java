@@ -14,6 +14,7 @@ public class PreferenceManager {
 	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
 	public static final String PREF_SHOW_OFFICIAL_UGCC = "pref_showOfficialUGCC";
 	public static final String PREF_HIDE_TOOLBAR_ON_SCROLLING = "pref_hideToolbarOnScrolling";
+	public static final String PREF_KEEP_SCREEN_ON = "pref_keepScreenOn";
 	private static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
@@ -48,6 +49,10 @@ public class PreferenceManager {
 	public int getDefaultMenuItemId() {
 		return Integer.valueOf(sharedPrefs.getString(PREF_DEFAULT_SCREENS,
 				String.valueOf(Catalog.ID_RECENT_SCREENS)));
+	}
+
+	public boolean isKeepScreenOn(){
+		return sharedPrefs.getBoolean(PREF_KEEP_SCREEN_ON, false);
 	}
 
 	public synchronized int[] getRecentMenuItems() {

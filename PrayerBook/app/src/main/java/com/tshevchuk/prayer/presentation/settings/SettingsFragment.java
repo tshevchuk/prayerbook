@@ -120,6 +120,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             case PreferenceManager.PREF_DEFAULT_SCREENS:
                 presenter.onSettingsChanged(key, sharedPreferences.getString(key, ""));
                 break;
+            case PreferenceManager.PREF_KEEP_SCREEN_ON:
+                presenter.onSettingsChanged(key,
+                        String.valueOf(sharedPreferences.getBoolean(key, false)));
+                getActivity().recreate();
+                break;
         }
     }
 

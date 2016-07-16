@@ -15,4 +15,6 @@ public interface HtmlViewView extends BaseView {
     void setScreenTitle(String name);
 
     void scrollToUrlAnchor(String url);
+
+    void setKeepScreenOn(boolean keepScreenOn);
 }

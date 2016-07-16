@@ -40,6 +40,7 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         super.attachView(mvpView);
 
         getMvpView().setFontSizeSp(dataManager.getTextFontSizeSp());
+        getMvpView().setKeepScreenOn(dataManager.isKeepScreenOn());
         if (!prayers.isEmpty()) {
             getMvpView().setScreenTitle(prayers.get(prayers.size() - 1).getName());
         }
