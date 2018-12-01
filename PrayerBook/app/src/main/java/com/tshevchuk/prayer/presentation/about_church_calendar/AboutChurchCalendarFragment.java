@@ -8,14 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import javax.inject.Inject;
 
 public class AboutChurchCalendarFragment extends FragmentBase implements AboutChurchCalendarView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     AboutChurchCalendarPresenter presenter;
     private UiModeManager uiModeManager;
@@ -43,7 +44,7 @@ public class AboutChurchCalendarFragment extends FragmentBase implements AboutCh
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.f_about_church_calendar, container, false);
-        ImageView ivPist = (ImageView) view.findViewById(R.id.ivIconPist);
+        ImageView ivPist = view.findViewById(R.id.ivIconPist);
         ivPist.setImageResource(uiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES
                 ? R.drawable.ic_pist_fish_white
                 : R.drawable.ic_pist_fish_black);

@@ -2,7 +2,6 @@ package com.tshevchuk.prayer.presentation.cerkovnyy_calendar;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,9 +16,9 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
@@ -30,6 +29,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 public class CerkovnyyCalendarFragment extends FragmentBase implements CerkovnyyCalendarView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     CerkovnyyCalendarPresenter presenter;
     private int prevFirstVisibleItem;
@@ -72,9 +72,9 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_cerkovnyy_calendar, container, false);
-        rvCalendar = (RecyclerView) v.findViewById(R.id.rvCalendar);
-        tvMonth = (TextView) v.findViewById(R.id.tvMonth);
-        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
+        rvCalendar = v.findViewById(R.id.rvCalendar);
+        tvMonth = v.findViewById(R.id.tvMonth);
+        pbLoading = v.findViewById(R.id.pbLoading);
 
         layoutManager = new LinearLayoutManager(getContext());
         rvCalendar.setLayoutManager(layoutManager);
@@ -108,7 +108,7 @@ public class CerkovnyyCalendarFragment extends FragmentBase implements Cerkovnyy
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
 
         MenuItem miSearch = menu.findItem(R.id.mi_calendar_year_spinner);
-        Spinner calendarYearSpinner = (Spinner) MenuItemCompat.getActionView(miSearch);
+        Spinner calendarYearSpinner = (Spinner) miSearch.getActionView();
 
         String[] formattedYears = new String[years.length];
         int curYearPosition = 0;

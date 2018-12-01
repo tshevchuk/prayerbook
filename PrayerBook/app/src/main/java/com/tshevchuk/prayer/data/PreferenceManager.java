@@ -1,11 +1,8 @@
 package com.tshevchuk.prayer.data;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-
-import com.tshevchuk.prayer.R;
 
 public class PreferenceManager {
 	public static final String PREF_TEXT_FONT_SIZE = "pref_textFontSize";
@@ -13,20 +10,17 @@ public class PreferenceManager {
 	public static final String PREF_ABOUT_APP = "pref_aboutApp";
 	public static final String PREF_DEFAULT_SCREENS = "pref_defaultScreens";
 	public static final String PREF_SHOW_OFFICIAL_UGCC = "pref_showOfficialUGCC";
-	public static final String PREF_HIDE_TOOLBAR_ON_SCROLLING = "pref_hideToolbarOnScrolling";
 	public static final String PREF_KEEP_SCREEN_ON = "pref_keepScreenOn";
 	private static final String PREF_RECENT_MENU_ITEMS = "pref_recentMenuItems";
 	private static final int MAX_RECENT_ITEMS_COUNT = 30;
 
 	private final SharedPreferences sharedPrefs;
-	private final Context context;
 	private int[] recentMenuItemsId;
 	private float[] recentMenuItemsShowCount;
 
 	public PreferenceManager(Application application) {
 		sharedPrefs = android.preference.PreferenceManager
 				.getDefaultSharedPreferences(application);
-		context = application;
 	}
 
 	public boolean isNightModeEnabled() {
@@ -35,10 +29,6 @@ public class PreferenceManager {
 
 	public boolean isShowOfficialUgccEnabled() {
 		return sharedPrefs.getBoolean(PREF_SHOW_OFFICIAL_UGCC, false);
-	}
-
-	public boolean isHideToolbarOnScrolling() {
-		return sharedPrefs.getBoolean(PREF_HIDE_TOOLBAR_ON_SCROLLING, context.getResources().getBoolean(R.bool.enable_toolbar_hiding_on_scroll_default));
 	}
 
 	public int getFontSizeSp() {

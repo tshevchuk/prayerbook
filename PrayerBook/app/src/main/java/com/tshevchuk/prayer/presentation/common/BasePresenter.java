@@ -7,8 +7,6 @@ import com.tshevchuk.prayer.presentation.Navigator;
 import java.util.BitSet;
 import java.util.Locale;
 
-import hugo.weaving.DebugLog;
-
 /**
  * Created by taras on 22.03.16.
  */
@@ -16,7 +14,7 @@ public abstract class BasePresenter<T extends BaseView> {
     protected final AnalyticsManager analyticsManager;
     protected final Navigator navigator;
     private T mvpView;
-    private BitSet progressStates = new BitSet();
+    private final BitSet progressStates = new BitSet();
 
     protected BasePresenter(AnalyticsManager analyticsManager, Navigator navigator) {
         this.analyticsManager = analyticsManager;
@@ -32,25 +30,23 @@ public abstract class BasePresenter<T extends BaseView> {
         this.mvpView = null;
     }
 
-    public boolean isViewAttached() {
-        return mvpView != null;
+    protected boolean isViewDetached() {
+        return mvpView == null;
     }
 
     public T getMvpView() {
         return mvpView;
     }
 
-    public void checkViewAttached() {
-        if (!isViewAttached()) throw new MvpViewNotAttachedException();
+    protected void checkViewAttached() {
+        if (isViewDetached()) throw new MvpViewNotAttachedException();
     }
 
-    @DebugLog
     protected void showProgress(int progressId) {
         progressStates.set(progressId, true);
         getMvpView().showProgress();
     }
 
-    @DebugLog
     protected void hideProgress(int progressId) {
         progressStates.set(progressId, false);
         if (progressStates.isEmpty()) {
@@ -64,8 +60,8 @@ public abstract class BasePresenter<T extends BaseView> {
                 String.format(Locale.US, "#%d %s", mi.getId(), mi.getName()));
     }
 
-    public static class MvpViewNotAttachedException extends RuntimeException {
-        public MvpViewNotAttachedException() {
+    static class MvpViewNotAttachedException extends RuntimeException {
+        MvpViewNotAttachedException() {
             super("Please call Presenter.attachView(MvpView) before" +
                     " requesting data to the Presenter");
         }

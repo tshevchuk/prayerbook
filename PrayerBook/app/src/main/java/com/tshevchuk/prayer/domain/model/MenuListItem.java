@@ -8,9 +8,9 @@ import org.parceler.Parcel;
 @Parcel
 public class MenuListItem extends MenuItemBase {
 
-    MenuListItemType menuListItemType;
+    private MenuListItemType menuListItemType;
 
-    public MenuListItem() {
+    MenuListItem() {
     }
 
     public MenuListItem(MenuItemBase item) {

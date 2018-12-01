@@ -100,10 +100,8 @@ public class PresenterModule {
     }
 
     @Provides
-    AboutChurchCalendarPresenter provideAboutChurchCalendarPresenter(DataManager dataManager,
-                                                                     Utils utils,
-                                                                     AnalyticsManager analyticsManager,
+    AboutChurchCalendarPresenter provideAboutChurchCalendarPresenter(AnalyticsManager analyticsManager,
                                                                      Navigator navigator){
-        return new AboutChurchCalendarPresenter(dataManager, utils, analyticsManager, navigator);
+        return new AboutChurchCalendarPresenter(analyticsManager, navigator);
     }
 }

@@ -24,7 +24,7 @@
         android:title="@string/settings__show_on_app_start" />
 
     <CheckBoxPreference
-        android:defaultValue="@bool/enable_toolbar_hiding_on_scroll_default"
+        android:defaultValue="false"
         android:key="pref_showOfficialUGCC"
         android:title="@string/settings__show_official_ugcc_texts" />
 

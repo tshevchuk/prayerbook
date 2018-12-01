@@ -8,8 +8,8 @@ import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import java.util.ArrayList;
@@ -17,33 +17,29 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import hugo.weaving.DebugLog;
-
 public abstract class FragmentBase extends Fragment implements BaseView {
-    protected final List<Runnable> onResumeActions = new ArrayList<>();
+    private final List<Runnable> onResumeActions = new ArrayList<>();
     protected HomeActivity activity;
+    @SuppressWarnings("WeakerAccess")
     @Inject
     AnalyticsManager analyticsManager;
 
     protected abstract String getScreenTitle();
 
-    public abstract BasePresenter getPresenter();
+    protected abstract BasePresenter getPresenter();
 
-    @DebugLog
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.activity = (HomeActivity) getActivity();
     }
 
-    @DebugLog
     @Override
     public void onDetach() {
         super.onDetach();
         activity = null;
     }
 
-    @DebugLog
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +48,6 @@ public abstract class FragmentBase extends Fragment implements BaseView {
                 .getViewComponent().inject(this);
     }
 
-    @DebugLog
     @Override
     public void onResume() {
         super.onResume();
@@ -67,15 +62,13 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
         activity.setNavigationDrawerEnabled(isNavigationDrawerEnabled());
         analyticsManager.sendScreenEvent(getClass().getSimpleName());
+
+        for(Runnable action : onResumeActions){
+            action.run();
+        }
+        onResumeActions.clear();
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        activity.restoreToolbarState();
-    }
-
-    @DebugLog
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -84,7 +77,6 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         getPresenter().attachView(this);
     }
 
-    @DebugLog
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -95,19 +87,16 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         return false;
     }
 
-    @DebugLog
     @Override
     public void showProgress() {
         throw new UnsupportedOperationException();
     }
 
-    @DebugLog
     @Override
     public void hideProgress() {
         throw new UnsupportedOperationException();
     }
 
-    @DebugLog
     @Override
     public void showError(final String msg) {
         if (isResumed()) {
@@ -126,12 +115,10 @@ public abstract class FragmentBase extends Fragment implements BaseView {
         }
     }
 
-    @DebugLog
     public boolean onUpButtonPress() {
         return false;
     }
 
-    @DebugLog
     public boolean onBackButtonPress() {
         return false;
     }

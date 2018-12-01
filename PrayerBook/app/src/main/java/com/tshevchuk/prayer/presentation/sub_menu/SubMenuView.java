@@ -8,6 +8,6 @@ import java.util.List;
 /**
  * Created by taras on 26.03.16.
  */
-public interface SubMenuView extends BaseView {
+interface SubMenuView extends BaseView {
     void setMenuItems(List<MenuListItem> menuListItems);
 }

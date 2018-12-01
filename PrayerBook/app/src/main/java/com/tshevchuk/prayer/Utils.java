@@ -15,7 +15,7 @@ import java.util.Locale;
 
 public class Utils {
 	private static Locale ukrainianLocale;
-	final Context context;
+	private final Context context;
 
 	public Utils(Context context) {
 		this.context = context;

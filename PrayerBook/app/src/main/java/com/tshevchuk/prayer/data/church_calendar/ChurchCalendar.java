@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class ChurchCalendar {
-    public static final String FILE_NAME_CALENDAR_DAYS_JSON = "church_calendar.json";
+    private static final String FILE_NAME_CALENDAR_DAYS_JSON = "church_calendar.json";
     private final CalendarConfigReader configReader;
     private ChurchCalendarJsonParser churchCalendarJsonParser;
     private List<Pist> posty;
@@ -37,7 +37,7 @@ public class ChurchCalendar {
         return churchCalendarJsonParser.getVerifiedYears();
     }
 
-    public synchronized CalendarDate getEasterDateJulian(int year) throws IOException, JSONException {
+    private synchronized CalendarDate getEasterDateJulian(int year) throws IOException, JSONException {
         readCalendarConfig();
         if (lastEasterJulianDate != null && lastEasterJulianDate.getYear() == year) {
             return lastEasterJulianDate;
@@ -156,7 +156,7 @@ public class ChurchCalendar {
         return sb.toString().replace("<r>", "<font color=\"red\">").replace("</r>", "</font>");
     }
 
-    private String getCalendarDay(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException, JSONException {
+    private String getCalendarDay(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IllegalFormatException, JSONException {
         String fix = churchCalendarJsonParser.getFixDay(year, month, dayOfMonth);
         String movable = churchCalendarJsonParser.getMovableDay(easterShiftDays);
         String nonMovable = churchCalendarJsonParser.getNonMovableDay(month, dayOfMonth);
@@ -183,7 +183,7 @@ public class ChurchCalendar {
         return day;
     }
 
-    private String getCalendarPerson(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, JSONException {
+    private String getCalendarPerson(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws JSONException {
         String person = churchCalendarJsonParser.getFixPerson(year, month, dayOfMonth);
         if (person == null) {
             person = churchCalendarJsonParser.getNonMovablePerson(month, dayOfMonth);
@@ -191,7 +191,7 @@ public class ChurchCalendar {
         return (person == null || person.isEmpty()) ? null : person;
     }
 
-    private boolean isRedDate(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, JSONException {
+    private boolean isRedDate(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws JSONException {
         if (dayOfWeek == Calendar.SUNDAY) {
             return true;
         }
@@ -205,7 +205,7 @@ public class ChurchCalendar {
         }
     }
 
-    private String getPistType(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException, IllegalFormatException, JSONException {
+    private String getPistType(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IllegalFormatException, JSONException {
         if (posty == null) {
             posty = churchCalendarJsonParser.getPosty();
         }
@@ -213,9 +213,8 @@ public class ChurchCalendar {
 
         String movablePistType = churchCalendarJsonParser.getMovableDayPist(easterShiftDays);
         String nonMovablePistType = churchCalendarJsonParser.getNonMovableDayPist(month, dayOfMonth);
-        String pistType = null;
 
-        pistType = movablePistType;
+        String pistType = movablePistType;
         if (pistType == null) {
             pistType = nonMovablePistType;
         }
@@ -244,7 +243,7 @@ public class ChurchCalendar {
         return (pistType == null || pistType.isEmpty()) ? null : pistType;
     }
 
-    private Pist getPist(int month, int dayOfMonth, int easterShiftDays) throws IOException {
+    private Pist getPist(int month, int dayOfMonth, int easterShiftDays) {
         Pist pist = null;
         for (Pist p : posty) {
             boolean matchFrom;
@@ -269,7 +268,7 @@ public class ChurchCalendar {
         return pist;
     }
 
-    private String getPistName(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) throws IOException {
+    private String getPistName(int year, int month, int dayOfMonth, int dayOfWeek, int easterShiftDays) {
         Pist pist = getPist(month, dayOfMonth, easterShiftDays);
         if (pist != null) {
             return pist.getName();

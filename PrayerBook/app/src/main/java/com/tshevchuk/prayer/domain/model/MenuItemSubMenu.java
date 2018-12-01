@@ -12,19 +12,21 @@ import java.util.List;
 @Parcel
 public class MenuItemSubMenu extends MenuItemBase {
 	@ParcelPropertyConverter(MenuItemBaseListParcelConverter.class)
+	private final
 	List<MenuItemBase> subItems = new ArrayList<>();
 
 	public MenuItemSubMenu(int id, String name) {
 		super(id, name);
 	}
 
-	public MenuItemSubMenu() {
+	MenuItemSubMenu() {
 	}
 
 	public List<MenuItemBase> getSubItems() {
 		return subItems;
 	}
 
+	@SuppressWarnings("UnusedReturnValue")
 	public MenuItemSubMenu addSubItem(MenuItemBase item) {
 		item.setParentItemId(getId());
 		item.setOfficialUGCCText(isOfficialUGCCText());

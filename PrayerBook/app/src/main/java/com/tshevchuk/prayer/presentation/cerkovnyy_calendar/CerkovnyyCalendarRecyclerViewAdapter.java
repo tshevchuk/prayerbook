@@ -28,9 +28,9 @@ public class CerkovnyyCalendarRecyclerViewAdapter extends RecyclerView.Adapter<C
     private final SimpleDateFormat dayOldStyleFormat;
     private final UiModeManager uiModeManager;
 
-    public CerkovnyyCalendarRecyclerViewAdapter(Context context,
-                                                ArrayList<CalendarDateInfo> calendarDays,
-                                                int todayPosition, int fontSizeSp) {
+    CerkovnyyCalendarRecyclerViewAdapter(Context context,
+                                         ArrayList<CalendarDateInfo> calendarDays,
+                                         int todayPosition, int fontSizeSp) {
         this.calendarDays = calendarDays;
         this.todayPosition = todayPosition;
         this.fontSizeSp = fontSizeSp;
@@ -84,20 +84,20 @@ public class CerkovnyyCalendarRecyclerViewAdapter extends RecyclerView.Adapter<C
         return calendarDays.size();
     }
 
-    public static class DayViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDay;
-        TextView tvDayOldStyle;
-        TextView tvDescription;
-        ImageView ivPistIcon;
-        View vMonthSeparator;
+    static class DayViewHolder extends RecyclerView.ViewHolder {
+        final TextView tvDay;
+        final TextView tvDayOldStyle;
+        final TextView tvDescription;
+        final ImageView ivPistIcon;
+        final View vMonthSeparator;
 
-        public DayViewHolder(View v) {
+        DayViewHolder(View v) {
             super(v);
-            tvDay = (TextView) v.findViewById(R.id.tvDay);
-            tvDayOldStyle = (TextView) v.findViewById(R.id.tvDayOldStyle);
-            tvDescription = (TextView) v.findViewById(R.id.tvDescription);
+            tvDay = v.findViewById(R.id.tvDay);
+            tvDayOldStyle = v.findViewById(R.id.tvDayOldStyle);
+            tvDescription = v.findViewById(R.id.tvDescription);
             vMonthSeparator = v.findViewById(R.id.vMonthSeparator);
-            ivPistIcon = (ImageView) v.findViewById(R.id.ivIconPist);
+            ivPistIcon = v.findViewById(R.id.ivIconPist);
         }
     }
 }

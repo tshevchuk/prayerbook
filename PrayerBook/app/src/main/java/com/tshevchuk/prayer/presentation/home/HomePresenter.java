@@ -46,45 +46,41 @@ public class HomePresenter extends BasePresenter<HomeView> {
 
             getMvpView().updateAppRater();
         }
-
-        getMvpView().enableToolbarHidingOnScroll(dataManager.isHideToolbarOnScrolling());
     }
 
-    public boolean isNightModeEnabled() {
+    boolean isNightModeEnabled() {
         return dataManager.isNightMode();
     }
 
-    public void onUpPressed() {
+    void onUpPressed() {
         navigator.handleUpAction(this);
     }
 
-    public void setParamScreenId(int id) {
+    void setParamScreenId(int id) {
         paramScreenId = id;
     }
 
-    public void setRestoringInstanceState(boolean restoring) {
+    void setRestoringInstanceState(boolean restoring) {
         restoringInstanceState = restoring;
     }
 
-    public void onSettingsClick() {
+    void onSettingsClick() {
         navigator.showSettings(this);
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Налаштування");
     }
 
-    public void onReportMistakeClick() {
+    void onReportMistakeClick() {
         byte[] screenshot = getMvpView().createScreenshotJpeg();
         File imageFile = null;
         if (screenshot != null) {
             imageFile = dataManager.storeErrorReportScreenshot(screenshot);
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("\nApplication: ").append(utils.getApplicationNameAndVersion())
-                .append(' ').append(context.getPackageName());
-        sb.append("\n").append(getMvpView().getCurrentScreenInfoForErrorReport());
-        sb.append("\n").append(utils.getDeviceInfo());
-
-        File deviceInfoFile = dataManager.storeErrorReportDeviceInfoAttachment(sb.toString());
+        String str = "\nApplication: " + utils.getApplicationNameAndVersion() +
+                ' ' + context.getPackageName() +
+                "\n" + getMvpView().getCurrentScreenInfoForErrorReport() +
+                "\n" + utils.getDeviceInfo();
+        File deviceInfoFile = dataManager.storeErrorReportDeviceInfoAttachment(str);
 
         getMvpView().sendErrorReport("taras.shevchuk@gmail.com", imageFile, deviceInfoFile);
 

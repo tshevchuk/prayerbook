@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
@@ -22,6 +22,7 @@ import javax.inject.Inject;
  * Created by taras on 09.04.16.
  */
 public class NavigationDrawerFragment extends FragmentBase implements NavigationDrawerView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     NavigationDrawerPresenter presenter;
     private ListView drawerList;
@@ -49,7 +50,7 @@ public class NavigationDrawerFragment extends FragmentBase implements Navigation
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_navigation_drawer, container, false);
-        drawerList = (ListView) v.findViewById(R.id.navigation_drawer_listview);
+        drawerList = v.findViewById(R.id.navigation_drawer_listview);
         return v;
     }
 

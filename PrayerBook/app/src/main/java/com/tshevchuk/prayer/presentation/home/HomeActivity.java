@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,14 +23,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.FrameLayout;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
 
@@ -44,23 +41,19 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-import hugo.weaving.DebugLog;
-import io.fabric.sdk.android.Fabric;
-
 public class HomeActivity extends AppCompatActivity implements HomeView {
     public final static String PARAM_SCREEN_ID = "screen_id";
     private static final String TAG = HomeActivity.class.getName();
+    @SuppressWarnings("WeakerAccess")
     @Inject
     HomePresenter presenter;
+    @SuppressWarnings("WeakerAccess")
     @Inject
     AnalyticsManager analyticsManager;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private Toolbar toolbar;
-    private FrameLayout flContent;
 
-    @DebugLog
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ((PrayerBookApplication) getApplication()).getViewComponent().inject(this);
@@ -69,14 +62,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         setNightMode(presenter.isNightModeEnabled());
 
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.a_home);
         setProgressBarIndeterminateVisibility(false);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        flContent = (FrameLayout) findViewById(R.id.content_frame);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -118,7 +109,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         }
     }
 
-    @DebugLog
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -126,7 +116,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         presenter.attachView(this);
     }
 
-    @DebugLog
     @Override
     protected void onDestroy() {
         GoogleAnalytics.getInstance(getApplicationContext()).dispatchLocalHits();
@@ -135,7 +124,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     }
 
-    @DebugLog
     @Override
     protected void onResume() {
         super.onResume();
@@ -148,14 +136,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         }
     }
 
-    @DebugLog
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    @DebugLog
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
@@ -163,7 +149,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @DebugLog
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -182,18 +167,16 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         return super.onOptionsItemSelected(item);
     }
 
-    @DebugLog
     @Override
     public void onBackPressed() {
         Fragment curFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
-        if (curFragment != null && curFragment instanceof FragmentBase
+        if (curFragment instanceof FragmentBase
                 && ((FragmentBase) curFragment).onBackButtonPress()) {
             return;
         }
         super.onBackPressed();
     }
 
-    @DebugLog
     public void displayFragment(Fragment fragment) {
         drawerLayout.closeDrawer(Gravity.LEFT);
         ActionBar actionBar = getSupportActionBar();
@@ -211,7 +194,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         transaction.commit();
     }
 
-    @DebugLog
     public void clearBackStack() {
         getSupportFragmentManager().popBackStackImmediate("item#0",
                 android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -223,32 +205,27 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                 : DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
-    @DebugLog
     @Override
     public void showProgress() {
         // empty
     }
 
-    @DebugLog
     @Override
     public void hideProgress() {
         // empty
     }
 
-    @DebugLog
     @Override
     public void showError(String msg) {
         Snackbar.make(drawerLayout, msg, Snackbar.LENGTH_LONG).show();
     }
 
-    @DebugLog
     @Override
     public boolean handleContentViewUpAction() {
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         return f instanceof FragmentBase && ((FragmentBase) f).onUpButtonPress();
     }
 
-    @DebugLog
     @Override
     public boolean handleContentViewBackAction() {
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
@@ -349,19 +326,5 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
             }
         }
         return sb.toString();
-    }
-
-    @DebugLog
-    @Override
-    public void enableToolbarHidingOnScroll(boolean hideToolbarOnScrolling) {
-        //noinspection unchecked
-        CoordinatorLayout.Behavior<Toolbar> behavior =
-                ((CoordinatorLayout.LayoutParams) toolbar.getLayoutParams()).getBehavior();
-        ((ToolbarBehavior) behavior).setToolbarHidingOnScrollEnabled(hideToolbarOnScrolling);
-    }
-
-    public void restoreToolbarState() {
-        toolbar.setTranslationY(0);
-        flContent.setTranslationY(toolbar.getHeight());
     }
 }

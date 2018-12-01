@@ -1,7 +1,6 @@
 package com.tshevchuk.prayer.presentation.search;
 
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,9 +12,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
@@ -24,11 +23,11 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 public class SearchFragment extends FragmentBase implements SearchView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     SearchPresenter presenter;
     private ListView lvItems;
     private TextView tvHeader;
-    private android.widget.SearchView searchView;
     private String searchPhrase;
 
     public static SearchFragment newInstance(String searchPhrase) {
@@ -60,7 +59,7 @@ public class SearchFragment extends FragmentBase implements SearchView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_search, container, false);
-        lvItems = (ListView) v.findViewById(R.id.lvItems);
+        lvItems = v.findViewById(R.id.lvItems);
         tvHeader = (TextView) inflater.inflate(R.layout.f_search_header, lvItems, false);
         lvItems.addHeaderView(tvHeader, null, false);
         return v;
@@ -77,7 +76,7 @@ public class SearchFragment extends FragmentBase implements SearchView {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.actionbar_search, menu);
         MenuItem miSearch = menu.findItem(R.id.mi_search);
-        searchView = (android.widget.SearchView) MenuItemCompat.getActionView(miSearch);
+        android.widget.SearchView searchView = (android.widget.SearchView) miSearch.getActionView();
         searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

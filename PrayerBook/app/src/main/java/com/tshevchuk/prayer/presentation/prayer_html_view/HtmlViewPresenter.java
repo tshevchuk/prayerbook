@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import hugo.weaving.DebugLog;
-
 /**
  * Created by taras on 18.03.16.
  */
@@ -51,13 +49,12 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         }
     }
 
-    public void setArgPrayerId(int id) {
+    void setArgPrayerId(int id) {
         if (prayers.isEmpty()) {
             prayers.add((MenuItemPrayer) dataManager.getMenuItem(id));
         }
     }
 
-    @DebugLog
     private void loadPrayer(MenuItemPrayer p) {
         String url = "file:///android_asset/" + p.getFileName();
         if (p.getHtmlLinkAnchor() != null && !p.getHtmlLinkAnchor().isEmpty()) {
@@ -66,19 +63,18 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         getMvpView().loadUrl(url);
     }
 
-    public void onWebViewCreated() {
+    void onWebViewCreated() {
         webViewCreated = true;
     }
 
-    public void onGoBack() {
+    void onGoBack() {
         if (!prayers.isEmpty()) {
             prayers.remove(prayers.size() - 1);
         }
     }
 
-    @DebugLog
-    public void onLoadingProgresChanged(int progressPercent) {
-        if (!isViewAttached()) {
+    void onLoadingProgresChanged(int progressPercent) {
+        if (isViewDetached()) {
             return;
         }
 
@@ -89,7 +85,7 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         }
     }
 
-    public void onLinkClick(String[] params) {
+    void onLinkClick(String[] params) {
         int id = Integer.valueOf(params[0]);
         MenuItemBase mi = dataManager.getMenuItem(id);
         if (mi instanceof MenuItemPrayer) {
@@ -106,8 +102,8 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         }
     }
 
-    public void onPageLoadFinished(String url) {
-        if (!isViewAttached()) {
+    void onPageLoadFinished(String url) {
+        if (isViewDetached()) {
             return;
         }
         for (int i = prayers.size() - 1; i >= 0; --i) {
@@ -134,7 +130,8 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         }
     }
 
-    public boolean onUpButtonPress() {
+    @SuppressWarnings("SameReturnValue")
+    boolean onUpButtonPress() {
         navigator.close(this);
         MenuItemPrayer prayer = prayers.get(prayers.size() - 1);
         int parentId = prayer.getParentItemId();
@@ -146,7 +143,7 @@ public class HtmlViewPresenter extends BasePresenter<HtmlViewView> {
         return true;
     }
 
-    public void onOpenAboutClick() {
+    void onOpenAboutClick() {
         MenuItemPrayer prayer = prayers.get(prayers.size() - 1);
         navigator.showAboutPrayer(this, prayer);
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Опис",

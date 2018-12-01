@@ -22,8 +22,6 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import hugo.weaving.DebugLog;
-
 /**
  * Created by taras on 18.03.16.
  */
@@ -56,12 +54,12 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
         asyncTaskManager.cancelAll();
     }
 
-    public void onCalendarClick() {
+    void onCalendarClick() {
         navigator.showCalendar(this);
         dataManager.updateRecentlyUsedBecauseItemOpened(Catalog.ID_CALENDAR);
     }
 
-    public void onItemClick(MenuListItemOftenUsed item) {
+    void onItemClick(MenuListItemOftenUsed item) {
         navigator.showMenuItem(this, item);
         dataManager.updateRecentlyUsedBecauseItemOpened(item.getId());
     }
@@ -85,7 +83,6 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
                 return dataManager.getCalendarDay(new Date());
             }
 
-            @DebugLog
             @Override
             public void postExecute(CalendarDateInfo result) {
                 int fontSizeSp = dataManager.getTextFontSizeSp();
@@ -93,7 +90,6 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
                 getMvpView().showCalendarProgressBar(false);
             }
 
-            @DebugLog
             @Override
             public void onError(Throwable tr) {
                 getMvpView().showCalendarProgressBar(false);
@@ -101,14 +97,12 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
         });
     }
 
-    @DebugLog
-    public void onSearchSubmit(String query) {
+    void onSearchSubmit(String query) {
         navigator.showSearchScreen(this, query);
         analyticsManager.sendActionEvent(Analytics.CAT_SEARCH, "Підтверджено пошукову фразу", query);
     }
 
-    @DebugLog
-    public void onSearchQueryTextChange(String newText) {
+    void onSearchQueryTextChange(String newText) {
         getMvpView().showSearchSuggestions(dataManager.searchMenuItems(newText));
         if (!TextUtils.isEmpty(newText)) {
             analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,
@@ -116,8 +110,7 @@ public class OftenUsedPresenter extends BasePresenter<OftenUsedView> {
         }
     }
 
-    @DebugLog
-    public void onSearchSuggestionClick(MenuListItemSearch mi) {
+    void onSearchSuggestionClick(MenuListItemSearch mi) {
         navigator.showMenuItem(this, mi);
         dataManager.updateRecentlyUsedBecauseItemOpened(mi.getId());
         analyticsManager.sendActionEvent(Analytics.CAT_SEARCH,

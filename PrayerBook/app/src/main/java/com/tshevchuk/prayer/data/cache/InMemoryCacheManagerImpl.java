@@ -35,10 +35,10 @@ public class InMemoryCacheManagerImpl implements InMemoryCacheManager {
     }
 
     private static class CacheValueWithSize {
-        private int size;
-        private CharSequence value;
+        private final int size;
+        private final CharSequence value;
 
-        public CacheValueWithSize(CharSequence value, int size) {
+        CacheValueWithSize(CharSequence value, int size) {
             this.size = size;
             this.value = value;
         }

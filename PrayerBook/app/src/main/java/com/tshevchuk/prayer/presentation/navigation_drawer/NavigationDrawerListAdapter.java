@@ -14,11 +14,11 @@ import com.tshevchuk.prayer.domain.model.MenuListItem;
 
 import java.util.ArrayList;
 
-public class NavigationDrawerListAdapter extends BaseAdapter {
+class NavigationDrawerListAdapter extends BaseAdapter {
     private final ArrayList<MenuListItem> items;
     private final LayoutInflater inflater;
 
-    public NavigationDrawerListAdapter(Context context, ArrayList<MenuListItem> items) {
+    NavigationDrawerListAdapter(Context context, ArrayList<MenuListItem> items) {
         this.items = items;
         inflater = LayoutInflater.from(context);
     }
@@ -45,8 +45,8 @@ public class NavigationDrawerListAdapter extends BaseAdapter {
             v = inflater.inflate(R.layout.f_submenu_item, parent, false);
             ViewHolder vh = new ViewHolder();
 
-            vh.tvName = (TextView) v.findViewById(R.id.tv_name);
-            vh.ivOfficialStamp = (ImageView) v.findViewById(R.id.iv_official_stamp);
+            vh.tvName = v.findViewById(R.id.tv_name);
+            vh.ivOfficialStamp = v.findViewById(R.id.iv_official_stamp);
             v.setTag(vh);
         }
 

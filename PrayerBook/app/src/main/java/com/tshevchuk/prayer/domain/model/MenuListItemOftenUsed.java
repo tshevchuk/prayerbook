@@ -5,9 +5,9 @@ import org.parceler.Parcel;
 
 @Parcel
 public class MenuListItemOftenUsed extends MenuListItem {
-	String parentName;
+	private String parentName;
 
-	public MenuListItemOftenUsed() {
+	MenuListItemOftenUsed() {
 	}
 
 	public MenuListItemOftenUsed(MenuItemBase item) {
