@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by taras on 26.03.16.
  */
-public interface CerkovnyyCalendarView extends BaseView {
+interface CerkovnyyCalendarView extends BaseView {
     void showCalendarForYear(int year, ArrayList<CalendarDateInfo> calendarDays,
                              int positionOfToday, int fontSizeSp);
 

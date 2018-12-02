@@ -75,7 +75,8 @@ public class TextViewPresenter extends BasePresenter<TextViewView> {
         handleCreateShortcutClick(menuItemPrayer);
     }
 
-    public boolean onUpButtonPress() {
+    @SuppressWarnings("SameReturnValue")
+    boolean onUpButtonPress() {
         navigator.close(this);
         int parentId = menuItemPrayer.getParentItemId();
         if (parentId > 0) {
@@ -86,7 +87,7 @@ public class TextViewPresenter extends BasePresenter<TextViewView> {
         return true;
     }
 
-    public void onOpenAboutClick() {
+    void onOpenAboutClick() {
         navigator.showAboutPrayer(this, menuItemPrayer);
         analyticsManager.sendActionEvent(Analytics.CAT_OPTIONS_MENU, "Опис",
                 String.format(Locale.US, "#%d %s", menuItemPrayer.getId(), menuItemPrayer.getName()));

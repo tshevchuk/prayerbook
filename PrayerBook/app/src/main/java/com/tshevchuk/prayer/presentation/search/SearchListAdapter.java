@@ -14,11 +14,11 @@ import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
 
 import java.util.List;
 
-public class SearchListAdapter extends BaseAdapter {
+class SearchListAdapter extends BaseAdapter {
 	private final List<MenuListItemSearch> items;
 	private final LayoutInflater inflater;
 
-	public SearchListAdapter(Context context, List<MenuListItemSearch> items) {
+	SearchListAdapter(Context context, List<MenuListItemSearch> items) {
 		this.items = items;
 		inflater = LayoutInflater.from(context);
 	}
@@ -45,10 +45,9 @@ public class SearchListAdapter extends BaseAdapter {
 			v = inflater.inflate(R.layout.f_search_item, parent, false);
 			ViewHolder vh = new ViewHolder();
 
-			vh.tvName = (TextView) v.findViewById(R.id.tvName);
-			vh.tvParentName = (TextView) v.findViewById(R.id.tvParentName);
-			vh.ivOfficialStamp = (ImageView) v
-					.findViewById(R.id.iv_official_stamp);
+			vh.tvName = v.findViewById(R.id.tvName);
+			vh.tvParentName = v.findViewById(R.id.tvParentName);
+			vh.ivOfficialStamp = v.findViewById(R.id.iv_official_stamp);
 			v.setTag(vh);
 		}
 		ViewHolder vh = (ViewHolder) v.getTag();

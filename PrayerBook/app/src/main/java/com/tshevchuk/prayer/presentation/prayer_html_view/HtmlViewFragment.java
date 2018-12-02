@@ -23,8 +23,8 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
@@ -33,9 +33,8 @@ import java.io.InputStream;
 
 import javax.inject.Inject;
 
-import hugo.weaving.DebugLog;
-
 public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     HtmlViewPresenter presenter;
     private String screenTitle;
@@ -108,8 +107,8 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_html_view, container, false);
-        FrameLayout flContent = (FrameLayout) v.findViewById(R.id.fl_content);
-        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
+        FrameLayout flContent = v.findViewById(R.id.fl_content);
+        pbLoading = v.findViewById(R.id.pbLoading);
         if (wvContent == null) {
             wvContent = new WebView(activity);
             wvContent.setLayoutParams(new FrameLayout.LayoutParams(
@@ -194,7 +193,6 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
         settings.setDefaultFontSize(textFontSizeSp);
     }
 
-    @DebugLog
     @Override
     public void loadUrl(String url) {
         wvContent.loadUrl(url);
@@ -205,13 +203,11 @@ public class HtmlViewFragment extends FragmentBase implements HtmlViewView {
         return super.getErrorReportInfo() + "; URL: " + wvContent.getUrl();
     }
 
-    @DebugLog
     @Override
     public void showProgress() {
         pbLoading.setVisibility(View.VISIBLE);
     }
 
-    @DebugLog
     @Override
     public void hideProgress() {
         pbLoading.setVisibility(View.GONE);

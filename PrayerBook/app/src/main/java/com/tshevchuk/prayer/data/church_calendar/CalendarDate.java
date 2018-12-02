@@ -3,22 +3,22 @@ package com.tshevchuk.prayer.data.church_calendar;
 /**
  * Created by taras on 16.05.16.
  */
-public class CalendarDate {
+class CalendarDate {
     private final int year;
     private final int month;
     private final int day;
 
-    public CalendarDate(int year, int month, int day) {
+    CalendarDate(int year, int month, int day) {
         this.year = year;
         this.month = month;
         this.day = day;
     }
 
-    public int getYear() {
+    int getYear() {
         return year;
     }
 
-    public int getMonth() {
+    int getMonth() {
         return month;
     }
 

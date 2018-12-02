@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by taras on 28.03.16.
  */
-public interface OftenUsedView extends BaseView {
+interface OftenUsedView extends BaseView {
     void setMenuItems(ArrayList<MenuListItemOftenUsed> menuListItems);
 
     void setCalendarDay(CalendarDateInfo day, int fontSizeSp);

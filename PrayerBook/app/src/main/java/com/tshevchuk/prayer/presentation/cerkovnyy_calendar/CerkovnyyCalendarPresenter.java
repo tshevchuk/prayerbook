@@ -16,8 +16,6 @@ import org.parceler.Parcel;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import hugo.weaving.DebugLog;
-
 /**
  * Created by taras on 18.03.16.
  */
@@ -26,7 +24,7 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
     private final int currentYear;
     private final DataManager dataManager;
     private final AsyncTaskManager asyncTaskManager;
-    public InstanceState instanceState = new InstanceState();
+    InstanceState instanceState = new InstanceState();
 
     public CerkovnyyCalendarPresenter(AnalyticsManager analyticsManager, DataManager dataManager,
                                       Navigator navigator, AsyncTaskManager asyncTaskManager) {
@@ -59,7 +57,7 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         asyncTaskManager.cancelAll();
     }
 
-    public void onYearSelected(int year) {
+    void onYearSelected(int year) {
         instanceState.year = year;
         setCalendar(year);
         analyticsManager.sendActionEvent(Analytics.CAT_CERKOVNYY_CALENDAR,
@@ -72,7 +70,6 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
             private ArrayList<CalendarDateInfo> resultCalendarDays;
             private boolean isVerifiedYear = false;
 
-            @DebugLog
             @Override
             public Void doInBackground() throws Exception {
                 resultCalendarDays = dataManager.getCalendarDays(year);
@@ -105,8 +102,8 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         });
     }
 
-    public void onVisibleDaysChanged(int firstVisibleDay, int lastVisibleDay) {
-        if (!isViewAttached()) {
+    void onVisibleDaysChanged(int firstVisibleDay, int lastVisibleDay) {
+        if (isViewDetached()) {
             return;
         }
 
@@ -126,22 +123,23 @@ public class CerkovnyyCalendarPresenter extends BasePresenter<CerkovnyyCalendarV
         handleCreateShortcutClick(mi);
     }
 
-    public boolean onUpButtonPress() {
+    @SuppressWarnings("SameReturnValue")
+    boolean onUpButtonPress() {
         navigator.close(this);
         navigator.showMenuItem(this, dataManager.getMenuListItem(Catalog.ID_RECENT_SCREENS));
         return true;
     }
 
-    public void onPostyZahalnytsiClick() {
+    void onPostyZahalnytsiClick() {
         navigator.showMenuItem(this, dataManager.getMenuListItem(Catalog.ID_POSTY_ZAHALNYTSI));
     }
 
-    public void onAboutCalendarClick(){
+    void onAboutCalendarClick(){
         navigator.openAboutCalendar(this);
     }
 
     @Parcel
-    public static class InstanceState {
+    static class InstanceState {
         int year;
     }
 }

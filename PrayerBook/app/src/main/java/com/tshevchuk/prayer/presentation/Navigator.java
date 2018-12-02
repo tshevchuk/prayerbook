@@ -28,8 +28,6 @@ import com.tshevchuk.prayer.presentation.search.SearchFragment;
 import com.tshevchuk.prayer.presentation.settings.SettingsFragment;
 import com.tshevchuk.prayer.presentation.sub_menu.SubMenuFragment;
 
-import hugo.weaving.DebugLog;
-
 /**
  * Created by taras on 22.03.16.
  */
@@ -40,7 +38,6 @@ public class Navigator {
         this.analyticsManager = analyticsManager;
     }
 
-    @DebugLog
     public void showMenuItem(BasePresenter<? extends BaseView> presenter, MenuListItem item) {
         FragmentBase f = null;
 
@@ -99,7 +96,6 @@ public class Navigator {
         analyticsFragmentOpened(0, "About prayer");
     }
 
-    @DebugLog
     public void close(BasePresenter<? extends BaseView> presenter) {
         android.support.v4.app.FragmentManager fragmentManager =
                 getHomeActivity(presenter).getSupportFragmentManager();
@@ -142,7 +138,6 @@ public class Navigator {
         activity.sendBroadcast(addIntent);
     }
 
-    @DebugLog
     public void handleUpAction(HomePresenter homePresenter) {
         HomeActivity activity = getHomeActivity(homePresenter);
         FragmentManager fragmentManager = activity.getSupportFragmentManager();

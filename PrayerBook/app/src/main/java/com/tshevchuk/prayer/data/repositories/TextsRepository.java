@@ -27,7 +27,7 @@ import java.util.List;
  * Created by taras on 26.03.16.
  */
 public class TextsRepository {
-    public final Catalog catalog;
+    private final Catalog catalog;
     private final PreferenceManager preferenceManager;
     private final Context context;
     private final InMemoryCacheManager inMemoryCacheManager;

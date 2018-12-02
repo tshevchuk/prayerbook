@@ -11,9 +11,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuListItem;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
@@ -67,7 +67,7 @@ public class SubMenuFragment extends FragmentBase implements SubMenuView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_submenu, container, false);
-        lvItems = (ListView) v.findViewById(R.id.lvItems);
+        lvItems = v.findViewById(R.id.lvItems);
         lvItems.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

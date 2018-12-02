@@ -8,6 +8,6 @@ import java.util.ArrayList;
 /**
  * Created by taras on 30.03.16.
  */
-public interface SearchView extends BaseView {
+interface SearchView extends BaseView {
     void setSearchResults(String searchPhrase, ArrayList<MenuListItemSearch> items);
 }

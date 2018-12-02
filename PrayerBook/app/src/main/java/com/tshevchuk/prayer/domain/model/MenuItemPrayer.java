@@ -4,10 +4,10 @@ import org.parceler.Parcel;
 
 @Parcel
 public class MenuItemPrayer extends MenuItemBase {
-	String fileName;
-	String source;
-	Type type = Type.HtmlInTextView;
-	String htmlLinkAnchor;
+	private String fileName;
+	private String source;
+	private Type type = Type.HtmlInTextView;
+	private String htmlLinkAnchor;
 
 	public MenuItemPrayer() {
 	}

@@ -6,7 +6,7 @@ import com.tshevchuk.prayer.presentation.common.BaseView;
 /**
  * Created by taras on 03.04.16.
  */
-public interface TextViewView extends BaseView {
+interface TextViewView extends BaseView {
     void setMenuItem(MenuItemPrayer prayer);
     void setPrayerText(CharSequence param);
 

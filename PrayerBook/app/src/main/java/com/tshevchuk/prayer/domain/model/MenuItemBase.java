@@ -2,12 +2,12 @@ package com.tshevchuk.prayer.domain.model;
 
 public abstract class MenuItemBase {
 
-	String name;
-	int id;
-	int parentItemId;
-	boolean isOfficialUGCCText;
+	private String name;
+	private int id;
+	private int parentItemId;
+	private boolean isOfficialUGCCText;
 
-	public MenuItemBase() {
+	MenuItemBase() {
 	}
 
 	MenuItemBase(int id, String name) {
@@ -15,7 +15,7 @@ public abstract class MenuItemBase {
 		this.id = id;
 	}
 
-	public MenuItemBase(MenuItemBase item) {
+	MenuItemBase(MenuItemBase item) {
 		name = item.name;
 		id = item.id;
 		parentItemId = item.parentItemId;

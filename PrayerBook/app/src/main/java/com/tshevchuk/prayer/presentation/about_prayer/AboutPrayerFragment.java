@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
@@ -18,6 +18,7 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 public class AboutPrayerFragment extends FragmentBase implements AboutPrayerView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     AboutPrayerPresenter presenter;
     private MenuItemPrayer prayer;
@@ -57,8 +58,8 @@ public class AboutPrayerFragment extends FragmentBase implements AboutPrayerView
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.f_about_prayer, container, false);
-        tvName = (TextView) view.findViewById(R.id.tv_name);
-        tvAbout = (TextView) view.findViewById(R.id.tv_about);
+        tvName = view.findViewById(R.id.tv_name);
+        tvAbout = view.findViewById(R.id.tv_about);
         return view;
     }
 

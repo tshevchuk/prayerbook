@@ -4,7 +4,6 @@ import android.app.UiModeManager;
 import android.content.Context;
 import android.database.MatrixCursor;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -24,12 +23,12 @@ import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.church_calendar.CalendarDateInfo;
 import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 import com.tshevchuk.prayer.domain.model.MenuListItemSearch;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.CalendarUtils;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
@@ -39,9 +38,8 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-import hugo.weaving.DebugLog;
-
 public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     OftenUsedPresenter presenter;
     private ListView lvItems;
@@ -85,20 +83,20 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_often_used, container, false);
-        lvItems = (ListView) v.findViewById(R.id.lvItems);
+        lvItems = v.findViewById(R.id.lvItems);
 
         View calendarToday = inflater.inflate(R.layout.i_calendar_for_today, lvItems, false);
-        llToday = (LinearLayout) calendarToday.findViewById(R.id.ll_today);
-        tvDay = (TextView) calendarToday.findViewById(R.id.tvDay);
-        tvDescription = (TextView) calendarToday.findViewById(R.id.tvDescription);
+        llToday = calendarToday.findViewById(R.id.ll_today);
+        tvDay = calendarToday.findViewById(R.id.tvDay);
+        tvDescription = calendarToday.findViewById(R.id.tvDescription);
         llToday.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onCalendarClick();
             }
         });
-        ivPistIcon = (ImageView) calendarToday.findViewById(R.id.ivIconPist);
-        pbCalendarLoading = (ProgressBar) calendarToday.findViewById(R.id.pbCalendarLoading);
+        ivPistIcon = calendarToday.findViewById(R.id.ivIconPist);
+        pbCalendarLoading = calendarToday.findViewById(R.id.pbCalendarLoading);
         lvItems.addHeaderView(calendarToday);
 
         return v;
@@ -109,7 +107,7 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         inflater.inflate(R.menu.actionbar_search, menu);
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
         MenuItem miSearch = menu.findItem(R.id.mi_search);
-        searchView = (SearchView) MenuItemCompat.getActionView(miSearch);
+        searchView = (SearchView) miSearch.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -167,7 +165,6 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
     }
 
-    @DebugLog
     @Override
     public void showCalendarProgressBar(boolean show) {
         pbCalendarLoading.setVisibility(show ? View.VISIBLE : View.GONE);
@@ -186,7 +183,6 @@ public class OftenUsedFragment extends FragmentBase implements OftenUsedView {
         });
     }
 
-    @DebugLog
     @Override
     public void setCalendarDay(CalendarDateInfo day, int fontSizeSp) {
         llToday.setVisibility(View.VISIBLE);

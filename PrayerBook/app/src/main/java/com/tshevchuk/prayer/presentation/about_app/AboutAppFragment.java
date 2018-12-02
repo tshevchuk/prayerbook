@@ -6,14 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import javax.inject.Inject;
 
 public class AboutAppFragment extends FragmentBase implements AboutView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     AboutAppPresenter presenter;
     private TextView tvAppName;
@@ -41,8 +42,8 @@ public class AboutAppFragment extends FragmentBase implements AboutView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.f_about_app, container, false);
-        tvAppName = (TextView) view.findViewById(R.id.tv_app_name);
-        tvContent = (TextView) view.findViewById(R.id.tv_content);
+        tvAppName = view.findViewById(R.id.tv_app_name);
+        tvContent = view.findViewById(R.id.tv_content);
         return view;
     }
 

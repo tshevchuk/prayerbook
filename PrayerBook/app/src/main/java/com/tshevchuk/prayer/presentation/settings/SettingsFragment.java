@@ -11,10 +11,10 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.PreferenceManager;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.home.HomeActivity;
 
 import javax.inject.Inject;
@@ -23,6 +23,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         OnSharedPreferenceChangeListener, SettingsView {
     @Inject
     AnalyticsManager analyticsManager;
+    @SuppressWarnings("WeakerAccess")
     @Inject
     SettingsPresenter presenter;
 
@@ -90,7 +91,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         super.onPause();
         getPreferenceScreen().getSharedPreferences().
                 unregisterOnSharedPreferenceChangeListener(this);
-        activity.restoreToolbarState();
     }
 
     @Override
@@ -109,12 +109,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 break;
             case PreferenceManager.PREF_TEXT_FONT_SIZE:
                 presenter.onSettingsChanged(key, sharedPreferences.getString(key, ""));
-                getActivity().recreate();
-                break;
-            case PreferenceManager.PREF_HIDE_TOOLBAR_ON_SCROLLING:
-                presenter.onSettingsChanged(key,
-                        String.valueOf(sharedPreferences.getBoolean(key,
-                                getResources().getBoolean(R.bool.enable_toolbar_hiding_on_scroll_default))));
                 getActivity().recreate();
                 break;
             case PreferenceManager.PREF_DEFAULT_SCREENS:

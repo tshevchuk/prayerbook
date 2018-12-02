@@ -8,6 +8,6 @@ import java.util.ArrayList;
 /**
  * Created by taras on 09.04.16.
  */
-public interface NavigationDrawerView extends BaseView {
+interface NavigationDrawerView extends BaseView {
     void setListItems(ArrayList<MenuListItem> items);
 }

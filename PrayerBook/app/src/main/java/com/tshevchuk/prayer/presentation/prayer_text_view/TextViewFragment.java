@@ -12,14 +12,15 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
-import com.tshevchuk.prayer.presentation.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import javax.inject.Inject;
 
 public class TextViewFragment extends FragmentBase implements TextViewView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     TextViewPresenter presenter;
     private Integer firstVisibleCharacterOffset = null;
@@ -61,9 +62,9 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_text_view, container, false);
 
-        tvContent = (TextView) v.findViewById(R.id.tv_content);
-        svScroll = (NestedScrollView) v.findViewById(R.id.svScroll);
-        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
+        tvContent = v.findViewById(R.id.tv_content);
+        svScroll = v.findViewById(R.id.svScroll);
+        pbLoading = v.findViewById(R.id.pbLoading);
 
         return v;
     }

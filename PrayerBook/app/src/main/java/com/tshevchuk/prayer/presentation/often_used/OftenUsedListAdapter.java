@@ -14,11 +14,11 @@ import com.tshevchuk.prayer.domain.model.MenuListItemOftenUsed;
 
 import java.util.List;
 
-public class OftenUsedListAdapter extends BaseAdapter {
+class OftenUsedListAdapter extends BaseAdapter {
 	private final List<MenuListItemOftenUsed> items;
 	private final LayoutInflater inflater;
 
-	public OftenUsedListAdapter(Context context, List<MenuListItemOftenUsed> items) {
+	OftenUsedListAdapter(Context context, List<MenuListItemOftenUsed> items) {
 		this.items = items;
 		inflater = LayoutInflater.from(context);
 	}
@@ -45,10 +45,9 @@ public class OftenUsedListAdapter extends BaseAdapter {
 			v = inflater.inflate(R.layout.f_often_used_item, parent, false);
 			ViewHolder vh = new ViewHolder();
 
-			vh.tvName = (TextView) v.findViewById(R.id.tvName);
-			vh.tvParentName = (TextView) v.findViewById(R.id.tvParentName);
-			vh.ivOfficialUgcc = (ImageView) v
-					.findViewById(R.id.iv_official_ugcc);
+			vh.tvName = v.findViewById(R.id.tvName);
+			vh.tvParentName = v.findViewById(R.id.tvParentName);
+			vh.ivOfficialUgcc = v.findViewById(R.id.iv_official_ugcc);
 			v.setTag(vh);
 		}
 

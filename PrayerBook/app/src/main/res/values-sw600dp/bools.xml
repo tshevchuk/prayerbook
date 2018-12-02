@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <item name="has_sw600" type="bool">true</item>
-    <bool name="enable_toolbar_hiding_on_scroll_default">false</bool>
-
-
-</resources>

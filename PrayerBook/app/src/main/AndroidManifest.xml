@@ -11,7 +11,7 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <application
-        android:name=".presentation.PrayerBookApplication"
+        android:name=".PrayerBookApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/full_backup_scheme"
         android:icon="@mipmap/ic_launcher"

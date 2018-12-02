@@ -20,7 +20,7 @@ import javax.inject.Inject;
  */
 public class AnalyticsManagerImpl implements AnalyticsManager {
     private final Map<TrackerName, Tracker> trackers = new HashMap<>();
-    private Application application;
+    private final Application application;
 
     @Inject
     public AnalyticsManagerImpl(Application application) {

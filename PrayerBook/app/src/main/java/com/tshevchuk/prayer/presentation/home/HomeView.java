@@ -7,7 +7,7 @@ import java.io.File;
 /**
  * Created by taras on 10.04.16.
  */
-public interface HomeView extends BaseView {
+interface HomeView extends BaseView {
     boolean handleContentViewUpAction();
 
     boolean handleContentViewBackAction();
@@ -20,6 +20,4 @@ public interface HomeView extends BaseView {
     void setNightMode(boolean nightMode);
 
     String getCurrentScreenInfoForErrorReport();
-
-    void enableToolbarHidingOnScroll(boolean hideToolbarOnScrolling);
 }
