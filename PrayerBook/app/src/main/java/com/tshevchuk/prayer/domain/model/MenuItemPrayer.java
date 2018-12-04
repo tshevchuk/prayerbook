@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer.domain.model;
 
+import com.tshevchuk.prayer.data.Catalog;
+
 import org.parceler.Parcel;
 
 @Parcel
@@ -8,6 +10,7 @@ public class MenuItemPrayer extends MenuItemBase {
 	private String source;
 	private Type type = Type.HtmlInTextView;
 	private String htmlLinkAnchor;
+	private String audioUrl;
 
 	public MenuItemPrayer() {
 	}
@@ -50,6 +53,15 @@ public class MenuItemPrayer extends MenuItemBase {
 
 	public void setHtmlLinkAnchor(String htmlLinkAnchor) {
 		this.htmlLinkAnchor = htmlLinkAnchor;
+	}
+
+	public MenuItemPrayer setAudio(String url){
+		audioUrl = Catalog.AUDIO_BASE_URL + url;
+		return this;
+	}
+
+	public String getAudioUrl(){
+		return audioUrl;
 	}
 
 	public enum Type {

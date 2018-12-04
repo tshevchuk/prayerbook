@@ -10,7 +10,7 @@ public abstract class MenuItemBase {
 	MenuItemBase() {
 	}
 
-	MenuItemBase(int id, String name) {
+	protected MenuItemBase(int id, String name) {
 		this.name = name;
 		this.id = id;
 	}

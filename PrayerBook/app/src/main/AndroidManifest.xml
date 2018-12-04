@@ -36,6 +36,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <service
+            android:name=".presentation.audio.AudioPlayerService"
+            android:enabled="true"
+            android:exported="false"/>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="61ac31ad3ca025e7b8c414980975d1bfe9dedbdb" />

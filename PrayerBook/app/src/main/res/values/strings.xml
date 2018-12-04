@@ -8,6 +8,7 @@
     <string name="menu_items__report_about_issue">Повідомити про помилку</string>
     <string name="menu_items__preferences">Налаштування</string>
     <string name="menu_items__search">Пошук</string>
+    <string name="menu_items__play_audio">Відтворення аудіо файлу</string>
 
     <string name="calendar__today">Сьогодні</string>
     <string-array name="calendar__monthes">

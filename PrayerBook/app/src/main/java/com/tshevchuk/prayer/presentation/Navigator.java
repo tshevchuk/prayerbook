@@ -1,6 +1,8 @@
 package com.tshevchuk.prayer.presentation;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -15,6 +17,7 @@ import com.tshevchuk.prayer.domain.model.MenuListItemType;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
 import com.tshevchuk.prayer.presentation.about_church_calendar.AboutChurchCalendarFragment;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerFragment;
+import com.tshevchuk.prayer.presentation.audio.AudioPlayerService;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.BaseView;

@@ -23,6 +23,7 @@ import javax.inject.Singleton;
 
 @Singleton
 public class Catalog {
+	public static final String AUDIO_BASE_URL = "https://ukrainian-prayers.firebaseapp.com/audio/";
 	public static final int ID_CALENDAR = 5;
 	public static final int ID_RECENT_SCREENS = 400;
 	public static final int ID_POSTY_ZAHALNYTSI = 149;
@@ -59,7 +60,7 @@ public class Catalog {
 		menu.addSubItem(new MenuItemOftenUsed());
 		menu.html(ID_SCHODENNI_MOLYTVY, "Щоденні молитви",
 				"texts/molytvy-schodenni.html", SRC_DODATOK_KATEKHYZMU_2012)
-				.setOfficialUGCCText(true);
+				.setAudio("01_Schodenni_molytvy/01_Schodenni_molytvy.mp3").setOfficialUGCCText(true);
 		menu.addSubItem(addMolytvyRizniPotreby());
 		menu.addSubItem(addMolytvyNaKozhenDen());
 		menu.addSubItem(addMolytvyRizni());

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/ibPlay"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp"
+        android:background="@drawable/background_transparent_clickable"/>
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/ibPause"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/ic_pause_black_24dp"
+        android:visibility="invisible"
+        android:background="@drawable/background_transparent_clickable"/>
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        style="@android:style/Widget.ProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+
+</merge>
