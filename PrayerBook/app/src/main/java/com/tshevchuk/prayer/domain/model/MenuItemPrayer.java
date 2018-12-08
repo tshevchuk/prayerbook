@@ -1,5 +1,7 @@
 package com.tshevchuk.prayer.domain.model;
 
+import com.tshevchuk.prayer.data.Catalog;
+
 import org.parceler.Parcel;
 
 @Parcel
@@ -8,6 +10,9 @@ public class MenuItemPrayer extends MenuItemBase {
 	private String source;
 	private Type type = Type.HtmlInTextView;
 	private String htmlLinkAnchor;
+	private String audioUrl;
+	private String audioSource;
+	private int audioStartPosition;
 
 	public MenuItemPrayer() {
 	}
@@ -21,10 +26,6 @@ public class MenuItemPrayer extends MenuItemBase {
 		return fileName;
 	}
 
-	public String getAbout() {
-		return "Джерело тексту: " + source;
-	}
-
 	public String getSource() {
 		return source;
 	}
@@ -33,6 +34,10 @@ public class MenuItemPrayer extends MenuItemBase {
 	public MenuItemPrayer setSource(String source) {
 		this.source = source;
 		return this;
+	}
+
+	public String getAudioSource(){
+		return audioSource;
 	}
 
 	public Type getType() {
@@ -50,6 +55,25 @@ public class MenuItemPrayer extends MenuItemBase {
 
 	public void setHtmlLinkAnchor(String htmlLinkAnchor) {
 		this.htmlLinkAnchor = htmlLinkAnchor;
+	}
+
+	public MenuItemPrayer setAudio(String url, String source){
+		audioUrl = Catalog.AUDIO_BASE_URL + url;
+		audioSource = source;
+		return this;
+	}
+
+	public MenuItemPrayer setAudioStartPosition(int startPosition){
+		audioStartPosition = startPosition;
+		return this;
+	}
+
+	public int getAudioStartPosition(){
+		return audioStartPosition;
+	}
+
+	public String getAudioUrl(){
+		return audioUrl;
 	}
 
 	public enum Type {

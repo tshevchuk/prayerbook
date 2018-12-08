@@ -19,7 +19,8 @@ public class MenuItemSubMenu extends MenuItemBase {
 		super(id, name);
 	}
 
-	MenuItemSubMenu() {
+	@SuppressWarnings("WeakerAccess")
+    public MenuItemSubMenu() {
 	}
 
 	public List<MenuItemBase> getSubItems() {

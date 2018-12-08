@@ -1,7 +1,10 @@
 package com.tshevchuk.prayer.presentation.prayer_text_view;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,6 +18,8 @@ import android.widget.TextView;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
+import com.tshevchuk.prayer.presentation.audio.AudioControlIconButton;
+import com.tshevchuk.prayer.presentation.audio.AudioPlayerService;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import javax.inject.Inject;
@@ -90,6 +95,22 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.actionbar_create_shortcut, menu);
         inflater.inflate(R.menu.actionbar_textviewfragment, menu);
+        if(!TextUtils.isEmpty(prayer.getAudioUrl())) {
+            inflater.inflate(R.menu.actionbar_play_audio, menu);
+        }
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+
+        MenuItem menuItemAudioControl = menu.findItem(R.id.mi_audio_control);
+        if(menuItemAudioControl != null){
+            AudioControlIconButton audioControlIconButton
+                    = (AudioControlIconButton) menuItemAudioControl.getActionView();
+            audioControlIconButton.setAudio(prayer.getAudioUrl(), prayer.getAudioStartPosition(),
+                    prayer.getName());
+        }
     }
 
     @Override
@@ -100,6 +121,15 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
                 return true;
             case R.id.mi_about_prayer:
                 presenter.onOpenAboutClick();
+                return true;
+            case R.id.mi_audio_restart:
+                final Intent intent = new Intent(getContext(), AudioPlayerService.class);
+                intent.setAction(AudioPlayerService.ACTION_START);
+                intent.setData(Uri.parse(prayer.getAudioUrl()));
+                intent.putExtra(AudioPlayerService.PARAM_AUDIO_START_POSITION,
+                        prayer.getAudioStartPosition());
+                intent.putExtra(AudioPlayerService.PARAM_TITLE, prayer.getName());
+                getContext().startService(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

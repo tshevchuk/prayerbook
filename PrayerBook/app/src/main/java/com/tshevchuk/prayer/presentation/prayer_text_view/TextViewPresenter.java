@@ -1,5 +1,8 @@
 package com.tshevchuk.prayer.presentation.prayer_text_view;
 
+import android.content.Intent;
+import android.net.Uri;
+
 import com.tshevchuk.prayer.data.Catalog;
 import com.tshevchuk.prayer.domain.DataManager;
 import com.tshevchuk.prayer.domain.analytics.Analytics;
