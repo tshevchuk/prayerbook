@@ -7,8 +7,8 @@ android {
         applicationId "com.tshevchuk.prayer"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 11001
-        versionName "1.10.1"
+        versionCode 11100  //xyyzz
+        versionName "1.11.0" //x.y.z
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
