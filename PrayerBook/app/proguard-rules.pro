@@ -18,7 +18,7 @@
 
 
 -keep public class * extends android.app.Fragment
-
+-keep class com.tshevchuk.prayer.presentation.audio.AudioControlIconButton { *; }
 
 # Parcel library
 -keep interface org.parceler.Parcel
