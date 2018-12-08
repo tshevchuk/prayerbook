@@ -9,6 +9,8 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.danikula.videocache.HttpProxyCacheServer;
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.presentation.common.NotificationHelper;
 
 import java.io.IOException;
@@ -23,6 +25,9 @@ public class AudioPlayerService extends Service{
             = "com.tshevchuk.prayer.audioservice.action.STOP_SERVICE";
     public static final String ACTION_RESEND_LOCAL_BROADCAST
             = "com.tshevchuk.prayer.audioservice.action.ACTION_RESEND_LOCAL_BROADCAST";
+    public static final String PARAM_TITLE = "com.tshevchuk.prayer.audioservice.param.TITLE";
+    public static final String PARAM_AUDIO_START_POSITION
+            = "com.tshevchuk.prayer.audioservice.param.AUDIO_START_POSITION";
     public static final String LOCAL_BROADCAST_ACTION
             = "com.tshevchuk.prayer.audioservice.broadcast";
     public static final String LOCAL_BROADCAST_PARAM_STATE
@@ -33,6 +38,12 @@ public class AudioPlayerService extends Service{
     private MediaPlayer mediaPlayer = null;
     private Uri currentDataUri;
     private Intent lastLocalBroadcastIntent;
+    private String audioTitle;
+    private int audioStartPosition;
+    private final HttpProxyCacheServer audioHttpProxy
+            = PrayerBookApplication.getInstance().getAudioHttpProxy();
+    private final NotificationHelper notificationHelper = new NotificationHelper();
+
 
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (ACTION_START.equals(intent.getAction())) {
@@ -41,6 +52,8 @@ public class AudioPlayerService extends Service{
                 sendLocalBroadcastEvent(LocalBroadcastState.Stop, currentDataUri);
             }
             currentDataUri = intent.getData();
+            audioTitle = intent.getStringExtra(PARAM_TITLE);
+            audioStartPosition = intent.getIntExtra(PARAM_AUDIO_START_POSITION, 0);
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setOnPreparedListener(new OnPreparedListener(currentDataUri));
             mediaPlayer.setOnErrorListener(new OnErrorListener(startId));
@@ -49,7 +62,8 @@ public class AudioPlayerService extends Service{
 
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             try {
-                mediaPlayer.setDataSource(getApplicationContext(), currentDataUri);
+                final String proxyUrl  = audioHttpProxy.getProxyUrl(currentDataUri.toString());
+                mediaPlayer.setDataSource(getApplicationContext(), Uri.parse(proxyUrl));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -58,18 +72,18 @@ public class AudioPlayerService extends Service{
         } else if(ACTION_PAUSE.equals(intent.getAction())){
             if(currentDataUri != null && currentDataUri.equals(intent.getData())){
                 mediaPlayer.pause();
-                new NotificationHelper().showAudioPlayNotification(
-                    getApplicationContext(), NotificationHelper.AudioPlayButton.Resume,
-                        intent.getData()
+                notificationHelper.showAudioPlayNotification(
+                    this, NotificationHelper.AudioPlayButton.Resume,
+                        intent.getData(), audioTitle
                 );
                 sendLocalBroadcastEvent(LocalBroadcastState.Pause, intent.getData());
             }
         } else if(ACTION_RESUME.equals(intent.getAction())){
             if(currentDataUri != null && currentDataUri.equals(intent.getData())){
                 mediaPlayer.start();
-                new NotificationHelper ().showAudioPlayNotification(
-                        getApplicationContext(), NotificationHelper.AudioPlayButton.Pause,
-                        intent.getData()
+                notificationHelper.showAudioPlayNotification(
+                        this, NotificationHelper.AudioPlayButton.Pause,
+                        intent.getData(), audioTitle
                 );
                 sendLocalBroadcastEvent(LocalBroadcastState.Play, intent.getData());
             }
@@ -97,6 +111,7 @@ public class AudioPlayerService extends Service{
             mediaPlayer.release();
             sendLocalBroadcastEvent(LocalBroadcastState.Stop, currentDataUri);
         }
+        notificationHelper.hideAudioPlayNotification(this);
     }
 
     private void sendLocalBroadcastEvent(LocalBroadcastState state, Uri audioUri){
@@ -116,10 +131,13 @@ public class AudioPlayerService extends Service{
 
         @Override
         public void onPrepared(MediaPlayer player) {
+            if(audioStartPosition > 0) {
+            //    player.seekTo(audioStartPosition);
+            }
             player.start();
-
-            new NotificationHelper ().showAudioPlayNotification(
-                    getApplicationContext(), NotificationHelper.AudioPlayButton.Pause, dataUri
+            notificationHelper.showAudioPlayNotification(
+                    AudioPlayerService.this, NotificationHelper.AudioPlayButton.Pause, dataUri,
+                    audioTitle
             );
             sendLocalBroadcastEvent(LocalBroadcastState.Play, dataUri);
         }

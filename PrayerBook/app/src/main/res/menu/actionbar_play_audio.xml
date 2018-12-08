@@ -9,4 +9,10 @@
         app:showAsAction="always"
         app:actionViewClass="com.tshevchuk.prayer.presentation.audio.AudioControlIconButton"/>
 
+    <item
+        android:id="@+id/mi_audio_restart"
+        android:title="@string/menu_items__restart_audio"
+        android:visible="true"
+        app:showAsAction="never"/>
+
 </menu>

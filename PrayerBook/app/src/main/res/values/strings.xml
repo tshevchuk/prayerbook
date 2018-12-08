@@ -9,6 +9,7 @@
     <string name="menu_items__preferences">Налаштування</string>
     <string name="menu_items__search">Пошук</string>
     <string name="menu_items__play_audio">Відтворення аудіо файлу</string>
+    <string name="menu_items__restart_audio">Відтворити аудіо з початку</string>
 
     <string name="calendar__today">Сьогодні</string>
     <string-array name="calendar__monthes">
@@ -46,12 +47,13 @@
         \nПодяки:
         \nІван Дутка - за поради і зауваження, надані деякі тексти;
         \nСтепан Сус - за поширення програми в Facebook
+        \nо. Андрій Стадницький - за надані аудіофайли http://kk-kgva.org.ua/index.php/audiomolytovnyk.html
         \n
         \nІсторія змін: https://github.com/tshevchuk/prayerbook/wiki/Історія-змін
         \n
         \nДопомогти проекту можна наступними способами: https://github.com/tshevchuk/prayerbook/wiki/Як-допомогти-проекту%%3F
         \n
-        \nДжерела текстів:
+        \nДжерела текстів і аудіо файлів:
         \n%s
     </string>
 

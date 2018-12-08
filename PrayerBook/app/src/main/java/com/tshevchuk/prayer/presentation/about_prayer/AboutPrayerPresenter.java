@@ -1,6 +1,7 @@
 package com.tshevchuk.prayer.presentation.about_prayer;
 
 import android.app.Application;
+import android.text.TextUtils;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
@@ -32,7 +33,13 @@ public class AboutPrayerPresenter extends BasePresenter<AboutPrayerView> {
 
         getMvpView().setPrayerName(menuItemPrayer.getName());
 
-        String about = menuItemPrayer.getAbout();
+        String about = "Джерело тексту: " + menuItemPrayer.getSource();
+
+        String audioSource = menuItemPrayer.getAudioSource();
+        if(!TextUtils.isEmpty(audioSource)){
+            about += "<br><br>Джерело аудіофайлу: " + audioSource;
+        }
+
         if (menuItemPrayer.isOfficialUGCCText()) {
             about += "<br><br>" + application.getString(R.string.about_prayer__this_is_official_text_ugcc);
         }

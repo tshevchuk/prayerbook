@@ -1,9 +1,12 @@
 package com.tshevchuk.prayer;
 
 import android.app.Application;
+import android.content.Intent;
 
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.security.ProviderInstaller;
 import com.tshevchuk.prayer.di.AppModule;
 import com.tshevchuk.prayer.di.DaggerViewComponent;
 import com.tshevchuk.prayer.di.ModelModule;
@@ -21,6 +24,7 @@ public class PrayerBookApplication extends Application {
     private static PrayerBookApplication instance;
     private final Map<TrackerName, Tracker> trackers = new HashMap<>();
     private ViewComponent viewComponent;
+    private HttpProxyCacheServer proxy;
 
 
     public static PrayerBookApplication getInstance() {
@@ -44,6 +48,9 @@ public class PrayerBookApplication extends Application {
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+
+        ProviderInstaller.installIfNeededAsync(this,
+                new com.tshevchuk.prayer.ProviderInstallerListener());
     }
 
     public synchronized Tracker getTracker() {
@@ -55,6 +62,14 @@ public class PrayerBookApplication extends Application {
         return trackers.get(TrackerName.APP_TRACKER);
     }
 
+    public synchronized HttpProxyCacheServer getAudioHttpProxy(){
+        if(proxy == null){
+            proxy = new HttpProxyCacheServer.Builder(this).build();
+        }
+        return proxy;
+    }
+
+
     public enum TrackerName {
         APP_TRACKER,
     }
@@ -62,4 +77,5 @@ public class PrayerBookApplication extends Application {
     public ViewComponent getViewComponent() {
         return viewComponent;
     }
+
 }

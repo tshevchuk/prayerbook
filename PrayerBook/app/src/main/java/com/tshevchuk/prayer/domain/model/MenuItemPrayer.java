@@ -11,6 +11,8 @@ public class MenuItemPrayer extends MenuItemBase {
 	private Type type = Type.HtmlInTextView;
 	private String htmlLinkAnchor;
 	private String audioUrl;
+	private String audioSource;
+	private int audioStartPosition;
 
 	public MenuItemPrayer() {
 	}
@@ -24,10 +26,6 @@ public class MenuItemPrayer extends MenuItemBase {
 		return fileName;
 	}
 
-	public String getAbout() {
-		return "Джерело тексту: " + source;
-	}
-
 	public String getSource() {
 		return source;
 	}
@@ -36,6 +34,10 @@ public class MenuItemPrayer extends MenuItemBase {
 	public MenuItemPrayer setSource(String source) {
 		this.source = source;
 		return this;
+	}
+
+	public String getAudioSource(){
+		return audioSource;
 	}
 
 	public Type getType() {
@@ -55,9 +57,19 @@ public class MenuItemPrayer extends MenuItemBase {
 		this.htmlLinkAnchor = htmlLinkAnchor;
 	}
 
-	public MenuItemPrayer setAudio(String url){
+	public MenuItemPrayer setAudio(String url, String source){
 		audioUrl = Catalog.AUDIO_BASE_URL + url;
+		audioSource = source;
 		return this;
+	}
+
+	public MenuItemPrayer setAudioStartPosition(int startPosition){
+		audioStartPosition = startPosition;
+		return this;
+	}
+
+	public int getAudioStartPosition(){
+		return audioStartPosition;
 	}
 
 	public String getAudioUrl(){

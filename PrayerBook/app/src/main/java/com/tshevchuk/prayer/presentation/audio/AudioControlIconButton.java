@@ -27,6 +27,8 @@ public class AudioControlIconButton extends FrameLayout {
     private ProgressBar pbLoading;
     private final AudioBroadcastReceiver audioBroadcastReceiver = new AudioBroadcastReceiver();
     private final AudioButtonClickListener audioButtonClickListener = new AudioButtonClickListener();
+    private String audioTitle;
+    private int audioStartPosition;
 
     public AudioControlIconButton(Context context) {
         super(context);
@@ -67,17 +69,18 @@ public class AudioControlIconButton extends FrameLayout {
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(audioBroadcastReceiver);
     }
 
-    public void setAudioUrl(String audioUrl) {
+    public void setAudio(String audioUrl, int startPosition, String title) {
         if(!TextUtils.isEmpty(this.audioUrl)  || TextUtils.isEmpty(audioUrl)){
             return;
         }
         this.audioUrl = audioUrl;
+        audioTitle = title;
+        audioStartPosition = startPosition;
         setVisibility(VISIBLE);
 
-        final Context context = getContext();
-        final Intent intent = new Intent(context, AudioPlayerService.class);
+        final Intent intent = new Intent(getContext(), AudioPlayerService.class);
         intent.setAction(AudioPlayerService.ACTION_RESEND_LOCAL_BROADCAST);
-        context.startService(intent);
+        getContext().startService(intent);
     }
 
     @Override
@@ -86,6 +89,7 @@ public class AudioControlIconButton extends FrameLayout {
         bundle.putParcelable("superState", super.onSaveInstanceState());
         bundle.putString("audioUrl", audioUrl);
         bundle.putBoolean("paused", paused);
+        bundle.putString("audioTitle", audioTitle);
         return bundle;
     }
 
@@ -95,6 +99,7 @@ public class AudioControlIconButton extends FrameLayout {
             Bundle bundle = (Bundle) state;
             audioUrl = bundle.getString("audioUrl");
             paused = bundle.getBoolean("paused");
+            audioTitle = bundle.getString("audioTitle");
             state = bundle.getParcelable("superState");
         }
         super.onRestoreInstanceState(state);
@@ -153,6 +158,8 @@ public class AudioControlIconButton extends FrameLayout {
             final Context context = getContext();
             final Intent intent = new Intent(context, AudioPlayerService.class);
             intent.setData(Uri.parse(audioUrl));
+            intent.putExtra(AudioPlayerService.PARAM_TITLE, audioTitle);
+            intent.putExtra(AudioPlayerService.PARAM_AUDIO_START_POSITION, audioStartPosition);
             if(v == ibPause){
                 intent.setAction(AudioPlayerService.ACTION_PAUSE);
             }else if(v == ibPlay){

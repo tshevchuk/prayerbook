@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,8 +17,12 @@ import com.tshevchuk.prayer.presentation.home.HomeActivity;
 public class NotificationHelper {
     public enum AudioPlayButton {Resume, Pause}
 
-    public void showAudioPlayNotification(Context context, AudioPlayButton audioPlayButton,
-                                          Uri audioUri) {
+    @SuppressWarnings("FieldCanBeLocal")
+    private final int AUDIO_NOTIFICATION_ID = 1;
+
+    public void showAudioPlayNotification(Service service, AudioPlayButton audioPlayButton,
+                                          Uri audioUri, String audioTitle) {
+        final Context context = service.getApplicationContext();
         Intent intent = new Intent(context.getApplicationContext(), HomeActivity.class);
         PendingIntent pi = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -38,8 +43,7 @@ public class NotificationHelper {
         NotificationCompat.Builder notifBuilder
                 = new NotificationCompat.Builder(context, "default")
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Молитовник")
-                .setContentText("Щоденні молитви")
+                .setContentText(audioTitle)
                 .setContentIntent(pi)
                 .setDeleteIntent(stopServicePendingIntent);
 
@@ -70,6 +74,20 @@ public class NotificationHelper {
                 )
                 .build();
 
-        notificationManager.notify(0, notif);
+        notificationManager.notify(AUDIO_NOTIFICATION_ID, notif);
+
+        if(audioPlayButton == AudioPlayButton.Pause) {
+            service.startForeground(AUDIO_NOTIFICATION_ID, notif);
+        } else{
+            service.stopForeground(false);
+        }
+    }
+
+    public void hideAudioPlayNotification(Service service){
+        service.stopForeground(true);
+        NotificationManager notificationManager =
+                (NotificationManager) service.getApplicationContext()
+                        .getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(AUDIO_NOTIFICATION_ID);
     }
 }
