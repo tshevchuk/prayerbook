@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdk 33
     defaultConfig {
         applicationId "com.tshevchuk.prayer"
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdk 14
+        //noinspection EditedTargetSdkVersion
+        targetSdk 33
         versionCode 11100  //xyyzz
         versionName "1.11.0" //x.y.z
         vectorDrawables.useSupportLibrary = true
@@ -27,6 +27,7 @@ android {
     }
     productFlavors {
     }
+    namespace 'com.tshevchuk.prayer'
 }
 
 dependencies {

@@ -25,29 +25,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tvDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvDay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="16sp"
-                    tools:text="day" />
-
-                <TextView
-                    android:id="@+id/tvDayOldStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/gray"
-                    android:textSize="12sp"
-                    tools:text="day old style" />
-            </LinearLayout>
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                tools:text="day" />
 
             <TextView
                 android:id="@+id/tvDescription"

@@ -57,7 +57,6 @@ public class CerkovnyyCalendarRecyclerViewAdapter extends RecyclerView.Adapter<C
             dayDate = Html.fromHtml("<font color=\"red\">" + dayDate + "</font>");
         }
         vh.tvDay.setText(dayDate);
-        vh.tvDayOldStyle.setText(dayOldStyleFormat.format(day.getDateJulian()));
         vh.tvDescription.setText(Html.fromHtml(day.getDayDescription()));
         Calendar cal = Calendar.getInstance();
         cal.setTime(day.getDate());
@@ -86,7 +85,6 @@ public class CerkovnyyCalendarRecyclerViewAdapter extends RecyclerView.Adapter<C
 
     static class DayViewHolder extends RecyclerView.ViewHolder {
         final TextView tvDay;
-        final TextView tvDayOldStyle;
         final TextView tvDescription;
         final ImageView ivPistIcon;
         final View vMonthSeparator;
@@ -94,7 +92,6 @@ public class CerkovnyyCalendarRecyclerViewAdapter extends RecyclerView.Adapter<C
         DayViewHolder(View v) {
             super(v);
             tvDay = v.findViewById(R.id.tvDay);
-            tvDayOldStyle = v.findViewById(R.id.tvDayOldStyle);
             tvDescription = v.findViewById(R.id.tvDescription);
             vMonthSeparator = v.findViewById(R.id.vMonthSeparator);
             ivPistIcon = v.findViewById(R.id.ivIconPist);

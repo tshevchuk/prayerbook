@@ -125,11 +125,11 @@ public class ChurchCalendar {
         Date dateJulian = julianCal.getTime();
 
         int easterShiftDays = dayOfYearJulian - easterDayOfYear;
-        String day = getCalendarDay(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
-        boolean isDateRed = isRedDate(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
-        String person = getCalendarPerson(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
-        String pist = getPistType(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
-        String pistName = getPistName(yearJulian, monthJulian, dayJulian, dayOfWeek, easterShiftDays);
+        String day = getCalendarDay(yearHreh, monthHreh, dayHreh, dayOfWeek, easterShiftDays);
+        boolean isDateRed = isRedDate(yearHreh, monthHreh, dayHreh, dayOfWeek, easterShiftDays);
+        String person = getCalendarPerson(yearHreh, monthHreh, dayHreh, dayOfWeek, easterShiftDays);
+        String pist = getPistType(yearHreh, monthHreh, dayHreh, dayOfWeek, easterShiftDays);
+        String pistName = getPistName(yearHreh, monthHreh, dayHreh, dayOfWeek, easterShiftDays);
         CalendarDateInfo calendarDateInfo = new CalendarDateInfo(gregDate, dateJulian, day, person, isDateRed, easterShiftDays, pist, pistName);
         calendarDateInfo.setDayDescription(getDayDescription(day, person));
         return calendarDateInfo;
