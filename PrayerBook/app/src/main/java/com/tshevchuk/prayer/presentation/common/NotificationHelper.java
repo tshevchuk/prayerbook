@@ -8,7 +8,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.media.app.NotificationCompat;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.presentation.audio.AudioPlayerService;
@@ -67,7 +68,7 @@ public class NotificationHelper {
 
         Notification notif = notifBuilder
                 .setStyle(
-                        new android.support.v4.media.app.NotificationCompat.MediaStyle()
+                        new NotificationCompat.MediaStyle()
                                 .setCancelButtonIntent(stopServicePendingIntent)
                                 .setShowActionsInCompactView(0)
                                 .setShowCancelButton(true)

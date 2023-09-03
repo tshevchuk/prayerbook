@@ -1,10 +1,9 @@
 package com.tshevchuk.prayer.presentation;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.data.Catalog;
@@ -17,7 +16,6 @@ import com.tshevchuk.prayer.domain.model.MenuListItemType;
 import com.tshevchuk.prayer.presentation.about_app.AboutAppFragment;
 import com.tshevchuk.prayer.presentation.about_church_calendar.AboutChurchCalendarFragment;
 import com.tshevchuk.prayer.presentation.about_prayer.AboutPrayerFragment;
-import com.tshevchuk.prayer.presentation.audio.AudioPlayerService;
 import com.tshevchuk.prayer.presentation.cerkovnyy_calendar.CerkovnyyCalendarFragment;
 import com.tshevchuk.prayer.presentation.common.BasePresenter;
 import com.tshevchuk.prayer.presentation.common.BaseView;
@@ -100,7 +98,7 @@ public class Navigator {
     }
 
     public void close(BasePresenter<? extends BaseView> presenter) {
-        android.support.v4.app.FragmentManager fragmentManager =
+        FragmentManager fragmentManager =
                 getHomeActivity(presenter).getSupportFragmentManager();
         fragmentManager.popBackStack();
     }

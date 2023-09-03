@@ -1,8 +1,8 @@
 package com.tshevchuk.prayer.data.repositories;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 
 import com.tshevchuk.prayer.Utils;
 import com.tshevchuk.prayer.data.Catalog;

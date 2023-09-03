@@ -1,6 +1,6 @@
 package com.tshevchuk.prayer.data.html_parser;
 
-import android.support.v4.util.Pair;
+import androidx.core.util.Pair;
 
 /**
  * Created by taras on 04.04.16.

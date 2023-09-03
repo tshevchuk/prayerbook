@@ -2,14 +2,14 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ibPlay"
         android:layout_width="32dp"
         android:layout_height="32dp"
         app:srcCompat="@drawable/ic_play_arrow_black_24dp"
         android:background="@drawable/background_transparent_clickable"/>
 
-    <android.support.v7.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ibPause"
         android:layout_width="32dp"
         android:layout_height="32dp"

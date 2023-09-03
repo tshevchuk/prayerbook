@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.util.Pair;
+import androidx.core.util.Pair;
 import android.text.Html;
 
 import javax.inject.Inject;
