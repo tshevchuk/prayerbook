@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
+
 /**
  * Created by taras on 18.03.16.
  */

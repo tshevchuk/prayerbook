@@ -19,7 +19,6 @@ import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.domain.model.MenuItemPrayer;
 import com.tshevchuk.prayer.presentation.audio.AudioControlIconButton;
-import com.tshevchuk.prayer.presentation.audio.AudioPlayerService;
 import com.tshevchuk.prayer.presentation.common.FragmentBase;
 
 import javax.inject.Inject;
@@ -121,15 +120,6 @@ public class TextViewFragment extends FragmentBase implements TextViewView {
                 return true;
             case R.id.mi_about_prayer:
                 presenter.onOpenAboutClick();
-                return true;
-            case R.id.mi_audio_restart:
-                final Intent intent = new Intent(getContext(), AudioPlayerService.class);
-                intent.setAction(AudioPlayerService.ACTION_START);
-                intent.setData(Uri.parse(prayer.getAudioUrl()));
-                intent.putExtra(AudioPlayerService.PARAM_AUDIO_START_POSITION,
-                        prayer.getAudioStartPosition());
-                intent.putExtra(AudioPlayerService.PARAM_TITLE, prayer.getName());
-                getContext().startService(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

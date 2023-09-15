@@ -1,13 +1,9 @@
 package com.tshevchuk.prayer.presentation.audio;
 
-import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -16,7 +12,20 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.media3.common.MediaItem;
+import androidx.media3.common.MediaMetadata;
+import androidx.media3.common.PlaybackException;
+import androidx.media3.common.Player;
+import androidx.media3.session.MediaController;
+import androidx.media3.session.SessionToken;
+
+import com.danikula.videocache.HttpProxyCacheServer;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.MoreExecutors;
+import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
+
+import java.util.Objects;
 
 public class AudioControlIconButton extends FrameLayout {
     private String audioUrl;
@@ -25,10 +34,16 @@ public class AudioControlIconButton extends FrameLayout {
     private ImageButton ibPlay;
     private ImageButton ibPause;
     private ProgressBar pbLoading;
-    private final AudioBroadcastReceiver audioBroadcastReceiver = new AudioBroadcastReceiver();
     private final AudioButtonClickListener audioButtonClickListener = new AudioButtonClickListener();
+
+    ListenableFuture<MediaController> controllerFuture;
+
+    MediaController mediaController;
+
+    private final HttpProxyCacheServer audioHttpProxy
+            = PrayerBookApplication.getInstance().getAudioHttpProxy();
+
     private String audioTitle;
-    private int audioStartPosition;
 
     public AudioControlIconButton(Context context) {
         super(context);
@@ -57,16 +72,17 @@ public class AudioControlIconButton extends FrameLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(
-                audioBroadcastReceiver,
-                new IntentFilter(AudioPlayerService.LOCAL_BROADCAST_ACTION
-        ));
+
+        if (!TextUtils.isEmpty(audioUrl)) {
+            initializeMediaController();
+        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(audioBroadcastReceiver);
+
+        releaseMediaController();
     }
 
     public void setAudio(String audioUrl, int startPosition, String title) {
@@ -75,12 +91,9 @@ public class AudioControlIconButton extends FrameLayout {
         }
         this.audioUrl = audioUrl;
         audioTitle = title;
-        audioStartPosition = startPosition;
         setVisibility(VISIBLE);
 
-        final Intent intent = new Intent(getContext(), AudioPlayerService.class);
-        intent.setAction(AudioPlayerService.ACTION_RESEND_LOCAL_BROADCAST);
-        getContext().startService(intent);
+        initializeMediaController();
     }
 
     @Override
@@ -105,71 +118,160 @@ public class AudioControlIconButton extends FrameLayout {
         super.onRestoreInstanceState(state);
     }
 
-    private class AudioBroadcastReceiver extends BroadcastReceiver{
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if(!intent.getStringExtra(AudioPlayerService.LOCAL_BROADCAST_PARAM_URL)
-                    .equals(audioUrl)
-            ){
-                return;
-            }
-
-            AudioPlayerService.LocalBroadcastState state = (AudioPlayerService.LocalBroadcastState)
-                    intent.getSerializableExtra(AudioPlayerService.LOCAL_BROADCAST_PARAM_STATE);
-            switch(state){
-                case Error:
-                    Toast.makeText(getContext(), "Помилка відтворення аудіо файлу",
-                            Toast.LENGTH_LONG
-                    ).show();
-                    ibPlay.setVisibility(VISIBLE);
-                    ibPause.setVisibility(INVISIBLE);
-                    pbLoading.setVisibility(INVISIBLE);
-                    paused = false;
-                    break;
-                case Pause:
-                    ibPlay.setVisibility(VISIBLE);
-                    ibPause.setVisibility(INVISIBLE);
-                    pbLoading.setVisibility(INVISIBLE);
-                    paused = true;
-                    break;
-                case Play:
-                    ibPlay.setVisibility(INVISIBLE);
-                    ibPause.setVisibility(VISIBLE);
-                    pbLoading.setVisibility(INVISIBLE);
-                    break;
-                case Prepare:
-                    ibPlay.setVisibility(INVISIBLE);
-                    ibPause.setVisibility(INVISIBLE);
-                    pbLoading.setVisibility(VISIBLE);
-                    break;
-                case Stop:
-                    ibPlay.setVisibility(VISIBLE);
-                    ibPause.setVisibility(INVISIBLE);
-                    pbLoading.setVisibility(INVISIBLE);
-                    paused = false;
-                    break;
-            }
+    private void initializeMediaController() {
+        if (controllerFuture != null) {
+            return;
         }
+
+        SessionToken sessionToken =
+            new SessionToken(
+                getContext(), new ComponentName(getContext(), AudioPlaybackService.class)
+            );
+
+        controllerFuture = new MediaController.Builder(getContext(), sessionToken).buildAsync();
+        controllerFuture.addListener(
+                new MediaControllerFutureListener(),
+                MoreExecutors.directExecutor()
+        );
+    }
+
+    private void releaseMediaController() {
+        if (controllerFuture != null) {
+            MediaController.releaseFuture(controllerFuture);
+            controllerFuture = null;
+        }
+
+        mediaController = null;
+    }
+
+    private void showMediaPlayerErrorMessage(String errorMessage) {
+        Toast.makeText(getContext(), errorMessage,
+                Toast.LENGTH_LONG
+        ).show();
+
+        ibPlay.setVisibility(mediaController != null ? VISIBLE : INVISIBLE);
+        ibPause.setVisibility(INVISIBLE);
+        pbLoading.setVisibility(INVISIBLE);
+        paused = false;
+    }
+
+    private void onPlayEnded() {
+        ibPlay.setVisibility(VISIBLE);
+        ibPause.setVisibility(INVISIBLE);
+        pbLoading.setVisibility(INVISIBLE);
+        paused = false;
+    }
+
+    private void onPlayPaused() {
+        ibPlay.setVisibility(VISIBLE);
+        ibPause.setVisibility(INVISIBLE);
+        pbLoading.setVisibility(INVISIBLE);
+        paused = true;
+    }
+
+    private void onPlayStarted() {
+        ibPlay.setVisibility(INVISIBLE);
+        ibPause.setVisibility(VISIBLE);
+        pbLoading.setVisibility(INVISIBLE);
+    }
+
+    private void showProgressBar() {
+        ibPlay.setVisibility(INVISIBLE);
+        ibPause.setVisibility(INVISIBLE);
+        pbLoading.setVisibility(VISIBLE);
+    }
+
+    private boolean isSameAudio() {
+        return Objects.requireNonNull(mediaController.getCurrentMediaItem()).mediaId
+                .equals(audioUrl);
     }
 
     private class AudioButtonClickListener implements ImageButton.OnClickListener{
         @Override
         public void onClick(View v) {
-            final Context context = getContext();
-            final Intent intent = new Intent(context, AudioPlayerService.class);
-            intent.setData(Uri.parse(audioUrl));
-            intent.putExtra(AudioPlayerService.PARAM_TITLE, audioTitle);
-            intent.putExtra(AudioPlayerService.PARAM_AUDIO_START_POSITION, audioStartPosition);
             if(v == ibPause){
-                intent.setAction(AudioPlayerService.ACTION_PAUSE);
-            }else if(v == ibPlay){
-                if(paused){
-                    intent.setAction(AudioPlayerService.ACTION_RESUME);
-                }else{
-                    intent.setAction(AudioPlayerService.ACTION_START);
+                if (
+                    mediaController.isPlaying()
+                        && mediaController.isCommandAvailable(Player.COMMAND_PLAY_PAUSE)
+                ) {
+                    mediaController.pause();
+                }
+                ibPlay.setVisibility(VISIBLE);
+                ibPause.setVisibility(INVISIBLE);
+                pbLoading.setVisibility(INVISIBLE);
+                paused = true;
+            } else if (v == ibPlay) {
+                if (paused) {
+                    // resume
+                    if (mediaController.isCommandAvailable(Player.COMMAND_PLAY_PAUSE)) {
+                        mediaController.play();
+                    }
+                    ibPlay.setVisibility(INVISIBLE);
+                    ibPause.setVisibility(VISIBLE);
+                    pbLoading.setVisibility(INVISIBLE);
+                    paused = false;
+                } else {
+                    // start
+
+                    MediaMetadata metadata = new MediaMetadata.Builder()
+                            .setTitle(audioTitle)
+                            .build();
+                    MediaItem mediaItem =
+                        new MediaItem.Builder()
+                            .setUri(audioHttpProxy.getProxyUrl(audioUrl))
+                            .setMediaId(audioUrl)
+                            .setMediaMetadata(metadata)
+                            .build();
+                    mediaController.setMediaItem(mediaItem);
+                    mediaController.prepare();
+                    mediaController.play();
+
+                    showProgressBar();
                 }
             }
-            context.startService(intent);
+        }
+    }
+
+    private class MediaControllerFutureListener implements Runnable {
+        @Override
+        public void run() {
+            try {
+                mediaController = controllerFuture.get();
+                mediaController.addListener(new MyListener());
+
+                if (
+                    mediaController.isPlaying() && isSameAudio()
+                ) {
+                    ibPlay.setVisibility(INVISIBLE);
+                    ibPause.setVisibility(VISIBLE);
+                    pbLoading.setVisibility(INVISIBLE);
+                }
+            } catch (Exception e) {
+                showMediaPlayerErrorMessage(e.getLocalizedMessage());
+            }
+        }
+    }
+
+    private class MyListener implements Player.Listener {
+        @Override
+        public void onPlayerError(PlaybackException error) {
+            showMediaPlayerErrorMessage(error.getLocalizedMessage());
+        }
+
+        @Override
+        public void onPlaybackStateChanged(int playbackState) {
+            if (playbackState == Player.STATE_ENDED) {
+                onPlayEnded();
+            }
+        }
+
+        @Override
+        public void onIsPlayingChanged(boolean isPlaying) {
+            if (isPlaying) {
+                onPlayStarted();
+            } else if (mediaController.getPlaybackState() == Player.STATE_READY && isSameAudio()) {
+                onPlayPaused();
+            }
         }
     }
 }

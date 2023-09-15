@@ -65,6 +65,7 @@ public class Navigator {
     public void showCalendar(BasePresenter<? extends BaseView> presenter) {
         HomeActivity activity = getHomeActivity(presenter);
         FragmentBase f = CerkovnyyCalendarFragment.getInstance();
+
         activity.displayFragment(f);
         analyticsFragmentOpened(Catalog.ID_CALENDAR, "Церковний календар");
     }
