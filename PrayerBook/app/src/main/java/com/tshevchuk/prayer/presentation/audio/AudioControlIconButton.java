@@ -214,6 +214,7 @@ public class AudioControlIconButton extends FrameLayout {
                     // start
 
                     MediaMetadata metadata = new MediaMetadata.Builder()
+                            .setArtist(getContext().getString(R.string.app_name))
                             .setTitle(audioTitle)
                             .build();
                     MediaItem mediaItem =
