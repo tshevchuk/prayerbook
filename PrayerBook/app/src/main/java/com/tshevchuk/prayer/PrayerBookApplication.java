@@ -4,8 +4,6 @@ import android.app.Application;
 import android.content.Intent;
 
 import com.danikula.videocache.HttpProxyCacheServer;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.security.ProviderInstaller;
 import com.tshevchuk.prayer.di.AppModule;
 import com.tshevchuk.prayer.di.DaggerViewComponent;
@@ -22,7 +20,6 @@ public class PrayerBookApplication extends Application {
     public static Long startupTimeMeasuringStartTimestamp = System
             .currentTimeMillis();
     private static PrayerBookApplication instance;
-    private final Map<TrackerName, Tracker> trackers = new HashMap<>();
     private ViewComponent viewComponent;
     private HttpProxyCacheServer proxy;
 
@@ -36,10 +33,6 @@ public class PrayerBookApplication extends Application {
         super.onCreate();
         instance = this;
 
-        if (BuildConfig.DEBUG) {
-            GoogleAnalytics.getInstance(this).setDryRun(true);
-        }
-
         viewComponent = DaggerViewComponent.builder()
                 .appModule(new AppModule(this))
                 .modelModule(new ModelModule())
@@ -51,15 +44,6 @@ public class PrayerBookApplication extends Application {
 
         ProviderInstaller.installIfNeededAsync(this,
                 new com.tshevchuk.prayer.ProviderInstallerListener());
-    }
-
-    public synchronized Tracker getTracker() {
-        if (!trackers.containsKey(TrackerName.APP_TRACKER)) {
-            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-            Tracker t = analytics.newTracker(getString(R.string.ga_trackingId));
-            trackers.put(TrackerName.APP_TRACKER, t);
-        }
-        return trackers.get(TrackerName.APP_TRACKER);
     }
 
     public synchronized HttpProxyCacheServer getAudioHttpProxy(){

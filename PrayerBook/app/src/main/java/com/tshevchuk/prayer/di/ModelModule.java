@@ -16,7 +16,7 @@ import com.tshevchuk.prayer.data.html_parser.HtmlParserImpl;
 import com.tshevchuk.prayer.data.repositories.ChurchCalendarRepository;
 import com.tshevchuk.prayer.data.repositories.TextsRepository;
 import com.tshevchuk.prayer.domain.analytics.AnalyticsManager;
-import com.tshevchuk.prayer.presentation.AnalyticsManagerImpl;
+import com.tshevchuk.prayer.domain.analytics.AnalyticsStub;
 import com.tshevchuk.prayer.presentation.AsyncTaskManager;
 import com.tshevchuk.prayer.presentation.AsyncTaskManagerImpl;
 import com.tshevchuk.prayer.presentation.Navigator;
@@ -48,7 +48,7 @@ public class ModelModule {
     @Provides
     @Singleton
     AnalyticsManager provideAnalyticsManager(Application application) {
-        return new AnalyticsManagerImpl(application);
+        return new AnalyticsStub();
     }
 
     @Provides

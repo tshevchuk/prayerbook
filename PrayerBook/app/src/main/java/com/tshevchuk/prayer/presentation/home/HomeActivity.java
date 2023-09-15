@@ -24,7 +24,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
 import com.tshevchuk.prayer.PrayerBookApplication;
 import com.tshevchuk.prayer.R;
 import com.tshevchuk.prayer.Utils;
@@ -118,7 +117,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     protected void onDestroy() {
-        GoogleAnalytics.getInstance(getApplicationContext()).dispatchLocalHits();
         presenter.detachView();
         super.onDestroy();
 
