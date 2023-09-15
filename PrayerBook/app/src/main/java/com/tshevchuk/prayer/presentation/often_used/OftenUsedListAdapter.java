@@ -58,7 +58,7 @@ class OftenUsedListAdapter extends BaseAdapter {
 		if (TextUtils.isEmpty(mi.getParentName())) {
 			vh.tvParentName.setVisibility(View.GONE);
 		} else {
-			vh.tvParentName.setText(mi.getName());
+			vh.tvParentName.setText(mi.getParentName());
 			vh.tvParentName.setVisibility(View.VISIBLE);
 		}
 		return v;
