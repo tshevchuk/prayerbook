@@ -7,8 +7,8 @@ android {
         minSdk 21
         //noinspection EditedTargetSdkVersion
         targetSdk 33
-        versionCode 11100  //xyyzz
-        versionName "1.11.0" //x.y.z
+        versionCode 11200  //xyyzz
+        versionName "1.12.0" //x.y.z
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
